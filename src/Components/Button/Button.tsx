@@ -24,6 +24,7 @@ export function Button({
   size = "md",
   variantStyle = "contained",
   disabled,
+  ...restProps
 }: ButtonProps) {
   return (
     <Styled.Container
@@ -31,6 +32,7 @@ export function Button({
       variantColor={variantColor}
       size={size}
       variantStyle={variantStyle}
+      {...restProps}
     >
       {children}
     </Styled.Container>

@@ -31,13 +31,13 @@ const buttonVariants = {
       shadowColor: colors.primary,
     },
     texted: {
-      bgColor: colors.primary,
-      hoverBgColor: darken(0.1, colors.primary),
-      borderColor: colors.primary,
-      color: colors.white,
-      hoverColor: colors.white,
-      spinnerColor: colors.white,
-      shadowColor: colors.primary,
+      bgColor: colors.transparent,
+      hoverBgColor: colors.transparent,
+      borderColor: colors.transparent,
+      color: colors.primary,
+      hoverColor: colors.primary,
+      spinnerColor: colors.primary,
+      shadowColor: colors.transparent,
     },
     // shadow: colors.shadow
   },
@@ -106,15 +106,16 @@ const buttonVariants = {
 };
 
 const buttonSizes = {
-  sm: { h: 32, px: 16, py: 12 },
-  md: { h: 44, px: 24, py: 14 },
-  lg: { h: 48, px: 48, py: 16 },
+  sm: { h: toRem(32), px: toRem(16), py: toRem(12) },
+  md: { h: toRem(44), px: toRem(24), py: toRem(14) },
+  lg: { h: toRem(48), px: toRem(48), py: toRem(16) },
 };
 
 type ButtonVariants = keyof typeof buttonVariants;
 type ButtonSize = keyof typeof buttonSizes;
 
 export interface IConteinerProps {
+  rounded?: boolean;
   variantColor?: ButtonVariants;
   size?: ButtonSize;
   variantStyle?: "contained" | "outlined" | "texted";
@@ -131,21 +132,24 @@ export const Container = styled.button<IConteinerProps>`
     cursor: pointer;
   }
 
-  ${({ size, variantColor, variantStyle }) => {
+  ${({ size, variantColor, variantStyle, rounded }) => {
     const buttonSize = buttonSizes[size];
     const buttonVariant = buttonVariants[variantColor][variantStyle];
+    const isTexed = variantStyle === "texted";
     return css`
-      height: ${buttonSize.h}px;
-      padding: ${buttonSize.py}px ${buttonSize.px}px;
+      height: ${isTexed ? "initial" : buttonSize.h};
+      padding: ${isTexed ? 0 : `${buttonSize.py} ${buttonSize.px}`};
+      border-radius: ${toRem(rounded ? 50 : 3)};
       background-color: ${buttonVariant.bgColor};
       color: ${buttonVariant.color};
       border: 1px solid ${buttonVariant.borderColor};
       &:not(:disabled) {
         &:hover {
-          /* background-color: ${darken(0.1, buttonVariant.bgColor)}; */
           background-color: ${buttonVariant.hoverBgColor};
           border-color: ${buttonVariant.hoverBgColor};
           color: ${buttonVariant.hoverColor};
+          /* text-decoration: initial; */
+          text-decoration: ${isTexed ? "underline" : "initial"};
         }
         &:focus {
           box-shadow: ${`0 0 0 3.2px ${rgba(buttonVariant.shadowColor, 0.5)}`};
@@ -153,7 +157,6 @@ export const Container = styled.button<IConteinerProps>`
       }
       &:disabled {
         background-color: ${rgba(buttonVariant.bgColor, 0.65)};
-        /* border: 1px solid ${rgba(buttonVariant.bgColor, 0.65)}; */
         border-color: ${rgba(buttonVariant.bgColor, 0.65)};
       }
     `;

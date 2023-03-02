@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Overview = Template.bind({});
 
 Overview.args = {
-  children: "Button",
+  children: "My button",
 };
 
 export const SingleColorButtons = () => {
