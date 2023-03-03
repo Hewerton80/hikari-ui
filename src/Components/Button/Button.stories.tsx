@@ -23,16 +23,154 @@ Overview.args = {
 
 export const SingleColorButtons = () => {
   return (
-    <Button variantColor="primary">helo, world</Button>
-    // <div className="flex flex-wrap gap-2">
-    //   <Button variantColor="primary">primary</Button>
-    //   <Button variantColor="secondary">secondary</Button>
-    //   <Button variantColor="success">success</Button>
-    //   <Button variantColor="info">info</Button>
-    //   <Button variantColor="dark">dark</Button>
-    //   <Button variantColor="light">light</Button>
-    //   <Button variantColor="danger">danger</Button>
-    //   <Button variantColor="warning">warning</Button>
-    // </div>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="primary">primary</Button>
+      <Button variantColor="secondary">secondary</Button>
+      <Button variantColor="success">success</Button>
+      <Button variantColor="info">info</Button>
+      <Button variantColor="dark">dark</Button>
+      <Button variantColor="danger">danger</Button>
+      <Button variantColor="warning">warning</Button>
+    </div>
+  );
+};
+
+export const OutlinedButtons = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="primary" variantStyle="outlined">
+        primary
+      </Button>
+      <Button variantColor="secondary" variantStyle="outlined">
+        secondary
+      </Button>
+      <Button variantColor="success" variantStyle="outlined">
+        success
+      </Button>
+      <Button variantColor="info" variantStyle="outlined">
+        info
+      </Button>
+      <Button variantColor="dark" variantStyle="outlined">
+        dark
+      </Button>
+      <Button variantColor="danger" variantStyle="outlined">
+        danger
+      </Button>
+      <Button variantColor="warning" variantStyle="outlined">
+        warning
+      </Button>
+    </div>
+  );
+};
+
+export const RoundedButtons = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="primary" rounded>
+        primary
+      </Button>
+      <Button variantColor="secondary" rounded>
+        secondary
+      </Button>
+      <Button variantColor="success" rounded>
+        success
+      </Button>
+      <Button variantColor="info" rounded>
+        info
+      </Button>
+      <Button variantColor="dark" rounded>
+        dark
+      </Button>
+      <Button variantColor="danger" rounded>
+        danger
+      </Button>
+      <Button variantColor="warning" rounded>
+        warning
+      </Button>
+    </div>
+  );
+};
+
+export const TextedButtons = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="primary" variantStyle="texted">
+        primary
+      </Button>
+      <Button variantColor="secondary" variantStyle="texted">
+        secondary
+      </Button>
+      <Button variantColor="success" variantStyle="texted">
+        success
+      </Button>
+      <Button variantColor="info" variantStyle="texted">
+        info
+      </Button>
+      <Button variantColor="dark" variantStyle="texted">
+        dark
+      </Button>
+      <Button variantColor="danger" variantStyle="texted">
+        danger
+      </Button>
+      <Button variantColor="warning" variantStyle="texted">
+        warning
+      </Button>
+    </div>
+  );
+};
+
+export const DisabledButton = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="primary" disabled>
+        primary
+      </Button>
+      <Button variantColor="secondary" disabled>
+        secondary
+      </Button>
+      <Button variantColor="success" disabled>
+        success
+      </Button>
+      <Button variantColor="info" disabled>
+        info
+      </Button>
+      <Button variantColor="dark" disabled>
+        dark
+      </Button>
+      <Button variantColor="danger" disabled>
+        danger
+      </Button>
+      <Button variantColor="warning" disabled>
+        warning
+      </Button>
+    </div>
+  );
+};
+
+export const LoadButton = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="primary" isLoading>
+        primary
+      </Button>
+      <Button variantColor="secondary" isLoading>
+        secondary
+      </Button>
+      <Button variantColor="success" isLoading>
+        success
+      </Button>
+      <Button variantColor="info" isLoading>
+        info
+      </Button>
+      <Button variantColor="dark" isLoading>
+        dark
+      </Button>
+      <Button variantColor="danger" isLoading>
+        danger
+      </Button>
+      <Button variantColor="warning" isLoading>
+        warning
+      </Button>
+    </div>
   );
 };

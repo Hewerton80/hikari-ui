@@ -14,6 +14,7 @@ export const parameters = {
     //   current: 'light',
     // },
   },
+  layout: "centered",
 };
 
 export const globalTypes = {
