@@ -3,7 +3,7 @@ import { toRem } from "../../utils/toRem";
 import { colors } from "../../theme/colors";
 import styled, { css } from "styled-components";
 
-const buttonVariants = {
+export const buttonVariants = {
   primary: {
     // root: "border-primary",
     // hover: "hover:bg-active-primary hover:shadow-sm hover:shadow-primary",
@@ -159,6 +159,9 @@ export const Container = styled.button<IConteinerProps>`
         background-color: ${rgba(buttonVariant.bgColor, 0.65)};
         border-color: ${rgba(buttonVariant.bgColor, 0.65)};
       }
+      /* .spinner {
+        color: ${buttonVariant.spinnerColor} !important;
+      } */
     `;
   }}
 `;

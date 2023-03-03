@@ -18,6 +18,7 @@ export const Overview = Template.bind({});
 
 Overview.args = {
   children: "My button",
+  variantColor: "primary",
 };
 
 export const SingleColorButtons = () => {
