@@ -1,6 +1,6 @@
 // import { ReactNode } from "react";
 import React from "react";
-import { colors } from "../../../src/theme/colors";
+import { colors } from "../../../theme/colors";
 import * as Styled from "./Spinner.style";
 
 interface SpinnerProps extends Styled.ContainerProps {}

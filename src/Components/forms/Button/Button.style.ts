@@ -1,6 +1,6 @@
 import { rgba, darken } from "polished";
-import { toRem } from "../../utils/toRem";
-import { colors } from "../../theme/colors";
+import { toRem } from "../../../utils/toRem";
+import { colors } from "../../../theme/colors";
 import styled, { css } from "styled-components";
 
 type ButtonVariantColor =
@@ -116,7 +116,6 @@ export const Container = styled.button<IConteinerProps>`
           background-color: ${buttonVariant.hoverBgColor};
           border-color: ${buttonVariant.hoverBgColor};
           color: ${buttonVariant.hoverColor};
-          /* text-decoration: initial; */
           text-decoration: ${isTexed ? "underline" : "initial"};
         }
         &:focus {
@@ -127,9 +126,6 @@ export const Container = styled.button<IConteinerProps>`
         background-color: ${rgba(buttonVariant.bgColor, 0.65)};
         border-color: ${rgba(buttonVariant.bgColor, 0.65)};
       }
-      /* .spinner {
-        color: ${buttonVariant.spinnerColor} !important;
-      } */
     `;
   }}
 `;

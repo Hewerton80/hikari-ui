@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Button } from "./Button";
+import { ButtonGroup } from "../../../../src/Components/layout/ButtonGroup";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -65,7 +66,13 @@ export const OutlinedButtons = () => {
 
 export const RoundedButtons = () => {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 8,
+      }}
+    >
       <Button variantColor="primary" rounded>
         primary
       </Button>
@@ -171,6 +178,63 @@ export const LoadButton = () => {
       <Button variantColor="warning" isLoading>
         warning
       </Button>
+    </div>
+  );
+};
+
+export const SizeButtons = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+        alignItems: "flex-start",
+      }}
+    >
+      <Button variantColor="danger" size="lg">
+        size lg
+      </Button>
+      <Button variantColor="success" size="md">
+        size md
+      </Button>
+      <Button variantColor="primary" size="sm">
+        size sm
+      </Button>
+    </div>
+  );
+};
+
+export const GroupButtons = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <ButtonGroup vertical>
+        <Button variantColor="primary" variantStyle="outlined">
+          Top
+        </Button>
+        <Button variantColor="primary" variantStyle="outlined">
+          Middle
+        </Button>
+        <Button variantColor="primary" variantStyle="outlined">
+          Bottom
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variantColor="primary">Left</Button>
+        <Button variantColor="primary">Middle</Button>
+        <Button variantColor="primary">Right</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variantColor="primary" variantStyle="outlined">
+          Left
+        </Button>
+        <Button variantColor="primary" variantStyle="outlined">
+          Middle
+        </Button>
+        <Button variantColor="primary" variantStyle="outlined">
+          Right
+        </Button>
+      </ButtonGroup>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 // import '../src/styles/globals.css'
 // import * as NextImage from 'next/image'
-import { createGlobalStyle } from "styled-components";
+import { GlobalStyle } from "../src/theme/globalStyles";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -20,18 +20,6 @@ export const parameters = {
 export const globalTypes = {
   darkMode: false,
 };
-
-const GlobalStyle = createGlobalStyle`
-  * {
-      margin: 0;
-      padding: 0;
-  }
-  body {
-
-    /* font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
-  }
-
-`;
 
 const withGlobalStyle = (Story) => (
   <>

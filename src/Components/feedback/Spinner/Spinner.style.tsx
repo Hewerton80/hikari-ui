@@ -1,4 +1,4 @@
-import { toRem } from "../../../src/utils/toRem";
+import { toRem } from "../../../utils/toRem";
 import styled, { css, keyframes } from "styled-components";
 
 export interface ContainerProps {

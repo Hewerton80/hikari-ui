@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React from "react";
-import { Spinner } from "../Spinner/Spinner";
+import { Spinner } from "../../feedback/Spinner/Spinner";
 import * as Styled from "./Button.style";
 
 interface ButtonProps extends Styled.IConteinerProps, GlobalProps {
