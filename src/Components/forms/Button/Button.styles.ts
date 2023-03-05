@@ -1,7 +1,7 @@
-import { rgba, darken } from "polished";
-import { toRem } from "../../../utils/toRem";
-import { colors } from "../../../theme/colors";
+import { rgba, darken, rem } from "polished";
+import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
+import { ring } from "../../../styles/shareds";
 
 type ButtonVariantColor =
   | "primary"
@@ -75,9 +75,9 @@ export const buttonVariants: AvaliablesButtonVariantColorType = {
 };
 
 const buttonSizes = {
-  sm: { h: toRem(32), px: toRem(16), py: toRem(12) },
-  md: { h: toRem(44), px: toRem(24), py: toRem(14) },
-  lg: { h: toRem(48), px: toRem(48), py: toRem(16) },
+  sm: { h: rem(32), px: rem(16), py: rem(12) },
+  md: { h: rem(44), px: rem(24), py: rem(14) },
+  lg: { h: rem(48), px: rem(48), py: rem(16) },
 };
 
 type ButtonSize = keyof typeof buttonSizes;
@@ -94,7 +94,7 @@ export const Container = styled.button<IConteinerProps>`
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: ${toRem(14)};
+  font-size: ${rem(14)};
   transition: all ease 0.3s;
   &:not(:disabled) {
     cursor: pointer;
@@ -107,7 +107,7 @@ export const Container = styled.button<IConteinerProps>`
     return css`
       height: ${isTexed ? "initial" : buttonSize.h};
       padding: ${isTexed ? 0 : `${buttonSize.py} ${buttonSize.px}`};
-      border-radius: ${toRem(rounded ? 50 : 3)};
+      border-radius: ${rem(rounded ? 50 : 3)};
       background-color: ${buttonVariant.bgColor};
       color: ${buttonVariant.color};
       border: 1px solid ${buttonVariant.borderColor};
@@ -119,7 +119,7 @@ export const Container = styled.button<IConteinerProps>`
           text-decoration: ${isTexed ? "underline" : "initial"};
         }
         &:focus {
-          box-shadow: ${`0 0 0 3.2px ${rgba(buttonVariant.shadowColor, 0.5)}`};
+          ${ring(buttonVariant.shadowColor)};
         }
       }
       &:disabled {

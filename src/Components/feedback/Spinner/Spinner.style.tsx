@@ -1,5 +1,5 @@
-import { toRem } from "../../../utils/toRem";
 import styled, { css, keyframes } from "styled-components";
+import { rem } from "polished";
 
 export interface ContainerProps {
   size?: number;
@@ -19,17 +19,17 @@ export const Container = styled.div<ContainerProps>`
   ${({ size, color }) => css`
     display: inline-block;
     position: relative;
-    width: ${toRem(size)};
-    height: ${toRem(size)};
+    width: ${rem(size)};
+    height: ${rem(size)};
 
     div {
       box-sizing: border-box;
       display: block;
       position: absolute;
-      width: ${toRem(0.8 * size)};
-      height: ${toRem(0.8 * size)};
-      margin: ${toRem(0.1 * size)};
-      border: ${toRem(0.1 * size)} solid ${color};
+      width: ${rem(0.8 * size)};
+      height: ${rem(0.8 * size)};
+      margin: ${rem(0.1 * size)};
+      border: ${rem(0.1 * size)} solid ${color};
       border-radius: 50%;
       animation: ${ldsRing} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       border-color: ${color} transparent transparent transparent;

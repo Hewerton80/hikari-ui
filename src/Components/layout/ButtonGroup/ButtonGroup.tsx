@@ -1,8 +1,9 @@
 import React from "react";
-import * as Styled from "./ButtonGroup.style";
+import * as Styled from "./ButtonGroup.styles";
 import classNames from "classnames";
+import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
-interface ButtonGroupProps extends GlobalProps, Styled.ContainerProps {}
+export interface ButtonGroupProps extends GlobalProps, Styled.ContainerProps {}
 
 export function ButtonGroup({
   children,
@@ -11,7 +12,7 @@ export function ButtonGroup({
 }: ButtonGroupProps) {
   return (
     <Styled.Container
-      className={classNames("btn-group", className)}
+      className={classNames(addClasseNamePrefix("btn-group"), className)}
       {...restProps}
     >
       {children}

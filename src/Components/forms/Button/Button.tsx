@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import React from "react";
 import { Spinner } from "../../feedback/Spinner/Spinner";
-import * as Styled from "./Button.style";
+import * as Styled from "./Button.styles";
+import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
-interface ButtonProps extends Styled.IConteinerProps, GlobalProps {
+export interface ButtonProps extends Styled.IConteinerProps, GlobalProps {
   disabled?: boolean;
   isLoading?: boolean;
 }
@@ -20,7 +21,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <Styled.Container
-      className={classNames("btn", className)}
+      className={classNames(addClasseNamePrefix("btn"), className)}
       disabled={disabled || isLoading}
       variantColor={variantColor}
       size={size}

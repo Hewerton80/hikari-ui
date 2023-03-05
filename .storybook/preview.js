@@ -1,7 +1,10 @@
-// import '../src/styles/globals.css'
-// import * as NextImage from 'next/image'
-import { GlobalStyle } from "../src/theme/globalStyles";
+import { GlobalStyle } from "../src/styles/globalStyles";
+// import { withThemesProvider } from "storybook-addon-styled-component-theme";
+// import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "storybook-dark-mode";
 
+import { themes } from "@storybook/theming";
+import { ThemeContextProvider } from "../src/context/ThemeContext";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -15,24 +18,30 @@ export const parameters = {
     // },
   },
   layout: "centered",
+  darkMode: {
+    // Override the default dark theme
+    dark: { ...themes.dark },
+    // Override the default light theme
+    light: { ...themes.normal },
+  },
 };
 
-export const globalTypes = {
-  darkMode: false,
-};
+// const theme1 = {
+//   main: "mediumseagreen",
+// };
+
+// const theme2 = {
+//   main: "mediumseagreen1454",
+// };
+
+// const themes = [theme1, theme2];
+// addDecorator(withThemesProvider(themes), ThemeProvider);
 
 const withGlobalStyle = (Story) => (
-  <>
+  <ThemeContextProvider theme={useDarkMode() ? "dark" : "light"}>
     <GlobalStyle />
     <Story />
-  </>
+  </ThemeContextProvider>
 );
 
 export const decorators = [withGlobalStyle];
-
-// const OriginalNextImage = NextImage.default
-
-// Object.defineProperty(NextImage, 'default', {
-//   configurable: true,
-//   value: (props) => <OriginalNextImage {...props} unoptimized />,
-// })
