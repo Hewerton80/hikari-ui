@@ -7,4 +7,13 @@ declare global {
     children?: React.ReactNode;
     style?: React.CSSProperties;
   }
+
+  type VariantStyle =
+    | "primary"
+    | "secondary"
+    | "success"
+    | "info"
+    | "dark"
+    | "danger"
+    | "warning";
 }

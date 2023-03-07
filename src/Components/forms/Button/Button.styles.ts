@@ -3,14 +3,6 @@ import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
 import { ring } from "../../../styles/shareds";
 
-type ButtonVariantColor =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "info"
-  | "dark"
-  | "danger"
-  | "warning";
 type ButtonVariantStyle = "contained" | "outlined" | "texted";
 interface IButtonCssProperties {
   bgColor: string;
@@ -27,7 +19,7 @@ type AvaliablesButtonVariantColorStyle = {
 };
 
 type AvaliablesButtonVariantColorType = {
-  [Property in ButtonVariantColor]: AvaliablesButtonVariantColorStyle;
+  [Property in VariantStyle]: AvaliablesButtonVariantColorStyle;
 };
 
 const getButtonCssProperties = (
@@ -84,7 +76,7 @@ type ButtonSize = keyof typeof buttonSizes;
 
 export interface IConteinerProps {
   rounded?: boolean;
-  variantColor?: ButtonVariantColor;
+  variantColor?: VariantStyle;
   size?: ButtonSize;
   variantStyle?: ButtonVariantStyle;
 }
