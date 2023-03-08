@@ -5,7 +5,8 @@ import { FormLabel } from "../FormLabel";
 import * as Styled from "./FormControl.styles";
 
 export interface FormControlProps
-  extends Pick<GlobalProps, "className" | "children" | "id"> {
+  extends Pick<GlobalProps, "className" | "children" | "id">,
+    Styled.IConteinerProps {
   label?: string;
   required?: boolean;
 }
@@ -15,6 +16,7 @@ export function FormControl({
   id,
   label,
   className,
+  state = "danger",
   ...restProps
 }: FormControlProps) {
   return (
