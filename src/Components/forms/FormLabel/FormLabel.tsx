@@ -4,7 +4,9 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./FormLabel.styles";
 
-interface FormLabelProps extends GlobalProps, Styled.ContainerProps {}
+interface FormLabelProps extends GlobalProps, Styled.ContainerProps {
+  htmlFor?: string;
+}
 
 export function FormLabel({
   children,

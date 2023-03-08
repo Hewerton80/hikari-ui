@@ -10,7 +10,7 @@ export const Container = styled.label<ContainerProps>`
   ${({ required }) =>
     css`
       font-size: ${rem(14)};
-      margin-bottom: 8px;
+      margin-bottom: ${rem(8)};
       ${required &&
       css`
         &::after {

@@ -1,10 +1,9 @@
-import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-
+import { FormControl, FormControlProps } from "../FormControl";
 import * as Styled from "./Input.styles";
 
-interface InputProps extends GlobalProps {
+interface InputProps extends FormControlProps {
   type?:
     | "text"
     | "email"
@@ -15,6 +14,7 @@ interface InputProps extends GlobalProps {
     | "datetime-local"
     | "date";
   required?: boolean;
+  label?: string;
   value?: string;
   defaultValue?: string;
   placeholder?: string;
@@ -30,11 +30,20 @@ interface InputProps extends GlobalProps {
   // feedbackText?: string;
 }
 
-export function Input({ className, ...restProps }: InputProps) {
+export function Input({ label, className, ...restProps }: InputProps) {
   return (
-    <Styled.Container
-      className={classNames(addClasseNamePrefix("input"), className)}
-      {...restProps}
-    />
+    <>
+      <FormControl
+        className={className}
+        id={restProps?.id}
+        label={label}
+        required={restProps?.required}
+      >
+        <Styled.Container
+          className={addClasseNamePrefix("input")}
+          {...restProps}
+        />
+      </FormControl>
+    </>
   );
 }

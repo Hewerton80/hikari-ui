@@ -37,11 +37,11 @@ export const parameters = {
 // const themes = [theme1, theme2];
 // addDecorator(withThemesProvider(themes), ThemeProvider);
 
-const withGlobalStyle = (Story) => (
+const WithGlobalStyle = (Story) => (
   <ThemeContextProvider theme={useDarkMode() ? "dark" : "light"}>
     <GlobalStyle />
     <Story />
   </ThemeContextProvider>
 );
 
-export const decorators = [withGlobalStyle];
+export const decorators = [WithGlobalStyle];

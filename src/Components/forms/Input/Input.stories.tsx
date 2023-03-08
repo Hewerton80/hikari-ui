@@ -2,8 +2,6 @@ import React from "react";
 import { ComponentMeta } from "@storybook/react";
 
 import { Input } from "./Input";
-import { FormGroup } from "../FormGroup";
-import { FormLabel } from "../FormLabel";
 import { Grid, Col } from "../../layout/Grid";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -19,37 +17,26 @@ export const Example = () => {
   return (
     <Grid numCols={12} rowGap={32} columnGap={32}>
       <Col span={{ base: 12, lg: 4 }}>
-        <FormGroup>
-          <FormLabel required>Name</FormLabel>
-          <Input
-            placeholder="Fulano da silva"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </FormGroup>
+        <Input
+          id="name"
+          placeholder="Fulano da silva"
+          label="Name"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </Col>
       <Col span={{ base: 12, lg: 4 }}>
-        <FormGroup>
-          <FormLabel required>Name</FormLabel>
-          <Input
-            placeholder="Fulano da silva"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </FormGroup>
+        <Input
+          placeholder="Fulano da silva"
+          label="Name"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </Col>
       <Col span={{ base: 12, lg: 4 }}>
-        <FormGroup>
-          <FormLabel required>Name</FormLabel>
-          <Input
-            placeholder="Fulano da silva"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </FormGroup>
+        <Input placeholder="Fulano da silva" label="Name" value={email} />
       </Col>
     </Grid>
   );

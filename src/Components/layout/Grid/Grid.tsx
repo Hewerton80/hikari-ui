@@ -4,8 +4,8 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Grid.styles";
 
-interface GridProps extends GlobalProps, Styled.GridContainerProps {}
-interface ColProps extends GlobalProps, Styled.ColContainerProps {}
+export interface GridProps extends GlobalProps, Styled.GridContainerProps {}
+export interface ColProps extends GlobalProps, Styled.ColContainerProps {}
 
 export function Grid({ children, className, ...restProps }: GridProps) {
   return (
