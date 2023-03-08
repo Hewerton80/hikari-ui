@@ -7,7 +7,7 @@ import * as Styled from "./Grid.styles";
 export interface GridProps extends GlobalProps, Styled.GridContainerProps {}
 export interface ColProps extends GlobalProps, Styled.ColContainerProps {}
 
-export function Grid({ children, className, ...restProps }: GridProps) {
+function Grid({ children, className, ...restProps }: GridProps) {
   return (
     <Styled.GridContainer
       className={classNames(addClasseNamePrefix("grid"), className)}
@@ -18,10 +18,9 @@ export function Grid({ children, className, ...restProps }: GridProps) {
   );
 }
 
-export function Col({ children, className, ...restProps }: ColProps) {
+function Col({ children, className, ...restProps }: ColProps) {
   return (
     <Styled.ColContainer
-      aria-label=""
       className={classNames(addClasseNamePrefix("col"), className)}
       {...restProps}
     >
@@ -29,3 +28,7 @@ export function Col({ children, className, ...restProps }: ColProps) {
     </Styled.ColContainer>
   );
 }
+
+Grid.Col = Col;
+
+export { Grid };
