@@ -17,8 +17,8 @@ export default {
 export const Example = () => {
   const [email, setEmail] = React.useState("");
   return (
-    <Grid numCols={2} columnGap={32} rowGap={32}>
-      <Col>
+    <Grid numCols={12} rowGap={32} columnGap={32}>
+      <Col span={{ base: 12, lg: 4 }}>
         <FormGroup>
           <FormLabel required>Name</FormLabel>
           <Input
@@ -29,7 +29,7 @@ export const Example = () => {
           />
         </FormGroup>
       </Col>
-      <Col>
+      <Col span={{ base: 12, lg: 4 }}>
         <FormGroup>
           <FormLabel required>Name</FormLabel>
           <Input
@@ -40,7 +40,7 @@ export const Example = () => {
           />
         </FormGroup>
       </Col>
-      <Col>
+      <Col span={{ base: 12, lg: 4 }}>
         <FormGroup>
           <FormLabel required>Name</FormLabel>
           <Input
