@@ -1,13 +1,14 @@
 import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-import { FormLabel } from "../FormLabel";
 import * as Styled from "./FormControl.styles";
 
 export interface FormControlProps
-  extends Pick<GlobalProps, "className" | "children" | "id"> {
+  extends GlobalProps,
+    Styled.ConteinerProps,
+    Styled.ContainerLabelProps {
   label?: string;
-  required?: boolean;
+  feedbackText?: string;
 }
 
 export function FormControl({
@@ -15,18 +16,32 @@ export function FormControl({
   id,
   label,
   className,
+  required,
+  feedbackText,
+  state = "danger",
   ...restProps
 }: FormControlProps) {
+  const hasFeedback = React.useMemo(
+    () => Boolean(feedbackText?.trim()),
+    [feedbackText]
+  );
+
   return (
     <Styled.Container
       className={classNames(addClasseNamePrefix("form-control"), className)}
+      state={state}
+      hasFeedback={hasFeedback}
+      {...restProps}
     >
       {label?.trim() && (
-        <FormLabel htmlFor={id} {...restProps}>
+        <Styled.ContainerLabel htmlFor={id} required={required}>
           {label?.trim()}
-        </FormLabel>
+        </Styled.ContainerLabel>
       )}
       {children}
+      {hasFeedback && (
+        <p className={addClasseNamePrefix("feedback")}>{feedbackText}</p>
+      )}
     </Styled.Container>
   );
 }

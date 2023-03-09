@@ -1,7 +1,7 @@
 import { rgba, darken, rem } from "polished";
 import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
-import { ring } from "../../../styles/shareds";
+import { ring } from "../../shared/ring";
 
 type VariantStyle =
   | "primary"
@@ -83,14 +83,14 @@ const buttonSizes = {
 
 type ButtonSize = keyof typeof buttonSizes;
 
-export interface IConteinerProps {
+export interface ConteinerProps {
   rounded?: boolean;
   variantColor?: VariantStyle;
   size?: ButtonSize;
   variantStyle?: ButtonVariantStyle;
 }
 
-export const Container = styled.button<IConteinerProps>`
+export const Container = styled.button<ConteinerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
