@@ -13,8 +13,6 @@ interface InputProps extends FormControlProps {
     | "time"
     | "datetime-local"
     | "date";
-  required?: boolean;
-  label?: string;
   value?: string;
   defaultValue?: string;
   placeholder?: string;
@@ -30,13 +28,21 @@ interface InputProps extends FormControlProps {
   // feedbackText?: string;
 }
 
-export function Input({ label, className, ...restProps }: InputProps) {
+export function Input({
+  label,
+  className,
+  feedbackText,
+  state,
+  ...restProps
+}: InputProps) {
   return (
     <>
       <FormControl
         className={className}
         id={restProps?.id}
         label={label}
+        feedbackText={feedbackText}
+        state={state}
         required={restProps?.required}
       >
         <Styled.Container
