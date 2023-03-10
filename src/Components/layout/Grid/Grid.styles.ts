@@ -23,10 +23,7 @@ export const GridContainer = styled.div<GridContainerProps>`
   display: grid;
   ${({ numCols, columnGap, rowGap }) => {
     return css`
-      ${isNumber(numCols) &&
-      css`
-        grid-template-columns: repeat(${numCols}, minmax(0, 1fr));
-      `}
+      grid-template-columns: repeat(${numCols}, minmax(0, 1fr));
       ${isNumber(rowGap) &&
       css`
         row-gap: ${rem(rowGap)};

@@ -7,10 +7,11 @@ import * as Styled from "./Grid.styles";
 export interface GridProps extends GlobalProps, Styled.GridContainerProps {}
 export interface ColProps extends GlobalProps, Styled.ColContainerProps {}
 
-function Grid({ children, className, ...restProps }: GridProps) {
+function Grid({ children, numCols = 12, className, ...restProps }: GridProps) {
   return (
     <Styled.GridContainer
       className={classNames(addClasseNamePrefix("grid"), className)}
+      numCols={numCols}
       {...restProps}
     >
       {children}

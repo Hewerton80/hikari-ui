@@ -1,3 +1,4 @@
+import { rem } from "polished";
 import { createGlobalStyle, css } from "styled-components";
 import { colors } from "./colors";
 
@@ -11,9 +12,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: "Poppins", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+    font-size: ${rem(16)};
+    line-height: ${rem(24)};
     ${({ theme }) => css`
       color: ${theme.isDarkMode ? colors.light : colors.dark};
+      background-color: ${theme.isDarkMode ? colors["dark-body"] : colors.body};
     `}
   }
   a{
