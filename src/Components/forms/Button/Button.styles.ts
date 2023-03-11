@@ -1,7 +1,7 @@
 import { rgba, darken, rem } from "polished";
 import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
-import { ring } from "../../shared/ring";
+import { ring } from "../../helpers/ring";
 
 type VariantStyle =
   | "primary"

@@ -2,7 +2,7 @@ import { rem } from "polished";
 import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-import { ring } from "../../shared/ring";
+import { ring } from "../../helpers/ring";
 
 type VariantStyle = "success" | "danger" | "warning";
 

@@ -3,7 +3,7 @@ import { FormControl, FormControlProps } from "../FormControl";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as Styled from "./Textarea.styles";
 
-interface TextareaProps extends FormControlProps {
+export interface TextareaProps extends FormControlProps {
   required?: boolean;
   label?: string;
   value?: string;

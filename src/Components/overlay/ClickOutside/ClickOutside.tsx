@@ -1,21 +1,20 @@
 import React from "react";
 
-interface ClickOutsideProps extends Omit<GlobalProps, "children"> {
-  children: (
-    isOpen: boolean,
-    setIsOpen: (open: boolean) => void
-  ) => React.ReactNode;
+interface ClickOutsideProps extends GlobalProps {
+  onClickOutSide?: () => void;
 }
 
-export function ClickOutside({ children }: ClickOutsideProps) {
-  const [isOpen, setIsOpen] = React.useState(false);
+export function ClickOutside({ children, onClickOutSide }: ClickOutsideProps) {
   const elementRef = React.useRef();
 
-  const handleClickOutside = React.useCallback((event: any) => {
-    if (event.target?.contains(elementRef.current)) {
-      setIsOpen(false);
-    }
-  }, []);
+  const handleClickOutside = React.useCallback(
+    (event: any) => {
+      if (event.target?.contains(elementRef.current)) {
+        onClickOutSide?.();
+      }
+    },
+    [onClickOutSide]
+  );
 
   React.useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -24,5 +23,5 @@ export function ClickOutside({ children }: ClickOutsideProps) {
     };
   }, [handleClickOutside]);
 
-  return <div ref={elementRef}>{children(isOpen, setIsOpen)}</div>;
+  return <div ref={elementRef}>{children}</div>;
 }

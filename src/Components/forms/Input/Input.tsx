@@ -3,7 +3,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { FormControl, FormControlProps } from "../FormControl";
 import * as Styled from "./Input.styles";
 
-interface InputProps extends FormControlProps {
+export interface InputProps extends FormControlProps {
   type?:
     | "text"
     | "email"
