@@ -44,7 +44,7 @@ function Toogle({ className, children, ...restProps }: DropdowToogle) {
       {...restProps}
       asChild
     >
-      {children}
+      <span>{children}</span>
     </RadixDropdown.Trigger>
   );
 }

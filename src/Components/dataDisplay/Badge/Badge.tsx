@@ -6,10 +6,16 @@ import * as Styled from "./Badge.styles";
 
 export interface BadgeProps extends GlobalProps, Styled.ContainerProps {}
 
-export function Badge({ className, children, ...restProps }: BadgeProps) {
+export function Badge({
+  className,
+  variantStyle = "primary",
+  children,
+  ...restProps
+}: BadgeProps) {
   return (
     <Styled.Container
       className={classNames(addClasseNamePrefix("badge"))}
+      variantStyle={variantStyle}
       {...restProps}
     >
       {children}

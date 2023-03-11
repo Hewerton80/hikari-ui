@@ -94,7 +94,6 @@ export const Container = styled.button<ConteinerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   font-size: ${rem(14)};
   transition: all ease 0.3s;
   &:not(:disabled) {
