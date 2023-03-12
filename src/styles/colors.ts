@@ -16,6 +16,7 @@ export const colors = {
   white: "#ffffff",
   black: "#001737",
   gray: "#76838f",
+  "dark-hover": "#303052",
   "gray-light": "#eaeaf1",
   "gray-lighter": "#f7f8fc",
   "gray-lightest": "#e4e4f4",

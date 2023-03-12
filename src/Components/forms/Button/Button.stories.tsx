@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Button } from "./Button";
 import { ButtonGroup } from "../../../../src/Components/layout/ButtonGroup";
-
+import { FiUpload } from "react-icons/fi";
+import { AiTwotoneEdit } from "react-icons/ai";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Forms/Button",
@@ -235,6 +236,37 @@ export const GroupButtons = () => {
           Right
         </Button>
       </ButtonGroup>
+    </div>
+  );
+};
+
+export const ButtonWithTextAndIcon = () => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <Button variantColor="danger" leftIcon={<FiUpload />}>
+        Uploads
+      </Button>
+      <Button variantColor="success" rightIcon={<AiTwotoneEdit />}>
+        Edit
+      </Button>
+    </div>
+  );
+};
+
+export const BlockButtons = () => {
+  return (
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 8, width: 800 }}
+    >
+      <Button variantColor="danger" fullWidth>
+        Block Buttons
+      </Button>
+      <Button variantColor="success" fullWidth>
+        Block Buttons
+      </Button>
+      <Button variantColor="primary" fullWidth>
+        Block Buttons
+      </Button>
     </div>
   );
 };

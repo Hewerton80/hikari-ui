@@ -2,6 +2,7 @@ import { rgba, darken, rem } from "polished";
 import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
 import { ring } from "../../helpers/ring";
+import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 type VariantStyle =
   | "primary"
@@ -88,6 +89,7 @@ export interface ConteinerProps {
   variantColor?: VariantStyle;
   size?: ButtonSize;
   variantStyle?: ButtonVariantStyle;
+  fullWidth?: boolean;
 }
 
 export const Container = styled.button<ConteinerProps>`
@@ -99,8 +101,21 @@ export const Container = styled.button<ConteinerProps>`
   &:not(:disabled) {
     cursor: pointer;
   }
+  .${addClasseNamePrefix("btn-left-icon")},
+    .${addClasseNamePrefix("btn-right-icon")} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: ${rem(18)};
+  }
+  .${addClasseNamePrefix("btn-left-icon")} {
+    margin-right: ${rem(16)};
+  }
+  .${addClasseNamePrefix("btn-right-icon")} {
+    margin-left: ${rem(16)};
+  }
 
-  ${({ size, variantColor, variantStyle, rounded }) => {
+  ${({ size, variantColor, variantStyle, rounded, fullWidth }) => {
     const buttonSize = buttonSizes[size];
     const buttonVariant = buttonVariants[variantColor][variantStyle];
     const isTexed = variantStyle === "texted";
@@ -111,6 +126,10 @@ export const Container = styled.button<ConteinerProps>`
       background-color: ${buttonVariant.bgColor};
       color: ${buttonVariant.color};
       border: 1px solid ${buttonVariant.borderColor};
+      ${fullWidth &&
+      css`
+        width: 100%;
+      `}
       &:not(:disabled) {
         &:hover {
           background-color: ${buttonVariant.hoverBgColor};

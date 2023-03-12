@@ -7,6 +7,8 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 export interface ButtonProps extends Styled.ConteinerProps, GlobalProps {
   disabled?: boolean;
   isLoading?: boolean;
+  leftIcon?: JSX.Element;
+  rightIcon?: JSX.Element;
 }
 
 export function Button({
@@ -15,6 +17,8 @@ export function Button({
   variantColor = "primary",
   size = "md",
   variantStyle = "contained",
+  leftIcon,
+  rightIcon,
   disabled,
   isLoading,
   ...restProps
@@ -33,7 +37,19 @@ export function Button({
           color={Styled.buttonVariants[variantColor][variantStyle].spinnerColor}
         />
       ) : (
-        children
+        <>
+          {leftIcon && (
+            <span className={addClasseNamePrefix("btn-left-icon")}>
+              {leftIcon}
+            </span>
+          )}
+          {children}
+          {rightIcon && (
+            <span className={addClasseNamePrefix("btn-right-icon")}>
+              {rightIcon}
+            </span>
+          )}
+        </>
       )}
     </Styled.Container>
   );
