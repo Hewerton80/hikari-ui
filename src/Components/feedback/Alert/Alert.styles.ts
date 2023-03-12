@@ -84,7 +84,7 @@ const variantStyle = {
 export const Container2 = cssStichers("div", {
   display: "flex",
   alignItems: "center",
-  fontSize: "$sm",
+  text: "sm",
   px: "$5",
   py: "$3",
   borderRadius: "$1",

@@ -1,7 +1,7 @@
 import { rem } from "polished";
 import { createGlobalStyle, css } from "styled-components";
 import { colors } from "./colors";
-import { globalCss } from "@stitches/core";
+import { globalCss } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -34,8 +34,7 @@ export const globalStyles = globalCss({
   "*": { margin: 0, padding: 0, boxSizing: "border-box" },
   body: {
     fontFamily: `"Poppins", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif`,
-    fontSize: rem(16),
-    lineHeight: rem(24),
+    text: "base",
   },
   a: { textDecoration: "none" },
   ul: { listStyle: "none" },

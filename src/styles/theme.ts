@@ -40,17 +40,28 @@ const spaces = {
   96: rem(384),
 };
 
+const fontSizes = {
+  xs: rem(12),
+  sm: rem(14),
+  base: rem(16),
+  lg: rem(18),
+  xl: rem(20),
+};
+
+const lineHeights = {
+  xs: rem(16),
+  sm: rem(20),
+  base: rem(24),
+  lg: rem(28),
+  xl: rem(28),
+};
+
 // @ts-ignore
-export const { css } = createStitches({
+export const { css, globalCss } = createStitches({
   theme: {
     colors,
-    fontSizes: {
-      xs: rem(12),
-      sm: rem(14),
-      base: rem(16),
-      lg: rem(18),
-      xl: rem(20),
-    },
+    fontSizes,
+    lineHeights,
     space: spaces,
     borderStyles: spaces,
     borderWidths: spaces,
@@ -58,6 +69,10 @@ export const { css } = createStitches({
     sizes: spaces,
   },
   utils: {
+    text: (value: keyof typeof fontSizes) => ({
+      fontSize: fontSizes[value],
+      lineHeight: lineHeights[value],
+    }),
     // Abbreviated margin properties
     m: (value: string) => ({
       margin: value,
@@ -106,7 +121,6 @@ export const { css } = createStitches({
       paddingTop: value,
       paddingBottom: value,
     }),
-
     // A property for applying width/height together
     size: (value: string) => ({
       width: value,
