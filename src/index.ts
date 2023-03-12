@@ -15,3 +15,4 @@ export {
   CardImgProps,
   CardProps,
 } from "./Components/layout/Card";
+export { Dropdown } from "./Components/overlay/Dropdown";

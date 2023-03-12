@@ -1,6 +1,7 @@
-import { rem, rgba } from "polished";
+import { borderColor, rem, rgba } from "polished";
 import styled, { css } from "styled-components";
 import { colors } from "../../../styles/colors";
+import { css as cssStichers } from "../../../styles/theme";
 
 type VariantAlertStyle =
   | "primary"
@@ -61,3 +62,48 @@ export const Container = styled.div<ContainerProps>`
     `;
   }}
 `;
+
+const getAlertCssProperties2 = (mainColor: string) => {
+  return {
+    backgroundColor: rgba(mainColor, 0.2),
+    borderColor: rgba(mainColor, 0.1),
+    color: mainColor,
+  };
+};
+
+const variantStyle = {
+  primary: getAlertCssProperties2(colors.primary),
+  secondary: getAlertCssProperties2(colors.secondary),
+  danger: getAlertCssProperties2(colors.danger),
+  success: getAlertCssProperties2(colors.success),
+  info: getAlertCssProperties2(colors.info),
+  warning: getAlertCssProperties2(colors.warning),
+};
+
+// @ts-ignore
+export const Container2 = cssStichers("div", {
+  display: "flex",
+  alignItems: "center",
+  fontSize: "$sm",
+  px: "$5",
+  py: "$3",
+  borderRadius: "$1",
+  variants: {
+    variantStyle,
+  },
+});
+
+export interface ContainerProps2 {
+  variantStyle: keyof typeof variantStyle;
+}
+// return {
+//   bgColor: rgba(mainColor, 0.2),
+//   borderColor: rgba(mainColor, 0.1),
+//   color: mainColor,
+// };
+// | "primary"
+// | "secondary"
+// | "success"
+// | "info"
+// | "danger"
+// | "warning";

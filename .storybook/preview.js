@@ -1,10 +1,11 @@
-import { GlobalStyle } from "../src/styles/globalStyles";
+import { GlobalStyle, globalStyles } from "../src/styles/globalStyles";
 // import { withThemesProvider } from "storybook-addon-styled-component-theme";
 // import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "storybook-dark-mode";
 
 import { themes } from "@storybook/theming";
 import { ThemeContextProvider } from "../src/context/ThemeContext";
+import { useEffect } from "react";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -37,11 +38,15 @@ export const parameters = {
 // const themes = [theme1, theme2];
 // addDecorator(withThemesProvider(themes), ThemeProvider);
 
-const WithGlobalStyle = (Story) => (
-  <ThemeContextProvider theme={useDarkMode() ? "dark" : "light"}>
-    <GlobalStyle />
-    <Story />
-  </ThemeContextProvider>
-);
+const App = (Story) => {
+  globalStyles();
 
-export const decorators = [WithGlobalStyle];
+  return (
+    <ThemeContextProvider theme={useDarkMode() ? "dark" : "light"}>
+      <GlobalStyle />
+      <Story />
+    </ThemeContextProvider>
+  );
+};
+
+export const decorators = [App];

@@ -4,17 +4,16 @@ import * as Styled from "./Dropdown.styles";
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
 import classNames from "classnames";
 
-interface DropdownProps {
+export interface DropdownProps {
   children: React.ReactNode;
 }
+export interface DropdowToogle extends GlobalProps {}
+export interface DropdowMenu extends GlobalProps, Styled.DropdownMenuProps {}
+export interface DropdowItem extends RadixDropdown.DropdownMenuItemProps {}
 
 function Dropdown({ children }: DropdownProps) {
   return <RadixDropdown.Root>{children}</RadixDropdown.Root>;
 }
-
-interface DropdowToogle extends GlobalProps {}
-interface DropdowMenu extends GlobalProps, Styled.DropdownMenuProps {}
-interface DropdowItem extends RadixDropdown.DropdownMenuItemProps {}
 
 function Toogle({ className, children, ...restProps }: DropdowToogle) {
   return (
