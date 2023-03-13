@@ -1,18 +1,17 @@
 import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
+import { darkTheme } from "../../../styles/theme";
 import * as Styled from "./Card.styles";
 
 export interface CardProps extends GlobalProps, Styled.ContainerProps {}
-export interface CardImgProps extends GlobalProps, Styled.ContainerImgProps {
+export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
   src: string;
   alt?: string;
 }
 export interface CardHeaderProps extends GlobalProps {}
 export interface CardBodyProps extends GlobalProps {}
-export interface CardFooterProps
-  extends GlobalProps,
-    Styled.ContainerFooterProps {}
+export interface CardFooterProps extends GlobalProps, Styled.CardFooterProps {}
 
 function Card({
   children,
@@ -40,8 +39,12 @@ function Img({
   ...restProps
 }: CardImgProps) {
   return (
-    <Styled.ContainerImg
-      className={classNames(addClasseNamePrefix("card-img"), className)}
+    <img
+      className={classNames(
+        addClasseNamePrefix("card-img"),
+        Styled.CardImg({ variantStyle }),
+        className
+      )}
       src={src}
       alt={alt}
       loading="lazy"
@@ -52,34 +55,47 @@ function Img({
 
 function Header({ children, className, ...restProps }: CardHeaderProps) {
   return (
-    <Styled.ContainerHeader
-      className={classNames(addClasseNamePrefix("card-header"), className)}
+    <div
+      className={classNames(
+        addClasseNamePrefix("card-header"),
+        Styled.CardHeader(),
+        className
+      )}
       {...restProps}
     >
       {children}
-    </Styled.ContainerHeader>
+    </div>
   );
 }
 
 function Title({ children, className, ...rest }: CardProps) {
   return (
-    <Styled.ContainerTitle
-      className={classNames(addClasseNamePrefix("card-title"), className)}
+    <div
+      className={classNames(
+        addClasseNamePrefix("card-title"),
+        Styled.CardTitle(),
+        className
+      )}
       {...rest}
     >
       <h4>{children}</h4>
-    </Styled.ContainerTitle>
+    </div>
   );
 }
 
 function Body({ children, className, ...rest }: CardBodyProps) {
   return (
-    <Styled.ContainerBody
-      className={classNames(addClasseNamePrefix("card-body"), className)}
+    <div
+      className={classNames(
+        addClasseNamePrefix("card-body"),
+        Styled.CardBody(),
+        // darkTheme,
+        className
+      )}
       {...rest}
     >
       {children}
-    </Styled.ContainerBody>
+    </div>
   );
 }
 
@@ -90,13 +106,16 @@ function Footer({
   ...rest
 }: CardFooterProps) {
   return (
-    <Styled.ContainerFooter
-      className={classNames(addClasseNamePrefix("card-footer"), className)}
-      variantStyle={variantStyle}
+    <div
+      className={classNames(
+        addClasseNamePrefix("card-footer"),
+        Styled.CardFooter({ variantStyle }),
+        className
+      )}
       {...rest}
     >
       {children}
-    </Styled.ContainerFooter>
+    </div>
   );
 }
 

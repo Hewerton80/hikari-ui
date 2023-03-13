@@ -1,17 +1,7 @@
 import { rem } from "polished";
 import { colors } from "../../../styles/colors";
 import styled, { css } from "styled-components";
-
-const variantImgCard = {
-  top: "auto 0 0",
-  bottom: "0 0 auto",
-};
-
-const variantFooterCard = {
-  left: "flex-start",
-  center: "center",
-  right: "flex-end",
-};
+import { css as cssStichers, darkTheme } from "../../../styles/theme";
 
 type VariantStyle =
   | "default"
@@ -47,21 +37,13 @@ export interface ContainerProps {
   variantStyle?: VariantStyle;
 }
 
-export interface ContainerImgProps {
-  variantStyle?: keyof typeof variantImgCard;
-}
-
-export interface ContainerFooterProps {
-  variantStyle?: keyof typeof variantFooterCard;
-}
-
 export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
   border-radius: ${rem(6)};
   overflow: hidden;
-  ${({ theme, variantStyle }) => {
+  /* ${({ theme, variantStyle }) => {
     const isDarkMode = theme.isDarkMode;
     const variantColor = avaliablesCardVariantColorStyle[variantStyle];
     return css`
@@ -77,44 +59,61 @@ export const Container = styled.div<ContainerProps>`
             background-color: ${variantColor.bgColor};
           `}
     `;
-  }}
+  }} */
 `;
 
-export const ContainerImg = styled.img<ContainerImgProps>`
-  ${({ variantStyle }) => css`
-    width: 100%;
-    height: auto;
-    margin: ${variantImgCard[variantStyle]};
-  `}
-`;
+const variantImgStyle = {
+  top: { marginTop: "auto" },
+  bottom: { marginBottom: "auto" },
+};
 
-export const ContainerHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: ${rem(24)} ${rem(28)} ${rem(0)};
-`;
+export interface CardImgProps {
+  variantStyle?: keyof typeof variantImgStyle;
+}
 
-export const ContainerTitle = styled.div`
-  display: flex;
-  & > h4 {
-    font-size: ${rem(18)};
-    line-height: ${rem(28)};
-    font-weight: normal;
-  }
-`;
+export const CardImg = cssStichers("img", {
+  width: "100%",
+  height: "auto",
+  variants: { variantStyle: variantImgStyle },
+});
 
-export const ContainerBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: ${rem(16)} ${rem(28)} ${rem(24)};
-`;
+export const CardHeader = cssStichers("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: `$6 $7 $0`,
+});
 
-export const ContainerFooter = styled.div<ContainerFooterProps>`
-  display: flex;
-  margin-top: auto;
-  padding: 0 ${rem(28)} ${rem(24)};
-  ${({ variantStyle }) => css`
-    justify-content: ${variantFooterCard[variantStyle]};
-  `}
-`;
+export const CardTitle = cssStichers("div", {
+  display: "flex",
+  "& > h4": {
+    text: "lg",
+    fontWeight: "normal",
+  },
+});
+
+export const CardBody = cssStichers("div", {
+  display: "flex",
+  flexDirection: "column",
+  padding: `$4 $7 $6`,
+  [`.${darkTheme} &`]: {
+    backgroundColor: colors["dark-card"],
+  },
+});
+
+const variantFooterStyle = {
+  left: { justifyContent: "flex-start" },
+  center: { justifyContent: "center" },
+  right: { justifyContent: "flex-end" },
+};
+
+export interface CardFooterProps {
+  variantStyle?: keyof typeof variantFooterStyle;
+}
+
+export const CardFooter = cssStichers("div", {
+  display: "flex",
+  marginTop: "auto",
+  padding: `$0 $7 $6`,
+  variants: { variantStyle: variantFooterStyle },
+});

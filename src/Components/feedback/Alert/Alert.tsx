@@ -3,7 +3,7 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as Styled from "./Alert.styles";
 
-export interface AlertProps extends GlobalProps, Styled.ContainerProps2 {}
+export interface AlertProps extends GlobalProps, Styled.ContainerProps {}
 
 export function Alert({
   children,
@@ -15,7 +15,7 @@ export function Alert({
     <div
       className={classNames(
         addClasseNamePrefix("alert"),
-        Styled.Container2({ variantStyle }),
+        Styled.Alert({ variantStyle }),
         className
       )}
       {...restProps}
