@@ -1,10 +1,9 @@
 import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-import { darkTheme } from "../../../styles/theme";
 import * as Styled from "./Card.styles";
 
-export interface CardProps extends GlobalProps, Styled.ContainerProps {}
+export interface CardProps extends GlobalProps, Styled.CardProps {}
 export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
   src: string;
   alt?: string;
@@ -20,13 +19,16 @@ function Card({
   ...restProps
 }: CardProps) {
   return (
-    <Styled.Container
-      className={classNames(addClasseNamePrefix("card"), className)}
-      variantStyle={variantStyle}
+    <div
+      className={classNames(
+        addClasseNamePrefix("card"),
+        Styled.Card({ variantStyle }),
+        className
+      )}
       {...restProps}
     >
       {children}
-    </Styled.Container>
+    </div>
   );
 }
 

@@ -1,66 +1,71 @@
 import { rem } from "polished";
 import { colors } from "../../../styles/colors";
-import styled, { css } from "styled-components";
-import { css as cssStichers, darkTheme } from "../../../styles/theme";
+import { css, darkTheme } from "../../../styles/theme";
 
-type VariantStyle =
-  | "default"
-  | "primary"
-  | "secondary"
-  | "success"
-  | "info"
-  | "dark"
-  | "danger"
-  | "warning";
-
-interface ICardCssProperties {
-  bgColor: string;
-  color: string;
-}
-
-type AvaliablesCardVariantColorStyle = {
-  [Property in VariantStyle]: ICardCssProperties;
+const cardVariantImgStyle = {
+  default: {
+    color: colors.black,
+    backgroundColor: colors.white,
+    borderColor: colors["gray-lightest"],
+    [`.${darkTheme} &`]: {
+      color: colors.white,
+      background: colors["dark-card"],
+      borderColor: colors["dark-card"],
+    },
+  },
+  success: {
+    color: colors.white,
+    backgroundColor: colors.success,
+    borderColor: colors.success,
+  },
+  secondary: {
+    color: colors.white,
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondary,
+  },
+  danger: {
+    color: colors.white,
+    backgroundColor: colors.danger,
+    borderColor: colors.danger,
+  },
+  dark: {
+    color: colors.white,
+    backgroundColor: colors.dark,
+    borderColor: colors.dark,
+  },
+  info: {
+    color: colors.white,
+    backgroundColor: colors.info,
+    borderColor: colors.info,
+  },
+  primary: {
+    color: colors.white,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  warning: {
+    color: colors.black,
+    backgroundColor: colors.warning,
+    borderColor: colors.warning,
+  },
 };
 
-const avaliablesCardVariantColorStyle: AvaliablesCardVariantColorStyle = {
-  default: { color: colors.black, bgColor: colors.white },
-  success: { color: colors.white, bgColor: colors.success },
-  secondary: { color: colors.white, bgColor: colors.secondary },
-  danger: { color: colors.white, bgColor: colors.danger },
-  dark: { color: colors.white, bgColor: colors.dark },
-  info: { color: colors.white, bgColor: colors.info },
-  primary: { color: colors.white, bgColor: colors.primary },
-  warning: { color: colors.black, bgColor: colors.warning },
-};
+export const Card = css("div", {
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  borderRadius: rem(6),
+  overflow: "hidden",
+  color: colors.white,
+  background: colors.black,
+  borderWidth: rem(1),
+  borderStyle: "solid",
+  variants: { variantStyle: cardVariantImgStyle },
+});
 
-export interface ContainerProps {
-  variantStyle?: VariantStyle;
+export interface CardProps {
+  variantStyle?: keyof typeof cardVariantImgStyle;
 }
-
-export const Container = styled.div<ContainerProps>`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: ${rem(6)};
-  overflow: hidden;
-  /* ${({ theme, variantStyle }) => {
-    const isDarkMode = theme.isDarkMode;
-    const variantColor = avaliablesCardVariantColorStyle[variantStyle];
-    return css`
-      border: 1px solid
-        ${isDarkMode ? colors["dark-card"] : colors["gray-lightest"]};
-      ${isDarkMode && variantStyle === "default"
-        ? css`
-            color: ${colors.white};
-            background-color: ${colors["dark-card"]};
-          `
-        : css`
-            color: ${variantColor.color};
-            background-color: ${variantColor.bgColor};
-          `}
-    `;
-  }} */
-`;
 
 const variantImgStyle = {
   top: { marginTop: "auto" },
@@ -71,20 +76,20 @@ export interface CardImgProps {
   variantStyle?: keyof typeof variantImgStyle;
 }
 
-export const CardImg = cssStichers("img", {
+export const CardImg = css("img", {
   width: "100%",
   height: "auto",
   variants: { variantStyle: variantImgStyle },
 });
 
-export const CardHeader = cssStichers("div", {
+export const CardHeader = css("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   padding: `$6 $7 $0`,
 });
 
-export const CardTitle = cssStichers("div", {
+export const CardTitle = css("div", {
   display: "flex",
   "& > h4": {
     text: "lg",
@@ -92,13 +97,10 @@ export const CardTitle = cssStichers("div", {
   },
 });
 
-export const CardBody = cssStichers("div", {
+export const CardBody = css("div", {
   display: "flex",
   flexDirection: "column",
   padding: `$4 $7 $6`,
-  [`.${darkTheme} &`]: {
-    backgroundColor: colors["dark-card"],
-  },
 });
 
 const variantFooterStyle = {
@@ -111,7 +113,7 @@ export interface CardFooterProps {
   variantStyle?: keyof typeof variantFooterStyle;
 }
 
-export const CardFooter = cssStichers("div", {
+export const CardFooter = css("div", {
   display: "flex",
   marginTop: "auto",
   padding: `$0 $7 $6`,

@@ -1,4 +1,4 @@
-import { createStitches, ScaleValue } from "@stitches/core";
+import { createStitches } from "@stitches/core";
 
 import { rem } from "polished";
 import { colors } from "./colors";
@@ -100,3 +100,4 @@ export const { css, globalCss, createTheme } = createStitches({
 });
 
 export const darkTheme = createTheme({});
+export const lightTheme = createTheme({});
