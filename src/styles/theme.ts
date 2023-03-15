@@ -6,6 +6,7 @@ import { fontSizes } from "./fontSizes";
 import { lineHeights } from "./lineHeights";
 import { breakpoints } from "./breackpoints";
 import { CLASSNAME_PREFIX } from "../utils/addClasseNamePrefix";
+import { rgba } from "polished";
 // @ts-ignore
 export const { css, globalCss, createTheme, config } = createStitches({
   theme: {
@@ -26,14 +27,6 @@ export const { css, globalCss, createTheme, config } = createStitches({
     [`bpXl`]: `(min-width: ${breakpoints.xl}px)`,
     [`bp2xl`]: `(min-width: ${breakpoints["2xl"]}px)`,
   },
-  // export const breakpoints = {
-  //   base: 0,
-  //   sm: 640,
-  //   md: 768,
-  //   lg: 1024,
-  //   xl: 1280,
-  //   "2xl": 1536,
-  // };
   utils: {
     text: (value: keyof typeof fontSizes) => ({
       fontSize: fontSizes[value],
@@ -61,6 +54,9 @@ export const { css, globalCss, createTheme, config } = createStitches({
     size: (value: string) => ({
       width: value,
       height: value,
+    }),
+    ring: (color: string) => ({
+      boxShadow: `0 0 0 3.2px ${rgba(color, 0.5)}`,
     }),
   },
   prefix: CLASSNAME_PREFIX,

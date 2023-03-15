@@ -35,7 +35,7 @@ export const ImageCard = () => {
             </Card.Body>
             <Card.Footer>
               <a href="#" onClick={(e) => e.preventDefault()}>
-                <Button variantStyle="texted">Read More</Button>
+                <Button variantStyle="primary-texted">Read More</Button>
               </a>
             </Card.Footer>
           </Card>
@@ -49,7 +49,7 @@ export const ImageCard = () => {
             </Card.Body>
             <Card.Footer variantStyle="center">
               <a href="#" onClick={(e) => e.preventDefault()}>
-                <Button variantStyle="texted">Read More</Button>
+                <Button variantStyle="primary-texted">Read More</Button>
               </a>
             </Card.Footer>
             <Card.Img variantStyle="bottom" src={img} alt={String(i)} />
@@ -65,7 +65,7 @@ export const ImageCard = () => {
             </Card.Body>
             <Card.Footer variantStyle="right">
               <a href="#" onClick={(e) => e.preventDefault()}>
-                <Button variantStyle="texted">Read More</Button>
+                <Button variantStyle="primary-texted">Read More</Button>
               </a>
             </Card.Footer>
           </Card>

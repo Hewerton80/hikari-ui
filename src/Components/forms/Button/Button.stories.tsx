@@ -20,253 +20,252 @@ export const Overview = Template.bind({});
 
 Overview.args = {
   children: "My button",
-  variantColor: "primary",
+  variantStyle: "primary-contained",
 };
 
-export const SingleColorButtons = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantColor="primary">primary</Button>
-      <Button variantColor="secondary">secondary</Button>
-      <Button variantColor="success">success</Button>
-      <Button variantColor="info">info</Button>
-      <Button variantColor="dark">dark</Button>
-      <Button variantColor="danger">danger</Button>
-      <Button variantColor="warning">warning</Button>
-    </div>
-  );
-};
-
-export const OutlinedButtons = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantColor="primary" variantStyle="outlined">
-        primary
-      </Button>
-      <Button variantColor="secondary" variantStyle="outlined">
-        secondary
-      </Button>
-      <Button variantColor="success" variantStyle="outlined">
-        success
-      </Button>
-      <Button variantColor="info" variantStyle="outlined">
-        info
-      </Button>
-      <Button variantColor="dark" variantStyle="outlined">
-        dark
-      </Button>
-      <Button variantColor="danger" variantStyle="outlined">
-        danger
-      </Button>
-      <Button variantColor="warning" variantStyle="outlined">
-        warning
-      </Button>
-    </div>
-  );
-};
-
-export const RoundedButtons = () => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 8,
-      }}
-    >
-      <Button variantColor="primary" rounded>
-        primary
-      </Button>
-      <Button variantColor="secondary" rounded>
-        secondary
-      </Button>
-      <Button variantColor="success" rounded>
-        success
-      </Button>
-      <Button variantColor="info" rounded>
-        info
-      </Button>
-      <Button variantColor="dark" rounded>
-        dark
-      </Button>
-      <Button variantColor="danger" rounded>
-        danger
-      </Button>
-      <Button variantColor="warning" rounded>
-        warning
-      </Button>
-    </div>
-  );
-};
-
-export const TextedButtons = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantColor="primary" variantStyle="texted">
-        primary
-      </Button>
-      <Button variantColor="secondary" variantStyle="texted">
-        secondary
-      </Button>
-      <Button variantColor="success" variantStyle="texted">
-        success
-      </Button>
-      <Button variantColor="info" variantStyle="texted">
-        info
-      </Button>
-      <Button variantColor="dark" variantStyle="texted">
-        dark
-      </Button>
-      <Button variantColor="danger" variantStyle="texted">
-        danger
-      </Button>
-      <Button variantColor="warning" variantStyle="texted">
-        warning
-      </Button>
-    </div>
-  );
-};
-
-export const DisabledButton = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantColor="primary" disabled>
-        primary
-      </Button>
-      <Button variantColor="secondary" disabled>
-        secondary
-      </Button>
-      <Button variantColor="success" disabled>
-        success
-      </Button>
-      <Button variantColor="info" disabled>
-        info
-      </Button>
-      <Button variantColor="dark" disabled>
-        dark
-      </Button>
-      <Button variantColor="danger" disabled>
-        danger
-      </Button>
-      <Button variantColor="warning" disabled>
-        warning
-      </Button>
-    </div>
-  );
-};
-
-export const LoadButton = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantColor="primary" isLoading>
-        primary
-      </Button>
-      <Button variantColor="secondary" isLoading>
-        secondary
-      </Button>
-      <Button variantColor="success" isLoading>
-        success
-      </Button>
-      <Button variantColor="info" isLoading>
-        info
-      </Button>
-      <Button variantColor="dark" isLoading>
-        dark
-      </Button>
-      <Button variantColor="danger" isLoading>
-        danger
-      </Button>
-      <Button variantColor="warning" isLoading>
-        warning
-      </Button>
-    </div>
-  );
-};
-
-export const SizeButtons = () => {
+export const variantStyles = () => {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: 8,
-        alignItems: "flex-start",
+        gap: 32,
+        alignItems: "center",
       }}
     >
-      <Button variantColor="danger" size="lg">
-        size lg
-      </Button>
-      <Button variantColor="success" size="md">
-        size md
-      </Button>
-      <Button variantColor="primary" size="sm">
-        size sm
-      </Button>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        <Button variantStyle="primary-contained">primary-contained</Button>
+        <Button variantStyle="secondary-contained">secondary-contained</Button>
+        <Button variantStyle="success-contained">success-contained</Button>
+        <Button variantStyle="info-contained">info-contained</Button>
+        <Button variantStyle="dark-contained">dark-contained</Button>
+        <Button variantStyle="danger-contained">danger-contained</Button>
+        <Button variantStyle="warning-contained">warning-contained</Button>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        <Button variantStyle="primary-outlined">primary-outlined</Button>
+        <Button variantStyle="secondary-outlined">secondary-outlined</Button>
+        <Button variantStyle="success-outlined">success-outlined</Button>
+        <Button variantStyle="info-outlined">info-outlined</Button>
+        <Button variantStyle="dark-outlined">dark-outlined</Button>
+        <Button variantStyle="danger-outlined">danger-outlined</Button>
+        <Button variantStyle="warning-outlined">warning-outlined</Button>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        <Button variantStyle="primary-texted">primary-texted</Button>
+        <Button variantStyle="secondary-texted">secondary-texted</Button>
+        <Button variantStyle="success-texted">success-texted</Button>
+        <Button variantStyle="info-texted">info-texted</Button>
+        <Button variantStyle="dark-texted">dark-texted</Button>
+        <Button variantStyle="danger-texted">danger-texted</Button>
+        <Button variantStyle="warning-texted">warning-texted</Button>
+      </div>
     </div>
   );
 };
 
-export const GroupButtons = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <ButtonGroup vertical>
-        <Button variantColor="primary" variantStyle="outlined">
-          Top
-        </Button>
-        <Button variantColor="primary" variantStyle="outlined">
-          Middle
-        </Button>
-        <Button variantColor="primary" variantStyle="outlined">
-          Bottom
-        </Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <Button variantColor="primary">Left</Button>
-        <Button variantColor="primary">Middle</Button>
-        <Button variantColor="primary">Right</Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <Button variantColor="primary" variantStyle="outlined">
-          Left
-        </Button>
-        <Button variantColor="primary" variantStyle="outlined">
-          Middle
-        </Button>
-        <Button variantColor="primary" variantStyle="outlined">
-          Right
-        </Button>
-      </ButtonGroup>
-    </div>
-  );
-};
+// export const RoundedButtons = () => {
+//   return (
+//     <div
+//       style={{
+//         display: "flex",
+//         flexWrap: "wrap",
+//         gap: 8,
+//       }}
+//     >
+//       <Button variantStyle="primary-contained" rounded>
+//         primary-contained
+//       </Button>
+//       <Button variantStyle="secondary-contained" rounded>
+//         secondary-contained
+//       </Button>
+//       <Button variantStyle="success-contained" rounded>
+//         success-contained
+//       </Button>
+//       <Button variantStyle="info-contained" rounded>
+//         info-contained
+//       </Button>
+//       <Button variantStyle="dark-contained" rounded>
+//         dark-contained
+//       </Button>
+//       <Button variantStyle="danger-contained" rounded>
+//         danger-contained
+//       </Button>
+//       <Button variantStyle="warning-contained" rounded>
+//         warning-contained
+//       </Button>
+//     </div>
+//   );
+// };
 
-export const ButtonWithTextAndIcon = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantColor="danger" leftIcon={<FiUpload />}>
-        Uploads
-      </Button>
-      <Button variantColor="success" rightIcon={<AiTwotoneEdit />}>
-        Edit
-      </Button>
-    </div>
-  );
-};
+// export const TextedButtons = () => {
+//   return (
+//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+//       <Button variantStyle="primary-contained" variantStyle="texted">
+//         primary-contained
+//       </Button>
+//       <Button variantStyle="secondary-contained" variantStyle="texted">
+//         secondary-contained
+//       </Button>
+//       <Button variantStyle="success-contained" variantStyle="texted">
+//         success-contained
+//       </Button>
+//       <Button variantStyle="info-contained" variantStyle="texted">
+//         info-contained
+//       </Button>
+//       <Button variantStyle="dark-contained" variantStyle="texted">
+//         dark-contained
+//       </Button>
+//       <Button variantStyle="danger-contained" variantStyle="texted">
+//         danger-contained
+//       </Button>
+//       <Button variantStyle="warning-contained" variantStyle="texted">
+//         warning-contained
+//       </Button>
+//     </div>
+//   );
+// };
 
-export const BlockButtons = () => {
-  return (
-    <div
-      style={{ display: "flex", flexDirection: "column", gap: 8, width: 800 }}
-    >
-      <Button variantColor="danger" fullWidth>
-        Block Buttons
-      </Button>
-      <Button variantColor="success" fullWidth>
-        Block Buttons
-      </Button>
-      <Button variantColor="primary" fullWidth>
-        Block Buttons
-      </Button>
-    </div>
-  );
-};
+// export const DisabledButton = () => {
+//   return (
+//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+//       <Button variantStyle="primary-contained" disabled>
+//         primary-contained
+//       </Button>
+//       <Button variantStyle="secondary-contained" disabled>
+//         secondary-contained
+//       </Button>
+//       <Button variantStyle="success-contained" disabled>
+//         success-contained
+//       </Button>
+//       <Button variantStyle="info-contained" disabled>
+//         info-contained
+//       </Button>
+//       <Button variantStyle="dark-contained" disabled>
+//         dark-contained
+//       </Button>
+//       <Button variantStyle="danger-contained" disabled>
+//         danger-contained
+//       </Button>
+//       <Button variantStyle="warning-contained" disabled>
+//         warning-contained
+//       </Button>
+//     </div>
+//   );
+// };
+
+// export const LoadButton = () => {
+//   return (
+//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+//       <Button variantStyle="primary-contained" isLoading>
+//         primary-contained
+//       </Button>
+//       <Button variantStyle="secondary-contained" isLoading>
+//         secondary-contained
+//       </Button>
+//       <Button variantStyle="success-contained" isLoading>
+//         success-contained
+//       </Button>
+//       <Button variantStyle="info-contained" isLoading>
+//         info-contained
+//       </Button>
+//       <Button variantStyle="dark-contained" isLoading>
+//         dark-contained
+//       </Button>
+//       <Button variantStyle="danger-contained" isLoading>
+//         danger-contained
+//       </Button>
+//       <Button variantStyle="warning-contained" isLoading>
+//         warning-contained
+//       </Button>
+//     </div>
+//   );
+// };
+
+// export const SizeButtons = () => {
+//   return (
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         gap: 8,
+//         alignItems: "flex-start",
+//       }}
+//     >
+//       <Button variantStyle="danger-contained" size="lg">
+//         size lg
+//       </Button>
+//       <Button variantStyle="success-contained" size="md">
+//         size md
+//       </Button>
+//       <Button variantStyle="primary-contained" size="sm">
+//         size sm
+//       </Button>
+//     </div>
+//   );
+// };
+
+// export const GroupButtons = () => {
+//   return (
+//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+//       <ButtonGroup vertical>
+//         <Button variantStyle="primary-contained" variantStyle="outlined">
+//           Top
+//         </Button>
+//         <Button variantStyle="primary-contained" variantStyle="outlined">
+//           Middle
+//         </Button>
+//         <Button variantStyle="primary-contained" variantStyle="outlined">
+//           Bottom
+//         </Button>
+//       </ButtonGroup>
+//       <ButtonGroup>
+//         <Button variantStyle="primary-contained">Left</Button>
+//         <Button variantStyle="primary-contained">Middle</Button>
+//         <Button variantStyle="primary-contained">Right</Button>
+//       </ButtonGroup>
+//       <ButtonGroup>
+//         <Button variantStyle="primary-contained" variantStyle="outlined">
+//           Left
+//         </Button>
+//         <Button variantStyle="primary-contained" variantStyle="outlined">
+//           Middle
+//         </Button>
+//         <Button variantStyle="primary-contained" variantStyle="outlined">
+//           Right
+//         </Button>
+//       </ButtonGroup>
+//     </div>
+//   );
+// };
+
+// export const ButtonWithTextAndIcon = () => {
+//   return (
+//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+//       <Button variantStyle="danger-contained" leftIcon={<FiUpload />}>
+//         Uploads
+//       </Button>
+//       <Button variantStyle="success-contained" rightIcon={<AiTwotoneEdit />}>
+//         Edit
+//       </Button>
+//     </div>
+//   );
+// };
+
+// export const BlockButtons = () => {
+//   return (
+//     <div
+//       style={{ display: "flex", flexDirection: "column", gap: 8, width: 800 }}
+//     >
+//       <Button variantStyle="danger-contained" fullWidth>
+//         Block Buttons
+//       </Button>
+//       <Button variantStyle="success-contained" fullWidth>
+//         Block Buttons
+//       </Button>
+//       <Button variantStyle="primary-contained" fullWidth>
+//         Block Buttons
+//       </Button>
+//     </div>
+//   );
+// };

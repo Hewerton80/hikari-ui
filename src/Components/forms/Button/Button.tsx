@@ -4,9 +4,10 @@ import { Spinner } from "../../feedback/Spinner/Spinner";
 import * as Styled from "./Button.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
-export interface ButtonProps extends Styled.ConteinerProps, GlobalProps {
+export interface ButtonProps extends Styled.ButtonProps, GlobalProps {
   disabled?: boolean;
   isLoading?: boolean;
+  fullWidth?: boolean;
   leftIcon?: JSX.Element;
   rightIcon?: JSX.Element;
 }
@@ -14,9 +15,8 @@ export interface ButtonProps extends Styled.ConteinerProps, GlobalProps {
 export function Button({
   children,
   className,
-  variantColor = "primary",
   size = "md",
-  variantStyle = "contained",
+  variantStyle = "primary-contained",
   leftIcon,
   rightIcon,
   disabled,
@@ -25,17 +25,21 @@ export function Button({
   ...restProps
 }: ButtonProps) {
   return (
-    <Styled.Container
-      className={classNames(addClasseNamePrefix("btn"), className)}
+    <button
+      className={classNames(
+        addClasseNamePrefix("btn"),
+        Styled.Button({
+          size,
+          variantStyle,
+        }),
+        className
+      )}
       disabled={disabled || isLoading}
-      variantColor={variantColor}
-      size={size}
-      variantStyle={variantStyle}
       {...restProps}
     >
       {isLoading ? (
         <Spinner
-          color={Styled.buttonVariants[variantColor][variantStyle].spinnerColor}
+        // color={Styled.buttonVariants[variantColor][variantStyle].spinnerColor}
         />
       ) : (
         <>
@@ -52,6 +56,6 @@ export function Button({
           )}
         </>
       )}
-    </Styled.Container>
+    </button>
   );
 }
