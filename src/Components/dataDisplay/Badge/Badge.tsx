@@ -4,7 +4,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Badge.styles";
 
-export interface BadgeProps extends GlobalProps, Styled.ContainerProps {}
+export interface BadgeProps extends GlobalProps, Styled.BadgeProps {}
 
 export function Badge({
   className,
@@ -14,12 +14,14 @@ export function Badge({
   ...restProps
 }: BadgeProps) {
   return (
-    <Styled.Container
-      className={classNames(addClasseNamePrefix("badge"))}
-      variantStyle={variantStyle}
+    <div
+      className={classNames(
+        addClasseNamePrefix("badge"),
+        Styled.Badge({ variantStyle })
+      )}
       {...restProps}
     >
       {children}
-    </Styled.Container>
+    </div>
   );
 }
