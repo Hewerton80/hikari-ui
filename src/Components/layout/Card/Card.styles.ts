@@ -1,5 +1,5 @@
-import { rem } from "polished";
 import { colors } from "../../../styles/colors";
+import { spaces } from "../../../styles/spaces";
 import { css, darkTheme } from "../../../styles/theme";
 
 const cardVariantImgStyle = {
@@ -54,11 +54,11 @@ export const Card = css("div", {
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  borderRadius: rem(6),
+  borderRadius: spaces["1.5"],
   overflow: "hidden",
   color: colors.white,
   background: colors.black,
-  borderWidth: rem(1),
+  borderWidth: spaces["0.25"],
   borderStyle: "solid",
   variants: { variantStyle: cardVariantImgStyle },
 });

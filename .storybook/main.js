@@ -5,9 +5,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/preset-create-react-app",
-    // "multiple-themes-stitches",
     "storybook-dark-mode",
-    // "storybook-addon-styled-component-theme/dist/preset",
   ],
   framework: "@storybook/react",
   core: {

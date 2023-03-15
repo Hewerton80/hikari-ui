@@ -1,63 +1,13 @@
-import { createStitches } from "@stitches/core";
+import { createStitches, CSS as CSSStitches } from "@stitches/core";
 
-import { rem } from "polished";
 import { colors } from "./colors";
-
-const spaces = {
-  0: 0,
-  0.5: rem(2),
-  1: rem(4),
-  1.5: rem(6),
-  2: rem(8),
-  2.5: rem(10),
-  3: rem(12),
-  3.5: rem(14),
-  4: rem(16),
-  5: rem(20),
-  6: rem(24),
-  7: rem(28),
-  8: rem(32),
-  9: rem(36),
-  10: rem(40),
-  11: rem(44),
-  12: rem(48),
-  14: rem(56),
-  16: rem(64),
-  20: rem(80),
-  24: rem(96),
-  28: rem(112),
-  32: rem(128),
-  36: rem(144),
-  40: rem(160),
-  44: rem(176),
-  48: rem(192),
-  52: rem(208),
-  56: rem(224),
-  60: rem(240),
-  64: rem(256),
-  72: rem(288),
-  80: rem(320),
-  96: rem(384),
-};
-
-const fontSizes = {
-  xs: rem(12),
-  sm: rem(14),
-  base: rem(16),
-  lg: rem(18),
-  xl: rem(20),
-};
-
-const lineHeights = {
-  xs: rem(16),
-  sm: rem(20),
-  base: rem(24),
-  lg: rem(28),
-  xl: rem(28),
-};
-
+import { spaces } from "./spaces";
+import { fontSizes } from "./fontSizes";
+import { lineHeights } from "./lineHeights";
+import { breakpoints } from "./breackpoints";
+import { CLASSNAME_PREFIX } from "../utils/addClasseNamePrefix";
 // @ts-ignore
-export const { css, globalCss, createTheme } = createStitches({
+export const { css, globalCss, createTheme, config } = createStitches({
   theme: {
     colors,
     fontSizes,
@@ -68,6 +18,22 @@ export const { css, globalCss, createTheme } = createStitches({
     radii: spaces,
     sizes: spaces,
   },
+  media: {
+    [`bpBase`]: `(min-width: ${breakpoints.base}px)`,
+    [`bpSm`]: `(min-width: ${breakpoints.sm}px)`,
+    [`bpMd`]: `(min-width: ${breakpoints.md}px)`,
+    [`bpLg`]: `(min-width: ${breakpoints.lg}px)`,
+    [`bpXl`]: `(min-width: ${breakpoints.xl}px)`,
+    [`bp2xl`]: `(min-width: ${breakpoints["2xl"]}px)`,
+  },
+  // export const breakpoints = {
+  //   base: 0,
+  //   sm: 640,
+  //   md: 768,
+  //   lg: 1024,
+  //   xl: 1280,
+  //   "2xl": 1536,
+  // };
   utils: {
     text: (value: keyof typeof fontSizes) => ({
       fontSize: fontSizes[value],
@@ -97,7 +63,10 @@ export const { css, globalCss, createTheme } = createStitches({
       height: value,
     }),
   },
+  prefix: CLASSNAME_PREFIX,
 });
+
+export type CSS = CSSStitches<typeof config>;
 
 export const darkTheme = createTheme({});
 export const lightTheme = createTheme({});

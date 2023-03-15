@@ -19,7 +19,7 @@ const variantStyle = {
   warning: getAlertCssProperties(colors.warning),
 };
 
-export interface ContainerProps {
+export interface AlertProps {
   variantStyle: keyof typeof variantStyle;
 }
 

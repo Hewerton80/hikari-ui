@@ -22,7 +22,7 @@ export const ActiveAndDisabled = () => {
   const [bio, setBio] = React.useState("");
   return (
     // <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <Grid numCols={12} rowGap={32} columnGap={32}>
+    <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12 }}>
         <Textarea
           value={description}
@@ -51,7 +51,7 @@ export const Validations = () => {
   const [bio, setBio] = React.useState("");
   const [About, setAbout] = React.useState("");
   return (
-    <Grid numCols={12} rowGap={32} columnGap={32}>
+    <Grid numCols={12} gap={32}>
       {/* <FormLabel required>Description:</FormLabel> */}
       <Grid.Col span={{ base: 12 }}>
         <Textarea

@@ -10,6 +10,7 @@ export function Badge({
   className,
   variantStyle = "primary",
   children,
+  style,
   ...restProps
 }: BadgeProps) {
   return (

@@ -47,7 +47,7 @@ export const Orientation = () => {
   ];
   const menuItens = ["Action ", "Another action", "Something else Something"];
   return (
-    <Grid columnGap={16} rowGap={16} numCols={12}>
+    <Grid gap={16} numCols={12}>
       {orientations.map((orientation, i) => (
         <React.Fragment key={orientation}>
           {i === 4 && <Grid.Col span={{ base: 12, md: 4 }}></Grid.Col>}

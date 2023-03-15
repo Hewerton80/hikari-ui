@@ -24,6 +24,7 @@ export function Textarea({
   className,
   feedbackText,
   state,
+  style,
   ...restProps
 }: TextareaProps) {
   return (

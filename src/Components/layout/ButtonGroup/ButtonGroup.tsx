@@ -8,6 +8,7 @@ export interface ButtonGroupProps extends GlobalProps, Styled.ContainerProps {}
 export function ButtonGroup({
   children,
   className,
+  style,
   ...restProps
 }: ButtonGroupProps) {
   return (

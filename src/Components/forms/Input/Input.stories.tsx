@@ -15,7 +15,7 @@ export default {
 export const ActiveAndDisabled = () => {
   const [name, setName] = React.useState("");
   return (
-    <Grid numCols={12} rowGap={32} columnGap={32}>
+    <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>
         <Input
           id="name"
@@ -43,7 +43,7 @@ export const Validations = () => {
   const [email, setEmail] = React.useState("");
   const [city, setCity] = React.useState("");
   return (
-    <Grid numCols={12} rowGap={32} columnGap={32}>
+    <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>
         <Input
           label="Name"

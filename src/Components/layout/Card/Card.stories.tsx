@@ -19,17 +19,13 @@ Voluptates ullam quod, modi accusamus exercitationem molestiae voluptas
 quas tempore eum alias sapiente pariatur consequatur ratione, 
 assumenda dolore maiores magnam? In, cupiditate!
 `;
-
-export const Example = () => {
-  return <Card>{lorem}</Card>;
-};
 export const ImageCard = () => {
   const imgs = [
     "https://static.escolakids.uol.com.br/2019/07/paisagem-natural.jpg",
     "https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg",
   ];
   return (
-    <Grid rowGap={32} columnGap={32}>
+    <Grid gap={32}>
       {imgs.map((img, i) => (
         <Grid.Col span={{ base: 12, md: 6 }} key={img}>
           <Card>
@@ -92,7 +88,7 @@ export const ColorsCard = () => {
   ];
 
   return (
-    <Grid rowGap={32} columnGap={32}>
+    <Grid gap={32}>
       {variantColorCard.map((variant) => (
         <Grid.Col span={{ base: 12, md: 6 }} key={variant}>
           <Card variantStyle={variant.toLowerCase() as any}>

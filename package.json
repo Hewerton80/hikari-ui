@@ -68,7 +68,6 @@
     "@types/styled-components": "^5.1.26",
     "babel-plugin-named-exports-order": "^0.0.2",
     "classnames": "^2.3.2",
-    "multiple-themes-stitches": "^1.0.0",
     "polished": "^4.2.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

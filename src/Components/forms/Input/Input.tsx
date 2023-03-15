@@ -24,8 +24,6 @@ export interface InputProps extends FormControlProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
   maxLength?: number;
-  // error?: string;
-  // feedbackText?: string;
 }
 
 export function Input({
@@ -33,6 +31,7 @@ export function Input({
   className,
   feedbackText,
   state,
+  style,
   ...restProps
 }: InputProps) {
   return (

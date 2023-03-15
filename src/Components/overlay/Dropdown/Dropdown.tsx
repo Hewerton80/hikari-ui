@@ -15,7 +15,7 @@ function Dropdown({ children }: DropdownProps) {
   return <RadixDropdown.Root>{children}</RadixDropdown.Root>;
 }
 
-function Toogle({ className, children, ...restProps }: DropdowToogle) {
+function Toogle({ className, children, style, ...restProps }: DropdowToogle) {
   return (
     <RadixDropdown.Trigger
       className={classNames(addClasseNamePrefix("dropdown-toogle"), className)}
@@ -31,6 +31,7 @@ function Menu({
   children,
   orientation = "bottom-right",
   className,
+  style,
   ...restProps
 }: DropdowMenu) {
   return (

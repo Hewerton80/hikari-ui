@@ -4,7 +4,12 @@ interface ClickOutsideProps extends GlobalProps {
   onClickOutSide?: () => void;
 }
 
-export function ClickOutside({ children, onClickOutSide }: ClickOutsideProps) {
+export function ClickOutside({
+  children,
+  style,
+  onClickOutSide,
+  ...restProps
+}: ClickOutsideProps) {
   const elementRef = React.useRef();
 
   const handleClickOutside = React.useCallback(
@@ -23,5 +28,9 @@ export function ClickOutside({ children, onClickOutSide }: ClickOutsideProps) {
     };
   }, [handleClickOutside]);
 
-  return <div ref={elementRef}>{children}</div>;
+  return (
+    <div ref={elementRef} {...restProps}>
+      {children}
+    </div>
+  );
 }

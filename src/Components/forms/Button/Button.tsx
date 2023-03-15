@@ -21,6 +21,7 @@ export function Button({
   rightIcon,
   disabled,
   isLoading,
+  style,
   ...restProps
 }: ButtonProps) {
   return (
