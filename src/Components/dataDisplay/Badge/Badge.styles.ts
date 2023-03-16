@@ -12,11 +12,12 @@ const variantStyle = {
   warning: { color: colors.black, backgroundColor: colors.warning },
 };
 
-export const Badge = css("div", {
+export const Badge = css("span", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   width: "fit-content",
+  text: "xs",
   py: spaces["1.5"],
   px: "$2",
   borderRadius: "$1",

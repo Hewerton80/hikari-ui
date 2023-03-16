@@ -31,7 +31,7 @@ export function Input({
   className,
   feedbackText,
   state,
-  style,
+  css,
   ...restProps
 }: InputProps) {
   return (

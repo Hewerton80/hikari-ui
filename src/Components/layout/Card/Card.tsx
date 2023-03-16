@@ -16,14 +16,14 @@ function Card({
   children,
   className,
   variantStyle = "default",
-  style,
+  css,
   ...restProps
 }: CardProps) {
   return (
     <div
       className={classNames(
         addClasseNamePrefix("card"),
-        Styled.Card({ variantStyle, css: style }),
+        Styled.Card({ variantStyle, css }),
         className
       )}
       {...restProps}
@@ -39,14 +39,14 @@ function Img({
   alt,
   className,
   variantStyle = "top",
-  style,
+  css,
   ...restProps
 }: CardImgProps) {
   return (
     <img
       className={classNames(
         addClasseNamePrefix("card-img"),
-        Styled.CardImg({ variantStyle, css: style }),
+        Styled.CardImg({ variantStyle, css }),
         className
       )}
       src={src}
@@ -57,12 +57,12 @@ function Img({
   );
 }
 
-function Header({ children, className, style, ...restProps }: CardHeaderProps) {
+function Header({ children, className, css, ...restProps }: CardHeaderProps) {
   return (
     <div
       className={classNames(
         addClasseNamePrefix("card-header"),
-        Styled.CardHeader({ css: style }),
+        Styled.CardHeader({ css }),
         className
       )}
       {...restProps}
@@ -72,12 +72,12 @@ function Header({ children, className, style, ...restProps }: CardHeaderProps) {
   );
 }
 
-function Title({ children, className, style, ...rest }: CardProps) {
+function Title({ children, className, css, ...rest }: CardProps) {
   return (
     <div
       className={classNames(
         addClasseNamePrefix("card-title"),
-        Styled.CardTitle({ css: style }),
+        Styled.CardTitle({ css }),
         className
       )}
       {...rest}
@@ -87,12 +87,12 @@ function Title({ children, className, style, ...rest }: CardProps) {
   );
 }
 
-function Body({ children, className, style, ...rest }: CardBodyProps) {
+function Body({ children, className, css, ...rest }: CardBodyProps) {
   return (
     <div
       className={classNames(
         addClasseNamePrefix("card-body"),
-        Styled.CardBody({ css: style }),
+        Styled.CardBody({ css }),
         // darkTheme,
         className
       )}
@@ -107,14 +107,14 @@ function Footer({
   children,
   className,
   variantStyle = "left",
-  style,
+  css,
   ...rest
 }: CardFooterProps) {
   return (
     <div
       className={classNames(
         addClasseNamePrefix("card-footer"),
-        Styled.CardFooter({ variantStyle, css: style }),
+        Styled.CardFooter({ variantStyle, css }),
         className
       )}
       {...rest}

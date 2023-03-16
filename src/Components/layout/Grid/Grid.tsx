@@ -21,7 +21,7 @@ function Grid({
   rowGap,
   columnGap,
   className,
-  style,
+  css,
   ...restProps
 }: GridProps) {
   const cssGrid = React.useMemo(() => {
@@ -46,7 +46,7 @@ function Grid({
           css: {
             gridTemplateColumns: `repeat(${numCols}, minmax(0, 1fr));`,
             ...cssGrid,
-            ...style,
+            ...css,
           },
         }),
         className
@@ -58,7 +58,7 @@ function Grid({
   );
 }
 
-function Col({ children, className, style, span, ...restProps }: ColProps) {
+function Col({ children, className, css, span, ...restProps }: ColProps) {
   const getColMediaScreenCss = React.useCallback((spanValue: number) => {
     return {
       gridColumn: `span ${spanValue} / span ${spanValue}`,
@@ -77,7 +77,7 @@ function Col({ children, className, style, span, ...restProps }: ColProps) {
             "@bpLg": span?.lg ? getColMediaScreenCss(span.lg) : {},
             "@bpXl": span?.xl ? getColMediaScreenCss(span.xl) : {},
             "@bp2xl": span?.["2xl"] ? getColMediaScreenCss(span["2xl"]) : {},
-            ...style,
+            ...css,
           },
         }),
         className

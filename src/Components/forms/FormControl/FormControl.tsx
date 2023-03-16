@@ -19,7 +19,7 @@ export function FormControl({
   required,
   feedbackText,
   state = "danger",
-  style,
+  css,
   ...restProps
 }: FormControlProps) {
   const hasFeedback = React.useMemo(

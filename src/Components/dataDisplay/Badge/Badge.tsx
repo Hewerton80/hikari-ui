@@ -10,18 +10,18 @@ export function Badge({
   className,
   variantStyle = "primary",
   children,
-  style,
+  css,
   ...restProps
 }: BadgeProps) {
   return (
-    <div
+    <span
       className={classNames(
         addClasseNamePrefix("badge"),
-        Styled.Badge({ variantStyle })
+        Styled.Badge({ variantStyle, css })
       )}
       {...restProps}
     >
       {children}
-    </div>
+    </span>
   );
 }

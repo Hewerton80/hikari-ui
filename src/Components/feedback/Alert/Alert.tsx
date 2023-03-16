@@ -9,14 +9,14 @@ export function Alert({
   children,
   className,
   variantStyle,
-  style,
+  css,
   ...restProps
 }: AlertProps) {
   return (
     <div
       className={classNames(
         addClasseNamePrefix("alert"),
-        Styled.Alert({ variantStyle, css: style }),
+        Styled.Alert({ variantStyle, css }),
         className
       )}
       {...restProps}

@@ -6,7 +6,7 @@ interface ClickOutsideProps extends GlobalProps {
 
 export function ClickOutside({
   children,
-  style,
+  css,
   onClickOutSide,
   ...restProps
 }: ClickOutsideProps) {

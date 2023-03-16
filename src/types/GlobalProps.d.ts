@@ -6,6 +6,6 @@ declare global {
     id?: string;
     className?: string;
     children?: React.ReactNode;
-    style?: CSS;
+    css?: CSS;
   }
 }

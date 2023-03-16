@@ -8,6 +8,7 @@ export interface ButtonProps extends Styled.ButtonProps, GlobalProps {
   disabled?: boolean;
   isLoading?: boolean;
   fullWidth?: boolean;
+  rounded?: boolean;
   leftIcon?: JSX.Element;
   rightIcon?: JSX.Element;
 }
@@ -17,11 +18,13 @@ export function Button({
   className,
   size = "md",
   variantStyle = "primary-contained",
+  fullWidth,
+  rounded,
   leftIcon,
   rightIcon,
   disabled,
   isLoading,
-  style,
+  css,
   ...restProps
 }: ButtonProps) {
   return (
@@ -31,6 +34,9 @@ export function Button({
         Styled.Button({
           size,
           variantStyle,
+          rounded: rounded ? "true" : "false",
+          fullWidth: fullWidth ? "true" : "false",
+          css,
         }),
         className
       )}
@@ -39,7 +45,7 @@ export function Button({
     >
       {isLoading ? (
         <Spinner
-        // color={Styled.buttonVariants[variantColor][variantStyle].spinnerColor}
+        // color={Styled.variantStyle[variantStyle].color}
         />
       ) : (
         <>
