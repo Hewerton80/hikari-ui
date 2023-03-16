@@ -1,8 +1,8 @@
-import { rem } from "polished";
-import styled from "styled-components";
 import { formTextStyle } from "../../helpers/formTextStyle";
+import { css } from "../../../styles/theme";
+import { spaces } from "../../../styles/spaces";
 
-export const Container = styled.input`
-  height: ${rem(46)};
-  ${formTextStyle}
-`;
+export const Input = css("input", {
+  height: spaces["11.5"],
+  ...formTextStyle,
+});

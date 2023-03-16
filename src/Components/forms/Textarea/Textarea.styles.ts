@@ -1,6 +1,4 @@
-import styled from "styled-components";
 import { formTextStyle } from "../../helpers/formTextStyle";
+import { css } from "../../../styles/theme";
 
-export const Container = styled.textarea`
-  ${formTextStyle}
-`;
+export const Textarea = css("textare", formTextStyle);

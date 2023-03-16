@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { FormControl, FormControlProps } from "../FormControl";
@@ -44,8 +45,8 @@ export function Input({
         state={state}
         required={restProps?.required}
       >
-        <Styled.Container
-          className={addClasseNamePrefix("input")}
+        <input
+          className={classNames(addClasseNamePrefix("input"), Styled.Input())}
           {...restProps}
         />
       </FormControl>

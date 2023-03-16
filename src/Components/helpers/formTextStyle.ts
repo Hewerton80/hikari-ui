@@ -1,24 +1,24 @@
-import { rem, rgba } from "polished";
+import { rgba } from "polished";
 import { colors } from "../../styles/colors";
-import { css } from "styled-components";
-import { ring } from "./ring";
 
-export const formTextStyle = css`
-  ${({ theme }) => css`
-    padding: ${rem(14)} ${rem(22)};
-    color: ${theme.isDarkMode ? colors.light : colors.dark};
-    width: 100%;
-    border: 1px solid
-      ${theme.isDarkMode ? rgba(colors.white, 0.1) : colors["gray-border"]};
-    font-size: ${rem(14)};
-    border-radius: ${rem(2)};
-    outline: none;
-    background-color: ${colors.transparent};
-    transition: all ease 0.3s;
-    &:not(:disabled) {
-      &:focus {
-        ${ring(colors.info)}
-      }
-    }
-  `}
-`;
+import { CSS, darkTheme } from "../../styles/theme";
+import { spaces } from "../../styles/spaces";
+
+export const formTextStyle: CSS = {
+  px: spaces["5.5"],
+  py: spaces["3.5"],
+  text: "sm",
+  borderRadius: spaces["0.5"],
+  outline: "none",
+  backgroundColor: colors.transparent,
+  transition: "all ease 0.3s",
+  color: colors.dark,
+  border: `${spaces["0.25"]} solid ${colors["gray-border"]}`,
+  "&:not(:disabled):focus": {
+    ring: colors.info,
+  },
+  [`.${darkTheme} &`]: {
+    color: colors.light,
+    borderColor: rgba(colors.white, 0.1),
+  },
+};

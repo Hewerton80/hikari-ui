@@ -2,6 +2,7 @@ import React from "react";
 import { FormControl, FormControlProps } from "../FormControl";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as Styled from "./Textarea.styles";
+import classNames from "classnames";
 
 export interface TextareaProps extends FormControlProps {
   required?: boolean;
@@ -36,8 +37,11 @@ export function Textarea({
       state={state}
       required={restProps?.required}
     >
-      <Styled.Container
-        className={addClasseNamePrefix("textarea")}
+      <textarea
+        className={classNames(
+          addClasseNamePrefix("textarea"),
+          Styled.Textarea()
+        )}
         {...restProps}
       />
     </FormControl>
