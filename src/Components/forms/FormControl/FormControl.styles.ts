@@ -1,67 +1,57 @@
-import { rem } from "polished";
 import { colors } from "../../../styles/colors";
-import styled, { css } from "styled-components";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-import { ring } from "../../helpers/ring";
+import { css, CSS, darkTheme } from "../../../styles/theme";
 
-type VariantStyle = "success" | "danger" | "warning";
-
-type AvaliablesVariantColorType = {
-  [Property in VariantStyle]: string;
+const getStateVariantCss = (color: string): CSS => {
+  return {
+    [`.${addClasseNamePrefix("feedback")}`]: {
+      text: "xs",
+      marginTop: "$2",
+      color,
+    },
+    [`.${addClasseNamePrefix("input")}, .${addClasseNamePrefix("textarea")}`]: {
+      borderColor: color,
+      "&:not(:disabled):focus": {
+        ring: color,
+      },
+    },
+  };
 };
 
-export interface ConteinerProps {
-  state?: VariantStyle;
-  hasFeedback?: boolean;
-}
-
-export interface ContainerLabelProps {
-  required?: boolean;
-}
-
-const avaliablesVariantColors: AvaliablesVariantColorType = {
-  danger: colors.danger,
-  success: colors.success,
-  warning: colors.warning,
+const state = {
+  danger: getStateVariantCss(colors.danger),
+  success: getStateVariantCss(colors.success),
+  warning: getStateVariantCss(colors.warning),
 };
 
-export const Container = styled.div<ConteinerProps>`
-  display: flex;
-  flex-direction: column;
-  ${({ state, hasFeedback }) => {
-    const stateColor = avaliablesVariantColors[state];
-    return (
-      hasFeedback &&
-      css`
-        .${addClasseNamePrefix("feedback")} {
-          font-size: ${rem(12)};
-          margin-top: ${rem(8)};
-          color: ${stateColor};
-        }
-        .${addClasseNamePrefix("input")}, .${addClasseNamePrefix("textarea")} {
-          border-color: ${stateColor};
-          &:not(:disabled) {
-            &:focus {
-              ${ring(stateColor)}
-            }
-          }
-        }
-      `
-    );
-  }}
-`;
+export const FormControl = css("div", {
+  display: "flex",
+  flexDirection: "column",
+  variants: {
+    state,
+  },
+});
 
-export const ContainerLabel = styled.label<ContainerLabelProps>`
-  ${({ required }) =>
-    css`
-      font-size: ${rem(14)};
-      margin-bottom: ${rem(8)};
-      ${required &&
-      css`
-        &::after {
-          content: "*";
-          color: ${colors.danger};
-        }
-      `}
-    `}
-`;
+export interface FormControlProps {
+  state?: keyof typeof state;
+}
+
+const required = {
+  true: {
+    "&::after": {
+      content: "*",
+      color: "$danger",
+    },
+  },
+  false: {},
+};
+
+export const Label = css("label", {
+  text: "sm",
+  marginBottom: "$2",
+  variants: { required },
+  color: "$black",
+  [`.${darkTheme} &`]: {
+    color: "$light",
+  },
+});
