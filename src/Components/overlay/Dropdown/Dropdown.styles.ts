@@ -3,6 +3,7 @@ import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
 import { rem } from "polished";
 import { colors } from "../../../styles/colors";
 import { shadow } from "../../helpers/shadow";
+import { css as cssStitchers, CSS, darkTheme } from "../../../styles/theme";
 
 type MenuOrientationType =
   | "left"
@@ -49,23 +50,24 @@ export const DropdownMenu = styled(RadixDropdown.Content)<DropdownMenuProps>`
   `}
 `;
 
-export const DropdownItem = styled(RadixDropdown.Item)`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: ${rem(4)} ${rem(24)};
-  font-size: ${rem(14)};
-  white-space: nowrap;
-  outline: none;
-  cursor: pointer;
-  ${({ theme }) => css`
-    color: ${theme.isDarkMode ? colors.light : colors.black};
-    &:hover,
-    &:focus {
-      background-color: ${theme.isDarkMode
-        ? colors["dark-hover"]
-        : colors["gray-light"]};
-    }
-  `}
-`;
+export const Item = cssStitchers("div", {
+  display: "flex",
+  alignItems: "center",
+  size: "100%",
+  px: "$6",
+  py: "$1",
+  text: "sm",
+  whiteSpace: "nowrap",
+  outline: "none",
+  color: "$black",
+  cursor: "pointer",
+  "&:hover, &:focus": {
+    backgroundColor: "$gray-light",
+  },
+  [`.${darkTheme} &`]: {
+    color: "$light",
+    "&:hover, &:focus": {
+      backgroundColor: "$dark-hover",
+    },
+  },
+});

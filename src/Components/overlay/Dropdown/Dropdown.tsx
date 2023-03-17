@@ -51,14 +51,18 @@ function Menu({
 
 function Item({ children, className, ...restProps }: DropdowItem) {
   return (
-    <Styled.DropdownItem
-      className={classNames(addClasseNamePrefix("dropdown-item"), className)}
+    <RadixDropdown.Item
+      className={classNames(
+        addClasseNamePrefix("dropdown-item"),
+        Styled.Item(),
+        className
+      )}
       role="menuitem"
       asChild
       {...restProps}
     >
       {children}
-    </Styled.DropdownItem>
+    </RadixDropdown.Item>
   );
 }
 
