@@ -1,48 +1,42 @@
-import styled, { css } from "styled-components";
+import { css, CSS } from "../../../styles/theme";
 
-export interface ContainerProps {
-  vertical?: boolean;
-}
-export const Container = styled.div<ContainerProps>`
-  display: flex;
-  button:not(:first-child):not(:last-child) {
-    border-radius: 0;
-    border-radius: 0;
-  }
-  ${({ vertical }) =>
-    vertical
-      ? css`
-          flex-direction: column;
-          button {
-            width: 100%;
-          }
-          button:not(:first-child):not(:last-child) {
-            border-radius: 0;
-            border-radius: 0;
-          }
-          button:first-child {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-          button:last-child {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-          }
-          button + button {
-            border-top: 0;
-          }
-        `
-      : css`
-          button:first-child {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-          button:last-child {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-          }
-          button + button {
-            border-left: 0;
-          }
-        `}
-`;
+const vertical: { true: CSS; false: CSS } = {
+  true: {
+    flexDirection: "column",
+    button: {
+      width: "100%",
+    },
+    "button:first-child": {
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+    },
+    "button:last-child": {
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+    },
+    "button + button": {
+      borderTop: 0,
+    },
+  },
+  false: {
+    "button:first-child": {
+      borderTopRightRadius: 0,
+      borderBottomRightRadius: 0,
+    },
+    "button:last-child": {
+      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 0,
+    },
+    "button + button": {
+      borderLeft: 0,
+    },
+  },
+};
+
+export const ButtonGroup = css("div", {
+  display: "flex",
+  "button:not(:first-child):not(:last-child)": {
+    borderRadius: 0,
+  },
+  variants: { vertical },
+});

@@ -3,20 +3,27 @@ import * as Styled from "./ButtonGroup.styles";
 import classNames from "classnames";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
-export interface ButtonGroupProps extends GlobalProps, Styled.ContainerProps {}
+export interface ButtonGroupProps extends GlobalProps {
+  vertical?: boolean;
+}
 
 export function ButtonGroup({
   children,
   className,
+  vertical,
   css,
   ...restProps
 }: ButtonGroupProps) {
   return (
-    <Styled.Container
-      className={classNames(addClasseNamePrefix("btn-group"), className)}
+    <div
+      className={classNames(
+        addClasseNamePrefix("btn-group"),
+        Styled.ButtonGroup({ vertical: vertical ? "true" : "false", css }),
+        className
+      )}
       {...restProps}
     >
       {children}
-    </Styled.Container>
+    </div>
   );
 }

@@ -4,6 +4,7 @@ import { colors } from "./colors";
 import { spaces } from "./spaces";
 import { fontSizes } from "./fontSizes";
 import { lineHeights } from "./lineHeights";
+import { shadows } from "./shadows";
 import { breakpoints } from "./breackpoints";
 import { CLASSNAME_PREFIX } from "../utils/addClasseNamePrefix";
 import { rgba } from "polished";
@@ -58,6 +59,9 @@ export const { css, globalCss, createTheme, config, keyframes } =
       }),
       ring: (color: string) => ({
         boxShadow: `0 0 0 3.2px ${rgba(color, 0.5)}`,
+      }),
+      shadow: (shadow: keyof typeof shadows) => ({
+        boxShadow: shadows[shadow],
       }),
     },
     prefix: CLASSNAME_PREFIX,

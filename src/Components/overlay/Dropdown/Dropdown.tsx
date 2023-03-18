@@ -8,7 +8,7 @@ export interface DropdownProps {
   children: React.ReactNode;
 }
 export interface DropdowToogle extends GlobalProps {}
-export interface DropdowMenu extends GlobalProps, Styled.DropdownMenuProps {}
+export interface DropdowMenu extends GlobalProps, Styled.MenuProps {}
 export interface DropdowItem extends RadixDropdown.DropdownMenuItemProps {}
 
 function Dropdown({ children }: DropdownProps) {
@@ -36,15 +36,19 @@ function Menu({
 }: DropdowMenu) {
   return (
     <RadixDropdown.Portal>
-      <Styled.DropdownMenu
-        className={classNames(addClasseNamePrefix("dropdown-menu"), className)}
+      <RadixDropdown.Content
+        className={classNames(
+          addClasseNamePrefix("dropdown-menu"),
+          Styled.Menu(),
+          className
+        )}
         sideOffset={4}
         role="menu"
         {...Styled.menuOrientation[orientation]}
         {...restProps}
       >
         {children}
-      </Styled.DropdownMenu>
+      </RadixDropdown.Content>
     </RadixDropdown.Portal>
   );
 }

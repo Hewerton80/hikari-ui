@@ -1,6 +1,5 @@
 import { globalStyles } from "../src/styles/globalStyles";
-import { darkTheme, lightTheme } from "../src/styles/theme";
-import { ThemeContextProvider } from "../src/context/ThemeContext";
+import { darkTheme } from "../src/styles/theme";
 import { useDarkMode } from "storybook-dark-mode";
 
 export const parameters = {
@@ -27,13 +26,7 @@ const App = (Story) => {
     document.documentElement.classList.remove(darkTheme);
   }
 
-  return (
-    // <ThemeContextProvider>
-     
-        <Story />
-    
-    // </ThemeContextProvider>
-  );
+  return <Story />;
 };
 
 export const decorators = [App];

@@ -1,9 +1,6 @@
-import styled, { css } from "styled-components";
-import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
-import { rem } from "polished";
 import { colors } from "../../../styles/colors";
-import { shadow } from "../../helpers/shadow";
-import { css as cssStitchers, CSS, darkTheme } from "../../../styles/theme";
+import { css, darkTheme } from "../../../styles/theme";
+import { spaces } from "../../../styles/spaces";
 
 type MenuOrientationType =
   | "left"
@@ -33,24 +30,25 @@ export const menuOrientation: AvaliableOrientationsMenu = {
   "bottom-right": { align: "end", side: "bottom" },
 };
 
-export interface DropdownMenuProps {
+export interface MenuProps {
   orientation?: MenuOrientationType;
 }
 
-export const DropdownMenu = styled(RadixDropdown.Content)<DropdownMenuProps>`
-  min-width: ${rem(160)};
-  display: flex;
-  flex-direction: column;
-  padding: ${rem(8)} 0;
-  ${shadow("sm")}
-  ${({ theme }) => css`
-    background-color: ${theme.isDarkMode ? colors["dark-card"] : colors.white};
-    border: ${rem(1)} solid
-      ${theme.isDarkMode ? colors["dark-card"] : colors["gray-border"]};
-  `}
-`;
+export const Menu = css("div", {
+  minWidth: "$40",
+  display: "flex",
+  flexDirection: "column",
+  py: "$2",
+  shadow: "sm",
+  backgroundColor: "$white",
+  border: `${spaces["0.25"]} solid ${colors["gray-border"]}`,
+  [`.${darkTheme} &`]: {
+    borderColor: "$dark-card",
+    backgroundColor: "$dark-card",
+  },
+});
 
-export const Item = cssStitchers("div", {
+export const Item = css("div", {
   display: "flex",
   alignItems: "center",
   size: "100%",
