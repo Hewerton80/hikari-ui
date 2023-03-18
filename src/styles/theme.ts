@@ -53,7 +53,7 @@ export const { css, globalCss, createTheme, config, keyframes } =
         paddingBottom: value,
       }),
       // A property for applying width/height together
-      size: (value: string) => ({
+      size: (value: string | number) => ({
         width: value,
         height: value,
       }),
@@ -62,6 +62,12 @@ export const { css, globalCss, createTheme, config, keyframes } =
       }),
       shadow: (shadow: keyof typeof shadows) => ({
         boxShadow: shadows[shadow],
+      }),
+      positionCenter: (position: "fixed" | "absolute") => ({
+        position: position,
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
       }),
     },
     prefix: CLASSNAME_PREFIX,

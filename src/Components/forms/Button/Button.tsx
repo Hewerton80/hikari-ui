@@ -11,6 +11,7 @@ export interface ButtonProps extends Styled.ButtonProps, GlobalProps {
   rounded?: boolean;
   leftIcon?: JSX.Element;
   rightIcon?: JSX.Element;
+  onClick?: () => void;
 }
 
 export function Button({

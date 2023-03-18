@@ -1,4 +1,4 @@
-import { formTextStyle } from "../../helpers/formTextStyle";
+import { formTextStyle } from "../../commonStyles/formTextStyle";
 import { css } from "../../../styles/theme";
 import { spaces } from "../../../styles/spaces";
 

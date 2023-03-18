@@ -7,8 +7,10 @@ export const globalStyles = globalCss({
   body: {
     fontFamily: `"Poppins", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif`,
     text: "base",
+    color: "$dark",
     [`.${darkTheme} &`]: {
       backgroundColor: colors["dark-body"],
+      color: "$light",
     },
   },
   a: { textDecoration: "none" },

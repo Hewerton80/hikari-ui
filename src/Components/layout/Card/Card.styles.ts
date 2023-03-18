@@ -1,5 +1,5 @@
+import { cardStyle } from "../../commonStyles/CardStyle";
 import { colors } from "../../../styles/colors";
-import { spaces } from "../../../styles/spaces";
 import { css, darkTheme } from "../../../styles/theme";
 
 const cardVariantImgStyle = {
@@ -51,15 +51,7 @@ const cardVariantImgStyle = {
 };
 
 export const Card = css("div", {
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
-  borderRadius: spaces["1.5"],
-  overflow: "hidden",
-  color: colors.white,
-  background: colors.black,
-  borderWidth: spaces["0.25"],
-  borderStyle: "solid",
+  ...cardStyle,
   variants: { variantStyle: cardVariantImgStyle },
 });
 
