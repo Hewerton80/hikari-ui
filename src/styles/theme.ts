@@ -69,6 +69,16 @@ export const { css, globalCss, createTheme, config, keyframes } =
         left: "50%",
         transform: "translate(-50%, -50%)",
       }),
+      spaceY: (value: string | number) => ({
+        "& > * + *": {
+          marginTop: value,
+        },
+      }),
+      spaceX: (value: string | number) => ({
+        "& > * + *": {
+          marginLeft: value,
+        },
+      }),
     },
     prefix: CLASSNAME_PREFIX,
   });

@@ -76,13 +76,13 @@ const getButtonCssProperties2 = (
   return buttonVariantStyleObject[buttonVariantStyle];
 };
 type VariantStyle =
-  | "primary-contained"
-  | "secondary-contained"
-  | "success-contained"
-  | "info-contained"
-  | "dark-contained"
-  | "danger-contained"
-  | "warning-contained"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "info"
+  | "dark"
+  | "danger"
+  | "warning"
   | "primary-outlined"
   | "secondary-outlined"
   | "success-outlined"
@@ -103,13 +103,13 @@ type AvaliablesButtonVariantColorType = {
 };
 
 export const variantStyle: AvaliablesButtonVariantColorType = {
-  "primary-contained": getButtonCssProperties2(colors.primary, "contained"),
-  "secondary-contained": getButtonCssProperties2(colors.secondary, "contained"),
-  "success-contained": getButtonCssProperties2(colors.success, "contained"),
-  "info-contained": getButtonCssProperties2(colors.info, "contained"),
-  "dark-contained": getButtonCssProperties2(colors.dark, "contained"),
-  "danger-contained": getButtonCssProperties2(colors.danger, "contained"),
-  "warning-contained": getButtonCssProperties2(colors.warning, "contained"),
+  primary: getButtonCssProperties2(colors.primary, "contained"),
+  secondary: getButtonCssProperties2(colors.secondary, "contained"),
+  success: getButtonCssProperties2(colors.success, "contained"),
+  info: getButtonCssProperties2(colors.info, "contained"),
+  dark: getButtonCssProperties2(colors.dark, "contained"),
+  danger: getButtonCssProperties2(colors.danger, "contained"),
+  warning: getButtonCssProperties2(colors.warning, "contained"),
   "primary-outlined": getButtonCssProperties2(colors.primary, "outlined"),
   "secondary-outlined": getButtonCssProperties2(colors.secondary, "outlined"),
   "success-outlined": getButtonCssProperties2(colors.success, "outlined"),

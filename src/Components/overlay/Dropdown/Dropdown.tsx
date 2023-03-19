@@ -7,15 +7,20 @@ import classNames from "classnames";
 export interface DropdownProps {
   children: React.ReactNode;
 }
-export interface DropdowToogle extends GlobalProps {}
-export interface DropdowMenu extends GlobalProps, Styled.MenuProps {}
-export interface DropdowItem extends RadixDropdown.DropdownMenuItemProps {}
+export interface DropdowToogleProps extends GlobalProps {}
+export interface DropdowMenuProps extends GlobalProps, Styled.MenuProps {}
+export interface DropdowItemProps extends RadixDropdown.DropdownMenuItemProps {}
 
 function Dropdown({ children }: DropdownProps) {
   return <RadixDropdown.Root>{children}</RadixDropdown.Root>;
 }
 
-function Toogle({ className, children, css, ...restProps }: DropdowToogle) {
+function Toogle({
+  className,
+  children,
+  css,
+  ...restProps
+}: DropdowToogleProps) {
   return (
     <RadixDropdown.Trigger
       className={classNames(addClasseNamePrefix("dropdown-toogle"), className)}
@@ -33,7 +38,7 @@ function Menu({
   className,
   css,
   ...restProps
-}: DropdowMenu) {
+}: DropdowMenuProps) {
   return (
     <RadixDropdown.Portal>
       <RadixDropdown.Content
@@ -53,7 +58,7 @@ function Menu({
   );
 }
 
-function Item({ children, className, ...restProps }: DropdowItem) {
+function Item({ children, className, ...restProps }: DropdowItemProps) {
   return (
     <RadixDropdown.Item
       className={classNames(

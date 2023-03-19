@@ -32,7 +32,7 @@ export const SmallModal = () => {
 
   return (
     <>
-      <Button onClick={handleShowModal} variantStyle="primary-contained">
+      <Button onClick={handleShowModal} variantStyle="primary">
         Show Small Modal
       </Button>
       <Modal show={showModal} onClose={handleCloseModal} size="sm">
@@ -43,7 +43,7 @@ export const SmallModal = () => {
           <Button variantStyle="primary-outlined" onClick={handleCloseModal}>
             Close
           </Button>
-          <Button variantStyle="primary-contained" onClick={handleCloseModal}>
+          <Button variantStyle="primary" onClick={handleCloseModal}>
             Save Changes
           </Button>
         </Modal.Footer>
@@ -65,7 +65,7 @@ export const MediumModal = () => {
 
   return (
     <>
-      <Button onClick={handleShowModal} variantStyle="primary-contained">
+      <Button onClick={handleShowModal} variantStyle="primary">
         Show Medium Modal
       </Button>
       <Modal show={showModal} onClose={handleCloseModal} size="md">
@@ -76,7 +76,7 @@ export const MediumModal = () => {
           <Button variantStyle="primary-outlined" onClick={handleCloseModal}>
             Close
           </Button>
-          <Button variantStyle="primary-contained" onClick={handleCloseModal}>
+          <Button variantStyle="primary" onClick={handleCloseModal}>
             Save Changes
           </Button>
         </Modal.Footer>
@@ -98,7 +98,7 @@ export const LargeModal = () => {
 
   return (
     <>
-      <Button onClick={handleShowModal} variantStyle="primary-contained">
+      <Button onClick={handleShowModal} variantStyle="primary">
         Show Large Modal
       </Button>
       <Modal show={showModal} onClose={handleCloseModal} size="lg">
@@ -109,7 +109,7 @@ export const LargeModal = () => {
           <Button variantStyle="primary-outlined" onClick={handleCloseModal}>
             Close
           </Button>
-          <Button variantStyle="primary-contained" onClick={handleCloseModal}>
+          <Button variantStyle="primary" onClick={handleCloseModal}>
             Save Changes
           </Button>
         </Modal.Footer>

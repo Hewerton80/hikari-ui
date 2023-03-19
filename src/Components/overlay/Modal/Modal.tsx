@@ -5,13 +5,15 @@ import classNames from "classnames";
 import * as Styled from "./Modal.styles";
 import { FaTimes } from "react-icons/fa";
 
-interface ModalProps extends GlobalProps, Styled.ModalProps {
+export interface ModalProps extends GlobalProps, Styled.ModalProps {
   show?: boolean;
   onClose?: () => void;
 }
-interface ModalTitleProps extends GlobalProps {}
-interface ModalBodyProps extends GlobalProps {}
-interface ModalFooterProps extends GlobalProps {}
+export interface ModalTitleProps extends GlobalProps {}
+export interface ModalBodyProps extends GlobalProps {}
+export interface ModalFooterProps
+  extends GlobalProps,
+    Styled.ModalFooterProps {}
 
 function Modal({
   children,
@@ -30,9 +32,10 @@ function Modal({
       <Dialog.Portal>
         <Dialog.Overlay className={Styled.Overlay()} onClick={onClose} />
         <Dialog.Content
+          onOpenAutoFocus={(e) => e.preventDefault()}
           className={classNames(
             addClasseNamePrefix("modal"),
-            Styled.Content({ size }),
+            Styled.Content({ size, css }),
             className
           )}
           {...restProps}
@@ -40,13 +43,9 @@ function Modal({
           {children}
           <Dialog.Close
             asChild
-            //  className={cn(
-            //   'text-dark dark:text-light absolute top-5 right-6 cursor-pointer p-1'
-            // )}
             className={Styled.Close()}
             onClick={() => onClose?.()}
             role="button"
-            // className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
             aria-label="Close"
           >
             <span>
@@ -86,18 +85,18 @@ const Body = ({ children, className, css }: ModalBodyProps) => {
   );
 };
 
-export function Footer({
+function Footer({
   children,
   className,
   css,
+  position = "end",
   ...rest
 }: ModalFooterProps) {
   return (
     <div
-      // className={cn('flex items-center justify-end', 'w-full px-6 pb-6 gap-2', className)}
       className={classNames(
         addClasseNamePrefix("modal-footer"),
-        Styled.Footer({ css }),
+        Styled.Footer({ position, css }),
         className
       )}
       {...rest}

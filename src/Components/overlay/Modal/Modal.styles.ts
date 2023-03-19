@@ -1,4 +1,4 @@
-import { css, darkTheme } from "../../../styles/theme";
+import { css, darkTheme, keyframes } from "../../../styles/theme";
 import { colors } from "../../../styles/colors";
 import { spaces } from "../../../styles/spaces";
 import { cardStyle } from "../../commonStyles/CardStyle";
@@ -10,10 +10,27 @@ const size = {
   lg: { maxWidth: rem(768) },
 };
 
+const overlayShow = keyframes({
+  "0%": { opacity: 0 },
+  "100%": { opacity: 1 },
+});
+
+const contentShow = keyframes({
+  from: {
+    transform: "translate(-50%, -50%) scale(0.7)",
+    opacity: 0,
+  },
+  to: {
+    transform: "translate(-50%, -50%) scale(1)",
+    opacity: 1,
+  },
+});
+
 export const Overlay = css("div", {
   backgroundColor: "$dark-screen",
   position: "fixed",
   inset: 0,
+  animation: `${overlayShow} 150ms`,
 });
 
 export const Content = css("div", {
@@ -24,6 +41,7 @@ export const Content = css("div", {
   maxHeight: `calc(100vh - ${spaces["32"]})`,
   backgroundColor: colors.white,
   borderColor: colors["gray-lightest"],
+  animation: `${contentShow} 150ms`,
   [`.${darkTheme} &`]: {
     color: colors.white,
     backgroundColor: colors["dark-card"],
@@ -65,16 +83,26 @@ export const Body = css("div", {
   py: "$6",
 });
 
+const positionfooter = {
+  start: { justifyContent: "flex-start" },
+  center: { justifyContent: "center" },
+  end: { justifyContent: "flex-end" },
+};
+
 export const Footer = css("div", {
   display: "flex",
   alignItems: "center",
-  justifyContent: "flex-end",
   width: "100%",
   px: "$6",
   paddingBottom: "$6",
   gap: "$2",
+  variants: { position: positionfooter },
 });
 
 export interface ModalProps {
   size?: keyof typeof size;
+}
+
+export interface ModalFooterProps {
+  position?: keyof typeof positionfooter;
 }

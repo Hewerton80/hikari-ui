@@ -20,7 +20,7 @@ export const Overview = Template.bind({});
 
 Overview.args = {
   children: "My button",
-  variantStyle: "primary-contained",
+  variantStyle: "primary",
 };
 
 export const variantStyles = () => {
@@ -41,13 +41,13 @@ export const variantStyles = () => {
           justifyContent: "center",
         }}
       >
-        <Button variantStyle="primary-contained">primary-contained</Button>
-        <Button variantStyle="secondary-contained">secondary-contained</Button>
-        <Button variantStyle="success-contained">success-contained</Button>
-        <Button variantStyle="info-contained">info-contained</Button>
-        <Button variantStyle="dark-contained">dark-contained</Button>
-        <Button variantStyle="danger-contained">danger-contained</Button>
-        <Button variantStyle="warning-contained">warning-contained</Button>
+        <Button variantStyle="primary">primary</Button>
+        <Button variantStyle="secondary">secondary</Button>
+        <Button variantStyle="success">success</Button>
+        <Button variantStyle="info">info</Button>
+        <Button variantStyle="dark">dark</Button>
+        <Button variantStyle="danger">danger</Button>
+        <Button variantStyle="warning">warning</Button>
       </div>
       <div
         style={{
@@ -95,26 +95,26 @@ export const RoundedButtons = () => {
         justifyContent: "center",
       }}
     >
-      <Button variantStyle="primary-contained" rounded>
-        primary-contained
+      <Button variantStyle="primary" rounded>
+        primary
       </Button>
-      <Button variantStyle="secondary-contained" rounded>
-        secondary-contained
+      <Button variantStyle="secondary" rounded>
+        secondary
       </Button>
-      <Button variantStyle="success-contained" rounded>
-        success-contained
+      <Button variantStyle="success" rounded>
+        success
       </Button>
-      <Button variantStyle="info-contained" rounded>
-        info-contained
+      <Button variantStyle="info" rounded>
+        info
       </Button>
-      <Button variantStyle="dark-contained" rounded>
-        dark-contained
+      <Button variantStyle="dark" rounded>
+        dark
       </Button>
-      <Button variantStyle="danger-contained" rounded>
-        danger-contained
+      <Button variantStyle="danger" rounded>
+        danger
       </Button>
-      <Button variantStyle="warning-contained" rounded>
-        warning-contained
+      <Button variantStyle="warning" rounded>
+        warning
       </Button>
     </div>
   );
@@ -130,26 +130,26 @@ export const DisabledButton = () => {
         justifyContent: "center",
       }}
     >
-      <Button variantStyle="primary-contained" disabled>
-        primary-contained
+      <Button variantStyle="primary" disabled>
+        primary
       </Button>
-      <Button variantStyle="secondary-contained" disabled>
-        secondary-contained
+      <Button variantStyle="secondary" disabled>
+        secondary
       </Button>
-      <Button variantStyle="success-contained" disabled>
-        success-contained
+      <Button variantStyle="success" disabled>
+        success
       </Button>
-      <Button variantStyle="info-contained" disabled>
-        info-contained
+      <Button variantStyle="info" disabled>
+        info
       </Button>
-      <Button variantStyle="dark-contained" disabled>
-        dark-contained
+      <Button variantStyle="dark" disabled>
+        dark
       </Button>
-      <Button variantStyle="danger-contained" disabled>
-        danger-contained
+      <Button variantStyle="danger" disabled>
+        danger
       </Button>
-      <Button variantStyle="warning-contained" disabled>
-        warning-contained
+      <Button variantStyle="warning" disabled>
+        warning
       </Button>
     </div>
   );
@@ -166,26 +166,26 @@ export const LoadButton = () => {
       }}
     >
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-        <Button variantStyle="primary-contained" isLoading>
-          primary-contained
+        <Button variantStyle="primary" isLoading>
+          primary
         </Button>
-        <Button variantStyle="secondary-contained" isLoading>
-          secondary-contained
+        <Button variantStyle="secondary" isLoading>
+          secondary
         </Button>
-        <Button variantStyle="success-contained" isLoading>
-          success-contained
+        <Button variantStyle="success" isLoading>
+          success
         </Button>
-        <Button variantStyle="info-contained" isLoading>
-          info-contained
+        <Button variantStyle="info" isLoading>
+          info
         </Button>
-        <Button variantStyle="dark-contained" isLoading>
-          dark-contained
+        <Button variantStyle="dark" isLoading>
+          dark
         </Button>
-        <Button variantStyle="danger-contained" isLoading>
-          danger-contained
+        <Button variantStyle="danger" isLoading>
+          danger
         </Button>
-        <Button variantStyle="warning-contained" isLoading>
-          warning-contained
+        <Button variantStyle="warning" isLoading>
+          warning
         </Button>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -225,13 +225,13 @@ export const SizeButtons = () => {
         alignItems: "flex-start",
       }}
     >
-      <Button variantStyle="danger-contained" size="lg">
+      <Button variantStyle="danger" size="lg">
         size lg
       </Button>
-      <Button variantStyle="success-contained" size="md">
+      <Button variantStyle="success" size="md">
         size md
       </Button>
-      <Button variantStyle="primary-contained" size="sm">
+      <Button variantStyle="primary" size="sm">
         size sm
       </Button>
     </div>
@@ -247,9 +247,9 @@ export const GroupButtons = () => {
         <Button variantStyle="primary-outlined">Bottom</Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variantStyle="primary-contained">Left</Button>
-        <Button variantStyle="primary-contained">Middle</Button>
-        <Button variantStyle="primary-contained">Right</Button>
+        <Button variantStyle="primary">Left</Button>
+        <Button variantStyle="primary">Middle</Button>
+        <Button variantStyle="primary">Right</Button>
       </ButtonGroup>
       <ButtonGroup>
         <Button variantStyle="primary-outlined">Left</Button>
@@ -263,10 +263,10 @@ export const GroupButtons = () => {
 export const ButtonWithTextAndIcon = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantStyle="danger-contained" leftIcon={<FiUpload />}>
+      <Button variantStyle="danger" leftIcon={<FiUpload />}>
         Uploads
       </Button>
-      <Button variantStyle="success-contained" rightIcon={<AiTwotoneEdit />}>
+      <Button variantStyle="success" rightIcon={<AiTwotoneEdit />}>
         Edit
       </Button>
     </div>
@@ -278,13 +278,13 @@ export const BlockButtons = () => {
     <div
       style={{ display: "flex", flexDirection: "column", gap: 8, width: 800 }}
     >
-      <Button variantStyle="danger-contained" fullWidth>
+      <Button variantStyle="danger" fullWidth>
         Block Buttons
       </Button>
-      <Button variantStyle="success-contained" fullWidth>
+      <Button variantStyle="success" fullWidth>
         Block Buttons
       </Button>
-      <Button variantStyle="primary-contained" fullWidth>
+      <Button variantStyle="primary" fullWidth>
         Block Buttons
       </Button>
     </div>
