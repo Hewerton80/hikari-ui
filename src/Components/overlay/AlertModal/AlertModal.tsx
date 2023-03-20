@@ -9,7 +9,6 @@ import {
   IoCloseCircleOutline,
   IoWarningOutline,
 } from "react-icons/io5";
-import { Slot } from "@radix-ui/react-slot";
 import { isString } from "../../../utils/isType";
 
 export type Variant = Styled.VariantsTypes;
@@ -39,7 +38,6 @@ export interface AlertModalProps
   title?: string;
   icon?: Styled.VariantsTypes;
   showCancelButton?: boolean;
-  hideIcon?: boolean;
   isSubmiting?: boolean;
   description?: string | JSX.Element;
   confirmButtonText?: string;
@@ -48,66 +46,70 @@ export interface AlertModalProps
   onClickCancelButton?: () => void;
 }
 
-export function AlertModal({
-  show,
-  children,
-  title,
-  description,
-  icon,
-  variant = "info",
-  isSubmiting,
-  confirmButtonText = "Ok",
-  cancelButtonText = "Cancel",
-  showCancelButton,
-  css,
-  onClose,
-  onClickConfirmButton,
-  onClickCancelButton,
-  ...restProps
-}: AlertModalProps) {
-  return (
-    <Modal
-      show={show}
-      onClose={() => !isSubmiting && onClose?.()}
-      size="md"
-      css={{ ...css, ...Styled.alertCss }}
-      {...restProps}
-    >
-      <Modal.Body>
-        <div className={classNames(Styled.Content())}>
-          {icon && (
-            <Slot className={Styled.Icon({ variant })}>
-              {variants[variant].icon}
-            </Slot>
-          )}
+const AlertModal = React.forwardRef(
+  ({
+    show,
+    children,
+    title,
+    description,
+    icon,
+    variant = "info",
+    isSubmiting,
+    confirmButtonText = "Ok",
+    cancelButtonText = "Cancel",
+    showCancelButton,
+    css,
+    onClose,
+    onClickConfirmButton,
+    onClickCancelButton,
+    ...restProps
+  }: AlertModalProps) => {
+    return (
+      <Modal
+        show={show}
+        onClose={() => !isSubmiting && onClose?.()}
+        size="md"
+        css={{ ...css, ...Styled.alertCss }}
+        {...restProps}
+      >
+        <Modal.Body>
+          <div className={classNames(Styled.Content())}>
+            {icon && (
+              <span className={Styled.Icon({ variant })}>
+                {variants[variant].icon}
+              </span>
+            )}
 
-          {title && (
-            <h4 className={classNames(Styled.Title({ variant }))}>{title}</h4>
-          )}
+            {title && (
+              <h4 className={classNames(Styled.Title({ variant }))}>{title}</h4>
+            )}
 
-          {isString(description) ? <p>{description}</p> : description}
-        </div>
-      </Modal.Body>
-      <Modal.Footer position="center">
-        {showCancelButton && (
+            {isString(description) ? <p>{description}</p> : description}
+          </div>
+        </Modal.Body>
+        <Modal.Footer position="center">
+          {showCancelButton && (
+            <Button
+              variantStyle={`${variant}-outlined`}
+              type="button"
+              onClick={onClickCancelButton}
+              disabled={isSubmiting}
+            >
+              {cancelButtonText}
+            </Button>
+          )}
           <Button
-            variantStyle={`${variant}-outlined`}
+            variantStyle={variant}
             type="button"
-            onClick={onClickCancelButton}
-            disabled={isSubmiting}
+            onClick={onClickConfirmButton}
+            isLoading={isSubmiting}
           >
-            {cancelButtonText}
+            {confirmButtonText}
           </Button>
-        )}
-        <Button
-          variantStyle={variant}
-          type="button"
-          onClick={onClickConfirmButton}
-          isLoading={isSubmiting}
-        >
-          {confirmButtonText}
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+);
+
+export { AlertModal };

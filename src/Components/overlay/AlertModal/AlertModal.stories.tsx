@@ -3,6 +3,7 @@ import { ComponentMeta } from "@storybook/react";
 import { AlertModal } from ".";
 import { Button } from "../../forms/Button";
 import { sleep } from "../../../utils/sleep";
+import { useAlert } from "../../../hooks/utils/useAlert";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -173,6 +174,58 @@ export const QuestionModal = () => {
         confirmButtonText="Yes, delete account"
         description={`This action cannot be undone. This will permanently delete your account and remove your data from our servers.`}
       />
+    </>
+  );
+};
+
+export const QuestionModal2 = () => {
+  const { alert, closeAlert } = useAlert();
+  const [submiting, setSubmiting] = React.useState(false);
+
+  const handleSubmit = React.useCallback(async () => {
+    setSubmiting(true);
+    await sleep(3000);
+    closeAlert();
+    setSubmiting(false);
+  }, [closeAlert]);
+
+  const handleShowModal = React.useCallback(() => {
+    alert({
+      showCancelButton: true,
+      isSubmiting: submiting,
+      icon: "warning",
+      title: "Are you absolutely sure?",
+      variant: "warning",
+      cancelButtonText: "Cancel",
+      confirmButtonText: "Yes, delete account",
+      description: `This action cannot be undone. This will permanently delete your account and remove your data from our servers.`,
+      onClose: () => console.log("onClose"),
+      onClickConfirmButton: handleSubmit,
+      onClickCancelButton: () => console.log("onClickCancelButton"),
+    });
+  }, [submiting, handleSubmit, alert]);
+
+  // const handleCloseModal = React.useCallback(() => {
+  //   setShowModal(false);
+  // }, []);
+
+  return (
+    <>
+      <Button onClick={handleShowModal}>Show Question Modal</Button>
+      {/* <AlertModal
+        show={showModal}
+        showCancelButton
+        onClose={handleCloseModal}
+        onClickConfirmButton={handleSubmit}
+        onClickCancelButton={handleCloseModal}
+        isSubmiting={submiting}
+        icon="warning"
+        title="Are you absolutely sure?"
+        variant="warning"
+        cancelButtonText="Cancel"
+        confirmButtonText="Yes, delete account"
+        description={`This action cannot be undone. This will permanently delete your account and remove your data from our servers.`}
+      /> */}
     </>
   );
 };

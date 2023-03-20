@@ -1,6 +1,7 @@
 import { globalStyles } from "../src/styles/globalStyles";
 import { darkTheme } from "../src/styles/theme";
 import { useDarkMode } from "storybook-dark-mode";
+import { HikariProviders } from "../src/context";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -26,7 +27,11 @@ const App = (Story) => {
     document.documentElement.classList.remove(darkTheme);
   }
 
-  return <Story />;
+  return (
+    <HikariProviders>
+      <Story />
+    </HikariProviders>
+  );
 };
 
 export const decorators = [App];

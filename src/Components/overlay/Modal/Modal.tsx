@@ -73,7 +73,7 @@ const Title = ({ children, className, css }: ModalTitleProps) => {
 
 const Body = ({ children, className, css }: ModalBodyProps) => {
   return (
-    <Dialog.Description
+    <div
       className={classNames(
         addClasseNamePrefix("modal-body"),
         Styled.Body({ css }),
@@ -81,7 +81,7 @@ const Body = ({ children, className, css }: ModalBodyProps) => {
       )}
     >
       {children}
-    </Dialog.Description>
+    </div>
   );
 };
 
