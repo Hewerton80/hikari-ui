@@ -37,7 +37,15 @@ export const SmallModal = () => {
       </Button>
       <Modal show={showModal} onClose={handleCloseModal} size="sm">
         <Modal.Title>Modal Title</Modal.Title>
-        <Modal.Body>{lorem}</Modal.Body>
+        <Modal.Body>
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+        </Modal.Body>
 
         <Modal.Footer>
           <Button variantStyle="primary-outlined" onClick={handleCloseModal}>

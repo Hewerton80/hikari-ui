@@ -16,6 +16,7 @@ export interface ButtonProps
     NativeButtonProps {
   isLoading?: boolean;
   fullWidth?: boolean;
+  asChild?: boolean;
   rounded?: boolean;
   leftIcon?: JSX.Element;
   rightIcon?: JSX.Element;
@@ -25,6 +26,7 @@ export function Button({
   children,
   className,
   size = "md",
+  asChild,
   variantStyle = "primary",
   fullWidth,
   rounded,

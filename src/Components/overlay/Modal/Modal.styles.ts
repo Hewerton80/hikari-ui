@@ -81,6 +81,7 @@ export const Body = css("div", {
   flexDirection: "column",
   px: "$7",
   py: "$6",
+  overflowY: "auto",
 });
 
 const positionfooter = {

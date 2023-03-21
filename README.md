@@ -14,16 +14,16 @@ To get started, check out our installation and usage instructions, and feel free
 
 ## installation ⚙️
 
-witch npm:
+with npm:
 
 ```bash
-$ npm install hikari-ui
+npm install hikari-ui
 ```
 
-witch yarn:
+with yarn:
 
 ```bash
-$ yarn add hikari-ui
+yarn add hikari-ui
 ```
 
 ## Contributors
@@ -33,7 +33,9 @@ $ yarn add hikari-ui
   <tr>
     <td align="center">
       <a href="https://github.com/Hewerton80">
-        <img src="https://avatars0.githubusercontent.com/u/37268237?s=400&v=4" width="100px;" alt="Hewerton Adão"/>
+        <img src="https://github.com/Hewerton80.png" 
+            width="100px;" 
+            alt="Hewerton Adão"/>
         <br />
         <sub><b>Hewerton Adão </b></sub>
       </a><br />
