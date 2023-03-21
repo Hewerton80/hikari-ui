@@ -8,8 +8,8 @@ export const cardStyle: CSS = {
   width: "100%",
   borderRadius: spaces["1.5"],
   overflow: "hidden",
-  color: colors.white,
-  background: colors.black,
+  color: colors.black,
+  backgroundColor: colors.white,
   borderWidth: spaces["0.25"],
   borderStyle: "solid",
 };

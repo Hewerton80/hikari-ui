@@ -21,6 +21,17 @@ const alertShow = keyframes({
   },
 });
 
+const totateInVer = keyframes({
+  "0%": {
+    transform: "rotateY(-360deg)",
+    opacity: 0,
+  },
+  "100%": {
+    transform: "rotateY(0deg)",
+    opacity: 1,
+  },
+});
+
 export const alertCss: CSS = {
   animation: `${alertShow} .3s`,
 };
@@ -40,6 +51,8 @@ export const Content = css("div", {
 });
 
 export const Icon = css("svg", {
+  display: "flex",
+  animation: `${totateInVer} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
   text: "7xl",
   variants: { variant },
 });

@@ -23,209 +23,147 @@ assumenda dolore maiores magnam? In, cupiditate!
 `;
 
 export const SuccessModal = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const { showAlert } = useAlert();
 
-  const handleShowModal = React.useCallback(() => {
-    setShowModal(true);
-  }, []);
-
-  const handleCloseModal = React.useCallback(() => {
-    setShowModal(false);
-  }, []);
+  const handleShowAlertModal = React.useCallback(() => {
+    showAlert({
+      icon: "success",
+      title: "Success!",
+      variant: "success",
+      description: lorem,
+    });
+  }, [showAlert]);
 
   return (
     <>
-      <Button variantStyle="success" onClick={handleShowModal}>
+      <Button variantStyle="success" onClick={handleShowAlertModal}>
         Show Success Modal
       </Button>
-      <AlertModal
-        show={showModal}
-        onClose={handleCloseModal}
-        onClickConfirmButton={handleCloseModal}
-        icon="success"
-        title="Success!"
-        variant="success"
-        description={lorem}
-      />
     </>
   );
 };
 
 export const InfoModal = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const { showAlert } = useAlert();
 
-  const handleShowModal = React.useCallback(() => {
-    setShowModal(true);
-  }, []);
-
-  const handleCloseModal = React.useCallback(() => {
-    setShowModal(false);
-  }, []);
+  const handleShowAlertModal = React.useCallback(() => {
+    showAlert({
+      icon: "info",
+      title: "Info!",
+      variant: "info",
+      description: lorem,
+    });
+  }, [showAlert]);
 
   return (
     <>
-      <Button variantStyle="info" onClick={handleShowModal}>
+      <Button variantStyle="info" onClick={handleShowAlertModal}>
         Show Info Modal
       </Button>
-      <AlertModal
-        show={showModal}
-        onClose={handleCloseModal}
-        onClickConfirmButton={handleCloseModal}
-        icon="info"
-        title="Info!"
-        variant="info"
-        description={lorem}
-      />
     </>
   );
 };
 
 export const WarningModal = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const { showAlert } = useAlert();
 
-  const handleShowModal = React.useCallback(() => {
-    setShowModal(true);
-  }, []);
-
-  const handleCloseModal = React.useCallback(() => {
-    setShowModal(false);
-  }, []);
+  const handleShowAlertModal = React.useCallback(() => {
+    showAlert({
+      icon: "warning",
+      title: "Warning!",
+      variant: "warning",
+      description: lorem,
+    });
+  }, [showAlert]);
 
   return (
     <>
-      <Button variantStyle="warning" onClick={handleShowModal}>
+      <Button variantStyle="warning" onClick={handleShowAlertModal}>
         Show Warning Modal
       </Button>
-      <AlertModal
-        show={showModal}
-        onClose={handleCloseModal}
-        onClickConfirmButton={handleCloseModal}
-        icon="warning"
-        title="Warning!"
-        variant="warning"
-        description={lorem}
-      />
     </>
   );
 };
 
 export const DangerModal = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const { showAlert } = useAlert();
 
-  const handleShowModal = React.useCallback(() => {
-    setShowModal(true);
-  }, []);
-
-  const handleCloseModal = React.useCallback(() => {
-    setShowModal(false);
-  }, []);
+  const handleShowAlertModal = React.useCallback(() => {
+    showAlert({
+      icon: "danger",
+      title: "Danger!",
+      variant: "danger",
+      description: lorem,
+    });
+  }, [showAlert]);
 
   return (
     <>
-      <Button variantStyle="danger" onClick={handleShowModal}>
+      <Button variantStyle="danger" onClick={handleShowAlertModal}>
         Show Danger Modal
       </Button>
-      <AlertModal
-        show={showModal}
-        onClose={handleCloseModal}
-        onClickConfirmButton={handleCloseModal}
-        icon="danger"
-        title="Danger!"
-        variant="danger"
-        description={lorem}
-      />
     </>
   );
 };
 
 export const QuestionModal = () => {
-  const [showModal, setShowModal] = React.useState(false);
-  const [submiting, setSubmiting] = React.useState(false);
+  const { showAlert, closeAlert } = useAlert();
 
-  const handleShowModal = React.useCallback(() => {
-    setShowModal(true);
-  }, []);
+  const handleSubmit = React.useCallback(() => {
+    closeAlert();
+  }, [closeAlert]);
 
-  const handleCloseModal = React.useCallback(() => {
-    setShowModal(false);
-  }, []);
-
-  const handleSubmit = React.useCallback(async () => {
-    setSubmiting(true);
-    await sleep(3000);
-    handleCloseModal();
-    setSubmiting(false);
-  }, [handleCloseModal]);
+  const handleShowAlertModal = React.useCallback(() => {
+    showAlert({
+      showCancelButton: true,
+      icon: "info",
+      title: "Do you want to save the changes?",
+      variant: "info",
+      cancelButtonText: "Dont's save",
+      confirmButtonText: "Save",
+      onClose: () => console.log("onClose"),
+      onClickCancelButton: () => console.log("onClickCancelButton"),
+      onClickConfirmButton: handleSubmit,
+    });
+  }, [handleSubmit, showAlert]);
 
   return (
     <>
-      <Button onClick={handleShowModal}>Show Question Modal</Button>
-      <AlertModal
-        show={showModal}
-        showCancelButton
-        onClose={handleCloseModal}
-        onClickConfirmButton={handleSubmit}
-        onClickCancelButton={handleCloseModal}
-        isSubmiting={submiting}
-        icon="warning"
-        title="Are you absolutely sure?"
-        variant="warning"
-        cancelButtonText="Cancel"
-        confirmButtonText="Yes, delete account"
-        description={`This action cannot be undone. This will permanently delete your account and remove your data from our servers.`}
-      />
+      <Button variantStyle="info" onClick={handleShowAlertModal}>
+        Show Question Modal
+      </Button>
     </>
   );
 };
 
-export const QuestionModal2 = () => {
-  const { alert, closeAlert } = useAlert();
-  const [submiting, setSubmiting] = React.useState(false);
+export const QuestionModalWitchAsyncResponse = () => {
+  const { showAlert, closeAlert } = useAlert();
 
   const handleSubmit = React.useCallback(async () => {
-    setSubmiting(true);
     await sleep(3000);
     closeAlert();
-    setSubmiting(false);
   }, [closeAlert]);
 
-  const handleShowModal = React.useCallback(() => {
-    alert({
+  const handleShowAlertModal = React.useCallback(() => {
+    showAlert({
       showCancelButton: true,
-      isSubmiting: submiting,
-      icon: "warning",
+      icon: "danger",
       title: "Are you absolutely sure?",
-      variant: "warning",
+      variant: "danger",
       cancelButtonText: "Cancel",
       confirmButtonText: "Yes, delete account",
       description: `This action cannot be undone. This will permanently delete your account and remove your data from our servers.`,
       onClose: () => console.log("onClose"),
-      onClickConfirmButton: handleSubmit,
       onClickCancelButton: () => console.log("onClickCancelButton"),
+      onClickConfirmButton: handleSubmit,
     });
-  }, [submiting, handleSubmit, alert]);
-
-  // const handleCloseModal = React.useCallback(() => {
-  //   setShowModal(false);
-  // }, []);
+  }, [handleSubmit, showAlert]);
 
   return (
     <>
-      <Button onClick={handleShowModal}>Show Question Modal</Button>
-      {/* <AlertModal
-        show={showModal}
-        showCancelButton
-        onClose={handleCloseModal}
-        onClickConfirmButton={handleSubmit}
-        onClickCancelButton={handleCloseModal}
-        isSubmiting={submiting}
-        icon="warning"
-        title="Are you absolutely sure?"
-        variant="warning"
-        cancelButtonText="Cancel"
-        confirmButtonText="Yes, delete account"
-        description={`This action cannot be undone. This will permanently delete your account and remove your data from our servers.`}
-      /> */}
+      <Button onClick={handleShowAlertModal}>
+        Show Question Modal Witch Async Response
+      </Button>
     </>
   );
 };

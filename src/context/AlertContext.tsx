@@ -4,11 +4,12 @@ import { AlertModal, AlertModalProps } from "../Components/overlay/AlertModal";
 interface AlertArgs
   extends Omit<
     AlertModalProps,
-    "id" | "children" | "className" | "css" | "show"
+    "id" | "children" | "className" | "css" | "show" | "isSubmiting"
   > {}
 export interface IAlertContext {
-  alert: (alertModalProps?: AlertArgs) => void;
+  showAlert: (alertModalProps?: AlertArgs) => void;
   closeAlert?: () => void;
+  // changeLoadAlert?: (load: boolean) => void;
 }
 
 const alertInitialValues: AlertArgs = {
@@ -16,7 +17,6 @@ const alertInitialValues: AlertArgs = {
   description: "",
   icon: "info",
   variant: "info",
-  isSubmiting: false,
   confirmButtonText: "Ok",
   cancelButtonText: "Cancel",
   showCancelButton: false,
@@ -43,67 +43,61 @@ export function AlertContextProvider({ children }: IAlertContextProps) {
   // onClose,
   // onClickConfirmButton,
   // onClickCancelButton,
+  const [loading, setLoading] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const [alertModalValues, setAlertModalValues] =
     React.useState<AlertArgs>(alertInitialValues);
 
-  const { onClose, onClickCancelButton, ...restAlertModalValues } =
-    React.useMemo(() => alertModalValues, [alertModalValues]);
+  const {
+    onClose,
+    onClickCancelButton,
+    onClickConfirmButton,
+    ...restAlertModalValues
+  } = React.useMemo(() => alertModalValues, [alertModalValues]);
 
-  const alert = useCallback((alertModalProps?: AlertArgs) => {
+  const showAlert = useCallback((alertModalProps?: AlertArgs) => {
     setShow(true);
     setAlertModalValues(alertModalProps);
-    // if (alertModalProps?.title) {
-    //   setTitle(alertModalProps?.title);
-    // }
-    // if (alertModalProps?.description) {
-    //   setDescription(alertModalProps?.description);
-    // }
-    // if (alertModalProps?.icon) {
-    //   setIcon(alertModalProps?.icon);
-    // }
-    // if (alertModalProps?.variant) {
-    //   setVariant(alertModalProps?.variant);
-    // }
-    // if (alertModalProps?.isSubmiting) {
-    //   setIsSubmiting(alertModalProps?.isSubmiting);
-    // }
-    // if (alertModalProps?.confirmButtonText) {
-    //   setButtonText(alertModalProps?.confirmButtonText);
-    // }
-    // if (alertModalProps?.cancelButtonText) {
-    //   setCancelButtonText(alertModalProps?.cancelButtonText);
-    // }
-    // if (alertModalProps?.showCancelButton) {
-    //   setShowCancelButton(alertModalProps?.showCancelButton);
-    // }
-    // if (alertModalProps?.hideIcon) {
-    //   setHideIcon(alertModalProps?.hideIcon);
-    // }
   }, []);
+
+  // const changeLoadAlert = useCallback((load: boolean) => {
+  //   setLoading(load);
+  // }, []);
 
   const closeAlert = useCallback(() => {
     setShow(false);
+    setLoading(false);
     setAlertModalValues(alertInitialValues);
   }, []);
 
   const handleCloseAlert = useCallback(() => {
     closeAlert();
-  }, [closeAlert]);
+    onClose?.();
+  }, [closeAlert, onClose]);
+
+  const handleClickCancelButton = useCallback(() => {
+    handleCloseAlert();
+    onClickCancelButton?.();
+  }, [handleCloseAlert, onClickCancelButton]);
+
+  const handleClickConfirmButton = useCallback(() => {
+    if (alertModalValues?.showCancelButton) {
+      setLoading(true);
+    } else {
+      handleCloseAlert();
+    }
+    onClickConfirmButton?.();
+  }, [alertModalValues, onClickConfirmButton, handleCloseAlert]);
 
   return (
-    <AlertContext.Provider value={{ alert, closeAlert }}>
+    <AlertContext.Provider value={{ showAlert, closeAlert }}>
       {children}
       <AlertModal
         show={show}
-        onClose={() => {
-          handleCloseAlert();
-          onClose();
-        }}
-        onClickCancelButton={() => {
-          handleCloseAlert();
-          onClickCancelButton();
-        }}
+        isSubmiting={loading}
+        onClose={handleCloseAlert}
+        onClickCancelButton={handleClickCancelButton}
+        onClickConfirmButton={handleClickConfirmButton}
         {...restAlertModalValues}
       />
     </AlertContext.Provider>
