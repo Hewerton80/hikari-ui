@@ -42,5 +42,11 @@ export {
 } from "./Components/overlay/Modal";
 export { AlertModal, AlertModalProps } from "./Components/overlay/AlertModal";
 
+// components navigation
+export {
+  PaginationBar,
+  PaginationBarProps,
+} from "./Components/navigation/PaginationBar";
+
 //hooks utils
 export { useAlert } from "./hooks/utils/useAlert";
