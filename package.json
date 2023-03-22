@@ -75,6 +75,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
     "rollup": "^3.17.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
