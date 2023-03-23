@@ -31,6 +31,7 @@ export const spaces = {
   36: rem(144),
   40: rem(160),
   44: rem(176),
+  46: rem(184),
   48: rem(192),
   52: rem(208),
   56: rem(224),

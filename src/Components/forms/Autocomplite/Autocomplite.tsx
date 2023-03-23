@@ -10,6 +10,7 @@ import classNames from "classnames";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../styles/colors";
 import * as Styled from "./Autocomplite.styles";
+import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 export interface IAutoCompliteOption {
   value: string;
@@ -81,7 +82,9 @@ export function Autocomplite({
       required={restProps?.required}
     >
       <ReactSelect
+        classNamePrefix="auto-complite"
         className={classNames(
+          addClasseNamePrefix("auto-complite"),
           Styled.ReactSelect(),
 
           {
@@ -92,7 +95,6 @@ export function Autocomplite({
           className
         )}
         onChange={handleChange}
-        classNamePrefix="auto-complite"
         isSearchable
         loadingMessage={() => (
           <div className="flex w-full justify-center">
