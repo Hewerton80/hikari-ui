@@ -86,7 +86,6 @@ export function Autocomplite({
         className={classNames(
           addClasseNamePrefix("auto-complite"),
           Styled.ReactSelect(),
-
           {
             // [style.success]: feedbackText && state === 'success',
             // [style.warning]: feedbackText && state === 'warning',
