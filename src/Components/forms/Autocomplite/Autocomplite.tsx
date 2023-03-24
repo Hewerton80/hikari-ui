@@ -26,11 +26,6 @@ export type OnchangeMultValue = (
   actionMeta?: ActionMeta<IAutoCompliteOption>
 ) => void;
 
-type Onchange = (
-  newValue: IAutoCompliteOption & MultiValue<IAutoCompliteOption>,
-  actionMeta?: ActionMeta<IAutoCompliteOption>
-) => void;
-
 export interface AutocompliteProps extends FormControlProps {
   options: IAutoCompliteOption[];
   value?: PropsValue<IAutoCompliteOption>;
@@ -86,11 +81,6 @@ export function Autocomplite({
         className={classNames(
           addClasseNamePrefix("auto-complite"),
           Styled.ReactSelect(),
-          {
-            // [style.success]: feedbackText && state === 'success',
-            // [style.warning]: feedbackText && state === 'warning',
-            // [style.danger]: feedbackText && state === 'danger',
-          },
           className
         )}
         onChange={handleChange}

@@ -2,12 +2,13 @@ import { rgba, darken, rem } from "polished";
 import { colors } from "../../../styles/colors";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { css, CSS } from "../../../styles/theme";
+import { spaces } from "../../../styles/spaces";
 
 type ButtonVariantStyle = "contained" | "outlined" | "texted";
 
 const size = {
   sm: { height: "$8", px: "$4", py: "$3" },
-  md: { height: "$11", px: "$6", py: rem(14) },
+  md: { height: "$11", px: "$6", py: spaces[14] },
   lg: { height: "$12", px: "$12", py: "$4" },
 };
 

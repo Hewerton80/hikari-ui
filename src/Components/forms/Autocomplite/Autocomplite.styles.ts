@@ -9,13 +9,19 @@ export const ReactSelect = css("div", {
       minHeight: spaces["11.5"],
       backgroundColor: colors.transparent,
       borderColor: colors["gray-border"],
+      "&:hover": {
+        borderColor: colors["gray-border"],
+      },
       [`.${darkTheme} &`]: {
         borderColor: rgba(colors["white"], 0.1),
       },
-    },
-    "&--is-focused": {
-      borderColor: colors["info"],
-      ring: colors["info"],
+      "&--is-focused": {
+        borderColor: colors["info"],
+        ring: colors["info"],
+        "&:hover": {
+          borderColor: colors["info"],
+        },
+      },
     },
     "&__value-container": {
       px: spaces["2.5"],
@@ -90,15 +96,6 @@ export const ReactSelect = css("div", {
         },
       },
     },
-    // ".auto-complite__multi-value": {
-    //   "@apply bg-info text-white text-sm py-1.5 px-2 rounded": true,
-    // },
-    // ".auto-complite__multi-value__label": {
-    //   "@apply text-white p-0": true,
-    // },
-    // ".auto-complite__multi-value__remove:hover": {
-    //   "@apply bg-active-info text-white": true,
-    // },
   },
 
   //   ".root.success .auto-complite__control": {

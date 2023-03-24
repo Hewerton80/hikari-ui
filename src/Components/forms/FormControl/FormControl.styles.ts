@@ -3,16 +3,27 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { css, CSS, darkTheme } from "../../../styles/theme";
 
 const getStateVariantCss = (color: string): CSS => {
+  if (!color) return {};
+
   return {
     [`.${addClasseNamePrefix("feedback")}`]: {
       text: "xs",
       marginTop: "$2",
       color,
     },
-    [`.${addClasseNamePrefix("input")}, .${addClasseNamePrefix("textarea")}`]: {
+    [`
+    .${addClasseNamePrefix("input")}, .${addClasseNamePrefix(
+      "textarea"
+    )}, .auto-complite__control`]: {
       borderColor: color,
       "&:not(:disabled):focus": {
         ring: color,
+      },
+      "&--is-focused": {
+        ring: color,
+      },
+      "&:hover": {
+        borderColor: color,
       },
     },
   };
