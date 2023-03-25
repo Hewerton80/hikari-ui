@@ -40,7 +40,8 @@ export const SingleValue = () => {
           <Autocomplite
             label="Profile"
             value={profile}
-            onChangeSingleValue={setProfile}
+            onChange={setProfile}
+            // onChangeSingleValue={setProfile}
             options={profileOptions}
             placeholder="Select profile..."
           />
@@ -78,7 +79,9 @@ export const MultValues = () => {
             value={teches}
             isMulti
             options={techOptions}
-            onChangeMultValue={(newValues) => setTechs(newValues)}
+            onChange={(newValues) => setTechs(newValues)}
+            // onChange={(newValues) => setTechs(newValues)}
+            // onChangeMultValue={(newValues) => setTechs(newValues)}
             placeholder="Select teches..."
           />
         </Grid.Col>

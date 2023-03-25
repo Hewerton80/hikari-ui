@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FormControl, FormControlProps } from "../FormControl";
 import ReactSelect, {
   PropsValue,
@@ -36,6 +36,9 @@ export interface AutocompliteProps extends FormControlProps {
   name?: string;
   placeholder?: string;
   feedbackText?: string;
+  onChange?:
+    | ((newValues: IAutoCompliteOption[]) => void)
+    | ((newValue: SingleValue<IAutoCompliteOption>) => void);
   onInputChange?: (newValue: string) => void;
   onChangeSingleValue?: OnchangeSigleValue;
   onChangeMultValue?: OnchangeMultValue;
@@ -46,6 +49,7 @@ export function Autocomplite({
   label,
   className,
   feedbackText,
+  isMulti,
   onChangeSingleValue,
   onChangeMultValue,
   state,
@@ -53,19 +57,33 @@ export function Autocomplite({
   ...restProps
 }: AutocompliteProps) {
   const handleChange = React.useCallback(
-    (
-      newValue: IAutoCompliteOption | MultiValue<IAutoCompliteOption>,
-      actionMeta?: ActionMeta<IAutoCompliteOption>
-    ) => {
+    (newValue: IAutoCompliteOption | MultiValue<IAutoCompliteOption>) => {
       console.log("newValue", newValue);
       if (Array.isArray(newValue)) {
-        onChangeMultValue?.(newValue as IAutoCompliteOption[], actionMeta);
+        onChangeMultValue?.(newValue as IAutoCompliteOption[]);
       } else {
         onChangeSingleValue?.(newValue as IAutoCompliteOption);
       }
     },
     [onChangeSingleValue, onChangeMultValue]
   );
+
+  const onChangeMultValue2 = useCallback(
+    (
+      newValues: IAutoCompliteOption[],
+      actionMeta?: ActionMeta<IAutoCompliteOption>
+    ) => {},
+    []
+  );
+
+  const onChangeSingleValue2 = useCallback(
+    (newValue: SingleValue<IAutoCompliteOption>) => {},
+    []
+  );
+
+  const onChange = React.useMemo(() => {
+    return isMulti ? onChangeMultValue2 : onChangeSingleValue2;
+  }, [isMulti, onChangeMultValue2, onChangeSingleValue2]);
 
   return (
     <FormControl
@@ -83,7 +101,8 @@ export function Autocomplite({
           Styled.ReactSelect(),
           className
         )}
-        onChange={handleChange}
+        onChange={onChange}
+        isMulti={isMulti}
         isSearchable
         loadingMessage={() => (
           <div className="flex w-full justify-center">
