@@ -1,13 +1,9 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { useDebouncedCallback } from "use-debounce";
-import { Autocomplite, IAutoCompliteOption } from ".";
+import { Autocomplite, AutoCompliteOption } from ".";
 import { Grid } from "../../layout/Grid";
 import axios from "axios";
-// import FormGroup from '../FormGroup'
-// import FormLabel from '../FormLabel'
-// import { Card, CardBody, CardHeader, CardTitle } from '../../layout/Card'
-// import { useDebouncedCallback } from 'use-debounce'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -29,9 +25,8 @@ export const SingleValue = () => {
     { value: "O", label: "Other" },
   ];
 
-  const [profile, setProfile] =
-    React.useState<IAutoCompliteOption | null>(null);
-  const [gender, setGender] = React.useState<IAutoCompliteOption | null>(null);
+  const [profile, setProfile] = React.useState<AutoCompliteOption | null>(null);
+  const [gender, setGender] = React.useState<AutoCompliteOption | null>(null);
 
   return (
     <div style={{ width: 356 }}>
@@ -41,7 +36,6 @@ export const SingleValue = () => {
             label="Profile"
             value={profile}
             onChange={setProfile}
-            // onChangeSingleValue={setProfile}
             options={profileOptions}
             placeholder="Select profile..."
           />
@@ -51,7 +45,7 @@ export const SingleValue = () => {
             label="Gender"
             isDisabled
             value={gender}
-            onChangeSingleValue={setGender}
+            onChange={setGender}
             options={genderOptions}
             placeholder="Select Gender..."
           />
@@ -62,7 +56,7 @@ export const SingleValue = () => {
 };
 
 export const MultValues = () => {
-  const [teches, setTechs] = React.useState<IAutoCompliteOption[]>([]);
+  const [teches, setTechs] = React.useState<AutoCompliteOption[]>([]);
 
   const techOptions = [
     { value: "html", label: "HTML" },
@@ -79,9 +73,7 @@ export const MultValues = () => {
             value={teches}
             isMulti
             options={techOptions}
-            onChange={(newValues) => setTechs(newValues)}
-            // onChange={(newValues) => setTechs(newValues)}
-            // onChangeMultValue={(newValues) => setTechs(newValues)}
+            onChange={setTechs}
             placeholder="Select teches..."
           />
         </Grid.Col>
@@ -91,10 +83,9 @@ export const MultValues = () => {
 };
 
 export const Validations = () => {
-  const [profile, setProfile] =
-    React.useState<IAutoCompliteOption | null>(null);
-  const [gender, setGender] = React.useState<IAutoCompliteOption | null>(null);
-  const [tech, setTech] = React.useState<IAutoCompliteOption | null>(null);
+  const [profile, setProfile] = React.useState<AutoCompliteOption | null>(null);
+  const [gender, setGender] = React.useState<AutoCompliteOption | null>(null);
+  const [tech, setTech] = React.useState<AutoCompliteOption | null>(null);
 
   const profileOptions = [
     { value: "admin", label: "Admin" },
@@ -120,7 +111,7 @@ export const Validations = () => {
             label="Profile:"
             value={profile}
             options={profileOptions}
-            onChangeSingleValue={setProfile}
+            onChange={setProfile}
             placeholder="Select profile..."
             state="success"
             feedbackText="Looks good!"
@@ -131,7 +122,7 @@ export const Validations = () => {
             label="Gender:"
             value={gender}
             options={genderOptions}
-            onChangeSingleValue={setGender}
+            onChange={setGender}
             placeholder="Select gender..."
             state="warning"
             feedbackText="this is requied"
@@ -142,7 +133,7 @@ export const Validations = () => {
             label="Tech:"
             value={tech}
             options={techOptions}
-            onChangeSingleValue={setTech}
+            onChange={setTech}
             placeholder="Select tech..."
             state="danger"
             feedbackText="this is requied"
@@ -176,13 +167,13 @@ interface ICard {
 
 export const SigleValueAsync = () => {
   const [cardValue, setCardValue] =
-    React.useState<IAutoCompliteOption | null>(null);
+    React.useState<AutoCompliteOption | null>(null);
   const [responseCards, setResponseCards] = React.useState<ICard[]>([]);
   const [currentCardInfo, setCurrentCardInfo] =
     React.useState<ICard | undefined>(undefined);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const autocompliteCardOptions = React.useMemo<IAutoCompliteOption[]>(() => {
+  const autocompliteCardOptions = React.useMemo<AutoCompliteOption[]>(() => {
     return responseCards.map((card) => ({
       value: String(card?.id),
       label: String(card?.name),
@@ -216,7 +207,7 @@ export const SigleValueAsync = () => {
   );
 
   const handleSelectOptions = React.useCallback(
-    (option: IAutoCompliteOption | null) => {
+    (option: AutoCompliteOption | null) => {
       if (!option) return;
       setCardValue(option);
       const indexCard = responseCards.findIndex(
@@ -237,22 +228,24 @@ export const SigleValueAsync = () => {
             label="YU-GI-OH CARD:"
             value={cardValue}
             options={autocompliteCardOptions}
-            onChangeSingleValue={handleSelectOptions}
+            onChange={handleSelectOptions}
             onInputChange={handleChangeInputText}
             placeholder="Search for a yuguioh card..."
             isLoading={isLoading}
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          {currentCardInfo &&
-            currentCardInfo?.card_images?.map((img) => (
-              <img
-                key={img?.id}
-                src={img?.image_url}
-                alt={img?.image_url}
-                width={172}
-              />
-            ))}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {currentCardInfo &&
+              currentCardInfo?.card_images?.map((img) => (
+                <img
+                  key={img?.id}
+                  src={img?.image_url}
+                  alt={img?.image_url}
+                  width={172}
+                />
+              ))}
+          </div>
         </Grid.Col>
       </Grid>
     </div>
