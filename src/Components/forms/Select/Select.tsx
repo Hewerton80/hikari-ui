@@ -4,14 +4,14 @@ import { FormControl, FormControlProps } from "../FormControl";
 import * as Styled from "./Select.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
-interface ISelectOrpion {
+export interface SelectOption {
   value: string;
   label: string;
   selected?: boolean;
 }
-interface SelectProps extends Omit<FormControlProps, "children"> {
+export interface SelectProps extends Omit<FormControlProps, "children"> {
   value?: string | ReadonlyArray<string> | number | undefined;
-  options?: ISelectOrpion[];
+  options?: SelectOption[];
   required?: boolean;
   defaultValue?: string;
   placeholder?: string;
