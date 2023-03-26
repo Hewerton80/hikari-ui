@@ -34,9 +34,14 @@ export const ImageCard = () => {
               <p>{lorem}</p>
             </Card.Body>
             <Card.Footer>
-              <a href="#" onClick={(e) => e.preventDefault()}>
-                <Button variantStyle="primary-texted">Read More</Button>
-              </a>
+              <Button
+                as="link"
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                variantStyle="primary-texted"
+              >
+                Read More
+              </Button>
             </Card.Footer>
           </Card>
         </Grid.Col>
@@ -48,9 +53,14 @@ export const ImageCard = () => {
               <p>{lorem}</p>
             </Card.Body>
             <Card.Footer variantStyle="center">
-              <a href="#" onClick={(e) => e.preventDefault()}>
-                <Button variantStyle="primary-texted">Read More</Button>
-              </a>
+              <Button
+                as="link"
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                variantStyle="primary-texted"
+              >
+                Read More
+              </Button>
             </Card.Footer>
             <Card.Img variantStyle="bottom" src={img} alt={String(i)} />
           </Card>
@@ -64,9 +74,14 @@ export const ImageCard = () => {
               <p>{lorem}</p>
             </Card.Body>
             <Card.Footer variantStyle="right">
-              <a href="#" onClick={(e) => e.preventDefault()}>
-                <Button variantStyle="primary-texted">Read More</Button>
-              </a>
+              <Button
+                as="link"
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                variantStyle="primary-texted"
+              >
+                Read More
+              </Button>
             </Card.Footer>
           </Card>
         </Grid.Col>

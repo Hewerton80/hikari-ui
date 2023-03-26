@@ -1,6 +1,11 @@
 import React from "react";
 import { FormControl, FormControlProps } from "../FormControl";
-import ReactSelect, { PropsValue, SingleValue, ActionMeta } from "react-select";
+import ReactSelect, {
+  PropsValue,
+  SingleValue,
+  ActionMeta,
+  MultiValue,
+} from "react-select";
 import classNames from "classnames";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../styles/colors";
@@ -18,7 +23,7 @@ export type OnchangeSigleValue = (
 
 export type OnchangeMultValue = (
   newValue: AutoCompliteOption[],
-  actionMeta?: ActionMeta<AutoCompliteOption>
+  actionMeta: ActionMeta<AutoCompliteOption>
 ) => void;
 
 export interface AutocompliteProps extends FormControlProps {
@@ -31,9 +36,7 @@ export interface AutocompliteProps extends FormControlProps {
   name?: string;
   placeholder?: string;
   feedbackText?: string;
-  onChange?:
-    | ((newValues: AutoCompliteOption[]) => void)
-    | ((newValue: SingleValue<AutoCompliteOption>) => void);
+  onChange?: OnchangeSigleValue | OnchangeMultValue;
   onInputChange?: (newValue: string) => void;
   autoFocus?: boolean;
 }
@@ -45,24 +48,25 @@ export function Autocomplite({
   isMulti,
   state,
   css,
+  onChange,
   ...restProps
 }: AutocompliteProps) {
-  const onChangeMultValue2 = React.useCallback(
+  const handleChange = React.useCallback(
     (
-      newValues: AutoCompliteOption[],
-      actionMeta?: ActionMeta<AutoCompliteOption>
-    ) => {},
-    []
+      newValue: AutoCompliteOption | MultiValue<AutoCompliteOption>,
+      actionMeta: ActionMeta<AutoCompliteOption>
+    ) => {
+      if (isMulti) {
+        onChange?.(
+          newValue as AutoCompliteOption[] & AutoCompliteOption,
+          actionMeta as ActionMeta<AutoCompliteOption>
+        );
+      } else {
+        onChange?.(newValue as AutoCompliteOption[] & AutoCompliteOption, null);
+      }
+    },
+    [isMulti, onChange]
   );
-
-  const onChangeSingleValue2 = React.useCallback(
-    (newValue: SingleValue<AutoCompliteOption>) => {},
-    []
-  );
-
-  const handleChange = React.useMemo(() => {
-    return isMulti ? onChangeMultValue2 : onChangeSingleValue2;
-  }, [isMulti, onChangeMultValue2, onChangeSingleValue2]);
 
   return (
     <FormControl

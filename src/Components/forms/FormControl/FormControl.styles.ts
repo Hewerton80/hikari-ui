@@ -18,6 +18,7 @@ const getStateVariantCss = (color: string): CSS => {
       borderColor: color,
       "&:not(:disabled):focus": {
         ring: color,
+        borderColor: color,
       },
       "&--is-focused": {
         ring: color,

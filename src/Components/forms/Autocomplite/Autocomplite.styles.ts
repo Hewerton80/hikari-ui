@@ -73,7 +73,7 @@ export const ReactSelect = css("div", {
         color: colors.light,
       },
     },
-    "&__indicator-separator": {
+    "&__indicator-separator, &__loading-indicator": {
       display: "none",
     },
     "&__multi-value": {

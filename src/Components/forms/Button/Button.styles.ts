@@ -8,7 +8,7 @@ type ButtonVariantStyle = "contained" | "outlined" | "texted";
 
 const size = {
   sm: { height: "$8", px: "$4", py: "$3" },
-  md: { height: "$11", px: "$6", py: spaces[14] },
+  md: { height: "$11", px: "$6", py: spaces["3.5"] },
   lg: { height: "$12", px: "$12", py: "$4" },
 };
 

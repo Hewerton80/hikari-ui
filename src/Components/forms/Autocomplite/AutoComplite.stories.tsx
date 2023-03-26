@@ -4,6 +4,7 @@ import { useDebouncedCallback } from "use-debounce";
 import { Autocomplite, AutoCompliteOption } from ".";
 import { Grid } from "../../layout/Grid";
 import axios from "axios";
+import { ActionMeta } from "react-select";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -245,6 +246,106 @@ export const SigleValueAsync = () => {
                   width={172}
                 />
               ))}
+          </div>
+        </Grid.Col>
+      </Grid>
+    </div>
+  );
+};
+
+export const MultValueAsync = () => {
+  const [cardValue, setCardValue] = React.useState<AutoCompliteOption[]>([]);
+  const [responseCards, setResponseCards] = React.useState<ICard[]>([]);
+  const [currentCardInfo, setCurrentCardInfo] = React.useState<ICard[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const autocompliteCardOptions = React.useMemo<AutoCompliteOption[]>(() => {
+    return responseCards.map((card) => ({
+      value: String(card?.id),
+      label: String(card?.name),
+    }));
+  }, [responseCards]);
+
+  const handleFetchData = useDebouncedCallback(
+    React.useCallback(async (newValue: string) => {
+      try {
+        const { data: dataCards } = await axios.get(
+          "https://db.ygoprodeck.com/api/v7/cardinfo.php",
+          {
+            params: { fname: newValue, num: 8, page: 1, offset: 0 },
+          }
+        );
+        setResponseCards(dataCards?.data);
+      } catch (error) {}
+      setIsLoading(false);
+    }, []),
+    1000
+  );
+
+  const handleChangeInputText = React.useCallback(
+    (newValue: string) => {
+      if (!newValue.trim()) return;
+      setIsLoading(true);
+      handleFetchData(newValue);
+    },
+    [handleFetchData]
+  );
+  const handleChangeOptions = React.useCallback(
+    (
+      newOptions: AutoCompliteOption[],
+      actionMeta: ActionMeta<AutoCompliteOption>
+    ) => {
+      if (!newOptions) return;
+      setCardValue(newOptions);
+      if (actionMeta.action === "select-option") {
+        const indexCard = responseCards.findIndex(
+          (card) => String(card?.id) === actionMeta?.option?.value
+        );
+        if (indexCard >= 0) {
+          setCurrentCardInfo((currentInfo) => [
+            ...currentInfo,
+            responseCards[indexCard],
+          ]);
+        }
+      } else if (actionMeta.action === "remove-value") {
+        setCurrentCardInfo(([...currentInfo]) => {
+          const indexCard = currentInfo.findIndex(
+            (currentInfo) =>
+              String(currentInfo?.id) === actionMeta?.removedValue?.value
+          );
+          currentInfo.splice(indexCard, 1);
+          return currentInfo;
+        });
+      }
+    },
+    [responseCards]
+  );
+
+  return (
+    <div style={{ width: 356 }}>
+      <Grid gap={32}>
+        <Grid.Col span={{ base: 12 }}>
+          <Autocomplite
+            label="YU-GI-OH CARD:"
+            value={cardValue}
+            options={autocompliteCardOptions}
+            isMulti
+            onChange={handleChangeOptions}
+            onInputChange={handleChangeInputText}
+            placeholder="Search for a yuguioh card..."
+            isLoading={isLoading}
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12 }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
+            {currentCardInfo?.map((cardInfo) => (
+              <img
+                key={cardInfo?.card_images?.[0]?.id}
+                src={cardInfo?.card_images?.[0]?.image_url}
+                alt={cardInfo?.card_images?.[0]?.image_url}
+                width={172}
+              />
+            ))}
           </div>
         </Grid.Col>
       </Grid>

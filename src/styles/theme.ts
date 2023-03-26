@@ -35,20 +35,20 @@ export const { css, globalCss, createTheme, config, keyframes } =
         lineHeight: lineHeights[value],
       }),
       // Abbreviated margin properties
-      mx: (value: string) => ({
+      mx: (value: string | number) => ({
         marginLeft: value,
         marginRight: value,
       }),
-      my: (value: string) => ({
+      my: (value: string | number) => ({
         marginTop: value,
         marginBottom: value,
       }),
       // Abbreviated padding properties
-      px: (value: string) => ({
+      px: (value: string | number) => ({
         paddingLeft: value,
         paddingRight: value,
       }),
-      py: (value: string) => ({
+      py: (value: string | number) => ({
         paddingTop: value,
         paddingBottom: value,
       }),
@@ -80,6 +80,7 @@ export const { css, globalCss, createTheme, config, keyframes } =
         },
       }),
     },
+
     prefix: CLASSNAME_PREFIX,
   });
 
