@@ -2,6 +2,8 @@
 
 ## Welcome to Your UI Library for React! 🎉
 
+<!-- ![Current Version](https://img.shields.io/npm/v/@hikari-ui?color=green&label=version&cache=1)  -->
+
 Thank you for choosing our UI library for React! Our library provides a wide range of customizable and reusable components that can help you build beautiful and functional user interfaces with ease. 😍
 
 With our library, you can create buttons, inputs, modals, alerts, and more, all without having to worry about the design and functionality of each component. 🚀
@@ -12,7 +14,7 @@ If you have any questions or feedback, please don't hesitate to reach out to us.
 
 To get started, check out our installation and usage instructions, and feel free to explore our examples to see what our library can do. Thanks again for choosing our UI library for React, and happy coding! 😎
 
-## installation ⚙️
+## Installation ⚙️
 
 with npm:
 
@@ -25,6 +27,10 @@ with yarn:
 ```bash
 yarn add hikari-ui
 ```
+
+## Docs 📃
+
+- Check the [DOCS HERE](https://hikari-ui.vercel.app/) 👈
 
 ## Contributors
 
