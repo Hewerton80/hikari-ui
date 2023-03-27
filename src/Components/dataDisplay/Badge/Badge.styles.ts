@@ -2,7 +2,7 @@ import { colors } from "../../../styles/colors";
 import { css } from "../../../styles/theme";
 import { spaces } from "../../../styles/spaces";
 
-const variantStyle = {
+export const variantStyle = {
   primary: { color: colors.white, backgroundColor: colors.primary },
   success: { color: colors.white, backgroundColor: colors.success },
   secondary: { color: colors.white, backgroundColor: colors.secondary },

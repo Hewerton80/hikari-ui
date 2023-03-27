@@ -40,4 +40,5 @@ export const spaces = {
   72: rem(288),
   80: rem(320),
   96: rem(384),
+  128: rem(512),
 };

@@ -14,8 +14,22 @@ export default {
 
 export const variantStyles = () => {
   return (
-    <Box display="flex" flexDirection="column" gap={8} alignItems="center">
-      <Box display="flex" gap={8} flexWrap="wrap" justifyContent="center">
+    <Box
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+        alignItems: "center",
+      }}
+    >
+      <Box
+        css={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          justifyContent: "center",
+        }}
+      >
         <IconButton variantStyle="primary" icon={<FiUpload />} />
         <IconButton variantStyle="secondary" icon={<FiUpload />} />
         <IconButton variantStyle="success" icon={<FiUpload />} />
@@ -24,7 +38,14 @@ export const variantStyles = () => {
         <IconButton variantStyle="danger" icon={<FiUpload />} />
         <IconButton variantStyle="warning" icon={<FiUpload />} />
       </Box>
-      <Box display="flex" gap={8} flexWrap="wrap" justifyContent="center">
+      <Box
+        css={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          justifyContent: "center",
+        }}
+      >
         <IconButton variantStyle="primary-outlined" icon={<AiTwotoneEdit />} />
         <IconButton
           variantStyle="secondary-outlined"
@@ -36,7 +57,14 @@ export const variantStyles = () => {
         <IconButton variantStyle="danger-outlined" icon={<AiTwotoneEdit />} />
         <IconButton variantStyle="warning-outlined" icon={<AiTwotoneEdit />} />
       </Box>
-      <Box display="flex" gap={8} flexWrap="wrap" justifyContent="center">
+      <Box
+        css={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          justifyContent: "center",
+        }}
+      >
         <IconButton
           variantStyle="primary-texted"
           icon={<AiOutlineUserSwitch />}

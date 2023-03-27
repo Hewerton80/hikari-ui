@@ -50,7 +50,7 @@ export const Orientation = () => {
     <Grid gap={16} numCols={12}>
       {orientations.map((orientation, i) => (
         <React.Fragment key={orientation}>
-          {i === 4 && <Grid.Col span={{ base: 12, md: 4 }}></Grid.Col>}
+          {i === 4 && <Grid.Col span={{ base: 12, md: 4 }} />}
           <Grid.Col span={{ base: 12, md: 4 }}>
             <Dropdown>
               <Dropdown.Toogle>

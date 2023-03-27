@@ -8,7 +8,7 @@ import { shadows } from "./shadows";
 import { breakpoints } from "./breackpoints";
 import { CLASSNAME_PREFIX } from "../utils/addClasseNamePrefix";
 import { rgba } from "polished";
-// @ts-ignore
+
 export const { css, globalCss, createTheme, config, keyframes } =
   createStitches({
     theme: {
@@ -34,7 +34,6 @@ export const { css, globalCss, createTheme, config, keyframes } =
         fontSize: fontSizes[value],
         lineHeight: lineHeights[value],
       }),
-      // Abbreviated margin properties
       mx: (value: string | number) => ({
         marginLeft: value,
         marginRight: value,
@@ -43,7 +42,6 @@ export const { css, globalCss, createTheme, config, keyframes } =
         marginTop: value,
         marginBottom: value,
       }),
-      // Abbreviated padding properties
       px: (value: string | number) => ({
         paddingLeft: value,
         paddingRight: value,
@@ -52,7 +50,6 @@ export const { css, globalCss, createTheme, config, keyframes } =
         paddingTop: value,
         paddingBottom: value,
       }),
-      // A property for applying width/height together
       size: (value: string | number) => ({
         width: value,
         height: value,

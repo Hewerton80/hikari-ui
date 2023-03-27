@@ -14,8 +14,8 @@ export default {
 
 export const Example = () => {
   return (
-    <Box display="flex" flexDirection="column" spaceY={12}>
-      <Text as="p" fontSize="2rem">
+    <Box css={{ display: "flex", flexDirection: "column", spaceY: 12 }}>
+      <Text as="p" css={{ fontSize: "2rem" }}>
         In love with React & Next
       </Text>
 
@@ -23,23 +23,23 @@ export const Example = () => {
 
       <Text as="span">(Span) In love with React & Next</Text>
 
-      <Text as="p" fontWeight="bold">
+      <Text as="p" css={{ fontWeight: "bold" }}>
         In love with React & Next
       </Text>
 
-      <Text as="em" fontFamily="monospace">
+      <Text as="em" css={{ fontFamily: "monospace" }}>
         In love with React & Next
       </Text>
 
-      <Text as="b" color="#dc3545">
+      <Text as="b" css={{ color: "#dc3545" }}>
         In love with React & Next
       </Text>
 
-      <Text as="address" textDecoration="underline">
+      <Text as="address" css={{ textDecoration: "underline" }}>
         In love with React & Next
       </Text>
 
-      <Text as="p" textDecoration="line-through">
+      <Text as="p" css={{ textDecoration: "line-through" }}>
         In love with React & Next
       </Text>
     </Box>
@@ -47,7 +47,7 @@ export const Example = () => {
 };
 export const Heading = () => {
   return (
-    <Box display="flex" flexDirection="column" spaceY={12}>
+    <Box css={{ display: "flex", flexDirection: "column", spaceY: 12 }}>
       <Text as="h1">H1 🎉🥳🎊🪂</Text>
       <Text as="h2">H2 🎉🥳🎊🪂</Text>
       <Text as="h3">H3 🎉🥳🎊🪂</Text>

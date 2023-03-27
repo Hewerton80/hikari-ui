@@ -14,76 +14,92 @@ export default {
 
 export const Example = () => {
   return (
-    <Box display="flex" flexDirection="column" spaceY={32} as="main">
+    <Box
+      as="main"
+      css={{ display: "flex", flexDirection: "column", spaceY: 12 }}
+    >
       <Box
-        display="flex"
-        maxWidth={400}
-        height={150}
-        width="100%"
-        overflow="hidden"
-        borderRadius={10}
-        padding={16}
-        shadow="lg"
-        spaceX={8}
+        css={{
+          display: "flex",
+          height: 150,
+          maxWidth: 400,
+          width: "100%",
+          shadow: "lg",
+          overflow: "hidden",
+          borderRadius: 10,
+          padding: 16,
+          spaceX: 8,
+        }}
       >
         <Box
-          display="flex"
-          flex={"25%"}
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="#844fc1"
+          css={{
+            display: "flex",
+            flex: "25%",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#844fc1",
+          }}
         >
-          <Text color="#ffffff">Box 1</Text>
+          <Text css={{ color: "#ffffff" }}>Box 1</Text>
         </Box>
         <Box
-          display="flex"
-          flex={"25%"}
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="#f39915"
+          css={{
+            display: "flex",
+            flex: "25%",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#f39915",
+          }}
         >
-          <Text color="#ffffff">Box 2</Text>
+          <Text css={{ color: "#ffffff" }}>Box 2</Text>
         </Box>
         <Box
-          display="flex"
-          flex={"50%"}
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="#21bf06"
+          css={{
+            display: "flex",
+            flex: "50%",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#21bf06",
+          }}
         >
-          <Text color="#ffffff">Box 3</Text>
+          <Text css={{ color: "#ffffff" }}>Box 3</Text>
         </Box>
       </Box>
       <Box
-        display="flex"
-        maxWidth={400}
-        height={150}
-        width="100%"
-        borderRadius={10}
-        marginBottom={32}
-        overflow="hidden"
-        justifyContent="space-between"
-        shadow="lg"
-        padding={16}
-        spaceX={8}
+        css={{
+          display: "flex",
+          height: 150,
+          maxWidth: 400,
+          width: "100%",
+          shadow: "lg",
+          overflow: "hidden",
+          borderRadius: 10,
+          justifyContent: "space-between",
+          padding: 16,
+          spaceX: 8,
+        }}
       >
         <Box
-          display="flex"
-          width={150}
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="#dc3545"
+          css={{
+            display: "flex",
+            width: 150,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#dc3545",
+          }}
         >
-          <Text color="#ffffff">Box 1</Text>
+          <Text css={{ color: "#ffffff" }}>Box 1</Text>
         </Box>
         <Box
-          display="flex"
-          width={150}
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="#3b86d1"
+          css={{
+            display: "flex",
+            width: 150,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#3b86d1",
+          }}
         >
-          <Text color="#ffffff">Box 3</Text>
+          <Text css={{ color: "#ffffff" }}>Box 3</Text>
         </Box>
       </Box>
     </Box>

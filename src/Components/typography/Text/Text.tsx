@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-import { CSS } from "../../../styles/theme";
 
 import * as Styled from "./Text.styles";
 
-interface TextProps extends Omit<GlobalProps, "css">, CSS {
+interface TextProps extends GlobalProps {
   as?:
     | "p"
     | "h1"
@@ -30,6 +29,7 @@ export function Text({
   id,
   as = "p",
   className,
+  css,
   ...restProps
 }: TextProps) {
   const Comp = as;
@@ -37,10 +37,11 @@ export function Text({
     <Comp
       id={id}
       className={classNames(
-        addClasseNamePrefix("box"),
-        Styled.Text({ css: restProps }),
+        addClasseNamePrefix("text"),
+        Styled.Text({ css }),
         className
       )}
+      {...restProps}
     >
       {children}
     </Comp>

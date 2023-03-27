@@ -1,15 +1,21 @@
 {
   "name": "hikari-ui",
   "version": "0.1.1",
+  "author": "Hewerton Adão",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
+  "license": "MIT",
   "dependencies": {},
   "scripts": {
     "build:watch": "rollup -c -w",
     "build": "rollup -c",
     "dev": "start-storybook -p 6006",
     "build:storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hewerton80/hikari-ui.git"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +49,7 @@
     "@radix-ui/react-dialog": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
     "@radix-ui/react-slot": "^1.0.1",
+    "@radix-ui/react-tooltip": "^1.0.5",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-image": "^3.0.2",
     "@rollup/plugin-json": "^6.0.0",

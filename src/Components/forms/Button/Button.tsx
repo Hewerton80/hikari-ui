@@ -29,7 +29,7 @@ export function Button<T extends "button" | "link" | undefined>({
   className,
   size = "md",
   as,
-  variantStyle = "primary",
+  variantStyle = "info",
   fullWidth,
   rounded,
   leftIcon,

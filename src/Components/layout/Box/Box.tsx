@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
-import { CSS } from "../../../styles/theme";
 
 import * as Styled from "./Box.styles";
 
-export interface BoxProps extends Omit<GlobalProps, "css">, CSS {
+export interface BoxProps extends GlobalProps {
   as?:
     | "div"
     | "span"
@@ -25,6 +24,7 @@ export function Box({
   id,
   as = "div",
   className,
+  css,
   ...restProps
 }: BoxProps) {
   const Comp = as;
@@ -33,9 +33,10 @@ export function Box({
       id={id}
       className={classNames(
         addClasseNamePrefix("box"),
-        Styled.Box({ css: restProps }),
+        Styled.Box({ css }),
         className
       )}
+      {...restProps}
     >
       {children}
     </Comp>
