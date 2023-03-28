@@ -17,6 +17,7 @@ export const spaces = {
   6: rem(24),
   7: rem(28),
   8: rem(32),
+  8.5: rem(34),
   9: rem(36),
   10: rem(40),
   11: rem(44),
