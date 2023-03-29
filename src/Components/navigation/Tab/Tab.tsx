@@ -9,9 +9,9 @@ interface TabProviderProps extends Pick<GlobalProps, "children"> {
   onValueChange?: (value: number) => void;
 }
 
-interface TabsProps extends GlobalProps {
-  // value?: number;
-  // onValueChange?: (value: number) => void;
+interface TabsProps extends GlobalProps {}
+interface TabProps extends GlobalProps {
+  value: number;
 }
 
 export function TabProvider({
@@ -41,17 +41,37 @@ export function TabProvider({
 
 export function Tabs({ children, className, css, ...restProps }: TabsProps) {
   return (
-    <RadixTabs.Root
+    <RadixTabs.List
       className={classNames(
         addClasseNamePrefix("tabs"),
         Styled.Tabs({ css }),
         className
       )}
       {...restProps}
-      // className="flex flex-col w-[300px] shadow-[0_2px_10px] shadow-blackA4"
-      // defaultValue="tab1"
     >
       {children}
-    </RadixTabs.Root>
+    </RadixTabs.List>
+  );
+}
+
+export function Tab({
+  children,
+  className,
+  value,
+  css,
+  ...restProps
+}: TabProps) {
+  return (
+    <RadixTabs.Trigger
+      className={classNames(
+        addClasseNamePrefix("tab"),
+        Styled.Tab({ css }),
+        className
+      )}
+      value={String(value)}
+      {...restProps}
+    >
+      {children}
+    </RadixTabs.Trigger>
   );
 }
