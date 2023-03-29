@@ -4,7 +4,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Text.styles";
 
-interface TextProps extends GlobalProps {
+export interface TextProps extends GlobalProps {
   as?:
     | "p"
     | "h1"

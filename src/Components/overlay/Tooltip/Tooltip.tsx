@@ -7,7 +7,7 @@ import { isString } from "../../../utils/isType";
 import { orientationStyle } from "../../commonStyles/orientationVariantStyle";
 import { Slot } from "@radix-ui/react-slot";
 
-interface TooltipProps extends GlobalProps, Styled.TooltipProps {
+export interface TooltipProps extends GlobalProps, Styled.TooltipProps {
   content?: string | JSX.Element;
   defaultOpen?: boolean;
 }

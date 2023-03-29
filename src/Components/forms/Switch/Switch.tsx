@@ -5,16 +5,27 @@ import * as Styled from "./Switch.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { FormControl, FormControlProps } from "../FormControl";
 
-interface SwitchProps
-  extends Omit<FormControlProps, "children" | "feedbackText" | "state"> {
+export interface SwitchProps
+  extends Styled.SwitchProps,
+    Omit<FormControlProps, "children" | "feedbackText" | "state"> {
   checked?: boolean;
+  disabled?: boolean;
   onCheckedChange?: (checked: boolean) => void;
 }
 
-export function Switch({ className, label, css, ...restProps }: SwitchProps) {
+export function Switch({
+  className,
+  label,
+  labelOrientation = "top",
+  css,
+  ...restProps
+}: SwitchProps) {
   return (
     <FormControl
-      className={className}
+      className={classNames(
+        className,
+        Styled.FormControlSwitch({ labelOrientation })
+      )}
       id={restProps?.id}
       label={label}
       required={restProps?.required}

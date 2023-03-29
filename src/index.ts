@@ -1,6 +1,3 @@
-//context
-export { HikariProviders } from "./context";
-
 // components feedback
 export { Spinner, SpinnerProps } from "./Components/feedback/Spinner";
 export { Alert, AlertProps } from "./Components/feedback/Alert";
@@ -10,6 +7,7 @@ export { Badge, BadgeProps } from "./Components/dataDisplay/Badge";
 
 // components form
 export { Button, ButtonProps } from "./Components/forms/Button";
+export { Switch, SwitchProps } from "./Components/forms/Switch";
 export { Input, InputProps } from "./Components/forms/Input";
 export { Select, SelectOption, SelectProps } from "./Components/forms/Select";
 export { Textarea, TextareaProps } from "./Components/forms/Textarea";
@@ -50,6 +48,7 @@ export {
   ModalTitleProps,
 } from "./Components/overlay/Modal";
 export { AlertModal, AlertModalProps } from "./Components/overlay/AlertModal";
+export { Tooltip, TooltipProps } from "./Components/overlay/Tooltip";
 
 // components navigation
 export {
@@ -57,8 +56,14 @@ export {
   PaginationBarProps,
 } from "./Components/navigation/PaginationBar";
 
+// components typography
+export { Text, TextProps } from "./Components/typography/Text";
+
 //hooks utils
 export { useAlert } from "./hooks/utils/useAlert";
 
 //theme
 export { CSS } from "./styles/theme";
+
+//context
+export { HikariProviders } from "./context";
