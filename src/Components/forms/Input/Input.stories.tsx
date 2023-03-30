@@ -38,6 +38,53 @@ export const ActiveAndDisabled = () => {
   );
 };
 
+export const Masks = () => {
+  const [cpf, setCpg] = React.useState("");
+  const [cep, setCep] = React.useState("");
+  const [date, setDate] = React.useState("");
+  const [amount, setAmount] = React.useState("");
+  return (
+    <Grid numCols={12} gap={32}>
+      <Grid.Col span={{ base: 12, lg: 4 }}>
+        <Input
+          label="CPF"
+          mask="cpf"
+          value={cpf}
+          onChange={(e) => setCpg(e.target.value)}
+          required
+        />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, lg: 4 }}>
+        <Input
+          label="Cep"
+          mask="cep"
+          value={cep}
+          onChange={(e) => setCep(e.target.value)}
+          required
+        />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, lg: 4 }}>
+        <Input
+          label="City"
+          mask="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, lg: 4 }}>
+        <Input
+          label="Amount"
+          mask="currency(PT-BR)"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          required
+        />
+      </Grid.Col>
+    </Grid>
+  );
+};
+
 export const Validations = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
