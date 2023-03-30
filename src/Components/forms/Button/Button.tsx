@@ -8,11 +8,9 @@ export interface ButtonProps<T extends "button" | "link" = undefined>
   extends Styled.ButtonProps,
     GlobalProps {
   as?: T;
-  type?: T extends "link" ? undefined : "button" | "reset" | "submit";
-  href?: T extends "link" ? string : undefined;
-  target?: T extends "link"
-    ? "_blank" | "_parent" | "_self" | "_top"
-    : undefined;
+  type?: T extends "link" ? never : "button" | "reset" | "submit";
+  href?: T extends "link" ? string : never;
+  target?: T extends "link" ? "_blank" | "_parent" | "_self" | "_top" : never;
   isLoading?: boolean;
   fullWidth?: boolean;
   rounded?: boolean;
@@ -24,7 +22,7 @@ export interface ButtonProps<T extends "button" | "link" = undefined>
   ) => void;
 }
 
-export function Button<T extends "button" | "link" | undefined>({
+export function Button<T extends "button" | "link">({
   children,
   className,
   size = "md",
