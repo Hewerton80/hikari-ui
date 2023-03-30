@@ -4,19 +4,24 @@ import * as Styled from "./Tab.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
 
-interface TabProviderProps extends Pick<GlobalProps, "children"> {
-  value?: number;
+export interface TabProviderProps extends Pick<GlobalProps, "children"> {
+  // value?: number;
+  defaultValue?: number;
   onValueChange?: (value: number) => void;
 }
 
-interface TabsProps extends GlobalProps {}
-interface TabProps extends GlobalProps {
+export interface TabListProps extends GlobalProps {}
+export interface TabProps extends GlobalProps {
+  value: number;
+}
+export interface TabContentProps extends GlobalProps {
   value: number;
 }
 
-export function TabProvider({
+function TabProvider({
   children,
-  value,
+  // value,
+  defaultValue,
   onValueChange,
   ...restProps
 }: TabProviderProps) {
@@ -27,19 +32,20 @@ export function TabProvider({
       //   Styled.TabProvider({ css }),
       //   className
       // )}
+      defaultValue={String(defaultValue)}
       asChild
-      value={String(value)}
+      // value={String(value)}
       onValueChange={(newValue) => onValueChange?.(Number(newValue))}
       {...restProps}
       // className="flex flex-col w-[300px] shadow-[0_2px_10px] shadow-blackA4"
       // defaultValue="tab1"
     >
-      {children}
+      <>{children}</>
     </RadixTabs.Root>
   );
 }
 
-export function Tabs({ children, className, css, ...restProps }: TabsProps) {
+function Tabs({ children, className, css, ...restProps }: TabListProps) {
   return (
     <RadixTabs.List
       className={classNames(
@@ -49,18 +55,12 @@ export function Tabs({ children, className, css, ...restProps }: TabsProps) {
       )}
       {...restProps}
     >
-      {children}
+      <>{children}</>
     </RadixTabs.List>
   );
 }
 
-export function Tab({
-  children,
-  className,
-  value,
-  css,
-  ...restProps
-}: TabProps) {
+function Tab({ children, className, value, css, ...restProps }: TabProps) {
   return (
     <RadixTabs.Trigger
       className={classNames(
@@ -71,7 +71,35 @@ export function Tab({
       value={String(value)}
       {...restProps}
     >
-      {children}
+      <>{children}</>
     </RadixTabs.Trigger>
   );
 }
+
+function TabContent({
+  children,
+  className,
+  value,
+  css,
+  ...restProps
+}: TabContentProps) {
+  return (
+    <RadixTabs.Content
+      className={classNames(
+        addClasseNamePrefix("tab-content"),
+        Styled.TabContent({ css }),
+        className
+      )}
+      value={String(value)}
+      {...restProps}
+    >
+      <>{children}</>
+    </RadixTabs.Content>
+  );
+}
+
+Tab.Provider = TabProvider;
+Tab.List = Tabs;
+Tab.Content = TabContent;
+
+export { Tab };

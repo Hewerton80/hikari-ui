@@ -55,6 +55,13 @@ export {
   PaginationBar,
   PaginationBarProps,
 } from "./Components/navigation/PaginationBar";
+export {
+  Tab,
+  TabContentProps,
+  TabProps,
+  TabProviderProps,
+  TabListProps,
+} from "./Components/navigation/Tab";
 
 // components typography
 export { Text, TextProps } from "./Components/typography/Text";
