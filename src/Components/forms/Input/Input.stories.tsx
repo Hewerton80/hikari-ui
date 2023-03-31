@@ -40,9 +40,9 @@ export const ActiveAndDisabled = () => {
 
 export const Masks = () => {
   const [cpf, setCpg] = React.useState("");
+  const [cnpj, setCnpj] = React.useState("");
   const [cep, setCep] = React.useState("");
-  const [date, setDate] = React.useState("");
-  const [amount, setAmount] = React.useState("");
+  const [phone, setPhone] = React.useState("");
   return (
     <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>
@@ -51,6 +51,15 @@ export const Masks = () => {
           mask="cpf"
           value={cpf}
           onChange={(e) => setCpg(e.target.value)}
+          required
+        />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, lg: 4 }}>
+        <Input
+          label="CNPJ"
+          mask="cnpj"
+          value={cnpj}
+          onChange={(e) => setCnpj(e.target.value)}
           required
         />
       </Grid.Col>
@@ -65,19 +74,10 @@ export const Masks = () => {
       </Grid.Col>
       <Grid.Col span={{ base: 12, lg: 4 }}>
         <Input
-          label="City"
-          mask="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
-      </Grid.Col>
-      <Grid.Col span={{ base: 12, lg: 4 }}>
-        <Input
-          label="Amount"
-          mask="currency(PT-BR)"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          label="Phone"
+          mask="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           required
         />
       </Grid.Col>
