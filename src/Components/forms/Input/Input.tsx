@@ -6,15 +6,7 @@ import * as Styled from "./Input.styles";
 import { inputMasks } from "./masks";
 
 export interface InputProps extends FormControlProps {
-  type?:
-    | "text"
-    | "email"
-    | "password"
-    | "url"
-    | "tel"
-    | "time"
-    | "datetime-local"
-    | "date";
+  type?: "text" | "email" | "password";
   value?: string;
   mask?: keyof typeof inputMasks;
   defaultValue?: string;
@@ -29,45 +21,51 @@ export interface InputProps extends FormControlProps {
   maxLength?: number;
 }
 
-export function Input({
-  label,
-  className,
-  feedbackText,
-  mask,
-  state,
-  placeholder,
-  css,
-  onChange,
-  ...restProps
-}: InputProps) {
-  const matchMask = React.useMemo(() => mask && inputMasks[mask], [mask]);
-  const handleChangeInput = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (matchMask) {
-        e.target.value = matchMask.apply(e.target.value);
-      }
-      onChange?.(e);
-    },
-    [matchMask, onChange]
-  );
+export const Input = React.forwardRef(
+  (
+    {
+      label,
+      className,
+      feedbackText,
+      mask,
+      state,
+      placeholder,
+      css,
+      onChange,
+      ...restProps
+    }: InputProps,
+    ref: any
+  ) => {
+    const matchMask = React.useMemo(() => mask && inputMasks[mask], [mask]);
+    const handleChangeInput = React.useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (matchMask) {
+          e.target.value = matchMask.apply(e.target.value);
+        }
+        onChange?.(e);
+      },
+      [matchMask, onChange]
+    );
 
-  return (
-    <>
-      <FormControl
-        className={className}
-        id={restProps?.id}
-        label={label}
-        feedbackText={feedbackText}
-        state={state}
-        required={restProps?.required}
-      >
-        <input
-          className={classNames(addClasseNamePrefix("input"), Styled.Input())}
-          onChange={handleChangeInput}
-          placeholder={matchMask?.placeholder || placeholder}
-          {...restProps}
-        />
-      </FormControl>
-    </>
-  );
-}
+    return (
+      <>
+        <FormControl
+          className={className}
+          id={restProps?.id}
+          label={label}
+          feedbackText={feedbackText}
+          state={state}
+          required={restProps?.required}
+        >
+          <input
+            ref={ref}
+            className={classNames(addClasseNamePrefix("input"), Styled.Input())}
+            onChange={handleChangeInput}
+            placeholder={matchMask?.placeholder || placeholder}
+            {...restProps}
+          />
+        </FormControl>
+      </>
+    );
+  }
+);

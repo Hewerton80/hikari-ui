@@ -27,12 +27,7 @@ export const ActiveAndDisabled = () => {
         />
       </Grid.Col>
       <Grid.Col span={{ base: 12, lg: 4 }}>
-        <Input
-          disabled
-          placeholder="Fulano@email.com"
-          defaultValue="Fulano@email.com"
-          label="Email"
-        />
+        <Input disabled defaultValue="Fulano@email.com" label="Email" />
       </Grid.Col>
     </Grid>
   );
@@ -43,6 +38,7 @@ export const Masks = () => {
   const [cnpj, setCnpj] = React.useState("");
   const [cep, setCep] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [creditCard, setCreditCard] = React.useState("");
   return (
     <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>
@@ -78,6 +74,15 @@ export const Masks = () => {
           mask="phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+          required
+        />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, lg: 4 }}>
+        <Input
+          label="Credit Card"
+          mask="creditCard"
+          value={creditCard}
+          onChange={(e) => setCreditCard(e.target.value)}
           required
         />
       </Grid.Col>

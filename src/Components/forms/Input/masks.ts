@@ -11,7 +11,7 @@ export const inputMasks = {
         .replace(/(\d{3})(\d{1,2})/, "$1-$2")
         .replace(/(-\d{2})\d+?$/, "$1");
     },
-    placeholder: "___.___.___-__",
+    placeholder: "xxx.xxx.xxx-xx",
   },
   cnpj: {
     apply: (value: string) => {
@@ -22,7 +22,7 @@ export const inputMasks = {
         .replace(/(\d{4})(\d{1,2})/, "$1-$2")
         .replace(/(-\d{2})\d+?$/, "$1");
     },
-    placeholder: "__.___.___/____-__",
+    placeholder: "xx.xxx.xxx/xxxx-xx",
   },
   cep: {
     apply: (value: string) => {
@@ -30,7 +30,7 @@ export const inputMasks = {
         .replace(/(\d{5})(\d)/, "$1-$2")
         .replace(/(-\d{3})\d+?$/, "$1");
     },
-    placeholder: "_____-___",
+    placeholder: "xxxxx-xxx",
   },
   phone: {
     apply: (value: string) => {
@@ -39,7 +39,17 @@ export const inputMasks = {
         .replace(/(\d{5})(\d)/, "$1-$2")
         .replace(/(-\d{4})\d+?$/, "$1");
     },
-    placeholder: "(__) _____-____",
+    placeholder: "(xx) xxxxx-xxxx",
+  },
+  creditCard: {
+    apply: (value: string) => {
+      return onlyNumbersMask(value)
+        .replace(/(\d{4})(\d)/, "$1 $2")
+        .replace(/(\d{4})(\d)/, "$1 $2")
+        .replace(/(\d{4})(\d)/, "$1 $2")
+        .replace(/(\d{4})\d+?$/, "$1");
+    },
+    placeholder: "xxxx xxxx xxxx xxxx",
   },
   // "currency(PT-BR)": {
   //   apply: (value: string) => {
