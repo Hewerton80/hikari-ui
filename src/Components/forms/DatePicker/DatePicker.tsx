@@ -2,133 +2,105 @@ import React from "react";
 import * as Styled from "./DatePicker.styles";
 import { FaCalendarAlt } from "react-icons/fa";
 import classNames from "classnames";
-import { isUndefined } from "../../../utils/isType";
-import { regexs } from "../../../utils/regex";
 import { Input } from "../Input";
 import ReactDatePicker, {
-  // ReactDatePickerProps,
   registerLocale,
+  ReactDatePickerProps,
 } from "react-datepicker";
 import ptBr from "date-fns/locale/pt-BR";
+import { FormControlProps } from "../FormControl";
+import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { isDate, format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
-import { FormControlProps } from "../FormControl";
 
 registerLocale("pt-BR", ptBr);
 
-interface DatePickerProps extends FormControlProps {
-  inputValue?: string;
-  placeholderText?: string;
+type DateNullable = Date | null | undefined;
+
+// Pick<ReactDatePickerProps, "onChange" | "selectsRange"> {
+interface DatePickerProps<WithRange extends boolean | undefined = undefined>
+  extends FormControlProps {
+  selectedDate?: Date | null | undefined;
+  startDate?: Date | null | undefined;
+  endDate?: Date | null | undefined;
+  placeholder?: string;
   disabled?: boolean;
-  onInputChange?: (value: string) => void;
-  onFormatError?: (isFormatError: boolean) => void;
+  selectsRange?: boolean;
+  onChange?: (date: Date) => void;
+  onChangeRange?: (dates: [Date | null, Date | null]) => void;
 }
 
 export function DatePicker({
-  inputValue,
+  selectedDate,
   label,
   className,
+  placeholder = "dd/mm/aaaa",
   state,
+  selectsRange,
   feedbackText,
-  onInputChange,
-  onFormatError,
+  startDate,
+  endDate,
+  onChange,
+  onChangeRange,
   ...restProps
 }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date>(null);
-  const [alreadyBlurred, setAlreadyBlurred] = React.useState(false);
-
-  const inputValueMatchDate = React.useMemo(
-    () => inputValue?.match(regexs.dateFormat),
-    [inputValue]
-  );
-
-  const isformatError = React.useMemo(() => {
-    if (alreadyBlurred && !inputValueMatchDate) {
-      onFormatError?.(true);
-      return true;
-    } else {
-      onFormatError?.(false);
-    }
-  }, [alreadyBlurred, inputValueMatchDate, onFormatError]);
-
-  const inputState = React.useMemo(() => {
-    if (state) return state;
-
-    if (isformatError) return "danger";
-
-    return undefined;
-  }, [isformatError, state]);
+  const [inputValue, setInputValue] = React.useState("");
 
   React.useEffect(() => {
-    if (inputValueMatchDate) {
-      let parts = inputValue.split("/");
-      setDate?.(
-        new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]))
-      );
+    if (isDate(selectedDate)) {
+      // console.log("selectedDate", format(selectedDate, "dd/MM/yyyy"));
+      setInputValue(format(selectedDate, "dd/MM/yyyy"));
     } else {
-      setDate?.(null);
+      setInputValue("");
     }
-  }, [inputValue, inputValueMatchDate]);
+  }, [selectedDate]);
 
   React.useEffect(() => {
-    if (inputValueMatchDate) {
-      let parts = inputValue.split("/");
-      setDate?.(
-        new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]))
-      );
-    } else {
-      setDate?.(null);
+    if (isDate(startDate)) {
+      console.log("startDate", format(startDate, "dd/MM/yyyy"));
+      if (isDate(endDate)) {
+        console.log("endDate", format(endDate, "dd/MM/yyyy"));
+        const formatedRangeDate = `${format(
+          startDate,
+          "dd/MM/yyyy"
+        )} - ${format(endDate, "dd/MM/yyyy")}`;
+        setInputValue(formatedRangeDate);
+      } else {
+        setInputValue(format(startDate, "dd/MM/yyyy"));
+      }
+      // console.log("selectedDate", format(endDate, "dd/MM/yyyy"));
     }
-  }, [alreadyBlurred, inputValueMatchDate]);
-
-  const handleSelectDate = React.useCallback(
-    (date: Date) => {
-      console.log("date:", date);
-      if (isDate(date)) {
-        onInputChange?.(format(date, "dd/MM/yyyy"));
-      }
-    },
-    [onInputChange]
-  );
-
-  const handleInputChange = React.useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      const value = e.target.value;
-      if (isUndefined(value)) {
-        return;
-      }
-      onInputChange?.(
-        value
-          .replace(/\D/g, "")
-          .replace(/(\d{2})(\d)/, "$1/$2")
-          .replace(/(\d{2})(\d)/, "$1/$2")
-          .replace(/(\d{4})\d+?$/, "$1")
-      );
-    },
-    [onInputChange]
-  );
+  }, [startDate, endDate]);
 
   return (
-    <ReactDatePicker
-      value={inputValue}
-      dateFormat="dd/MM/yyyy"
-      popperClassName={classNames(Styled.DatePickerPopper())}
-      onChangeRaw={handleInputChange}
-      onChange={undefined}
-      onSelect={handleSelectDate}
-      selected={date}
-      customInput={
-        <Input
-          label={label}
-          className={className}
-          state={inputState}
-          feedbackText={feedbackText}
-          rightIcon={<FaCalendarAlt />}
-        />
-      }
-      locale="pt-BR"
-      onBlur={() => setAlreadyBlurred(true)}
-      {...restProps}
-    />
+    <div
+      className={classNames(
+        addClasseNamePrefix("date-picker"),
+        Styled.DatePickerPopper(),
+        className
+      )}
+    >
+      <ReactDatePicker
+        value={inputValue}
+        // dateFormat="dd/MM/yyyy"
+        startDate={startDate}
+        endDate={endDate}
+        selected={selectedDate}
+        withPortal
+        selectsRange={selectsRange}
+        placeholderText={placeholder}
+        onChange={selectsRange ? onChangeRange : onChange}
+        customInput={
+          <Input
+            feedbackText={feedbackText}
+            state={state}
+            label={label}
+            rightIcon={<FaCalendarAlt />}
+          />
+        }
+        locale="pt-BR"
+        {...restProps}
+      />
+    </div>
   );
 }

@@ -12,16 +12,35 @@ export default {
   // argTypes: {},
 } as ComponentMeta<typeof DatePicker>;
 
-export const ActiveAndDisabled = () => {
-  const [inputValue, setInputValue] = React.useState("");
+export const BasicExample = () => {
+  const [date, setDate] = React.useState<Date>(null);
   return (
     <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
       <Grid.Col span={{ base: 12 }}>
         <DatePicker
           label="Date"
-          inputValue={inputValue}
-          onInputChange={setInputValue}
-          placeholderText="dd/mm/aaaa"
+          selectedDate={date}
+          onChange={setDate}
+          required
+        />
+      </Grid.Col>
+    </Grid>
+  );
+};
+
+export const Range = () => {
+  const [dateRange, setDateRange] = React.useState<Date[]>([null, null]);
+  const [startDate, endDate] = React.useMemo(() => dateRange, [dateRange]);
+  return (
+    <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
+      <Grid.Col span={{ base: 12 }}>
+        <DatePicker
+          label="Date"
+          selectedDate={startDate}
+          startDate={startDate}
+          endDate={endDate}
+          onChangeRange={setDateRange}
+          selectsRange
           required
         />
       </Grid.Col>
