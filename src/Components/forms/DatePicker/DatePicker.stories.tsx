@@ -13,14 +13,15 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 export const ActiveAndDisabled = () => {
-  const [date, setDate] = React.useState<Date>(null);
+  const [inputValue, setInputValue] = React.useState("");
   return (
-    <Grid numCols={12} gap={32}>
+    <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
       <Grid.Col span={{ base: 12 }}>
         <DatePicker
+          label="Date"
+          inputValue={inputValue}
+          onInputChange={setInputValue}
           placeholderText="dd/mm/aaaa"
-          selected={date}
-          onChange={setDate}
           required
         />
       </Grid.Col>

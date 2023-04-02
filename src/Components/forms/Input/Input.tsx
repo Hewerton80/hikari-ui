@@ -14,6 +14,8 @@ export interface InputProps extends FormControlProps {
   autoFocus?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
+  rightIcon?: JSX.Element;
+  lefItcon?: JSX.Element;
   onFocus?: () => void;
   onBlur?: () => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -31,6 +33,8 @@ export const Input = React.forwardRef(
       state,
       placeholder,
       css,
+      lefItcon,
+      rightIcon,
       onChange,
       ...restProps
     }: InputProps,
@@ -59,11 +63,26 @@ export const Input = React.forwardRef(
         >
           <input
             ref={ref}
-            className={classNames(addClasseNamePrefix("input"), Styled.Input())}
+            className={classNames(
+              addClasseNamePrefix("input"),
+              lefItcon && addClasseNamePrefix("with-left-icon"),
+              rightIcon && addClasseNamePrefix("with-right-icon"),
+              Styled.Input({ css })
+            )}
             onChange={handleChangeInput}
             placeholder={matchMask?.placeholder || placeholder}
             {...restProps}
           />
+          {lefItcon && (
+            <span className={addClasseNamePrefix("input-left-icon")}>
+              {lefItcon}
+            </span>
+          )}
+          {rightIcon && (
+            <span className={addClasseNamePrefix("input-right-icon")}>
+              {rightIcon}
+            </span>
+          )}
         </FormControl>
       </>
     );

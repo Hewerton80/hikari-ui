@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
-
+import React from "react";
 import * as Styled from "./DatePicker.styles";
+import { FaCalendarAlt } from "react-icons/fa";
 import classNames from "classnames";
 import { isUndefined } from "../../../utils/isType";
 import { regexs } from "../../../utils/regex";
@@ -12,28 +12,83 @@ import ReactDatePicker, {
 import ptBr from "date-fns/locale/pt-BR";
 import { isDate, format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
+import { FormControlProps } from "../FormControl";
 
 registerLocale("pt-BR", ptBr);
 
-interface DatePickerProps extends GlobalProps {
-  onChange(date: Date): void;
+interface DatePickerProps extends FormControlProps {
+  inputValue?: string;
   placeholderText?: string;
-  required?: boolean;
   disabled?: boolean;
-  selected?: Date | null;
+  onInputChange?: (value: string) => void;
+  onFormatError?: (isFormatError: boolean) => void;
 }
 
-export function DatePicker({ onChange, ...restProps }: DatePickerProps) {
-  const [inputValue, setInputValue] = React.useState("");
+export function DatePicker({
+  inputValue,
+  label,
+  className,
+  state,
+  feedbackText,
+  onInputChange,
+  onFormatError,
+  ...restProps
+}: DatePickerProps) {
+  const [date, setDate] = React.useState<Date>(null);
+  const [alreadyBlurred, setAlreadyBlurred] = React.useState(false);
+
+  const inputValueMatchDate = React.useMemo(
+    () => inputValue?.match(regexs.dateFormat),
+    [inputValue]
+  );
+
+  const isformatError = React.useMemo(() => {
+    if (alreadyBlurred && !inputValueMatchDate) {
+      onFormatError?.(true);
+      return true;
+    } else {
+      onFormatError?.(false);
+    }
+  }, [alreadyBlurred, inputValueMatchDate, onFormatError]);
+
+  const inputState = React.useMemo(() => {
+    if (state) return state;
+
+    if (isformatError) return "danger";
+
+    return undefined;
+  }, [isformatError, state]);
+
+  React.useEffect(() => {
+    if (inputValueMatchDate) {
+      let parts = inputValue.split("/");
+      setDate?.(
+        new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]))
+      );
+    } else {
+      setDate?.(null);
+    }
+  }, [inputValue, inputValueMatchDate]);
+
+  React.useEffect(() => {
+    if (inputValueMatchDate) {
+      let parts = inputValue.split("/");
+      setDate?.(
+        new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]))
+      );
+    } else {
+      setDate?.(null);
+    }
+  }, [alreadyBlurred, inputValueMatchDate]);
 
   const handleSelectDate = React.useCallback(
     (date: Date) => {
-      onChange?.(date);
+      console.log("date:", date);
       if (isDate(date)) {
-        setInputValue(format(date, "dd/MM/yyyy"));
+        onInputChange?.(format(date, "dd/MM/yyyy"));
       }
     },
-    [onChange]
+    [onInputChange]
   );
 
   const handleInputChange = React.useCallback(
@@ -42,29 +97,15 @@ export function DatePicker({ onChange, ...restProps }: DatePickerProps) {
       if (isUndefined(value)) {
         return;
       }
-      setInputValue(
+      onInputChange?.(
         value
           .replace(/\D/g, "")
           .replace(/(\d{2})(\d)/, "$1/$2")
           .replace(/(\d{2})(\d)/, "$1/$2")
           .replace(/(\d{4})\d+?$/, "$1")
       );
-      if (!value) {
-        onChange?.(null);
-      } else if (value.match(regexs.dateFormat)) {
-        let parts = value.split("/");
-        onChange?.(
-          new Date(
-            parseInt(parts[2]),
-            parseInt(parts[1]) - 1,
-            parseInt(parts[0])
-          )
-        );
-      } else {
-        onChange?.(null);
-      }
     },
-    [onChange]
+    [onInputChange]
   );
 
   return (
@@ -75,8 +116,18 @@ export function DatePicker({ onChange, ...restProps }: DatePickerProps) {
       onChangeRaw={handleInputChange}
       onChange={undefined}
       onSelect={handleSelectDate}
-      customInput={<Input />}
+      selected={date}
+      customInput={
+        <Input
+          label={label}
+          className={className}
+          state={inputState}
+          feedbackText={feedbackText}
+          rightIcon={<FaCalendarAlt />}
+        />
+      }
       locale="pt-BR"
+      onBlur={() => setAlreadyBlurred(true)}
       {...restProps}
     />
   );

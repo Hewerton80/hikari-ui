@@ -37,6 +37,7 @@ const state = {
 };
 
 export const FormControl = css("div", {
+  position: "relative",
   display: "flex",
   flexDirection: "column",
   variants: {
