@@ -1,18 +1,19 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { useDebouncedCallback } from "use-debounce";
-import { Autocomplite, AutoCompliteOption } from ".";
+import { Select, SelectOption } from ".";
 import { Grid } from "../../layout/Grid";
+import { Box } from "../../layout/Box";
 import axios from "axios";
 import { ActionMeta } from "react-select";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "forms/Autocomplite",
-  component: Autocomplite,
+  title: "forms/Select",
+  component: Select,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Autocomplite>;
+} as ComponentMeta<typeof Select>;
 
 export const SingleValue = () => {
   const profileOptions = [
@@ -26,14 +27,14 @@ export const SingleValue = () => {
     { value: "O", label: "Other" },
   ];
 
-  const [profile, setProfile] = React.useState<AutoCompliteOption | null>(null);
-  const [gender, setGender] = React.useState<AutoCompliteOption | null>(null);
+  const [profile, setProfile] = React.useState<SelectOption | null>(null);
+  const [gender, setGender] = React.useState<SelectOption | null>(null);
 
   return (
-    <div style={{ width: 356 }}>
+    <Box css={{ width: 356 }}>
       <Grid gap={32}>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="Profile"
             value={profile}
             onChange={setProfile}
@@ -42,7 +43,7 @@ export const SingleValue = () => {
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="Gender"
             isDisabled
             value={gender}
@@ -52,41 +53,14 @@ export const SingleValue = () => {
           />
         </Grid.Col>
       </Grid>
-    </div>
-  );
-};
-
-export const MultValues = () => {
-  const [teches, setTechs] = React.useState<AutoCompliteOption[]>([]);
-
-  const techOptions = [
-    { value: "html", label: "HTML" },
-    { value: "css", label: "CSS" },
-    { value: "JS", label: "JAVASCRIPT" },
-  ];
-
-  return (
-    <div style={{ width: 356 }}>
-      <Grid>
-        <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
-            label="Techs"
-            value={teches}
-            isMulti
-            options={techOptions}
-            onChange={setTechs}
-            placeholder="Select teches..."
-          />
-        </Grid.Col>
-      </Grid>
-    </div>
+    </Box>
   );
 };
 
 export const Validations = () => {
-  const [profile, setProfile] = React.useState<AutoCompliteOption | null>(null);
-  const [gender, setGender] = React.useState<AutoCompliteOption | null>(null);
-  const [tech, setTech] = React.useState<AutoCompliteOption | null>(null);
+  const [profile, setProfile] = React.useState<SelectOption | null>(null);
+  const [gender, setGender] = React.useState<SelectOption | null>(null);
+  const [tech, setTech] = React.useState<SelectOption | null>(null);
 
   const profileOptions = [
     { value: "admin", label: "Admin" },
@@ -105,10 +79,10 @@ export const Validations = () => {
   ];
 
   return (
-    <div style={{ width: 356 }}>
+    <Box css={{ width: 356 }}>
       <Grid gap={32}>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="Profile:"
             value={profile}
             options={profileOptions}
@@ -119,7 +93,7 @@ export const Validations = () => {
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="Gender:"
             value={gender}
             options={genderOptions}
@@ -130,7 +104,7 @@ export const Validations = () => {
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="Tech:"
             value={tech}
             options={techOptions}
@@ -141,7 +115,62 @@ export const Validations = () => {
           />
         </Grid.Col>
       </Grid>
-    </div>
+    </Box>
+  );
+};
+
+export const SingleValueWithAutocomplite = () => {
+  const profileOptions = [
+    { value: "admin", label: "Admin" },
+    { value: "blogger", label: "Blogger" },
+    { value: "customer", label: "Customer" },
+  ];
+
+  const [profile, setProfile] = React.useState<SelectOption | null>(null);
+
+  return (
+    <Box css={{ width: 356 }}>
+      <Grid gap={32}>
+        <Grid.Col span={{ base: 12 }}>
+          <Select
+            label="Profile"
+            value={profile}
+            onChange={setProfile}
+            options={profileOptions}
+            isAutocomplite
+            placeholder="Select profile..."
+          />
+        </Grid.Col>
+      </Grid>
+    </Box>
+  );
+};
+
+export const MultValuesWithAutocomplite = () => {
+  const [teches, setTechs] = React.useState<SelectOption[]>([]);
+
+  const techOptions = [
+    { value: "html", label: "HTML" },
+    { value: "css", label: "CSS" },
+    { value: "JS", label: "JAVASCRIPT" },
+  ];
+
+  return (
+    <Box css={{ width: 356 }}>
+      <Grid>
+        <Grid.Col span={{ base: 12 }}>
+          <Select
+            label="Techs"
+            value={teches}
+            isMulti
+            isAutocomplite
+            options={techOptions}
+            onChange={setTechs}
+            placeholder="Select teches..."
+          />
+        </Grid.Col>
+      </Grid>
+    </Box>
   );
 };
 
@@ -166,15 +195,14 @@ interface ICard {
   card_images?: cardImage[];
 }
 
-export const SigleValueAsync = () => {
-  const [cardValue, setCardValue] =
-    React.useState<AutoCompliteOption | null>(null);
+export const SigleValueWitchAutocompliteAsync = () => {
+  const [cardValue, setCardValue] = React.useState<SelectOption | null>(null);
   const [responseCards, setResponseCards] = React.useState<ICard[]>([]);
   const [currentCardInfo, setCurrentCardInfo] =
     React.useState<ICard | undefined>(undefined);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const autocompliteCardOptions = React.useMemo<AutoCompliteOption[]>(() => {
+  const autocompliteCardOptions = React.useMemo<SelectOption[]>(() => {
     return responseCards.map((card) => ({
       value: String(card?.id),
       label: String(card?.name),
@@ -208,7 +236,7 @@ export const SigleValueAsync = () => {
   );
 
   const handleSelectOptions = React.useCallback(
-    (option: AutoCompliteOption | null) => {
+    (option: SelectOption | null) => {
       if (!option) return;
       setCardValue(option);
       const indexCard = responseCards.findIndex(
@@ -222,21 +250,29 @@ export const SigleValueAsync = () => {
   );
 
   return (
-    <div style={{ width: 356 }}>
+    <Box css={{ width: 356 }}>
       <Grid gap={32}>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="YU-GI-OH CARD:"
             value={cardValue}
             options={autocompliteCardOptions}
             onChange={handleSelectOptions}
             onInputChange={handleChangeInputText}
+            isAutocomplite
             placeholder="Search for a yuguioh card..."
             isLoading={isLoading}
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <Box
+            css={{
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: 8,
+            }}
+          >
             {currentCardInfo &&
               currentCardInfo?.card_images?.map((img) => (
                 <img
@@ -246,20 +282,20 @@ export const SigleValueAsync = () => {
                   width={172}
                 />
               ))}
-          </div>
+          </Box>
         </Grid.Col>
       </Grid>
-    </div>
+    </Box>
   );
 };
 
-export const MultValueAsync = () => {
-  const [cardValue, setCardValue] = React.useState<AutoCompliteOption[]>([]);
+export const MultValueAutocompliteAsync = () => {
+  const [cardValue, setCardValue] = React.useState<SelectOption[]>([]);
   const [responseCards, setResponseCards] = React.useState<ICard[]>([]);
   const [currentCardInfo, setCurrentCardInfo] = React.useState<ICard[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const autocompliteCardOptions = React.useMemo<AutoCompliteOption[]>(() => {
+  const autocompliteCardOptions = React.useMemo<SelectOption[]>(() => {
     return responseCards.map((card) => ({
       value: String(card?.id),
       label: String(card?.name),
@@ -291,10 +327,7 @@ export const MultValueAsync = () => {
     [handleFetchData]
   );
   const handleChangeOptions = React.useCallback(
-    (
-      newOptions: AutoCompliteOption[],
-      actionMeta: ActionMeta<AutoCompliteOption>
-    ) => {
+    (newOptions: SelectOption[], actionMeta: ActionMeta<SelectOption>) => {
       if (!newOptions) return;
       setCardValue(newOptions);
       if (actionMeta.action === "select-option") {
@@ -322,14 +355,15 @@ export const MultValueAsync = () => {
   );
 
   return (
-    <div style={{ width: 356 }}>
+    <Box css={{ width: 356 }}>
       <Grid gap={32}>
         <Grid.Col span={{ base: 12 }}>
-          <Autocomplite
+          <Select
             label="YU-GI-OH CARD:"
             value={cardValue}
             options={autocompliteCardOptions}
             isMulti
+            isAutocomplite
             onChange={handleChangeOptions}
             onInputChange={handleChangeInputText}
             placeholder="Search for a yuguioh card..."
@@ -337,7 +371,14 @@ export const MultValueAsync = () => {
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
+          <Box
+            css={{
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: 8,
+            }}
+          >
             {currentCardInfo?.map((cardInfo) => (
               <img
                 key={cardInfo?.card_images?.[0]?.id}
@@ -346,9 +387,9 @@ export const MultValueAsync = () => {
                 width={172}
               />
             ))}
-          </div>
+          </Box>
         </Grid.Col>
       </Grid>
-    </div>
+    </Box>
   );
 };

@@ -16,6 +16,8 @@ interface DatePickerProps extends FormControlProps {
   selectedDate?: Date | null;
   startDate?: Date | null;
   endDate?: Date | null;
+  maxDate?: Date | null | undefined;
+  minDate?: Date | null | undefined;
   placeholder?: string;
   disabled?: boolean;
   showTimeSelect?: boolean;

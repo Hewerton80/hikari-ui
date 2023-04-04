@@ -9,15 +9,14 @@ export { Badge, BadgeProps } from "./Components/dataDisplay/Badge";
 export { Button, ButtonProps } from "./Components/forms/Button";
 export { Switch, SwitchProps } from "./Components/forms/Switch";
 export { Input, InputProps } from "./Components/forms/Input";
-export { Select, SelectOption, SelectProps } from "./Components/forms/Select";
 export { Textarea, TextareaProps } from "./Components/forms/Textarea";
 export {
-  Autocomplite,
-  AutoCompliteOption,
-  AutocompliteProps,
+  Select,
+  SelectOption,
+  SelectProps,
   OnchangeMultValue,
   OnchangeSigleValue,
-} from "./Components/forms/Autocomplite";
+} from "./Components/forms/Select";
 
 // components layout
 export { Box, BoxProps } from "./Components/layout/Box";

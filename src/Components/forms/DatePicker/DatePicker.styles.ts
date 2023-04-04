@@ -108,6 +108,10 @@ export const DatePickerPopper = css("div", {
           color: colors.muted,
         },
       },
+      "&--disabled": {
+        opacity: 0.5,
+        cursor: "not-allowed",
+      },
       "&--keyboard-selected": {
         backgroundColor: colors.transparent,
         borderColor: colors.info,

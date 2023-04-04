@@ -12,23 +12,22 @@ import { colors } from "../../../styles/colors";
 import * as Styled from "./Autocomplite.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
-export interface AutoCompliteOption {
+export interface SelectOption {
   value: string;
   label: string;
 }
 
-export type OnchangeSigleValue = (
-  newValue: SingleValue<AutoCompliteOption>
-) => void;
+export type OnchangeSigleValue = (newValue: SingleValue<SelectOption>) => void;
 
 export type OnchangeMultValue = (
-  newValue: AutoCompliteOption[],
-  actionMeta: ActionMeta<AutoCompliteOption>
+  newValue: SelectOption[],
+  actionMeta: ActionMeta<SelectOption>
 ) => void;
 
-export interface AutocompliteProps extends FormControlProps {
-  options: AutoCompliteOption[];
-  value?: PropsValue<AutoCompliteOption>;
+export interface SelectProps extends FormControlProps {
+  options: SelectOption[];
+  value?: PropsValue<SelectOption>;
+  isAutocomplite?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;
   isMulti?: boolean;
@@ -41,8 +40,9 @@ export interface AutocompliteProps extends FormControlProps {
   autoFocus?: boolean;
 }
 
-export function Autocomplite({
+export function Select({
   label,
+  isAutocomplite = false,
   className,
   feedbackText,
   isMulti,
@@ -50,19 +50,19 @@ export function Autocomplite({
   css,
   onChange,
   ...restProps
-}: AutocompliteProps) {
+}: SelectProps) {
   const handleChange = React.useCallback(
     (
-      newValue: AutoCompliteOption | MultiValue<AutoCompliteOption>,
-      actionMeta: ActionMeta<AutoCompliteOption>
+      newValue: SelectOption | MultiValue<SelectOption>,
+      actionMeta: ActionMeta<SelectOption>
     ) => {
       if (isMulti) {
         onChange?.(
-          newValue as AutoCompliteOption[] & AutoCompliteOption,
-          actionMeta as ActionMeta<AutoCompliteOption>
+          newValue as SelectOption[] & SelectOption,
+          actionMeta as ActionMeta<SelectOption>
         );
       } else {
-        onChange?.(newValue as AutoCompliteOption[] & AutoCompliteOption, null);
+        onChange?.(newValue as SelectOption[] & SelectOption, null);
       }
     },
     [isMulti, onChange]
@@ -86,7 +86,7 @@ export function Autocomplite({
         )}
         onChange={handleChange}
         isMulti={isMulti}
-        isSearchable
+        isSearchable={isAutocomplite}
         noOptionsMessage={() => ""}
         loadingMessage={() => (
           <div className="flex w-full justify-center">
