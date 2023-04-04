@@ -76,6 +76,18 @@ export const { css, globalCss, createTheme, config, keyframes } =
           marginLeft: value,
         },
       }),
+      customScroll: () => ({
+        "&::-webkit-scrollbar": {
+          height: spaces["2.5"],
+          width: spaces["1.5"],
+          background: colors["transparent"],
+        },
+        "&::-webkit-scrollbar-thumb": {
+          "-webkit-border-radius": spaces["1"],
+          borderRadius: spaces["1"],
+          background: colors.gray,
+        },
+      }),
     },
 
     prefix: CLASSNAME_PREFIX,
@@ -84,4 +96,3 @@ export const { css, globalCss, createTheme, config, keyframes } =
 export type CSS = CSSStitches<typeof config>;
 
 export const darkTheme = createTheme({});
-export const lightTheme = createTheme({});

@@ -28,6 +28,26 @@ export const BasicExample = () => {
   );
 };
 
+export const DateWithTime = () => {
+  const [date, setDate] = React.useState<Date>(null);
+  return (
+    <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
+      <Grid.Col span={{ base: 12 }}>
+        <DatePicker
+          label="Date"
+          showTimeSelect
+          selectedDate={date}
+          onChange={(date) => {
+            console.log("date", date.toString());
+            setDate(date);
+          }}
+          required
+        />
+      </Grid.Col>
+    </Grid>
+  );
+};
+
 export const Range = () => {
   const [dateRange, setDateRange] = React.useState<Date[]>([null, null]);
   const [startDate, endDate] = React.useMemo(() => dateRange, [dateRange]);

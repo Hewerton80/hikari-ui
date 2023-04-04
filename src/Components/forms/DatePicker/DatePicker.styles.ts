@@ -1,17 +1,60 @@
-import { css, darkTheme } from "../../../styles/theme";
+import { css, CSS, darkTheme } from "../../../styles/theme";
 import { colors } from "../../../styles/colors";
 import { spaces } from "../../../styles/spaces";
+import { darken, rem } from "polished";
+
+const textStyle: CSS = {
+  color: colors.dark,
+  "&:hover:not(&--selected)": {
+    backgroundColor: `${colors["gray-light"]} !important`,
+  },
+  [`.${darkTheme} &`]: {
+    color: `${colors.light} !important`,
+    "&:hover": {
+      backgroundColor: `${colors["dark-hover"]} !important`,
+    },
+  },
+  "&--selected": {
+    color: `${colors.white} !important`,
+    backgroundColor: `${colors.info} !important`,
+  },
+};
 
 export const DatePickerPopper = css("div", {
   ".react-datepicker": {
     border: "none",
+    [`.${darkTheme} &`]: {
+      backgroundColor: colors["dark-card"],
+      borderColor: colors["dark-card"],
+    },
     "&__header": {
+      height: rem(110),
       backgroundColor: colors.info,
       border: `1px solid ${colors.info}`,
       paddingTop: spaces["7"],
       [`.${darkTheme} &`]: {
         backgroundColor: colors["dark-card"],
         borderColor: colors["dark-card"],
+      },
+    },
+    "&-time__header": {
+      color: colors.transparent,
+      pointerEvents: "none",
+    },
+    "&__time": {
+      borderLeft: `1px solid ${colors["gray-light"]}`,
+      [`.${darkTheme} &`]: {
+        backgroundColor: colors["dark-card"],
+        borderColor: colors["dark-card"],
+      },
+      "&-container": {
+        borderLeft: "none",
+      },
+      "&-list": {
+        customScroll: "",
+      },
+      "&-list-item": {
+        ...textStyle,
       },
     },
     "&__navigation": {
@@ -30,10 +73,11 @@ export const DatePickerPopper = css("div", {
       },
     },
     "&__month": {
-      border: `1px solid ${colors["gray-lightest"]}`,
       margin: 0,
       padding: spaces["4"],
       borderTop: "none",
+      border: "none",
+
       [`.${darkTheme} &`]: {
         backgroundColor: colors["dark-card"],
         borderColor: colors["dark-card"],
@@ -47,21 +91,16 @@ export const DatePickerPopper = css("div", {
       color: colors.white,
     },
     "&__day": {
-      color: colors.dark,
       border: `1px solid ${colors.transparent}`,
       margin: spaces["0.5"],
-      "&:hover": {
-        backgroundColor: colors["gray-light"],
-      },
-      [`.${darkTheme} &`]: {
-        color: colors.light,
-        "&:hover": {
-          backgroundColor: colors["dark-hover"],
-        },
-      },
-      "&--selected": {
+      ...textStyle,
+      "&--in-selecting-range": {
+        backgroundColor: `${colors.info} !important`,
         color: colors.white,
-        backgroundColor: colors.info,
+      },
+      "&--in-range": {
+        backgroundColor: darken(0.1, colors.info),
+        color: colors.white,
       },
       "&--outside-month": {
         color: colors.muted,
@@ -72,6 +111,7 @@ export const DatePickerPopper = css("div", {
       "&--keyboard-selected": {
         backgroundColor: colors.transparent,
         borderColor: colors.info,
+        color: colors.info,
       },
       "&-name": {
         margin: spaces["0.5"],
@@ -79,39 +119,8 @@ export const DatePickerPopper = css("div", {
         textTransform: "capitalize",
       },
     },
-
-    // "&__triangle": {
-    //   "&::before": {
-    //     borderBottomColor: `${colors.transparent} !important`,
-    //   },
-    //   "&::after": {
-    //     borderBottomColor: `${colors.info} !important`,
-    //     [`.${darkTheme} &`]: {
-    //       borderBottomColor: `${colors["dark-card"]} !important`,
-    //     },
-    //   },
-    // },
     "&__portal": {
       backgroundColor: colors["dark-screen"],
     },
   },
-  // "&[data-placement^=top]": {
-  //   ".react-datepicker": {
-  //     "&__triangle": {
-  //       "&::before": {
-  //         borderTopColor: `${colors["gray-lightest"]} !important`,
-  //         bottom: "0px !important",
-  //         [`.${darkTheme} &`]: {
-  //           borderTopColor: `${colors.transparent} !important`,
-  //         },
-  //       },
-  //       "&::after": {
-  //         bottom: "1px !important",
-  //         [`.${darkTheme} &`]: {
-  //           borderTopColor: `${colors["dark-card"]} !important`,
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
 });

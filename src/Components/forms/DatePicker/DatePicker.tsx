@@ -3,10 +3,7 @@ import * as Styled from "./DatePicker.styles";
 import { FaCalendarAlt } from "react-icons/fa";
 import classNames from "classnames";
 import { Input } from "../Input";
-import ReactDatePicker, {
-  registerLocale,
-  ReactDatePickerProps,
-} from "react-datepicker";
+import ReactDatePicker, { registerLocale } from "react-datepicker";
 import ptBr from "date-fns/locale/pt-BR";
 import { FormControlProps } from "../FormControl";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
@@ -15,16 +12,13 @@ import "react-datepicker/dist/react-datepicker.css";
 
 registerLocale("pt-BR", ptBr);
 
-type DateNullable = Date | null | undefined;
-
-// Pick<ReactDatePickerProps, "onChange" | "selectsRange"> {
-interface DatePickerProps<WithRange extends boolean | undefined = undefined>
-  extends FormControlProps {
-  selectedDate?: Date | null | undefined;
-  startDate?: Date | null | undefined;
-  endDate?: Date | null | undefined;
+interface DatePickerProps extends FormControlProps {
+  selectedDate?: Date | null;
+  startDate?: Date | null;
+  endDate?: Date | null;
   placeholder?: string;
   disabled?: boolean;
+  showTimeSelect?: boolean;
   selectsRange?: boolean;
   onChange?: (date: Date) => void;
   onChangeRange?: (dates: [Date | null, Date | null]) => void;
@@ -34,9 +28,10 @@ export function DatePicker({
   selectedDate,
   label,
   className,
-  placeholder = "dd/mm/aaaa",
+  placeholder,
   state,
   selectsRange,
+  showTimeSelect,
   feedbackText,
   startDate,
   endDate,
@@ -46,31 +41,55 @@ export function DatePicker({
 }: DatePickerProps) {
   const [inputValue, setInputValue] = React.useState("");
 
+  const handledShowTimeSelect = React.useMemo(
+    () => (selectsRange ? false : showTimeSelect),
+    [selectsRange, showTimeSelect]
+  );
+
+  const handledPlaceholder = React.useMemo(() => {
+    if (placeholder) {
+      return placeholder;
+    }
+    let handledPlaceholderTemp = "dd/mm/aaaa";
+    if (handledShowTimeSelect) {
+      handledPlaceholderTemp = `${handledPlaceholderTemp} HH:mm`;
+    }
+    return handledPlaceholderTemp;
+  }, [placeholder, handledShowTimeSelect]);
+
+  const dateFormat = React.useMemo(() => {
+    let dateFormatTemp = "dd/MM/yyyy";
+    if (handledShowTimeSelect) {
+      dateFormatTemp = `${dateFormatTemp} HH:mm`;
+    }
+    return dateFormatTemp;
+  }, [handledShowTimeSelect]);
+
   React.useEffect(() => {
     if (isDate(selectedDate)) {
-      // console.log("selectedDate", format(selectedDate, "dd/MM/yyyy"));
-      setInputValue(format(selectedDate, "dd/MM/yyyy"));
+      // console.log("selectedDate", format(selectedDate, dateFormat));
+      setInputValue(format(selectedDate, dateFormat));
     } else {
       setInputValue("");
     }
-  }, [selectedDate]);
+  }, [selectedDate, dateFormat]);
 
   React.useEffect(() => {
     if (isDate(startDate)) {
-      console.log("startDate", format(startDate, "dd/MM/yyyy"));
+      console.log("startDate", format(startDate, dateFormat));
       if (isDate(endDate)) {
-        console.log("endDate", format(endDate, "dd/MM/yyyy"));
-        const formatedRangeDate = `${format(
-          startDate,
-          "dd/MM/yyyy"
-        )} - ${format(endDate, "dd/MM/yyyy")}`;
+        console.log("endDate", format(endDate, dateFormat));
+        const formatedRangeDate = `${format(startDate, dateFormat)} - ${format(
+          endDate,
+          dateFormat
+        )}`;
         setInputValue(formatedRangeDate);
       } else {
-        setInputValue(format(startDate, "dd/MM/yyyy"));
+        setInputValue(format(startDate, dateFormat));
       }
-      // console.log("selectedDate", format(endDate, "dd/MM/yyyy"));
+      // console.log("selectedDate", format(endDate, dateFormat));
     }
-  }, [startDate, endDate]);
+  }, [startDate, endDate, dateFormat]);
 
   return (
     <div
@@ -82,13 +101,15 @@ export function DatePicker({
     >
       <ReactDatePicker
         value={inputValue}
-        // dateFormat="dd/MM/yyyy"
+        timeFormat="HH:mm"
         startDate={startDate}
         endDate={endDate}
         selected={selectedDate}
         withPortal
+        showTimeSelect={handledShowTimeSelect}
+        timeIntervals={15}
         selectsRange={selectsRange}
-        placeholderText={placeholder}
+        placeholderText={handledPlaceholder}
         onChange={selectsRange ? onChangeRange : onChange}
         customInput={
           <Input
