@@ -1,7 +1,7 @@
 import { colors } from "../../../styles/colors";
 import { css, darkTheme } from "../../../styles/theme";
 import { spaces } from "../../../styles/spaces";
-import { orientationStyle } from "../../commonStyles/orientationVariantStyle";
+import { orientationStyle } from "../../commonStyles/variantOrientationStyle";
 
 export interface MenuProps {
   orientation?: keyof typeof orientationStyle;

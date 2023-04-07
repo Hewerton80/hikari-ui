@@ -1,29 +1,12 @@
 import { css } from "../../../styles/theme";
 import { colors } from "../../../styles/colors";
 import { rem } from "polished";
+import { labelOrientation } from "../../commonStyles/labelOrientationStyle";
 
 const switchWidth = 38;
 const switchThumbSize = 16;
 const switchPadding = 2;
 const switchHeight = switchThumbSize + 2 * switchPadding;
-
-const labelOrientation = {
-  top: {},
-  right: {
-    flexDirection: "row-reverse",
-    label: {
-      marginBottom: 0,
-      marginLeft: "$2",
-    },
-  },
-  left: {
-    flexDirection: "row",
-    label: {
-      marginBottom: 0,
-      marginRight: "$2",
-    },
-  },
-};
 
 export interface SwitchProps {
   labelOrientation?: keyof typeof labelOrientation;

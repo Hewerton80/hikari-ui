@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { Grid } from ".";
-import { Button } from "../../forms/Button";
 import { Box } from "../../layout/Box";
 import { Text } from "../../typography/Text";
 

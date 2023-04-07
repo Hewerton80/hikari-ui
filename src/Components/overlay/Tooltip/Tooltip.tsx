@@ -4,7 +4,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
 import * as Styled from "./Tooltip.styles";
 import { isString } from "../../../utils/isType";
-import { orientationStyle } from "../../commonStyles/orientationVariantStyle";
+import { orientationStyle } from "../../commonStyles/variantOrientationStyle";
 import { Slot } from "@radix-ui/react-slot";
 
 export interface TooltipProps extends GlobalProps, Styled.TooltipProps {

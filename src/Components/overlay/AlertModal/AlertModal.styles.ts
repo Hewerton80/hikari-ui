@@ -21,7 +21,7 @@ const alertShow = keyframes({
   },
 });
 
-const totateInVer = keyframes({
+const rotateInVer = keyframes({
   "0%": {
     transform: "rotateY(-360deg)",
     opacity: 0,
@@ -52,7 +52,7 @@ export const Content = css("div", {
 
 export const Icon = css("svg", {
   display: "flex",
-  animation: `${totateInVer} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+  animation: `${rotateInVer} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
   text: "7xl",
   variants: { variant },
 });

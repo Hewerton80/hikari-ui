@@ -9,7 +9,9 @@ type ButtonPropsOmited = Omit<
   "leftIcon" | "rightIcon" | "children" | "fullWidth" | "size" | "rounded"
 >;
 
-interface IconButtonProps extends ButtonPropsOmited, Styled.IconButtonProps {
+export interface IconButtonProps
+  extends ButtonPropsOmited,
+    Styled.IconButtonProps {
   icon?: JSX.Element;
 }
 

@@ -1,7 +1,7 @@
 import { css, keyframes } from "../../../styles/theme";
 import { spaces } from "../../../styles/spaces";
 import { StyledBadge, badgeVariantStyle } from "../../dataDisplay/Badge";
-import { orientationStyle } from "../../commonStyles/orientationVariantStyle";
+import { orientationStyle } from "../../commonStyles/variantOrientationStyle";
 
 const slideAndFade = keyframes({
   "0%": { opacity: 0, transform: "scale(0.75)" },

@@ -3,7 +3,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as Styled from "./Dropdown.styles";
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
 import classNames from "classnames";
-import { orientationStyle } from "../../commonStyles/orientationVariantStyle";
+import { orientationStyle } from "../../commonStyles/variantOrientationStyle";
 
 export interface DropdownProps {
   children: React.ReactNode;
