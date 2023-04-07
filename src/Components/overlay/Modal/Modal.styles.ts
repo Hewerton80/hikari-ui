@@ -1,7 +1,7 @@
 import { css, darkTheme, keyframes } from "../../../styles/theme";
 import { colors } from "../../../styles/colors";
 import { spaces } from "../../../styles/spaces";
-import { cardStyle } from "../../commonStyles/cardStyle";
+import { cardStyle } from "../../commonStyles/CardStyle";
 import { rem } from "polished";
 
 const size = {

@@ -1,4 +1,4 @@
-import { cardStyle } from "../../commonStyles/cardStyle";
+import { cardStyle } from "../../commonStyles/CardStyle";
 import { colors } from "../../../styles/colors";
 import { css, darkTheme } from "../../../styles/theme";
 
