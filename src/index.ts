@@ -10,6 +10,11 @@ export { Button, ButtonProps } from "./Components/forms/Button";
 export { IconButton, IconButtonProps } from "./Components/forms/IconButton";
 export { Switch, SwitchProps } from "./Components/forms/Switch";
 export { Checkbox, CheckboxProps } from "./Components/forms/Checkbox";
+export {
+  RadioGroup,
+  RadioGroupProps,
+  RadioItemProps,
+} from "./Components/forms/RadioGroup";
 export { Input, InputProps } from "./Components/forms/Input";
 export { Textarea, TextareaProps } from "./Components/forms/Textarea";
 export {
