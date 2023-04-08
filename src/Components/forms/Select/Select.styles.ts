@@ -2,12 +2,14 @@ import { css, darkTheme } from "../../../styles/theme";
 import { colors } from "../../../styles/colors";
 import { spaces } from "../../../styles/spaces";
 import { darken, rem, rgba } from "polished";
+import { formTextStyle } from "../../commonStyles/formTextStyle";
 
 export const ReactSelect = css("div", {
-  ".auto-complite": {
+  ".select": {
     "&__control": {
-      minHeight: spaces["11.5"],
-      backgroundColor: colors.transparent,
+      minHeight: formTextStyle.height,
+      backgroundColor: formTextStyle.backgroundColor,
+      transition: formTextStyle.transition,
       borderColor: colors["gray-border"],
       "&:hover": {
         borderColor: colors["gray-border"],
@@ -45,7 +47,7 @@ export const ReactSelect = css("div", {
       text: "sm",
       color: colors.input,
       [`.${darkTheme} &`]: {
-        color: colors.light,
+        color: `${colors.light} !important`,
       },
     },
     "&__menu": {
@@ -97,23 +99,4 @@ export const ReactSelect = css("div", {
       },
     },
   },
-
-  //   ".root.success .auto-complite__control": {
-  //     "@apply !border-success": true,
-  //   },
-  //   ".root.warning .auto-complite__control": {
-  //     "@apply !border-warning": true,
-  //   },
-  //   ".root.danger .auto-complite__control": {
-  //     "@apply !border-danger": true,
-  //   },
-  //   ".root.success .auto-complite__control--is-focused": {
-  //     "@apply border-success ring-4 ring-success/40": true,
-  //   },
-  //   ".root.warning .auto-complite__control--is-focused": {
-  //     "@apply border-warning ring-4 ring-warning/40": true,
-  //   },
-  //   ".root.danger .auto-complite__control--is-focused": {
-  //     "@apply border-danger ring-4 ring-danger/40": true,
-  //   },
 });

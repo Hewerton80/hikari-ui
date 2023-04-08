@@ -27,8 +27,8 @@ export const SingleValue = () => {
     { value: "O", label: "Other" },
   ];
 
-  const [profile, setProfile] = React.useState<SelectOption | null>(null);
-  const [gender, setGender] = React.useState<SelectOption | null>(null);
+  const [profile, setProfile] = React.useState<SelectOption>(null);
+  const [gender, setGender] = React.useState<SelectOption>(null);
 
   return (
     <Box css={{ width: 356 }}>
@@ -58,9 +58,9 @@ export const SingleValue = () => {
 };
 
 export const Validations = () => {
-  const [profile, setProfile] = React.useState<SelectOption | null>(null);
-  const [gender, setGender] = React.useState<SelectOption | null>(null);
-  const [tech, setTech] = React.useState<SelectOption | null>(null);
+  const [profile, setProfile] = React.useState<SelectOption>(null);
+  const [gender, setGender] = React.useState<SelectOption>(null);
+  const [tech, setTech] = React.useState<SelectOption>(null);
 
   const profileOptions = [
     { value: "admin", label: "Admin" },
@@ -126,7 +126,7 @@ export const SingleValueWithAutocomplite = () => {
     { value: "customer", label: "Customer" },
   ];
 
-  const [profile, setProfile] = React.useState<SelectOption | null>(null);
+  const [profile, setProfile] = React.useState<SelectOption>(null);
 
   return (
     <Box css={{ width: 356 }}>
@@ -196,7 +196,7 @@ interface ICard {
 }
 
 export const SigleValueWitchAutocompliteAsync = () => {
-  const [cardValue, setCardValue] = React.useState<SelectOption | null>(null);
+  const [cardValue, setCardValue] = React.useState<SelectOption>(null);
   const [responseCards, setResponseCards] = React.useState<ICard[]>([]);
   const [currentCardInfo, setCurrentCardInfo] =
     React.useState<ICard | undefined>(undefined);
@@ -236,7 +236,7 @@ export const SigleValueWitchAutocompliteAsync = () => {
   );
 
   const handleSelectOptions = React.useCallback(
-    (option: SelectOption | null) => {
+    (option: SelectOption) => {
       if (!option) return;
       setCardValue(option);
       const indexCard = responseCards.findIndex(

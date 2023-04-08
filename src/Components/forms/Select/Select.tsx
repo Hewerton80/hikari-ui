@@ -9,7 +9,7 @@ import ReactSelect, {
 import classNames from "classnames";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../styles/colors";
-import * as Styled from "./Autocomplite.styles";
+import * as Styled from "./Select.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 export interface SelectOption {
@@ -78,9 +78,9 @@ export function Select({
       required={restProps?.required}
     >
       <ReactSelect
-        classNamePrefix="auto-complite"
+        classNamePrefix="select"
         className={classNames(
-          addClasseNamePrefix("auto-complite"),
+          addClasseNamePrefix("select"),
           Styled.ReactSelect(),
           className
         )}

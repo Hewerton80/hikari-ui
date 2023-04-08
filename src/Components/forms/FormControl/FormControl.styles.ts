@@ -14,7 +14,7 @@ const getStateVariantCss = (color: string): CSS => {
     [`
     .${addClasseNamePrefix("input")}, .${addClasseNamePrefix(
       "textarea"
-    )}, .auto-complite__control`]: {
+    )}, .select__control`]: {
       borderColor: color,
       "&:not(:disabled):focus": {
         ring: color,
