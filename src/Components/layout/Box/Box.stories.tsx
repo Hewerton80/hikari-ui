@@ -88,7 +88,7 @@ export const Example = () => {
             backgroundColor: "#dc3545",
           }}
         >
-          <Text css={{ color: "#ffffff" }}>Box 1</Text>
+          <Text css={{ color: "#ffffff" }}>Box 4</Text>
         </Box>
         <Box
           css={{
@@ -99,7 +99,7 @@ export const Example = () => {
             backgroundColor: "#3b86d1",
           }}
         >
-          <Text css={{ color: "#ffffff" }}>Box 3</Text>
+          <Text css={{ color: "#ffffff" }}>Box 5</Text>
         </Box>
       </Box>
     </Box>

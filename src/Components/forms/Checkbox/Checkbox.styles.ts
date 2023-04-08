@@ -11,7 +11,7 @@ export const FormControlCheckbox = css("div", {
   variants: { labelOrientation },
 });
 
-export const CheckboxRoot = css("div", {
+export const CheckboxRoot = css("button", {
   size: spaces["4.5"],
   border: `${spaces["0.5"]} solid ${colors.primary}`,
   borderRadius: spaces["0.5"],
@@ -39,7 +39,7 @@ const show = keyframes({
   },
 });
 
-export const CheckboxIndcator = css("button", {
+export const CheckboxIndcator = css("span", {
   "& > svg": {
     fill: colors.white,
     transform: "scale(0.8)",
