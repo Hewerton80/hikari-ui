@@ -12,12 +12,12 @@ const pkg = require("./package.json");
 module.exports = {
   input: "src/index.ts",
   output: [
-    {
-      file: pkg.main,
-      format: "cjs",
-      exports: "named",
-      sourcemap: true,
-    },
+    // {
+    //   file: pkg.main,
+    //   format: "cjs",
+    //   exports: "named",
+    //   sourcemap: true,
+    // },
     {
       file: pkg.module,
       format: "esm",
@@ -33,10 +33,14 @@ module.exports = {
     image(),
     svgr(),
     resolve(),
-    typescript({}),
+    typescript({
+      tsconfig: "./tsconfig.build.json",
+      declaration: true,
+      declarationDir: "dist",
+    }),
     commonjs({
-      include: ["node_modules/**"],
-      exclude: ["**/*.stories.js"],
+      // include: ["node_modules/**"],
+      // exclude: ["**/*.stories.js"],
     }),
     json(),
   ],
