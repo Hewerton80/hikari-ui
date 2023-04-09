@@ -33,7 +33,7 @@ module.exports = {
     image(),
     svgr(),
     resolve(),
-    typescript(),
+    typescript({}),
     commonjs({
       include: ["node_modules/**"],
       exclude: ["**/*.stories.js"],
