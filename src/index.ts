@@ -62,6 +62,11 @@ export {
   PaginationBarProps,
 } from "./Components/navigation/PaginationBar";
 export {
+  Breadcrumbs,
+  BreadcrumbsLinkProps,
+  BreadcrumbsProps,
+} from "./Components/navigation/Breadcrumbs";
+export {
   Tab,
   TabContentProps,
   TabProps,
