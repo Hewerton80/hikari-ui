@@ -3,6 +3,7 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Box.styles";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface BoxProps extends GlobalProps {
   as?:

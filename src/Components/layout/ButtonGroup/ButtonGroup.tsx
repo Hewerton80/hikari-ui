@@ -2,6 +2,7 @@ import React from "react";
 import * as Styled from "./ButtonGroup.styles";
 import classNames from "classnames";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface ButtonGroupProps extends GlobalProps {
   vertical?: boolean;

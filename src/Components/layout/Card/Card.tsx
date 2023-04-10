@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as Styled from "./Card.styles";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface CardProps extends GlobalProps, Styled.CardProps {}
 export interface CardImgProps extends GlobalProps, Styled.CardImgProps {

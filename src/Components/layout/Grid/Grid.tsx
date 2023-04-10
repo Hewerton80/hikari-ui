@@ -3,6 +3,7 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { isNumber } from "../../../utils/isType";
 import * as Styled from "./Grid.styles";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface GridProps extends GlobalProps {
   numCols?: Styled.AvaliablesColSpans;

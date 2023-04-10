@@ -3,6 +3,7 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Badge.styles";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 const StyledBadge = Styled.Badge;
 const badgeVariantStyle = Styled.variantStyle;

@@ -4,6 +4,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
 import * as Styled from "./Modal.styles";
 import { FaTimes } from "react-icons/fa";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface ModalProps extends GlobalProps, Styled.ModalProps {
   show?: boolean;

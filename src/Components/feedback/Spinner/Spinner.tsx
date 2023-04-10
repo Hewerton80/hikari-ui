@@ -6,6 +6,7 @@ import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
 import { rem } from "polished";
 import { CSS } from "../../../styles/theme";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface SpinnerProps extends GlobalProps {
   size?: number;
@@ -15,10 +16,10 @@ export interface SpinnerProps extends GlobalProps {
 export function Spinner({
   size = 24,
   color = colors.primary,
-  css,
+  css = {},
   ...restProps
 }: SpinnerProps) {
-  const cssSppiner: CSS = {
+  const cssSpinner: CSS = {
     size: rem(size),
     div: {
       margin: rem(0.1 * size),
@@ -33,7 +34,7 @@ export function Spinner({
     <div
       className={classNames(
         addClasseNamePrefix("spinner"),
-        Styled.Spinner({ css: cssSppiner })
+        Styled.Spinner({ css: cssSpinner })
       )}
       {...restProps}
     >

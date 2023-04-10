@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import * as Styled from "./Alert.styles";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface AlertProps extends GlobalProps, Styled.AlertProps {}
 

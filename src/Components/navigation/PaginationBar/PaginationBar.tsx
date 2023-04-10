@@ -6,6 +6,8 @@ import { getBodyElement } from "../../../utils/getBodyElement";
 import { ButtonGroup } from "../../layout/ButtonGroup";
 import * as Styled from "./PaginationBar.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
+import { GlobalProps } from "../../../types/GlobalProps";
+
 export interface PaginationBarProps extends GlobalProps {
   currentPage: number;
   totalPages: number;

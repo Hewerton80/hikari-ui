@@ -6,6 +6,7 @@ import * as Styled from "./Tooltip.styles";
 import { isString } from "../../../utils/isType";
 import { orientationStyle } from "../../commonStyles/variantOrientationStyle";
 import { Slot } from "@radix-ui/react-slot";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface TooltipProps extends GlobalProps, Styled.TooltipProps {
   content?: string | JSX.Element;

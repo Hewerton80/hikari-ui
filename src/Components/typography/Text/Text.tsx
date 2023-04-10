@@ -3,6 +3,7 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Text.styles";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface TextProps extends GlobalProps {
   as?:

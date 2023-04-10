@@ -3,6 +3,7 @@ import * as RadixTabs from "@radix-ui/react-tabs";
 import * as Styled from "./Tab.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface TabProviderProps extends Pick<GlobalProps, "children"> {
   // value?: number;

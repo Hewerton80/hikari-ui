@@ -6,6 +6,7 @@ import classNames from "classnames";
 import * as RadixRadioGroup from "@radix-ui/react-radio-group";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { Text } from "../../typography/Text";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface RadioGroupProps extends GlobalProps, Styled.RadioGroupProps {
   label?: string;

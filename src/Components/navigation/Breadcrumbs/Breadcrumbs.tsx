@@ -3,6 +3,7 @@ import * as Styled from "./Breadcrumbs.styles";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
 import { Slot } from "@radix-ui/react-slot";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface BreadcrumbsProps extends GlobalProps {}
 

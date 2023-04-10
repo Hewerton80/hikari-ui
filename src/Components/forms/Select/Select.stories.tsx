@@ -27,8 +27,8 @@ export const SingleValue = () => {
     { value: "O", label: "Other" },
   ];
 
-  const [profile, setProfile] = React.useState<SelectOption>(null);
-  const [gender, setGender] = React.useState<SelectOption>(null);
+  const [profile, setProfile] = React.useState<SelectOption | null>(null);
+  const [gender, setGender] = React.useState<SelectOption | null>(null);
 
   return (
     <Box css={{ width: 356 }}>

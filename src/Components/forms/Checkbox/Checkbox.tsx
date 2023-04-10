@@ -5,6 +5,7 @@ import * as Styled from "./Checkbox.styles";
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
 import { addClasseNamePrefix } from "../../../utils/addClasseNamePrefix";
 import { FaCheck } from "react-icons/fa";
+import { GlobalProps } from "../../../types/GlobalProps";
 
 export interface CheckboxProps
   extends Styled.CheckboxProps,
