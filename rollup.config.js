@@ -10,24 +10,43 @@ import svgr from "@svgr/rollup";
 import { terser } from "rollup-plugin-terser";
 import dts from "rollup-plugin-dts";
 import pkg from "./package.json";
+import { getFiles } from "./scripts/buildUtils";
+
+const extensions = [".js", ".ts", ".jsx", ".tsx"];
 
 export default [
   {
-    input: ["src/index.ts"],
-    output: [
-      {
-        file: pkg.main,
-        format: "cjs",
-        exports: "named",
-        sourcemap: true,
-      },
-      {
-        file: pkg.module,
-        format: "esm",
-        exports: "named",
-        sourcemap: true,
-      },
+    input: [
+      "src/index.ts",
+      ...getFiles("./src/Components", extensions),
+      ...getFiles("./src/hooks", extensions),
+      ...getFiles("./src/utils", extensions),
     ],
+    output: {
+      // file: pkg.module,
+      dir: "./dist",
+      format: "esm",
+      // preserveModules: true,
+      // preserveModulesRoot: "src",
+      sourcemap: true,
+      // file: pkg.main,
+      exports: "named",
+      inlineDynamicImports: false,
+    },
+    // output: [
+    //   // {
+    //   //   file: pkg.main,
+    //   //   format: "cjs",
+    //   //   exports: "named",
+    //   //   sourcemap: true,
+    //   // },
+    //   {
+    //     file: pkg.module,
+    //     format: "esm",
+    //     exports: "named",
+    //     sourcemap: true,
+    //   },
+    // ],
     plugins: [
       external(),
       postcss({ modules: true }),
