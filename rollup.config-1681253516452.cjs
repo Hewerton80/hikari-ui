@@ -1,27 +1,25 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var typescript = require('@rollup/plugin-typescript');
+var commonjs = require('@rollup/plugin-commonjs');
+var external = require('rollup-plugin-peer-deps-external');
+var resolve = require('@rollup/plugin-node-resolve');
+var json = require('@rollup/plugin-json');
+var postcss = require('rollup-plugin-postcss');
+var image = require('@rollup/plugin-image');
+var svgr = require('@svgr/rollup');
+var rollupPluginTerser = require('rollup-plugin-terser');
+var dts = require('rollup-plugin-dts');
+var pkg = require('./package.json');
+
 /* eslint-disable import/no-anonymous-default-export */
-import typescript from "@rollup/plugin-typescript";
-import commonjs from "@rollup/plugin-commonjs";
-import external from "rollup-plugin-peer-deps-external";
-import resolve from "@rollup/plugin-node-resolve";
-import json from "@rollup/plugin-json";
-import postcss from "rollup-plugin-postcss";
-import image from "@rollup/plugin-image";
-import svgr from "@svgr/rollup";
-import { terser } from "rollup-plugin-terser";
-import dts from "rollup-plugin-dts";
-import pkg from "./package.json";
-import { getFiles } from "./scripts/buildUtils";
+// import { getFiles } from "./scripts/buildUtils";
+// import {Button} from './src/Components/forms/Button'
+const extensions = [".js", ".ts", ".jsx", ".tsx"];
 
-function getComponentsFilesMap() {
-  const componentsFilesMap = {};
-  getFiles("dist/esm/types/Components/ui", ["index.d.ts"]).forEach((file) => {
-    componentsFilesMap[file.match(/[A-Z][a-z]+/g)[1]] = file;
-  });
-  console.log("componentsFilesMap", componentsFilesMap);
-  return componentsFilesMap;
-}
-
-export default [
+var rollup_config = [
   {
     // input: [
     //   "src/index.ts",
@@ -69,16 +67,14 @@ export default [
         // declarationDir: "dist",
       }),
       commonjs(),
-      terser(),
+      rollupPluginTerser.terser(),
       json(),
       // dts(),
     ],
   },
   {
     input: {
-      // Button: "dist/esm/types/Components/ui/forms/Button/index.d.ts",
-
-      ...getComponentsFilesMap(),
+      Button: "dist/esm/types/Components/forms/Button/index.d.ts",
     },
     output: {
       dir: "./dist",
@@ -93,3 +89,5 @@ export default [
     plugins: [dts.default()],
   },
 ];
+
+exports.default = rollup_config;

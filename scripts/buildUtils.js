@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const getFiles = (entry, extensions = [], excludeExtensions = []) => {
+export const getFiles = (entry, extensions = [], excludeExtensions = []) => {
   let fileNames = [];
   const dirs = fs.readdirSync(entry);
 
@@ -26,4 +26,3 @@ const getFiles = (entry, extensions = [], excludeExtensions = []) => {
 
   return fileNames;
 };
-module.exports = getFiles;
