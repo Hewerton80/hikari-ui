@@ -1,5 +1,8 @@
 import React, { useCallback } from "react";
-import { AlertModal, AlertModalProps } from "../Components/overlay/AlertModal";
+import {
+  AlertModal,
+  AlertModalProps,
+} from "../Components/ui/overlay/AlertModal";
 
 interface AlertArgs
   extends Omit<
