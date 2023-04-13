@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { Dropdown } from ".";
-import { Button } from "../../../../Button";
+import { Button } from "../../forms/Button";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Grid } from "../../../ui/layout/Grid";
 

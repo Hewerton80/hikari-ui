@@ -166,33 +166,44 @@ export default {
   input: "src/index.ts",
   output: [
     {
-      dir: "dist",
+      file: pkg.main,
       format: "cjs",
-      sourcemap: true,
       exports: "named",
+      sourcemap: true,
     },
     {
-      dir: "dist",
-      format: "esm",
-      sourcemap: true,
+      file: pkg.module,
+      format: "es",
       exports: "named",
+      sourcemap: true,
     },
   ],
   plugins: [
+    external(),
+    postcss({ modules: true }),
+    image(),
+    svgr(),
     resolve({ extensions }),
     commonjs(),
-    // babel({
-    //   exclude: "node_modules/**",
-    //   extensions,
-    //   babelHelpers: "runtime",
-    //   presets: [
-    //     "@babel/preset-env",
-    //     "@babel/preset-react",
-    //     "@babel/preset-typescript",
-    //   ],
-    //   plugins: ["@babel/plugin-transform-runtime"],
-    // }),
+    typescript({
+      tsconfig: "./tsconfig.json",
+      declaration: true,
+      declarationDir: "dist",
+    }),
+    babel({
+      exclude: "node_modules/**",
+      extensions,
+      // babelHelpers: "runtime",
+      // skipPreflightCheck: true,
+      runtimeHelpers: true,
+      presets: [
+        "@babel/preset-env",
+        "@babel/preset-react",
+        "@babel/preset-typescript",
+      ],
+      plugins: ["@babel/plugin-transform-runtime"],
+    }),
   ],
   // Adicione essa entrada:
-  preserveModules: true,
+  // preserveModules: true,
 };

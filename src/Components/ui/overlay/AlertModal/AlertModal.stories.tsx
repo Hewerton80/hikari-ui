@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { AlertModal } from ".";
-import { Button } from "../../../../Button";
+import { Button } from "../../forms/Button";
 import { sleep } from "../../../../utils/sleep";
 import { useAlert } from "../../../../hooks/utils/useAlert";
 

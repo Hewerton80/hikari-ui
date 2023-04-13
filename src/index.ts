@@ -6,7 +6,7 @@ export { Alert, AlertProps } from "./Components/ui/feedback/Alert";
 export { Badge, BadgeProps } from "./Components/ui/dataDisplay/Badge";
 
 // components form
-export { Button as default, ButtonProps } from "./Button";
+export { Button, ButtonProps } from "./Components/ui/forms/Button";
 export { IconButton, IconButtonProps } from "./Components/ui/forms/IconButton";
 export { Switch, SwitchProps } from "./Components/ui/forms/Switch";
 export { Checkbox, CheckboxProps } from "./Components/ui/forms/Checkbox";

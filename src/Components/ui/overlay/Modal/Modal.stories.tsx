@@ -4,7 +4,7 @@ import {
   Modal,
   // ModalBody, ModalFooter, ModalTitle
 } from ".";
-import { Button } from "../../../../Button";
+import { Button } from "../../forms/Button";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Overlay/Modal",

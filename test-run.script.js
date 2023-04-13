@@ -1,11 +1,10 @@
 const { getFiles } = require("./scripts/buildUtils");
-const files = getFiles("src/hooks", [".ts"]);
+const files = getFiles("dist/esm/types/src/Components/ui", ["index.d.ts"]);
 console.log("files");
 
 let object = {};
 
 files.forEach((file) => {
-  // console.log(file.match(/[A-Z][a-z]+/g));
-  object[`use${file.match(file.match(/[A-Z][a-z]+/g))[0]}`] = file;
+  object[file.match(/[A-Z][a-z]+/g)[1]] = file;
 });
 console.log("object", object);

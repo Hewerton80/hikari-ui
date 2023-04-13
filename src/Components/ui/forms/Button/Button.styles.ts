@@ -1,8 +1,8 @@
 import { rgba, darken, rem } from "polished";
-import { colors } from "../styles/colors";
-import { addClasseNamePrefix } from "../utils/addClasseNamePrefix";
-import { css, CSS } from "../styles/theme";
-import { spaces } from "../styles/spaces";
+import { colors } from "../../../../styles/colors";
+import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
+import { css, CSS } from "../../../../styles/theme";
+import { spaces } from "../../../../styles/spaces";
 
 type ButtonVariantStyle = "contained" | "outlined" | "texted";
 
