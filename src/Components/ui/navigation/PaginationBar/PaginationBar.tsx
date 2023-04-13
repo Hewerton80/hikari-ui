@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../../ui/forms/Button";
+import { Button } from "../../../../Button";
 import classNames from "classnames";
 import { getRange } from "../../../../utils/getRange";
 import { getBodyElement } from "../../../../utils/getBodyElement";

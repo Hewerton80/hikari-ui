@@ -3,7 +3,7 @@ import { ComponentMeta } from "@storybook/react";
 import { Tooltip } from ".";
 import { Box } from "../../../ui/layout/Box";
 import { Text } from "../../../ui/typography/Text";
-import { Button } from "../../../ui/forms/Button";
+import { Button } from "../../../../Button";
 import { Grid } from "../../../ui/layout/Grid";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

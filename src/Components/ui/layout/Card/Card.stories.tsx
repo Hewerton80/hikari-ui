@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { Card } from ".";
-import { Button } from "../../../ui/forms/Button";
+import { Button } from "../../../../Button";
 import { Grid } from "../../../ui/layout/Grid";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

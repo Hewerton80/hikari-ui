@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Button } from "./Button";
-import { ButtonGroup } from "../../../../../src/Components/ui/layout/ButtonGroup";
+import { ButtonGroup } from "../Components/ui/layout/ButtonGroup";
 import { FiUpload } from "react-icons/fi";
 import { AiTwotoneEdit } from "react-icons/ai";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

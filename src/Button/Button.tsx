@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import React from "react";
-import { Spinner } from "../../feedback/Spinner";
+import { Spinner } from "../Components/ui/feedback/Spinner";
 import * as Styled from "./Button.styles";
-import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import { GlobalProps } from "../../../../types/GlobalProps";
+import { addClasseNamePrefix } from "../utils/addClasseNamePrefix";
+import { GlobalProps } from "../types/GlobalProps";
 
 export interface ButtonProps<
   T extends "button" | "link" | undefined = undefined

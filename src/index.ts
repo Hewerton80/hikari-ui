@@ -6,7 +6,7 @@ export { Alert, AlertProps } from "./Components/ui/feedback/Alert";
 export { Badge, BadgeProps } from "./Components/ui/dataDisplay/Badge";
 
 // components form
-export { Button, ButtonProps } from "./Components/ui/forms/Button";
+export { Button as default, ButtonProps } from "./Button";
 export { IconButton, IconButtonProps } from "./Components/ui/forms/IconButton";
 export { Switch, SwitchProps } from "./Components/ui/forms/Switch";
 export { Checkbox, CheckboxProps } from "./Components/ui/forms/Checkbox";
@@ -27,7 +27,10 @@ export {
 
 // components layout
 export { Box, BoxProps } from "./Components/ui/layout/Box";
-export { ButtonGroup, ButtonGroupProps } from "./Components/ui/layout/ButtonGroup";
+export {
+  ButtonGroup,
+  ButtonGroupProps,
+} from "./Components/ui/layout/ButtonGroup";
 export { Grid, ColProps, GridProps } from "./Components/ui/layout/Grid";
 export {
   Card,
@@ -53,7 +56,10 @@ export {
   ModalFooterProps,
   ModalTitleProps,
 } from "./Components/ui/overlay/Modal";
-export { AlertModal, AlertModalProps } from "./Components/ui/overlay/AlertModal";
+export {
+  AlertModal,
+  AlertModalProps,
+} from "./Components/ui/overlay/AlertModal";
 export { Tooltip, TooltipProps } from "./Components/ui/overlay/Tooltip";
 
 // components navigation

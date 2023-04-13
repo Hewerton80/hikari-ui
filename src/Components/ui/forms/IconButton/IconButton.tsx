@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonProps } from "../Button";
+import { Button, ButtonProps } from "../../../../Button";
 import classnames from "classnames";
 import * as Styled from "./IconButton.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";

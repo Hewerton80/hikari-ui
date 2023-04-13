@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, ModalProps } from "../Modal";
 import classNames from "classnames";
 import * as Styled from "./AlertModal.styles";
-import { Button } from "../../../ui/forms/Button";
+import { Button } from "../../../../Button";
 import {
   IoAlertCircleOutline,
   IoCheckmarkCircleOutline,
