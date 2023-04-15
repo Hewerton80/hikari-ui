@@ -1,5 +1,5 @@
 import { colors } from "../../../../styles/colors";
-import { css, CSS, darkTheme } from "../../../../styles/theme";
+import { css } from "../../../../styles/theme";
 // .root {
 //     @apply flex;
 //   }

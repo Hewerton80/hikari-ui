@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import ReactSelect, {
   PropsValue,
@@ -51,7 +51,7 @@ export function Select({
   onChange,
   ...restProps
 }: SelectProps) {
-  const handleChange = React.useCallback(
+  const handleChange = useCallback(
     (
       newValue: SelectOption | MultiValue<SelectOption>,
       actionMeta: ActionMeta<SelectOption>

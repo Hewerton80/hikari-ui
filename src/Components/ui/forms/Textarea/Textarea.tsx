@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, KeyboardEventHandler } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Textarea.styles";
@@ -15,8 +15,8 @@ export interface TextareaProps extends FormControlProps {
   readOnly?: boolean;
   onFocus?: () => void;
   onBlur?: () => void;
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onKeyUp?: React.KeyboardEventHandler<HTMLTextAreaElement>;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  onKeyUp?: KeyboardEventHandler<HTMLTextAreaElement>;
   maxLength?: number;
 }
 

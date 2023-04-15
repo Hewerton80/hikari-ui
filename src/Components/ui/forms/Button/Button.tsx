@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { MouseEvent } from "react";
 import { Spinner } from "../../feedback/Spinner";
 import * as Styled from "./Button.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
@@ -19,9 +19,7 @@ export interface ButtonProps<
   disabled?: boolean;
   leftIcon?: JSX.Element;
   rightIcon?: JSX.Element;
-  onClick?: (
-    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>
-  ) => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
 export function Button<T extends "button" | "link">({

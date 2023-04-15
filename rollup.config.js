@@ -3,41 +3,38 @@ import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
-import json from "@rollup/plugin-json";
 import postcss from "rollup-plugin-postcss";
 import image from "@rollup/plugin-image";
 import svgr from "@svgr/rollup";
 import { terser } from "rollup-plugin-terser";
-import dts from "rollup-plugin-dts";
 import pkg from "./package.json";
-import { getFiles } from "./scripts/buildUtils";
-import { DEFAULT_EXTENSIONS } from "@babel/core";
 import babel from "rollup-plugin-babel";
-import path from "path";
+// import { getFiles } from "./scripts/buildUtils";
+// import path from "path";
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 // const extensions = [...DEFAULT_EXTENSIONS, ".ts", ".tsx"];
 
-function getComponentsFilesMap(path, ext) {
-  console.log("path", path);
-  const componentsFilesMap = {};
-  getFiles(path, ext).forEach((file) => {
-    componentsFilesMap[file.match(/[A-Z][a-z]+/g)[1]] = file;
-  });
-  return componentsFilesMap;
-}
+// function getComponentsFilesMap(path, ext) {
+//   console.log("path", path);
+//   const componentsFilesMap = {};
+//   getFiles(path, ext).forEach((file) => {
+//     componentsFilesMap[file.match(/[A-Z][a-z]+/g)[1]] = file;
+//   });
+//   return componentsFilesMap;
+// }
 
-function gethHooksFilesMap(path) {
-  console.log("path", path);
-  const componentsFilesMap = {};
-  getFiles(path, [".d.ts"]).forEach((file) => {
-    componentsFilesMap[`use${file.match(file.match(/[A-Z][a-z]+/g))[0]}`] =
-      file;
-  });
-  return componentsFilesMap;
-}
-const basePath = "dist/esm/types";
-const componentsDir = path.resolve(__dirname, "src");
+// function gethHooksFilesMap(path) {
+//   console.log("path", path);
+//   const componentsFilesMap = {};
+//   getFiles(path, [".d.ts"]).forEach((file) => {
+//     componentsFilesMap[`use${file.match(file.match(/[A-Z][a-z]+/g))[0]}`] =
+//       file;
+//   });
+//   return componentsFilesMap;
+// }
+// const basePath = "dist/esm/types";
+// const componentsDir = path.resolve(__dirname, "src");
 export default {
   // input: {
   //   ...getComponentsFilesMap("src/Components/ui", ["index.tsx"]),
@@ -185,6 +182,7 @@ export default {
     svgr(),
     resolve({ extensions }),
     commonjs(),
+    terser(),
     typescript({
       tsconfig: "./tsconfig.json",
       declaration: true,

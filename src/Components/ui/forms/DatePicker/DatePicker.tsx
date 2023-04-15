@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import * as Styled from "./DatePicker.styles";
 import { FaCalendarAlt } from "react-icons/fa";
 import classNames from "classnames";
@@ -12,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 registerLocale("pt-BR", ptBr);
 
-interface DatePickerProps extends FormControlProps {
+export interface DatePickerProps extends FormControlProps {
   selectedDate?: Date | null;
   startDate?: Date | null;
   endDate?: Date | null;
@@ -41,14 +41,14 @@ export function DatePicker({
   onChangeRange,
   ...restProps
 }: DatePickerProps) {
-  const [inputValue, setInputValue] = React.useState("");
+  const [inputValue, setInputValue] = useState("");
 
-  const handledShowTimeSelect = React.useMemo(
+  const handledShowTimeSelect = useMemo(
     () => (selectsRange ? false : showTimeSelect),
     [selectsRange, showTimeSelect]
   );
 
-  const handledPlaceholder = React.useMemo(() => {
+  const handledPlaceholder = useMemo(() => {
     if (placeholder) {
       return placeholder;
     }
@@ -59,7 +59,7 @@ export function DatePicker({
     return handledPlaceholderTemp;
   }, [placeholder, handledShowTimeSelect]);
 
-  const dateFormat = React.useMemo(() => {
+  const dateFormat = useMemo(() => {
     let dateFormatTemp = "dd/MM/yyyy";
     if (handledShowTimeSelect) {
       dateFormatTemp = `${dateFormatTemp} HH:mm`;
@@ -67,7 +67,7 @@ export function DatePicker({
     return dateFormatTemp;
   }, [handledShowTimeSelect]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isDate(selectedDate)) {
       // console.log("selectedDate", format(selectedDate, dateFormat));
       setInputValue(format(selectedDate, dateFormat));
@@ -76,7 +76,7 @@ export function DatePicker({
     }
   }, [selectedDate, dateFormat]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isDate(startDate)) {
       console.log("startDate", format(startDate, dateFormat));
       if (isDate(endDate)) {

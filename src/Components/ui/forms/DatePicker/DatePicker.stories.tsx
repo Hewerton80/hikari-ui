@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { ComponentMeta } from "@storybook/react";
 
 import { DatePicker } from "./DatePicker";
@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 export const BasicExample = () => {
-  const [date, setDate] = React.useState<Date>(null);
+  const [date, setDate] = useState<Date>(null);
   return (
     <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
       <Grid.Col span={{ base: 12 }}>
@@ -29,7 +29,7 @@ export const BasicExample = () => {
 };
 
 export const DateWithTime = () => {
-  const [date, setDate] = React.useState<Date>(null);
+  const [date, setDate] = useState<Date>(null);
   return (
     <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
       <Grid.Col span={{ base: 12 }}>
@@ -49,8 +49,8 @@ export const DateWithTime = () => {
 };
 
 export const Range = () => {
-  const [dateRange, setDateRange] = React.useState<Date[]>([null, null]);
-  const [startDate, endDate] = React.useMemo(() => dateRange, [dateRange]);
+  const [dateRange, setDateRange] = useState<Date[]>([null, null]);
+  const [startDate, endDate] = useMemo(() => dateRange, [dateRange]);
   return (
     <Grid numCols={12} gap={32} css={{ marginTop: 0 }}>
       <Grid.Col span={{ base: 12 }}>

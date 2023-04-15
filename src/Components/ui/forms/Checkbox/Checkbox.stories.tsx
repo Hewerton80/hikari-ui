@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentMeta } from "@storybook/react";
 import { Checkbox } from ".";
 import { Box } from "../../../ui/layout/Box";
@@ -14,7 +14,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
 export const BasicCheckbox = () => {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
   return (
     <Box
       css={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 32 }}

@@ -11,7 +11,7 @@ export const formTextStyle: CSS = {
   text: "sm",
   borderRadius: spaces["0.5"],
   outline: "none",
-  backgroundColor: colors.transparent,
+  backgroundColor: colors.white,
   transition: "all ease 0.3s",
   color: colors.dark,
   border: `${spaces["0.25"]} solid ${colors["gray-border"]}`,
@@ -22,5 +22,6 @@ export const formTextStyle: CSS = {
   [`.${darkTheme} &`]: {
     color: colors.light,
     borderColor: rgba(colors.white, 0.1),
+    backgroundColor: colors["dark-body"],
   },
 };

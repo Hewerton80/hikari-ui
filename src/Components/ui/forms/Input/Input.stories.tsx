@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentMeta } from "@storybook/react";
 
 import { Input } from "./Input";
@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 export const ActiveAndDisabled = () => {
-  const [name, setName] = React.useState("");
+  const [name, setName] = useState("");
   return (
     <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>
@@ -34,11 +34,11 @@ export const ActiveAndDisabled = () => {
 };
 
 export const Masks = () => {
-  const [cpf, setCpg] = React.useState("");
-  const [cnpj, setCnpj] = React.useState("");
-  const [cep, setCep] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [creditCard, setCreditCard] = React.useState("");
+  const [cpf, setCpg] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [cep, setCep] = useState("");
+  const [phone, setPhone] = useState("");
+  const [creditCard, setCreditCard] = useState("");
   return (
     <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>
@@ -91,9 +91,9 @@ export const Masks = () => {
 };
 
 export const Validations = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [city, setCity] = React.useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
   return (
     <Grid numCols={12} gap={32}>
       <Grid.Col span={{ base: 12, lg: 4 }}>

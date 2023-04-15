@@ -16,6 +16,7 @@ export const ReactSelect = css("div", {
       },
       [`.${darkTheme} &`]: {
         borderColor: rgba(colors["white"], 0.1),
+        backgroundColor: colors["dark-body"],
       },
       "&--is-focused": {
         borderColor: colors["info"],

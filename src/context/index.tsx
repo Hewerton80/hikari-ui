@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { AlertContextProvider } from "./AlertContext";
 
 interface ProvidersProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function HikariProviders({ children }: ProvidersProps) {

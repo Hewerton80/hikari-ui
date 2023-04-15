@@ -1,4 +1,10 @@
-import React, { useCallback } from "react";
+import React, {
+  useCallback,
+  ReactNode,
+  createContext,
+  useState,
+  useMemo,
+} from "react";
 import {
   AlertModal,
   AlertModalProps,
@@ -25,47 +31,30 @@ const alertInitialValues: AlertArgs = {
   showCancelButton: false,
 };
 
-export const AlertContext = React.createContext({} as IAlertContext);
+export const AlertContext = createContext({} as IAlertContext);
 
 interface IAlertContextProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function AlertContextProvider({ children }: IAlertContextProps) {
   // show,
-  // children,
-  // title,
-  // description,
-  // icon,
-  // variant = "info",
-  // isSubmiting,
-  // confirmButtonText = "Ok",
-  // cancelButtonText = "Cancel",
-  // showCancelButton,
-  // css,
-  // onClose,
-  // onClickConfirmButton,
-  // onClickCancelButton,
-  const [loading, setLoading] = React.useState(false);
-  const [show, setShow] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
   const [alertModalValues, setAlertModalValues] =
-    React.useState<AlertArgs>(alertInitialValues);
+    useState<AlertArgs>(alertInitialValues);
 
   const {
     onClose,
     onClickCancelButton,
     onClickConfirmButton,
     ...restAlertModalValues
-  } = React.useMemo(() => alertModalValues, [alertModalValues]);
+  } = useMemo(() => alertModalValues, [alertModalValues]);
 
   const showAlert = useCallback((alertModalProps?: AlertArgs) => {
     setShow(true);
     setAlertModalValues(alertModalProps);
   }, []);
-
-  // const changeLoadAlert = useCallback((load: boolean) => {
-  //   setLoading(load);
-  // }, []);
 
   const closeAlert = useCallback(() => {
     setShow(false);

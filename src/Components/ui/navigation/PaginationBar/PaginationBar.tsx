@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import { Button } from "../../forms/Button";
 import classNames from "classnames";
 import { getRange } from "../../../../utils/getRange";
@@ -29,7 +29,7 @@ export function PaginationBar({
   onChangePage,
   ...rest
 }: PaginationBarProps) {
-  const paginationLabel = React.useMemo(() => {
+  const paginationLabel = useMemo(() => {
     const startRange = (currentPage - 1) * perPage + 1;
     let endRange = (currentPage - 1) * perPage + perPage;
     endRange = endRange < totalRecords ? endRange : totalRecords;
@@ -42,7 +42,7 @@ export function PaginationBar({
     );
   }, [currentPage, perPage, totalRecords]);
 
-  const arrayPagesItens = React.useMemo(() => {
+  const arrayPagesItens = useMemo(() => {
     const maximumNumberOfButtonsToNavigate = 5;
     let initialIndexPage =
       parseInt(String(currentPage / maximumNumberOfButtonsToNavigate)) *
@@ -55,7 +55,7 @@ export function PaginationBar({
     );
   }, [currentPage, totalPages]);
 
-  const handleChangePage = React.useCallback(
+  const handleChangePage = useCallback(
     (toPage: number) => {
       onChangePage(toPage);
       const bodyElement = getBodyElement();

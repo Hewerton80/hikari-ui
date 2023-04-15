@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Dropdown.styles";
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
@@ -7,7 +7,7 @@ import { orientationStyle } from "../../../commonStyles/variantOrientationStyle"
 import { GlobalProps } from "../../../../types/GlobalProps";
 
 export interface DropdownProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 export interface DropdowToogleProps extends GlobalProps {}
 export interface DropdowMenuProps extends GlobalProps, Styled.MenuProps {}

@@ -10,6 +10,7 @@ export { Button, ButtonProps } from "./Components/ui/forms/Button";
 export { IconButton, IconButtonProps } from "./Components/ui/forms/IconButton";
 export { Switch, SwitchProps } from "./Components/ui/forms/Switch";
 export { Checkbox, CheckboxProps } from "./Components/ui/forms/Checkbox";
+export { DatePicker, DatePickerProps } from "./Components/ui/forms/DatePicker";
 export {
   RadioGroup,
   RadioGroupProps,

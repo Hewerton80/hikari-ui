@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Modal, ModalProps } from "../Modal";
 import classNames from "classnames";
 import * as Styled from "./AlertModal.styles";
@@ -46,7 +46,7 @@ export interface AlertModalProps
   onClickCancelButton?: () => void;
 }
 
-const AlertModal = React.forwardRef(
+const AlertModal = forwardRef(
   ({
     show,
     children,

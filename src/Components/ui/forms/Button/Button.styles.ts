@@ -151,6 +151,7 @@ export const Button = css("button", {
   transition: "all ease 0.3s",
   borderWidth: rem(1),
   borderStyle: "solid",
+  width: "fit-content",
   "&:not(:disabled)": {
     cursor: "pointer",
   },

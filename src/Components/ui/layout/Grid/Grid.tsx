@@ -1,9 +1,10 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { isNumber } from "../../../../utils/isType";
 import * as Styled from "./Grid.styles";
 import { GlobalProps } from "../../../../types/GlobalProps";
+import { CSS } from "../../../../styles/theme";
 
 export interface GridProps extends GlobalProps {
   numCols?: Styled.AvaliablesColSpans;
@@ -25,8 +26,8 @@ function Grid({
   css,
   ...restProps
 }: GridProps) {
-  const cssGrid = React.useMemo(() => {
-    const cssGrid: React.CSSProperties = {};
+  const cssGrid = useMemo(() => {
+    const cssGrid: CSS = {};
     if (isNumber(gap)) {
       cssGrid.gap = gap;
       return cssGrid;
@@ -60,7 +61,7 @@ function Grid({
 }
 
 function Col({ children, className, css, span, ...restProps }: ColProps) {
-  const getColMediaScreenCss = React.useCallback((spanValue: number) => {
+  const getColMediaScreenCss = useCallback((spanValue: number) => {
     return {
       gridColumn: `span ${spanValue} / span ${spanValue}`,
     };

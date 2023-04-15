@@ -1,5 +1,11 @@
 import classNames from "classnames";
-import React from "react";
+import React, {
+  useMemo,
+  useCallback,
+  forwardRef,
+  ChangeEvent,
+  KeyboardEventHandler,
+} from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import * as Styled from "./Input.styles";
@@ -18,12 +24,12 @@ export interface InputProps extends FormControlProps {
   lefItcon?: JSX.Element;
   onFocus?: () => void;
   onBlur?: () => void;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyUp?: KeyboardEventHandler<HTMLInputElement>;
   maxLength?: number;
 }
 
-export const Input = React.forwardRef(
+export const Input = forwardRef(
   (
     {
       label,
@@ -40,9 +46,9 @@ export const Input = React.forwardRef(
     }: InputProps,
     ref: any
   ) => {
-    const matchMask = React.useMemo(() => mask && inputMasks[mask], [mask]);
-    const handleChangeInput = React.useCallback(
-      (e: React.ChangeEvent<HTMLInputElement>) => {
+    const matchMask = useMemo(() => mask && inputMasks[mask], [mask]);
+    const handleChangeInput = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
         if (matchMask) {
           e.target.value = matchMask.apply(e.target.value);
         }
