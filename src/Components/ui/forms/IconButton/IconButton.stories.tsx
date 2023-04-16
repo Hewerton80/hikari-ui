@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { IconButton } from ".";
 import { FiUpload } from "react-icons/fi";
 import { AiOutlineUserSwitch, AiTwotoneEdit } from "react-icons/ai";
@@ -10,7 +9,7 @@ export default {
   component: IconButton,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof IconButton>;
+};
 
 export const variantStyles = () => {
   return (

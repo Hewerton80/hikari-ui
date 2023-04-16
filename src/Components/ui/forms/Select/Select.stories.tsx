@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { useDebouncedCallback } from "use-debounce";
 import { Select, SelectOption } from ".";
 import { Grid } from "../../../ui/layout/Grid";
@@ -13,7 +12,7 @@ export default {
   component: Select,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Select>;
+};
 
 export const SingleValue = () => {
   const profileOptions = [
@@ -198,8 +197,9 @@ interface ICard {
 export const SigleValueWitchAutocompliteAsync = () => {
   const [cardValue, setCardValue] = React.useState<SelectOption>(null);
   const [responseCards, setResponseCards] = React.useState<ICard[]>([]);
-  const [currentCardInfo, setCurrentCardInfo] =
-    React.useState<ICard | undefined>(undefined);
+  const [currentCardInfo, setCurrentCardInfo] = React.useState<
+    ICard | undefined
+  >(undefined);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const autocompliteCardOptions = React.useMemo<SelectOption[]>(() => {

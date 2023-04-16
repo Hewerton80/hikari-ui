@@ -1,6 +1,6 @@
 {
   "name": "hikari-ui",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "author": "Hewerton Adão",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -16,7 +16,7 @@
     "library"
   ],
   "scripts": {
-    "build:watch": "rollup -c -w",
+    "build:watch": "rollup -c -w --bundleConfigAsCjs",
     "build": "rollup -c --bundleConfigAsCjs",
     "dev": "storybook dev -p 6006",
     "build:storybook": "storybook build"

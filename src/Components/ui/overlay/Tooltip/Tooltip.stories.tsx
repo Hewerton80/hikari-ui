@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { Tooltip } from ".";
 import { Box } from "../../../ui/layout/Box";
 import { Text } from "../../../ui/typography/Text";
@@ -12,7 +11,7 @@ export default {
   component: Tooltip,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Tooltip>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const BasicTooltip = () => {

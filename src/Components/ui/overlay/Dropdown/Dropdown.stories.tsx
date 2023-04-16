@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { Dropdown } from ".";
 import { Button } from "../../forms/Button";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -11,7 +10,7 @@ export default {
   component: Dropdown,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Dropdown>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />

@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { Grid } from ".";
 import { Box } from "../../../ui/layout/Box";
 import { Text } from "../../../ui/typography/Text";
@@ -10,7 +9,7 @@ export default {
   component: Grid,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Grid>;
+};
 
 export const BasicBrid = () => {
   const innerBoxCss = {

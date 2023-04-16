@@ -22,6 +22,7 @@ const textStyle: CSS = {
 
 export const DatePickerPopper = css("div", {
   ".react-datepicker": {
+    display: "flex",
     border: "none",
     [`.${darkTheme} &`]: {
       backgroundColor: colors["dark-card"],

@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import { ComponentMeta } from "@storybook/react";
 
 import { DatePicker } from "./DatePicker";
 import { Grid } from "../../../ui/layout/Grid";
@@ -10,7 +9,7 @@ export default {
   component: DatePicker,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof DatePicker>;
+};
 
 export const BasicExample = () => {
   const [date, setDate] = useState<Date>(null);

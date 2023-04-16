@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { Breadcrumbs, BreadcrumbLink } from ".";
 import { Box } from "../../../ui/layout/Box";
 
@@ -9,7 +8,7 @@ export default {
   component: BreadcrumbLink,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof BreadcrumbLink>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // const Template: ComponentStory<typeof Breadcrumbs> = (args) => <Breadcrumbs {...args} />

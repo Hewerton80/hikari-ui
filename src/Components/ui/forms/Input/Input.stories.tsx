@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { ComponentMeta } from "@storybook/react";
-
 import { Input } from "./Input";
 import { Grid } from "../../../ui/layout/Grid";
 
@@ -10,7 +8,7 @@ export default {
   component: Input,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Input>;
+};
 
 export const ActiveAndDisabled = () => {
   const [name, setName] = useState("");

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ComponentMeta } from "@storybook/react";
 import { Checkbox } from ".";
 import { Box } from "../../../ui/layout/Box";
 
@@ -9,7 +8,7 @@ export default {
   component: Checkbox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Checkbox>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 

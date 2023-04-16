@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import {
   Modal,
   // ModalBody, ModalFooter, ModalTitle
@@ -11,7 +10,7 @@ export default {
   component: Modal,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Modal>;
+};
 
 const lorem = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
 Voluptates ullam quod, modi accusamus exercitationem molestiae voluptas 

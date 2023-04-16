@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { Tab } from ".";
 import { Box } from "../../../ui/layout/Box";
 import { Text } from "../../../ui/typography/Text";
@@ -10,7 +9,7 @@ export default {
   component: Tab.Provider,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof Tab>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // const Template: ComponentStory<typeof Tab> = (args) => <Tab {...args} />

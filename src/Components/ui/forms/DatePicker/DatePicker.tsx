@@ -8,7 +8,8 @@ import ptBr from "date-fns/locale/pt-BR";
 import { FormControlProps } from "../FormControl/FormControl";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { isDate, format } from "date-fns";
-import "react-datepicker/dist/react-datepicker.css";
+import { Box } from "../../layout/Box";
+import { DatepickerCoreStyle } from "./datepickerCore.style";
 
 registerLocale("pt-BR", ptBr);
 
@@ -94,14 +95,17 @@ export function DatePicker({
   }, [startDate, endDate, dateFormat]);
 
   return (
-    <div
+    <Box
       className={classNames(
         addClasseNamePrefix("date-picker"),
+        DatepickerCoreStyle(),
         Styled.DatePickerPopper(),
         className
       )}
+      // css={datepickerCore}
     >
       <ReactDatePicker
+        // className={datePickerStyle["react-datepicker"]}
         value={inputValue}
         timeFormat="HH:mm"
         startDate={startDate}
@@ -124,6 +128,6 @@ export function DatePicker({
         locale="pt-BR"
         {...restProps}
       />
-    </div>
+    </Box>
   );
 }

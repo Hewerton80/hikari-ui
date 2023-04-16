@@ -6,6 +6,8 @@ import { spaces } from "../../styles/spaces";
 
 export const formTextStyle: CSS = {
   height: spaces["11.5"],
+  minHeight: spaces["11.5"],
+  maxHeight: spaces["11.5"],
   px: spaces["5.5"],
   py: spaces["3.5"],
   text: "sm",

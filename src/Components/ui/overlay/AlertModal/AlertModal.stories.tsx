@@ -1,5 +1,4 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
 import { AlertModal } from ".";
 import { Button } from "../../forms/Button";
 import { sleep } from "../../../../utils/sleep";
@@ -11,7 +10,7 @@ export default {
   component: AlertModal,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
-} as ComponentMeta<typeof AlertModal>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // const Template: ComponentStory<typeof AlertModal> = (args) => <AlertModal {...args} />
