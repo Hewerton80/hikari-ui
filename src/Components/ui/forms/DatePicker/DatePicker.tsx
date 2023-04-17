@@ -13,18 +13,20 @@ import { DatepickerCoreStyle } from "./datepickerCore.style";
 
 registerLocale("pt-BR", ptBr);
 
+type NullabledDate = Date | null;
+
 export interface DatePickerProps extends FormControlProps {
-  selectedDate?: Date | null;
-  startDate?: Date | null;
-  endDate?: Date | null;
-  maxDate?: Date | null | undefined;
-  minDate?: Date | null | undefined;
+  selectedDate?: NullabledDate;
+  startDate?: NullabledDate;
+  endDate?: NullabledDate;
+  maxDate?: NullabledDate;
+  minDate?: NullabledDate;
   placeholder?: string;
   disabled?: boolean;
   showTimeSelect?: boolean;
   selectsRange?: boolean;
   onChange?: (date: Date) => void;
-  onChangeRange?: (dates: [Date | null, Date | null]) => void;
+  onChangeRange?: (dates: [NullabledDate, NullabledDate]) => void;
 }
 
 export function DatePicker({
