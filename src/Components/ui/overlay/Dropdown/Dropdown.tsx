@@ -29,7 +29,7 @@ function Toogle({
       asChild
       {...restProps}
     >
-      <span>{children}</span>
+      <span className={Styled.TriggerInner()}>{children}</span>
     </RadixDropdown.Trigger>
   );
 }

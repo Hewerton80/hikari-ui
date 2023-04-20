@@ -1,7 +1,6 @@
 import React from "react";
 import { Avatar } from ".";
-import { Box } from "../../layout/Box";
-import { colors } from "../../../../styles/colors";
+import { AppBar } from "../../navigation/AppBar";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,28 +15,18 @@ export default {
 
 export const SimpleAvatar = () => {
   return (
-    <Box
-      css={{
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-        gap: 8,
-        backgroundColor: colors.primary,
-        py: 8,
-        px: 16,
-        borderRadius: 8,
-        width: "100%",
-      }}
-    >
-      <Avatar
-        src="https://github.com/jailson-souza.png"
-        nameInities={["j", "s"]}
-      />
-      <Avatar
-        src="https://github.com/hewerton80.png"
-        nameInities={["h", "a"]}
-      />
-      <Avatar nameInities={["h", "a"]} />
-    </Box>
+    <AppBar>
+      <AppBar.Tool css={{ gap: 8, justifyContent: "center" }}>
+        <Avatar
+          src="https://github.com/jailson-souza.png"
+          nameInities={["j", "s"]}
+        />
+        <Avatar
+          src="https://github.com/hewerton80.png"
+          nameInities={["h", "a"]}
+        />
+        <Avatar nameInities={["h", "a"]} />
+      </AppBar.Tool>
+    </AppBar>
   );
 };

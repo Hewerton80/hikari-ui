@@ -35,7 +35,7 @@ export const ImageCard = () => {
             <Card.Footer>
               <Button
                 as="link"
-                href="#"
+                href="/#"
                 onClick={(e) => e.preventDefault()}
                 variantStyle="primary-texted"
               >
@@ -54,7 +54,7 @@ export const ImageCard = () => {
             <Card.Footer variantStyle="center">
               <Button
                 as="link"
-                href="#"
+                href="/#"
                 onClick={(e) => e.preventDefault()}
                 variantStyle="primary-texted"
               >
@@ -75,7 +75,7 @@ export const ImageCard = () => {
             <Card.Footer variantStyle="right">
               <Button
                 as="link"
-                href="#"
+                href="/#"
                 onClick={(e) => e.preventDefault()}
                 variantStyle="primary-texted"
               >

@@ -5,7 +5,7 @@ import { GlobalProps } from "../../../../types/GlobalProps";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
 
-interface AvatarProps extends Omit<GlobalProps, "children"> {
+export interface AvatarProps extends Omit<GlobalProps, "children"> {
   src?: string;
   alt?: string;
   nameInities?: [String] | [string, string];
@@ -16,13 +16,14 @@ export function Avatar({
   alt,
   nameInities = [""],
   className,
+  css,
   ...restProps
 }: AvatarProps) {
   return (
     <RadixAvatar.Root
       className={classNames(
         addClasseNamePrefix("avatar-root"),
-        Styled.Root(),
+        Styled.Root({ css }),
         className
       )}
       {...restProps}

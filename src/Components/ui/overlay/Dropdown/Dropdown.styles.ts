@@ -21,6 +21,10 @@ export const Menu = css("div", {
   },
 });
 
+export const TriggerInner = css("span", {
+  cursor: "pointer",
+});
+
 export const Item = css("div", {
   display: "flex",
   alignItems: "center",

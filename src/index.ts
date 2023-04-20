@@ -4,6 +4,7 @@ export { Alert, AlertProps } from "./Components/ui/feedback/Alert";
 
 // components dataDisplay
 export { Badge, BadgeProps } from "./Components/ui/dataDisplay/Badge";
+export { Avatar, AvatarProps } from "./Components/ui/dataDisplay/Avatar";
 
 // components form
 export { Button, ButtonProps } from "./Components/ui/forms/Button";
@@ -64,6 +65,7 @@ export {
 export { Tooltip, TooltipProps } from "./Components/ui/overlay/Tooltip";
 
 // components navigation
+export { AppBar } from "./Components/ui/navigation/AppBar";
 export {
   PaginationBar,
   PaginationBarProps,

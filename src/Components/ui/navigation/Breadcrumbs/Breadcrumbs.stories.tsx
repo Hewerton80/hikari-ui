@@ -17,16 +17,16 @@ export const BasicExample = () => {
   return (
     <Box css={{ display: "flex", flexDirection: "column", spaceY: "$2" }}>
       <Breadcrumbs>
-        <Breadcrumbs.Link href="#">Home</Breadcrumbs.Link>
+        <Breadcrumbs.Link href="/#">Home</Breadcrumbs.Link>
       </Breadcrumbs>
       <Breadcrumbs>
-        <Breadcrumbs.Link href="#">Home</Breadcrumbs.Link>
-        <Breadcrumbs.Link href="#">Library</Breadcrumbs.Link>
+        <Breadcrumbs.Link href="/#">Home</Breadcrumbs.Link>
+        <Breadcrumbs.Link href="/#">Library</Breadcrumbs.Link>
       </Breadcrumbs>
       <Breadcrumbs>
-        <Breadcrumbs.Link href="#">Home</Breadcrumbs.Link>
-        <Breadcrumbs.Link href="#">Library</Breadcrumbs.Link>
-        <Breadcrumbs.Link href="#">Data</Breadcrumbs.Link>
+        <Breadcrumbs.Link href="/#">Home</Breadcrumbs.Link>
+        <Breadcrumbs.Link href="/#">Library</Breadcrumbs.Link>
+        <Breadcrumbs.Link href="/#">Data</Breadcrumbs.Link>
       </Breadcrumbs>
     </Box>
   );
@@ -45,26 +45,26 @@ export const AsChild = () => {
   return (
     <Box css={{ display: "flex", flexDirection: "column", spaceY: "$2" }}>
       <Breadcrumbs>
-        <Breadcrumbs.Link href="#" asChild>
+        <Breadcrumbs.Link href="/#" asChild>
           <CustomLink> Home </CustomLink>
         </Breadcrumbs.Link>
       </Breadcrumbs>
       <Breadcrumbs>
-        <Breadcrumbs.Link href="#" asChild>
+        <Breadcrumbs.Link href="/#" asChild>
           <CustomLink> Home </CustomLink>
         </Breadcrumbs.Link>
-        <Breadcrumbs.Link href="#" asChild>
+        <Breadcrumbs.Link href="/#" asChild>
           <CustomLink> Library </CustomLink>
         </Breadcrumbs.Link>
       </Breadcrumbs>
       <Breadcrumbs>
-        <Breadcrumbs.Link href="#" asChild>
+        <Breadcrumbs.Link href="/#" asChild>
           <CustomLink> Home </CustomLink>
         </Breadcrumbs.Link>
-        <Breadcrumbs.Link href="#" asChild>
+        <Breadcrumbs.Link href="/#" asChild>
           <CustomLink> Library </CustomLink>
         </Breadcrumbs.Link>
-        <Breadcrumbs.Link href="#" asChild>
+        <Breadcrumbs.Link href="/#" asChild>
           <CustomLink> Data </CustomLink>
         </Breadcrumbs.Link>
       </Breadcrumbs>
