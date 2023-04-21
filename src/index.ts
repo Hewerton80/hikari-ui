@@ -5,6 +5,13 @@ export { Alert, AlertProps } from "./Components/ui/feedback/Alert";
 // components dataDisplay
 export { Badge, BadgeProps } from "./Components/ui/dataDisplay/Badge";
 export { Avatar, AvatarProps } from "./Components/ui/dataDisplay/Avatar";
+export { Table } from "./Components/ui/dataDisplay/Table";
+export {
+  DataTable,
+  DataTableProps,
+  IColmunDataTable,
+  IRowDataTable,
+} from "./Components/ui/dataDisplay/DataTable";
 
 // components form
 export { Button, ButtonProps } from "./Components/ui/forms/Button";

@@ -12,6 +12,12 @@ export const Table = css("table", {
   },
 });
 
+export const TableContainer = css("div", {
+  display: "flex",
+  width: "100%",
+  overflowX: "auto",
+});
+
 export const TableHead = css("thead", {});
 
 export const TableRoll = css("tr", {});

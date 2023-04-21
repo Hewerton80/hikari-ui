@@ -19,6 +19,25 @@ function Table({ className, css, children, ...restProps }: GlobalProps) {
     </table>
   );
 }
+function TableContainer({
+  className,
+  css,
+  children,
+  ...restProps
+}: GlobalProps) {
+  return (
+    <div
+      className={classNames(
+        addClasseNamePrefix("table-container"),
+        Styled.TableContainer({ css }),
+        className
+      )}
+      {...restProps}
+    >
+      {children}
+    </div>
+  );
+}
 function TableHead({ className, css, children, ...restProps }: GlobalProps) {
   return (
     <thead
@@ -95,6 +114,7 @@ function TableDate({ className, css, children, ...restProps }: GlobalProps) {
   );
 }
 Table.Head = TableHead;
+Table.Container = TableContainer;
 Table.Roll = TableRoll;
 Table.HeadCell = TableHeadCell;
 Table.Body = TableBody;
