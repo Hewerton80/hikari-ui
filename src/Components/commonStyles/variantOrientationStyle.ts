@@ -8,10 +8,12 @@ type OrientationType =
   | "bottom-center"
   | "bottom-right";
 
+export type AligneType = "start" | "center" | "end";
+export type SideType = "top" | "right" | "bottom" | "left";
 type AvaliableOrientations = {
   [Property in OrientationType]: {
-    align: "start" | "center" | "end";
-    side: "top" | "right" | "bottom" | "left";
+    align: AligneType;
+    side: SideType;
   };
 };
 
