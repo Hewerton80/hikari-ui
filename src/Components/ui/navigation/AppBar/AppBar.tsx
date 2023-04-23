@@ -12,6 +12,7 @@ function AppBar({ className, children, ...restProps }: BoxProps) {
         Styled.Appbar(),
         className
       )}
+      as="header"
       {...restProps}
     >
       {children}

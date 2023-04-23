@@ -2,7 +2,7 @@ import { css } from "../../../../styles/theme";
 import { spaces } from "../../../../styles/spaces";
 import { colors } from "../../../../styles/colors";
 
-export const Appbar = css("div", {
+export const Appbar = css("header", {
   display: "flex",
   height: spaces["20"],
   width: "100%",
