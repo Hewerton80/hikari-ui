@@ -29,23 +29,23 @@ const CustomLink = ({
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
 >) => {
-  return (
-    <a style={{ backgroundColor: "red" }} {...props}>
-      {children}
-    </a>
-  );
+  return <a {...props}>{children}</a>;
 };
 
 export const SideBarWithMenu = () => {
   const items: SideBarItem[] = [
-    { icon: <VscHome />, href: "/#", text: "Home" },
     {
       icon: <VscPackage />,
-      text: "Cursos",
+      text: "Courses",
       as: CustomLink,
-      subItems: [{ icon: <VscTag />, text: "css", href: "/#", as: CustomLink }],
+      subItems: [
+        { text: "CSS", href: "/#", as: CustomLink },
+        { text: "HTML", href: "/#", as: CustomLink },
+        { text: "Javascript", href: "/#", as: CustomLink },
+      ],
     },
-    { icon: <VscPerson />, href: "/#", text: "Usuários", as: CustomLink },
+    { icon: <VscHome />, href: "/#", text: "Home" },
+    { icon: <VscPerson />, href: "/#", text: "Users", as: CustomLink },
   ];
   return (
     <Box css={{ width: "100%", minHeight: "100vh" }}>

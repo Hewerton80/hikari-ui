@@ -1,10 +1,21 @@
-import React, { ElementType, MouseEvent, useCallback, useMemo } from "react";
+import React, {
+  ElementType,
+  MouseEvent,
+  useCallback,
+  useId,
+  useMemo,
+  useState,
+} from "react";
 import * as Styled from "./SideBar.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import classNames from "classnames";
 import { GlobalProps } from "../../../../types/GlobalProps";
 import { Box, BoxProps } from "../../layout/Box";
 import { Text } from "../../typography/Text";
+import { BsDot } from "react-icons/bs";
+import * as RadixAccordion from "@radix-ui/react-accordion";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import { spaces } from "../../../../styles/spaces";
 
 export interface SideBarProps extends BoxProps {}
 
@@ -46,29 +57,31 @@ function Item({
   as: Comp = "a",
   ...restProps
 }: SideBarItem) {
+  const [showSubmenu, setShowSubmenu] = useState(false);
+  const id = useId();
   const hasSubmenu = useMemo(
     () => Array.isArray(subItems) && subItems?.length > 0,
     [subItems]
   );
 
-  console.log(text, hasSubmenu, subItems);
+  console.log({ text, hasSubmenu, subItems });
 
   const handleClickInNavItem = useCallback(
     (e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
-      e.preventDefault();
       // if (!menuIsExpanded) {
       //   return
       // }
-      // if (hasSubmenu) {
-      //   setShowSubmenu((currentShowSubmenu) => !currentShowSubmenu)
-      //   e.preventDefault()
-      //   return
-      // }
+      if (hasSubmenu) {
+        setShowSubmenu((currentShowSubmenu) => !currentShowSubmenu);
+        // e.preventDefault();
+        // return;
+      }
       // if (isMobile() && showSideBar) {
       //   handleToogleSideBar()
       // }
+      return e;
     },
-    []
+    [hasSubmenu]
   );
 
   return (
@@ -80,31 +93,52 @@ function Item({
       )}
       {...restProps}
     >
-      <Comp
-        className={classNames(
-          addClasseNamePrefix("side-bar-link"),
-          Styled.SideBarLink()
-        )}
-        href={href}
-        onClick={handleClickInNavItem}
-      >
-        <Box css={{ display: "flex" }}>{icon}</Box>
-        <Text as="p" css={{ marginLeft: "$3" }}>
-          {text}
-        </Text>
-      </Comp>
-      {hasSubmenu && (
-        <Box css={{ display: "flex", flexDirection: "column", width: "100%" }}>
-          {subItems.map(({ subItems, ...restTextProps }, i) => {
-            return (
-              <Item
-                key={`${restTextProps?.text}-${i}-sub-item`}
-                {...restTextProps}
-              />
-            );
-          })}
-        </Box>
-      )}
+      <RadixAccordion.Root type="single" asChild collapsible={showSubmenu}>
+        <RadixAccordion.Item value={text}>
+          <RadixAccordion.Trigger asChild>
+            <div>
+              <Comp
+                className={classNames(
+                  addClasseNamePrefix("side-bar-link"),
+                  Styled.SideBarLink()
+                )}
+                href={href}
+                onClick={handleClickInNavItem}
+              >
+                <Box css={{ display: "flex" }}>{icon}</Box>
+                <Text as="p" css={{ marginLeft: "$3" }}>
+                  {text}
+                </Text>
+                {hasSubmenu && (
+                  <Box
+                    as="span"
+                    css={{
+                      position: "absolute",
+                      display: "flex",
+                      right: spaces["3.5"],
+                    }}
+                  >
+                    {showSubmenu ? <FaMinus size={16} /> : <FaPlus size={16} />}
+                  </Box>
+                )}
+              </Comp>
+            </div>
+          </RadixAccordion.Trigger>
+          {hasSubmenu && (
+            <RadixAccordion.Content className={Styled.SideBarSubMenu()}>
+              {subItems.map(({ subItems, ...restTextProps }, i) => {
+                return (
+                  <Item
+                    key={`${restTextProps?.text}-${i}-sub-item`}
+                    {...restTextProps}
+                    icon={<BsDot />}
+                  />
+                );
+              })}
+            </RadixAccordion.Content>
+          )}
+        </RadixAccordion.Item>
+      </RadixAccordion.Root>
     </li>
   );
 }
@@ -125,7 +159,7 @@ function SideBarMenu({
       )}
       {...restProps}
     >
-      {items.map(({ subItems, ...restTextProps }, i) => {
+      {items.map(({ ...restTextProps }, i) => {
         return (
           <Item key={`${restTextProps?.text}-${i}-item`} {...restTextProps} />
         );

@@ -1,4 +1,4 @@
-import { css, darkTheme } from "../../../../styles/theme";
+import { css, darkTheme, keyframes } from "../../../../styles/theme";
 import { spaces } from "../../../../styles/spaces";
 import { colors } from "../../../../styles/colors";
 import { cardStyle } from "../../../commonStyles/CardStyle";
@@ -85,6 +85,7 @@ export const SideBarLink = css("a", {
   paddingLeft: spaces["2.5"],
   cursor: "pointer",
   color: colors.secondary,
+  backgroundColor: colors.white,
   "&:hover": {
     backgroundColor: colors["gray-lighter"],
   },
@@ -94,6 +95,26 @@ export const SideBarLink = css("a", {
     "&:hover": {
       backgroundColor: colors["dark-hover"],
     },
+  },
+});
+
+const slideDown = keyframes({
+  from: { height: 0 },
+  to: { height: "var(--radix-accordion-content-height)" },
+});
+
+const slideUp = keyframes({
+  from: { height: "var(--radix-accordion-content-height)" },
+  to: { height: 0 },
+});
+
+export const SideBarSubMenu = css("div", {
+  overflowY: "hidden",
+  '&[data-state="open"]': {
+    animation: `${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
+  },
+  '&[data-state="closed"]': {
+    animation: `${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1)`,
   },
 });
 // 'relative flex items-center w-full h-full justify-start',
