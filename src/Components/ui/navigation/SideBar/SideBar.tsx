@@ -15,7 +15,6 @@ import { Text } from "../../typography/Text";
 import { BsDot } from "react-icons/bs";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import { spaces } from "../../../../styles/spaces";
 
 export interface SideBarProps extends BoxProps {
   collapsed?: boolean;

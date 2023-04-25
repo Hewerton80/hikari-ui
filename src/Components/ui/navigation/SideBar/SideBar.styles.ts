@@ -2,7 +2,6 @@ import { css, darkTheme, keyframes } from "../../../../styles/theme";
 import { spaces } from "../../../../styles/spaces";
 import { colors } from "../../../../styles/colors";
 import { cardStyle } from "../../../commonStyles/CardStyle";
-import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
 // className={cn(
 //     'flex items-start md:items-center overflow-hidden',
