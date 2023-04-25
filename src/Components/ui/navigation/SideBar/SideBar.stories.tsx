@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SideBar, SideBarItem } from ".";
 import {
   VscOrganization,
@@ -8,9 +8,11 @@ import {
   VscTag,
   VscHome,
   VscPackage,
-  VscOutput,
+  VscArrowLeft,
+  VscArrowRight,
 } from "react-icons/vsc";
 import { Box } from "../../layout/Box";
+import { IconButton } from "../../forms/IconButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -33,6 +35,8 @@ const CustomLink = ({
 };
 
 export const SideBarWithMenu = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const items: SideBarItem[] = [
     {
       icon: <VscPackage />,
@@ -48,10 +52,14 @@ export const SideBarWithMenu = () => {
     { icon: <VscPerson />, href: "/#", text: "Users", as: CustomLink },
   ];
   return (
-    <Box css={{ width: "100%", minHeight: "100vh" }}>
-      <SideBar>
+    <Box css={{ display: "flex", width: "100%", minHeight: "100vh", gap: 8 }}>
+      <SideBar collapsed={isCollapsed}>
         <SideBar.Menu items={items} />
       </SideBar>
+      <IconButton
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        icon={isCollapsed ? <VscArrowRight /> : <VscArrowLeft />}
+      />
     </Box>
   );
 };

@@ -15,65 +15,11 @@ import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 //     className
 //   )}
 
-export const SideBar = css("div", {
-  ...cardStyle,
-  alignItems: "flex-start",
-  paddingTop: spaces["8"],
-  paddingBottom: spaces["14"],
+export enum SideBarState {
+  COLLAPSED = "collapsed",
+  EXPANDED = "expanded",
+}
 
-  height: "100vh",
-  transition: "width 300ms ease 0s",
-  overflow: "hidden",
-  color: colors.black,
-  backgroundColor: colors.white,
-  borderColor: colors["gray-lightest"],
-  px: spaces["5"],
-  [`.${darkTheme} &`]: {
-    color: colors.white,
-    background: colors["dark-card"],
-    borderColor: colors["dark-card"],
-  },
-  //   backgroundColor: "red",
-  "@bpMd": {
-    // alignItems: "center",
-    // height: "auto",
-    // px: spaces["5"],
-  },
-  '&[data-state="collapsed"]': {
-    [`.${addClasseNamePrefix("side-bar-link")}`]: {
-      justifyContent: "center",
-      "& > p": {
-        display: "none",
-      },
-    },
-    width: spaces["17"],
-    // "@bpMd": {
-    // },
-  },
-  '&[data-state="expanded"]': {
-    width: spaces["60"],
-    // "@bpMd": {
-    //   px: spaces["5"],
-    // },
-  },
-});
-
-export const SideBarMenu = css("ul", {
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
-});
-
-// relative flex flex-col w-full group
-export const SideBarItem = css("li", {
-  position: "relative",
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
-  svg: {
-    text: "xl",
-  },
-});
 export const SideBarLink = css("a", {
   display: "flex",
   justifyContent: "start",
@@ -95,6 +41,65 @@ export const SideBarLink = css("a", {
     "&:hover": {
       backgroundColor: colors["dark-hover"],
     },
+  },
+});
+
+export const MenuArrowWrapper = css("div", {
+  position: "absolute",
+  display: "flex",
+  right: spaces["3.5"],
+});
+
+export const SideBar = css("div", {
+  ...cardStyle,
+  alignItems: "flex-start",
+  paddingTop: spaces["8"],
+  paddingBottom: spaces["14"],
+
+  height: "100vh",
+  transition: "width 300ms ease 0s",
+  overflow: "hidden",
+  color: colors.black,
+  backgroundColor: colors.white,
+  borderColor: colors["gray-lightest"],
+  px: spaces["5"],
+  [`.${darkTheme} &`]: {
+    color: colors.white,
+    background: colors["dark-card"],
+    borderColor: colors["dark-card"],
+  },
+
+  [`&[data-state="${SideBarState.COLLAPSED}"]`]: {
+    [`.${SideBarLink}`]: {
+      justifyContent: "center",
+      "& > p": {
+        display: "none",
+      },
+    },
+    [`.${MenuArrowWrapper}`]: {
+      display: "none",
+    },
+    width: spaces["17"],
+  },
+  [`&[data-state="${SideBarState.EXPANDED}"]`]: {
+    width: spaces["60"],
+  },
+});
+
+export const SideBarMenu = css("ul", {
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+});
+
+// relative flex flex-col w-full group
+export const SideBarItem = css("li", {
+  position: "relative",
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  svg: {
+    text: "xl",
   },
 });
 

@@ -17,7 +17,9 @@ import * as RadixAccordion from "@radix-ui/react-accordion";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { spaces } from "../../../../styles/spaces";
 
-export interface SideBarProps extends BoxProps {}
+export interface SideBarProps extends BoxProps {
+  collapsed?: boolean;
+}
 
 export interface SideBarItem extends Omit<GlobalProps, "children"> {
   icon?: JSX.Element;
@@ -31,20 +33,38 @@ interface SideBarMenuProps extends Omit<GlobalProps, "children"> {
   items: SideBarItem[];
 }
 
-function SideBar({ className, children, css, ...restProps }: SideBarProps) {
+function SideBar({
+  className,
+  collapsed,
+  children,
+  css,
+  ...restProps
+}: SideBarProps) {
+  const [isMouseOveringSidebar, setIsMouseOveringSidebar] = useState(false);
+
+  const menuIsExpanded = useMemo(
+    () => !collapsed || isMouseOveringSidebar,
+    [collapsed, isMouseOveringSidebar]
+  );
+
   return (
-    <Box
-      data-state="expanded"
+    <aside
+      data-state={
+        menuIsExpanded
+          ? Styled.SideBarState.EXPANDED
+          : Styled.SideBarState.COLLAPSED
+      }
       className={classNames(
         addClasseNamePrefix("side-bar"),
         Styled.SideBar({ css }),
         className
       )}
-      as="aside"
+      onMouseOver={() => setIsMouseOveringSidebar(true)}
+      onMouseLeave={() => setIsMouseOveringSidebar(false)}
       {...restProps}
     >
       {children}
-    </Box>
+    </aside>
   );
 }
 
@@ -94,7 +114,7 @@ function Item({
       {...restProps}
     >
       <RadixAccordion.Root type="single" asChild collapsible={showSubmenu}>
-        <RadixAccordion.Item value={text}>
+        <RadixAccordion.Item value={id}>
           <RadixAccordion.Trigger asChild>
             <div>
               <Comp
@@ -110,16 +130,9 @@ function Item({
                   {text}
                 </Text>
                 {hasSubmenu && (
-                  <Box
-                    as="span"
-                    css={{
-                      position: "absolute",
-                      display: "flex",
-                      right: spaces["3.5"],
-                    }}
-                  >
+                  <span className={Styled.MenuArrowWrapper()}>
                     {showSubmenu ? <FaMinus size={16} /> : <FaPlus size={16} />}
-                  </Box>
+                  </span>
                 )}
               </Comp>
             </div>
