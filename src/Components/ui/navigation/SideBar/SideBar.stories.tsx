@@ -44,7 +44,7 @@ export const SideBarWithMenu = () => {
         { text: "Javascript", href: "/#", as: CustomLink },
       ],
     },
-    { icon: <VscHome />, href: "/#", text: "Home" },
+    { icon: <VscHome />, href: "/#", text: "Home", active: true },
     { icon: <VscPerson />, href: "/#", text: "Users", as: CustomLink },
   ];
   return (

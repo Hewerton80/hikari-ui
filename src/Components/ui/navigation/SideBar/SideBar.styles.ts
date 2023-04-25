@@ -19,6 +19,17 @@ export enum SideBarState {
   EXPANDED = "expanded",
 }
 
+const active = {
+  true: {
+    backgroundColor: colors["gray-lighter"],
+    [`.${darkTheme} &`]: {
+      color: colors.light,
+      backgroundColor: colors["dark-hover"],
+    },
+  },
+  false: {},
+};
+
 export const SideBarLink = css("a", {
   display: "flex",
   justifyContent: "start",
@@ -41,6 +52,7 @@ export const SideBarLink = css("a", {
       backgroundColor: colors["dark-hover"],
     },
   },
+  variants: { active },
 });
 
 export const MenuArrowWrapper = css("div", {
@@ -62,7 +74,7 @@ export const SideBar = css("div", {
   backgroundColor: colors.white,
   borderColor: colors["gray-lightest"],
   px: spaces["5"],
-  [`.${darkTheme} &, &:hover`]: {
+  [`.${darkTheme} &`]: {
     color: colors.white,
     background: colors["dark-card"],
     borderColor: colors["dark-card"],

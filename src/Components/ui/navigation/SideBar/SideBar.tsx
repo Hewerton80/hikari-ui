@@ -26,6 +26,7 @@ export interface SideBarItem extends Omit<GlobalProps, "children"> {
   href?: string;
   as?: ElementType;
   subItems?: SideBarItem[];
+  active?: boolean;
 }
 
 interface SideBarMenuProps extends Omit<GlobalProps, "children"> {
@@ -73,6 +74,7 @@ function Item({
   text,
   href,
   subItems,
+  active,
   as: Comp = "a",
   ...restProps
 }: SideBarItem) {
@@ -107,7 +109,7 @@ function Item({
     <li
       className={classNames(
         addClasseNamePrefix("side-bar-item"),
-        Styled.SideBarItem(),
+        Styled.SideBarItem({}),
         className
       )}
       {...restProps}
@@ -119,7 +121,9 @@ function Item({
               <Comp
                 className={classNames(
                   addClasseNamePrefix("side-bar-link"),
-                  Styled.SideBarLink()
+                  Styled.SideBarLink({
+                    active: active && !hasSubmenu ? "true" : "false",
+                  })
                 )}
                 href={href}
                 onClick={handleClickInNavItem}
