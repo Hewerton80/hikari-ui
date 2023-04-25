@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { SideBar, SideBarItem } from ".";
 import {
-  VscOrganization,
   VscPerson,
-  VscBook,
-  VscGroupByRefType,
-  VscTag,
   VscHome,
   VscPackage,
   VscArrowLeft,

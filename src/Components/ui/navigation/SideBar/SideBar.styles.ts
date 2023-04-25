@@ -62,7 +62,7 @@ export const SideBar = css("div", {
   backgroundColor: colors.white,
   borderColor: colors["gray-lightest"],
   px: spaces["5"],
-  [`.${darkTheme} &`]: {
+  [`.${darkTheme} &, &:hover`]: {
     color: colors.white,
     background: colors["dark-card"],
     borderColor: colors["dark-card"],
