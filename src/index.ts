@@ -99,5 +99,9 @@ export { useAlert } from "./hooks/utils/useAlert";
 //theme
 export { CSS } from "./styles/theme";
 
+// utils
+
+export { toogleTheme } from "./utils/toogleTheme";
+
 //context
 export { HikariProviders } from "./context";
