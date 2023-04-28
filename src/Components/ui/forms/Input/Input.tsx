@@ -12,7 +12,7 @@ import * as Styled from "./Input.styles";
 import { inputMasks } from "./masks";
 
 export interface InputProps extends FormControlProps {
-  type?: "text" | "email" | "password";
+  type?: "text" | "email" | "password" | "number";
   value?: string;
   mask?: keyof typeof inputMasks;
   defaultValue?: string;

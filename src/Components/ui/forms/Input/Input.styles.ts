@@ -32,4 +32,9 @@ export const Input = css("input", {
     ...iconStyle,
     right: 0,
   },
+  "&[type=number]": {
+    "&::-webkit-inner-spin-button, &::-webkit-outer-spin-button": {
+      "-webkit-appearance": "none",
+    },
+  },
 });

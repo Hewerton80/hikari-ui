@@ -17,6 +17,7 @@ export const ActiveAndDisabled = () => {
       <Grid.Col span={{ base: 12, lg: 4 }}>
         <Input
           id="name"
+          type="number"
           placeholder="Fulano da silva"
           label="Name"
           value={name}
