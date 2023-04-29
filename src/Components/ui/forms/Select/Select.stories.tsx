@@ -56,6 +56,41 @@ export const SingleValue = () => {
   );
 };
 
+export const GroupedOptions = () => {
+  const backendOptions: SelectOption[] = [
+    { value: "nodejs", label: "NodeJs" },
+    { value: "laravel", label: "Laravel" },
+    { value: "stringboot", label: "Stringboot" },
+  ];
+  const frontendOptions: SelectOption[] = [
+    { value: "reactjs", label: "ReactJs" },
+    { value: "vuejs", label: "VueJs" },
+    { value: "angular", label: "Angular" },
+  ];
+  const groupedOptions: SelectOption[] = [
+    { label: "backend", options: backendOptions },
+    { label: "frontend", options: frontendOptions },
+  ];
+
+  const [tech, setTech] = React.useState<SelectOption | null>(null);
+
+  return (
+    <Box css={{ width: 356 }}>
+      <Grid gap={32}>
+        <Grid.Col span={{ base: 12 }}>
+          <Select
+            label="Tech"
+            value={tech}
+            onChange={setTech}
+            options={groupedOptions}
+            placeholder="Select tech..."
+          />
+        </Grid.Col>
+      </Grid>
+    </Box>
+  );
+};
+
 export const Validations = () => {
   const [profile, setProfile] = React.useState<SelectOption>(null);
   const [gender, setGender] = React.useState<SelectOption>(null);

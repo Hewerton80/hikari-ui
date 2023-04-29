@@ -13,8 +13,9 @@ import * as Styled from "./Select.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
 export interface SelectOption {
-  value: string;
+  value?: string;
   label: string;
+  options?: SelectOption[];
 }
 
 export type OnchangeSigleValue = (newValue: SingleValue<SelectOption>) => void;
@@ -83,6 +84,12 @@ export function Select({
           addClasseNamePrefix("select"),
           Styled.ReactSelect(),
           className
+        )}
+        formatGroupLabel={(oprions) => (
+          <>
+            <span>{oprions.label}</span>{" "}
+            <span>({oprions?.options?.length})</span>
+          </>
         )}
         onChange={handleChange}
         isMulti={isMulti}

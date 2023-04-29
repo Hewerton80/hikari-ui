@@ -1,8 +1,26 @@
-import { css, darkTheme } from "../../../../styles/theme";
+import { css, CSS, darkTheme } from "../../../../styles/theme";
 import { colors } from "../../../../styles/colors";
 import { spaces } from "../../../../styles/spaces";
 import { darken, rem, rgba } from "polished";
 import { formTextStyle } from "../../../commonStyles/formTextStyle";
+
+const selectOptionsStyle: CSS = {
+  text: "sm",
+  color: colors.dark,
+  padding: spaces["1.5"],
+  margin: 0,
+  [`.${darkTheme} &`]: {
+    color: colors.light,
+  },
+  "&--is-selected": {
+    backgroundColor: colors.info,
+    color: colors.light,
+  },
+  "&--is-focused": {
+    backgroundColor: rgba(colors.info, 0.8),
+    color: colors.light,
+  },
+};
 
 export const ReactSelect = css("div", {
   ".select": {
@@ -59,21 +77,20 @@ export const ReactSelect = css("div", {
         backgroundColor: colors["dark-card"],
         borderColor: rgba(colors["white"], 0.1),
       },
+      "&-list": {
+        customScroll: "",
+      },
     },
     "&__option": {
-      text: "sm",
-      color: colors.dark,
-      padding: spaces["1.5"],
-      [`.${darkTheme} &`]: {
-        color: colors.light,
-      },
-      "&--is-selected": {
-        backgroundColor: colors.info,
-        color: colors.light,
-      },
-      "&--is-focused": {
-        backgroundColor: rgba(colors.info, 0.8),
-        color: colors.light,
+      ...selectOptionsStyle,
+    },
+    "&__group": {
+      padding: 0,
+      "&-heading": {
+        ...selectOptionsStyle,
+        "& ~ div .select__option": {
+          paddingLeft: spaces["3"],
+        },
       },
     },
     "&__indicator-separator, &__loading-indicator": {
