@@ -22,6 +22,8 @@ export interface InputProps extends FormControlProps {
   readOnly?: boolean;
   rightIcon?: JSX.Element;
   lefItcon?: JSX.Element;
+  min?: number;
+  max?: number;
   onFocus?: () => void;
   onBlur?: () => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;

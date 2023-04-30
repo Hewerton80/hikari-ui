@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import ReactSelect, {
+  Props as ReactSelectProps,
   PropsValue,
   SingleValue,
   ActionMeta,
@@ -18,6 +19,12 @@ export interface SelectOption {
   options?: SelectOption[];
 }
 
+interface PickedReactSelectProps
+  extends Pick<
+    ReactSelectProps,
+    "options" | "value" | "onChange" | "onInputChange" | "isMulti"
+  > {}
+
 export type OnchangeSigleValue = (newValue: SingleValue<SelectOption>) => void;
 
 export type OnchangeMultValue = (
@@ -27,16 +34,16 @@ export type OnchangeMultValue = (
 
 export interface SelectProps extends FormControlProps {
   options: SelectOption[];
-  value?: PropsValue<SelectOption>;
+  value?: PropsValue<SelectOption> | null;
   isAutocomplite?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;
-  isMulti?: boolean;
   inputValue?: string;
-  name?: string;
   placeholder?: string;
-  feedbackText?: string;
-  onChange?: OnchangeSigleValue | OnchangeMultValue;
+  isMulti?: boolean;
+  onChangeSingleOption?: OnchangeSigleValue;
+  onchangeMultValue?: OnchangeMultValue;
+  // onChange?: OnchangeSigleValue | OnchangeMultValue;
   onInputChange?: (newValue: string) => void;
   autoFocus?: boolean;
 }
@@ -49,24 +56,22 @@ export function Select({
   isMulti,
   state,
   css,
-  onChange,
+  onChangeSingleOption,
+  onchangeMultValue,
   ...restProps
 }: SelectProps) {
   const handleChange = useCallback(
     (
-      newValue: SelectOption | MultiValue<SelectOption>,
+      newValue: SingleValue<SelectOption> | SelectOption[],
       actionMeta: ActionMeta<SelectOption>
     ) => {
       if (isMulti) {
-        onChange?.(
-          newValue as SelectOption[] & SelectOption,
-          actionMeta as ActionMeta<SelectOption>
-        );
+        onchangeMultValue?.(newValue as SelectOption[], actionMeta);
       } else {
-        onChange?.(newValue as SelectOption[] & SelectOption, null);
+        onChangeSingleOption?.(newValue as SingleValue<SelectOption>);
       }
     },
-    [isMulti, onChange]
+    [isMulti, onChangeSingleOption, onchangeMultValue]
   );
 
   return (

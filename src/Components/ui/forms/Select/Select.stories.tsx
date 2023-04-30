@@ -5,6 +5,7 @@ import { Grid } from "../../../ui/layout/Grid";
 import { Box } from "../../../ui/layout/Box";
 import axios from "axios";
 import { ActionMeta } from "react-select";
+import { getRange } from "../../../../utils/getRange";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -36,7 +37,7 @@ export const SingleValue = () => {
           <Select
             label="Profile"
             value={profile}
-            onChange={setProfile}
+            onChangeSingleOption={setProfile}
             options={profileOptions}
             placeholder="Select profile..."
           />
@@ -46,9 +47,34 @@ export const SingleValue = () => {
             label="Gender"
             isDisabled
             value={gender}
-            onChange={setGender}
+            onChangeSingleOption={setGender}
             options={genderOptions}
             placeholder="Select Gender..."
+          />
+        </Grid.Col>
+      </Grid>
+    </Box>
+  );
+};
+
+export const ManyOptions = () => {
+  const profileOptions: SelectOption[] = getRange(50).map((i) => ({
+    label: `label-${i}`,
+    value: `value-${i}`,
+  }));
+
+  const [profile, setProfile] = React.useState<SelectOption | null>(null);
+
+  return (
+    <Box css={{ width: 356 }}>
+      <Grid gap={32}>
+        <Grid.Col span={{ base: 12 }}>
+          <Select
+            label="Profile"
+            value={profile}
+            onChangeSingleOption={setProfile}
+            options={profileOptions}
+            placeholder="Select profile..."
           />
         </Grid.Col>
       </Grid>
@@ -72,7 +98,7 @@ export const GroupedOptions = () => {
     { label: "frontend", options: frontendOptions },
   ];
 
-  const [tech, setTech] = React.useState<SelectOption | null>(null);
+  const [tech, setTech] = React.useState<SelectOption>(null);
 
   return (
     <Box css={{ width: 356 }}>
@@ -81,7 +107,7 @@ export const GroupedOptions = () => {
           <Select
             label="Tech"
             value={tech}
-            onChange={setTech}
+            onChangeSingleOption={(value) => setTech(value)}
             options={groupedOptions}
             placeholder="Select tech..."
           />
@@ -120,7 +146,7 @@ export const Validations = () => {
             label="Profile:"
             value={profile}
             options={profileOptions}
-            onChange={setProfile}
+            onChangeSingleOption={setProfile}
             placeholder="Select profile..."
             state="success"
             feedbackText="Looks good!"
@@ -131,7 +157,7 @@ export const Validations = () => {
             label="Gender:"
             value={gender}
             options={genderOptions}
-            onChange={setGender}
+            onChangeSingleOption={setGender}
             placeholder="Select gender..."
             state="warning"
             feedbackText="this is requied"
@@ -142,7 +168,7 @@ export const Validations = () => {
             label="Tech:"
             value={tech}
             options={techOptions}
-            onChange={setTech}
+            onChangeSingleOption={setTech}
             placeholder="Select tech..."
             state="danger"
             feedbackText="this is requied"
@@ -169,7 +195,7 @@ export const SingleValueWithAutocomplite = () => {
           <Select
             label="Profile"
             value={profile}
-            onChange={setProfile}
+            onChangeSingleOption={setProfile}
             options={profileOptions}
             isAutocomplite
             placeholder="Select profile..."
@@ -199,7 +225,7 @@ export const MultValuesWithAutocomplite = () => {
             isMulti
             isAutocomplite
             options={techOptions}
-            onChange={setTechs}
+            onchangeMultValue={setTechs}
             placeholder="Select teches..."
           />
         </Grid.Col>
@@ -292,7 +318,7 @@ export const SigleValueWitchAutocompliteAsync = () => {
             label="YU-GI-OH CARD:"
             value={cardValue}
             options={autocompliteCardOptions}
-            onChange={handleSelectOptions}
+            onChangeSingleOption={handleSelectOptions}
             onInputChange={handleChangeInputText}
             isAutocomplite
             placeholder="Search for a yuguioh card..."
@@ -399,7 +425,7 @@ export const MultValueAutocompliteAsync = () => {
             options={autocompliteCardOptions}
             isMulti
             isAutocomplite
-            onChange={handleChangeOptions}
+            onchangeMultValue={handleChangeOptions}
             onInputChange={handleChangeInputText}
             placeholder="Search for a yuguioh card..."
             isLoading={isLoading}

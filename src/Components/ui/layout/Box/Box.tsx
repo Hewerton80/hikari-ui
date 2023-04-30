@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { forwardRef } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Box.styles";
@@ -20,26 +20,26 @@ export interface BoxProps extends GlobalProps {
     | "nav";
 }
 
-export function Box({
-  children,
-  id,
-  as = "div",
-  className,
-  css,
-  ...restProps
-}: BoxProps) {
-  const Comp = as;
-  return (
-    <Comp
-      id={id}
-      className={classNames(
-        addClasseNamePrefix("box"),
-        Styled.Box({ css }),
-        className
-      )}
-      {...restProps}
-    >
-      {children}
-    </Comp>
-  );
-}
+export const Box = forwardRef(
+  (
+    { children, id, as = "div", className, css, ...restProps }: BoxProps,
+    ref?: any
+  ) => {
+    const Comp = as;
+
+    return (
+      <Comp
+        ref={ref}
+        id={id}
+        className={classNames(
+          addClasseNamePrefix("box"),
+          Styled.Box({ css }),
+          className
+        )}
+        {...restProps}
+      >
+        {children}
+      </Comp>
+    );
+  }
+);
