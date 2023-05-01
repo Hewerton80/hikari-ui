@@ -11,6 +11,12 @@ export default {
   // argTypes: {},
 };
 
+const innerBoxStyle = {
+  display: "flex",
+  flexWrap: "wrap",
+  gap: 8,
+  justifyContent: "center",
+};
 export const variantStyles = () => {
   return (
     <Box
@@ -21,14 +27,7 @@ export const variantStyles = () => {
         alignItems: "center",
       }}
     >
-      <Box
-        css={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 8,
-          justifyContent: "center",
-        }}
-      >
+      <Box css={innerBoxStyle}>
         <IconButton variantStyle="primary" icon={<FiUpload />} />
         <IconButton variantStyle="secondary" icon={<FiUpload />} />
         <IconButton variantStyle="success" icon={<FiUpload />} />
@@ -37,53 +36,54 @@ export const variantStyles = () => {
         <IconButton variantStyle="danger" icon={<FiUpload />} />
         <IconButton variantStyle="warning" icon={<FiUpload />} />
       </Box>
-      <Box
-        css={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 8,
-          justifyContent: "center",
-        }}
-      >
+      <Box css={innerBoxStyle}>
         <IconButton variantStyle="primary-outlined" icon={<AiTwotoneEdit />} />
         <IconButton
           variantStyle="secondary-outlined"
           icon={<AiTwotoneEdit />}
         />
-        <IconButton variantStyle="success-outlined" icon={<AiTwotoneEdit />} />
-        <IconButton variantStyle="info-outlined" icon={<AiTwotoneEdit />} />
-        <IconButton variantStyle="dark-outlined" icon={<AiTwotoneEdit />} />
-        <IconButton variantStyle="danger-outlined" icon={<AiTwotoneEdit />} />
-        <IconButton variantStyle="warning-outlined" icon={<AiTwotoneEdit />} />
+        <IconButton
+          variantStyle="success-outlined"
+          icon={<AiOutlineUserSwitch />}
+        />
+        <IconButton
+          variantStyle="info-outlined"
+          icon={<AiOutlineUserSwitch />}
+        />
+        <IconButton
+          variantStyle="dark-outlined"
+          icon={<AiOutlineUserSwitch />}
+        />
+        <IconButton
+          variantStyle="danger-outlined"
+          icon={<AiOutlineUserSwitch />}
+        />
+        <IconButton
+          variantStyle="warning-outlined"
+          icon={<AiOutlineUserSwitch />}
+        />
       </Box>
-      <Box
-        css={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 8,
-          justifyContent: "center",
-        }}
-      >
+      <Box css={innerBoxStyle}>
         <IconButton
-          variantStyle="primary-texted"
+          variantStyle="primary-ghost"
           icon={<AiOutlineUserSwitch />}
         />
         <IconButton
-          variantStyle="secondary-texted"
+          variantStyle="secondary-ghost"
           icon={<AiOutlineUserSwitch />}
         />
         <IconButton
-          variantStyle="success-texted"
+          variantStyle="success-ghost"
           icon={<AiOutlineUserSwitch />}
         />
-        <IconButton variantStyle="info-texted" icon={<AiOutlineUserSwitch />} />
-        <IconButton variantStyle="dark-texted" icon={<AiOutlineUserSwitch />} />
+        <IconButton variantStyle="info-ghost" icon={<AiOutlineUserSwitch />} />
+        <IconButton variantStyle="dark-ghost" icon={<AiOutlineUserSwitch />} />
         <IconButton
-          variantStyle="danger-texted"
+          variantStyle="danger-ghost"
           icon={<AiOutlineUserSwitch />}
         />
         <IconButton
-          variantStyle="warning-texted"
+          variantStyle="warning-ghost"
           icon={<AiOutlineUserSwitch />}
         />
       </Box>

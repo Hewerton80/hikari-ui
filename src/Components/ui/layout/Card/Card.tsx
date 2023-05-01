@@ -3,6 +3,7 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Card.styles";
 import { GlobalProps } from "../../../../types/GlobalProps";
+import { Button } from "../../forms/Button";
 
 export interface CardProps extends GlobalProps, Styled.CardProps {}
 export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
@@ -12,6 +13,7 @@ export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
 export interface CardHeaderProps extends GlobalProps {}
 export interface CardBodyProps extends GlobalProps {}
 export interface CardFooterProps extends GlobalProps, Styled.CardFooterProps {}
+export interface CardLinkProps extends GlobalProps {}
 
 function Card({
   children,
@@ -124,11 +126,23 @@ function Footer({
     </div>
   );
 }
+function Link({ children, className, css, ...rest }: CardLinkProps) {
+  return (
+    <Button
+      className={classNames(addClasseNamePrefix("card-link"), className)}
+      variantStyle="info-ghost"
+      {...rest}
+    >
+      {children}
+    </Button>
+  );
+}
 
 Card.Header = Header;
 Card.Title = Title;
 Card.Img = Img;
 Card.Body = Body;
 Card.Footer = Footer;
+Card.Link = Footer;
 
 export { Card };

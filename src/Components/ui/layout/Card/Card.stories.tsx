@@ -37,7 +37,7 @@ export const ImageCard = () => {
                 as="link"
                 href="/#"
                 onClick={(e) => e.preventDefault()}
-                variantStyle="primary-texted"
+                variantStyle="primary-link"
               >
                 Read More
               </Button>
@@ -56,7 +56,7 @@ export const ImageCard = () => {
                 as="link"
                 href="/#"
                 onClick={(e) => e.preventDefault()}
-                variantStyle="primary-texted"
+                variantStyle="primary-link"
               >
                 Read More
               </Button>
@@ -77,7 +77,7 @@ export const ImageCard = () => {
                 as="link"
                 href="/#"
                 onClick={(e) => e.preventDefault()}
-                variantStyle="primary-texted"
+                variantStyle="primary-link"
               >
                 Read More
               </Button>

@@ -53,25 +53,25 @@ export const VariantColorsTooltips = () => {
   return (
     <Box css={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
       <Tooltip content="primary" variantStyle="primary">
-        <Button variantStyle="info-texted">primary</Button>
+        <Button variantStyle="info-link">primary</Button>
       </Tooltip>
       <Tooltip content="secondary" variantStyle="secondary">
-        <Button variantStyle="info-texted">secondary</Button>
+        <Button variantStyle="info-link">secondary</Button>
       </Tooltip>
       <Tooltip content="success" variantStyle="success">
-        <Button variantStyle="info-texted">success</Button>
+        <Button variantStyle="info-link">success</Button>
       </Tooltip>
       <Tooltip content="danger" variantStyle="danger">
-        <Button variantStyle="info-texted">danger</Button>
+        <Button variantStyle="info-link">danger</Button>
       </Tooltip>
       <Tooltip content="warning" variantStyle="warning">
-        <Button variantStyle="info-texted">warning</Button>
+        <Button variantStyle="info-link">warning</Button>
       </Tooltip>
       <Tooltip content="dark" variantStyle="dark">
-        <Button variantStyle="info-texted">dark</Button>
+        <Button variantStyle="info-link">dark</Button>
       </Tooltip>
       <Tooltip content="info" variantStyle="info">
-        <Button variantStyle="info-texted">info</Button>
+        <Button variantStyle="info-link">info</Button>
       </Tooltip>
     </Box>
   );
@@ -82,16 +82,16 @@ export const SizesTooltipes = () => {
   return (
     <Box css={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
       <Tooltip content={lorem} size="sm">
-        <Button variantStyle="info-texted">sm width</Button>
+        <Button variantStyle="info-link">sm width</Button>
       </Tooltip>
       <Tooltip content={lorem} size="md">
-        <Button variantStyle="info-texted">md width</Button>
+        <Button variantStyle="info-link">md width</Button>
       </Tooltip>
       <Tooltip content={lorem} size="lg">
-        <Button variantStyle="info-texted">lg width</Button>
+        <Button variantStyle="info-link">lg width</Button>
       </Tooltip>
       <Tooltip content={lorem} size="auto">
-        <Button variantStyle="info-texted">auto</Button>
+        <Button variantStyle="info-link">auto</Button>
       </Tooltip>
     </Box>
   );

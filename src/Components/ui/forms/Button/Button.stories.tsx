@@ -72,13 +72,29 @@ export const variantStyles = () => {
           justifyContent: "center",
         }}
       >
-        <Button variantStyle="primary-texted">primary-texted</Button>
-        <Button variantStyle="secondary-texted">secondary-texted</Button>
-        <Button variantStyle="success-texted">success-texted</Button>
-        <Button variantStyle="info-texted">info-texted</Button>
-        <Button variantStyle="dark-texted">dark-texted</Button>
-        <Button variantStyle="danger-texted">danger-texted</Button>
-        <Button variantStyle="warning-texted">warning-texted</Button>
+        <Button variantStyle="primary-ghost">primary-ghost</Button>
+        <Button variantStyle="secondary-ghost">secondary-ghost</Button>
+        <Button variantStyle="success-ghost">success-ghost</Button>
+        <Button variantStyle="info-ghost">info-ghost</Button>
+        <Button variantStyle="dark-ghost">dark-ghost</Button>
+        <Button variantStyle="danger-ghost">danger-ghost</Button>
+        <Button variantStyle="warning-ghost">warning-ghost</Button>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          justifyContent: "center",
+        }}
+      >
+        <Button variantStyle="primary-link">primary-link</Button>
+        <Button variantStyle="secondary-link">secondary-link</Button>
+        <Button variantStyle="success-link">success-link</Button>
+        <Button variantStyle="info-link">info-link</Button>
+        <Button variantStyle="dark-link">dark-link</Button>
+        <Button variantStyle="danger-link">danger-link</Button>
+        <Button variantStyle="warning-link">warning-link</Button>
       </div>
     </div>
   );

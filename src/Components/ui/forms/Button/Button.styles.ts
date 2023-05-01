@@ -4,7 +4,7 @@ import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { css, CSS } from "../../../../styles/theme";
 import { spaces } from "../../../../styles/spaces";
 
-type ButtonVariantStyle = "contained" | "outlined" | "texted";
+type ButtonVariantStyle = "contained" | "outlined" | "link" | "ghost";
 
 const size = {
   sm: { height: "$8", px: "$4", py: "$3" },
@@ -42,7 +42,7 @@ const getButtonCssProperties2 = (
         ring: mainColor,
       },
       "&:not(:disabled):hover": {
-        backgroundColor: darken(0.1, mainColor),
+        backgroundColor: mainColor,
         color: colors.white,
       },
       "&:disabled": {
@@ -52,7 +52,25 @@ const getButtonCssProperties2 = (
         borderTopColor: mainColor,
       },
     },
-    texted: {
+    ghost: {
+      backgroundColor: colors.transparent,
+      color: mainColor,
+      borderColor: colors.transparent,
+      "&:not(:disabled):focus": {
+        ring: mainColor,
+      },
+      "&:not(:disabled):hover": {
+        backgroundColor: rgba(mainColor, 0.1),
+        color: mainColor,
+      },
+      "&:disabled": {
+        backgroundColor: rgba(mainColor, 0.1),
+      },
+      [`.${addClasseNamePrefix("spinner")} div`]: {
+        borderTopColor: mainColor,
+      },
+    },
+    link: {
       backgroundColor: colors.transparent,
       color: mainColor,
       borderColor: colors.transparent,
@@ -62,7 +80,6 @@ const getButtonCssProperties2 = (
       "&:not(:disabled):hover": {
         backgroundColor: colors.transparent,
         color: mainColor,
-        textDecoration: "underline",
       },
       "&:disabled": {
         backgroundColor: rgba(mainColor, 0.65),
@@ -70,8 +87,9 @@ const getButtonCssProperties2 = (
       [`.${addClasseNamePrefix("spinner")} div`]: {
         borderTopColor: mainColor,
       },
-      padding: 0,
-      height: "initial",
+      textDecoration: "underline",
+      // padding: 0,
+      // height: "initial",
     },
   };
   return buttonVariantStyleObject[buttonVariantStyle];
@@ -91,13 +109,20 @@ type VariantStyle =
   | "dark-outlined"
   | "danger-outlined"
   | "warning-outlined"
-  | "primary-texted"
-  | "secondary-texted"
-  | "success-texted"
-  | "info-texted"
-  | "dark-texted"
-  | "danger-texted"
-  | "warning-texted";
+  | "primary-ghost"
+  | "secondary-ghost"
+  | "success-ghost"
+  | "info-ghost"
+  | "dark-ghost"
+  | "danger-ghost"
+  | "warning-ghost"
+  | "primary-link"
+  | "secondary-link"
+  | "success-link"
+  | "info-link"
+  | "dark-link"
+  | "danger-link"
+  | "warning-link";
 
 type AvaliablesButtonVariantColorType = {
   [Property in VariantStyle]: CSS;
@@ -118,13 +143,20 @@ export const variantStyle: AvaliablesButtonVariantColorType = {
   "dark-outlined": getButtonCssProperties2(colors.dark, "outlined"),
   "danger-outlined": getButtonCssProperties2(colors.danger, "outlined"),
   "warning-outlined": getButtonCssProperties2(colors.warning, "outlined"),
-  "primary-texted": getButtonCssProperties2(colors.primary, "texted"),
-  "secondary-texted": getButtonCssProperties2(colors.secondary, "texted"),
-  "success-texted": getButtonCssProperties2(colors.success, "texted"),
-  "info-texted": getButtonCssProperties2(colors.info, "texted"),
-  "dark-texted": getButtonCssProperties2(colors.dark, "texted"),
-  "danger-texted": getButtonCssProperties2(colors.danger, "texted"),
-  "warning-texted": getButtonCssProperties2(colors.warning, "texted"),
+  "primary-ghost": getButtonCssProperties2(colors.primary, "ghost"),
+  "secondary-ghost": getButtonCssProperties2(colors.secondary, "ghost"),
+  "success-ghost": getButtonCssProperties2(colors.success, "ghost"),
+  "info-ghost": getButtonCssProperties2(colors.info, "ghost"),
+  "dark-ghost": getButtonCssProperties2(colors.dark, "ghost"),
+  "danger-ghost": getButtonCssProperties2(colors.danger, "ghost"),
+  "warning-ghost": getButtonCssProperties2(colors.warning, "ghost"),
+  "primary-link": getButtonCssProperties2(colors.primary, "link"),
+  "secondary-link": getButtonCssProperties2(colors.secondary, "link"),
+  "success-link": getButtonCssProperties2(colors.success, "link"),
+  "info-link": getButtonCssProperties2(colors.info, "link"),
+  "dark-link": getButtonCssProperties2(colors.dark, "link"),
+  "danger-link": getButtonCssProperties2(colors.danger, "link"),
+  "warning-link": getButtonCssProperties2(colors.warning, "link"),
 };
 
 const rounded = {
