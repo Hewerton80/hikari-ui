@@ -275,18 +275,18 @@ export const GroupButtons = () => {
   );
 };
 
-export const ButtonWithTextAndIcon = () => {
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <Button variantStyle="danger" leftIcon={<FiUpload />}>
-        Uploads
-      </Button>
-      <Button variantStyle="success" rightIcon={<AiTwotoneEdit />}>
-        Edit
-      </Button>
-    </div>
-  );
-};
+// export const ButtonWithTextAndIcon = () => {
+//   return (
+//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+//       <Button variantStyle="danger" leftIcon={<FiUpload />}>
+//         Uploads
+//       </Button>
+//       <Button variantStyle="success" rightIcon={<AiTwotoneEdit />}>
+//         Edit
+//       </Button>
+//     </div>
+//   );
+// };
 
 export const BlockButtons = () => {
   return (

@@ -1,3 +1,4 @@
+import { globalStyles } from "../src/styles/globalStyles";
 import { darkTheme } from "../src/styles/theme";
 import { useDarkMode } from "storybook-dark-mode";
 import { HikariProviders } from "../src/context";
@@ -19,6 +20,8 @@ export const parameters = {
 };
 
 const App = (Story) => {
+  globalStyles();
+
   if (useDarkMode()) {
     document.documentElement.classList.add(darkTheme);
   } else {

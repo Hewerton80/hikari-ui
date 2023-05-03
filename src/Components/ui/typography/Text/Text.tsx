@@ -1,39 +1,24 @@
 import classNames from "classnames";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-
+import { Slot } from "@radix-ui/react-slot";
 import * as Styled from "./Text.styles";
 import { GlobalProps } from "../../../../types/GlobalProps";
 
 export interface TextProps extends GlobalProps {
-  as?:
-    | "p"
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "span"
-    | "abbr"
-    | "address"
-    | "b"
-    | "cite"
-    | "code"
-    | "em"
-    | "q"
-    | "s";
+  asChild?: boolean;
 }
 
 export function Text({
   children,
   id,
-  as = "p",
+  asChild,
   className,
   css,
   ...restProps
 }: TextProps) {
-  const Comp = as;
+  const Comp = asChild ? Slot : "p";
+
   return (
     <Comp
       id={id}

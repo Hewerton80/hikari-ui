@@ -111,14 +111,14 @@ export const CustomStyle = () => {
       }}
     >
       <Text
-        as="em"
+        asChild
         css={{
           color: "#ffffff",
           textDecoration: "line-through",
           textAlign: "center",
         }}
       >
-        My Custom Style 🎉🎊🪂
+        <em>My Custom Style 🎉🎊🪂</em>
       </Text>
     </Box>
   );

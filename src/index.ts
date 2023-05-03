@@ -97,11 +97,13 @@ export { Text, TextProps } from "./Components/ui/typography/Text";
 export { useAlert } from "./hooks/utils/useAlert";
 
 //theme
-export { CSS } from "./styles/theme";
+export { CSS, globalCss } from "./styles/theme";
 
 // utils
-
 export { toogleTheme } from "./utils/toogleTheme";
+
+//global styles
+export { globalStyles } from "./styles/globalStyles";
 
 //context
 export { HikariProviders } from "./context";

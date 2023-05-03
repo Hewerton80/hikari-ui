@@ -4,28 +4,18 @@ import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
 import * as Styled from "./Box.styles";
 import { GlobalProps } from "../../../../types/GlobalProps";
+import { Slot } from "@radix-ui/react-slot";
 
 export interface BoxProps extends GlobalProps {
-  as?:
-    | "div"
-    | "span"
-    | "section"
-    | "article"
-    | "main"
-    | "aside"
-    | "header"
-    | "footer"
-    | "figure"
-    | "figcaption"
-    | "nav";
+  asChild?: boolean;
 }
 
 export const Box = forwardRef(
   (
-    { children, id, as = "div", className, css, ...restProps }: BoxProps,
+    { children, id, asChild, className, css, ...restProps }: BoxProps,
     ref?: any
   ) => {
-    const Comp = as;
+    const Comp = asChild ? Slot : "div";
 
     return (
       <Comp

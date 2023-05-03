@@ -14,31 +14,31 @@ export default {
 export const Example = () => {
   return (
     <Box css={{ display: "flex", flexDirection: "column", spaceY: 12 }}>
-      <Text as="p" css={{ fontSize: "2rem" }}>
-        In love with React & Next
+      <Text css={{ fontSize: "2rem" }}>In love with React & Next</Text>
+
+      <Text>(P) In love with React & Next</Text>
+
+      <Text asChild>
+        <span> (Span) In love with React & Next</span>
       </Text>
 
-      <Text as="p">(P) In love with React & Next</Text>
-
-      <Text as="span">(Span) In love with React & Next</Text>
-
-      <Text as="p" css={{ fontWeight: "bold" }}>
-        In love with React & Next
+      <Text asChild css={{ fontWeight: "bold" }}>
+        <p> In love with React & Next</p>
       </Text>
 
-      <Text as="em" css={{ fontFamily: "monospace" }}>
-        In love with React & Next
+      <Text asChild css={{ fontFamily: "monospace" }}>
+        <em>In love with React & Next</em>
       </Text>
 
-      <Text as="b" css={{ color: "#dc3545" }}>
-        In love with React & Next
+      <Text asChild css={{ color: "#dc3545" }}>
+        <b>In love with React & Next</b>
       </Text>
 
-      <Text as="address" css={{ textDecoration: "underline" }}>
-        In love with React & Next
+      <Text asChild css={{ textDecoration: "underline" }}>
+        <address>In love with React & Next</address>
       </Text>
 
-      <Text as="p" css={{ textDecoration: "line-through" }}>
+      <Text css={{ textDecoration: "line-through" }}>
         In love with React & Next
       </Text>
     </Box>
@@ -47,12 +47,24 @@ export const Example = () => {
 export const Heading = () => {
   return (
     <Box css={{ display: "flex", flexDirection: "column", spaceY: 12 }}>
-      <Text as="h1">H1 🎉🥳🎊🪂</Text>
-      <Text as="h2">H2 🎉🥳🎊🪂</Text>
-      <Text as="h3">H3 🎉🥳🎊🪂</Text>
-      <Text as="h4">H4 🎉🥳🎊🪂</Text>
-      <Text as="h5">H5 🎉🥳🎊🪂</Text>
-      <Text as="h6">H6 🎉🥳🎊🪂</Text>
+      <Text asChild>
+        <h1>H1 🎉🥳🎊🪂</h1>
+      </Text>
+      <Text asChild>
+        <h2>H2 🎉🥳🎊🪂</h2>
+      </Text>
+      <Text asChild>
+        <h3>H3 🎉🥳🎊🪂</h3>
+      </Text>
+      <Text asChild>
+        <h4>H4 🎉🥳🎊🪂</h4>
+      </Text>
+      <Text asChild>
+        <h5>H5 🎉🥳🎊🪂</h5>
+      </Text>
+      <Text asChild>
+        <h6>H6 🎉🥳🎊🪂</h6>
+      </Text>
     </Box>
   );
 };

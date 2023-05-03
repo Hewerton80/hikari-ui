@@ -129,9 +129,7 @@ function Item({
                 onClick={handleClickInNavItem}
               >
                 <Box css={{ display: "flex" }}>{icon}</Box>
-                <Text as="p" css={{ marginLeft: "$3" }}>
-                  {text}
-                </Text>
+                <Text css={{ marginLeft: "$3" }}>{text}</Text>
                 {hasSubmenu && (
                   <span className={Styled.MenuArrowWrapper()}>
                     {showSubmenu ? <FaMinus size={16} /> : <FaPlus size={16} />}

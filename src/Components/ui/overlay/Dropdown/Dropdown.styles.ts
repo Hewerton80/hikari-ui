@@ -6,6 +6,7 @@ import {
   SideType,
   AligneType,
 } from "../../../commonStyles/variantOrientationStyle";
+import { rgba } from "polished";
 
 export interface MenuProps {
   orientation?: keyof typeof orientationStyle;
@@ -42,8 +43,8 @@ export const Menu = css("div", {
   backgroundColor: "$white",
   border: `${spaces["0.25"]} solid ${colors["gray-border"]}`,
   [`.${darkTheme} &`]: {
-    borderColor: "$dark-card",
     backgroundColor: "$dark-card",
+    borderColor: rgba(colors.white, 0.1),
   },
   animationDuration: "400ms",
   animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -69,8 +70,11 @@ export const Menu = css("div", {
   },
 });
 
-export const TriggerInner = css("span", {
+export const Toogle = css("span", {
   cursor: "pointer",
+  outline: "none",
+  border: "none",
+  backgroundColor: "transparent",
 });
 
 export const Item = css("div", {

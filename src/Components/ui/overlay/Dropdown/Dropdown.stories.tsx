@@ -1,9 +1,10 @@
 import React from "react";
 import { Dropdown } from ".";
 import { Button } from "../../forms/Button";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { Grid } from "../../../ui/layout/Grid";
-
+import { Box } from "../../layout/Box";
+import { IconButton } from "../../forms/IconButton";
+import { BiDotsVerticalRounded } from "react-icons/bi";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "overlay/Dropdown",
@@ -18,18 +19,36 @@ export default {
 export const Example = () => {
   const menuItens = ["Action", "Another action", "Something else"];
   return (
-    <Dropdown>
-      <Dropdown.Toogle>
-        <Button rightIcon={<IoMdArrowDropdown />}> Dropdown</Button>
-      </Dropdown.Toogle>
-      <Dropdown.Menu>
-        {menuItens.map((item) => (
-          <Dropdown.Item key={item}>
-            <p>{item}</p>
-          </Dropdown.Item>
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
+    <Box css={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <Box>
+        <Dropdown>
+          <Dropdown.Toogle asChild>
+            <Button> Dropdown</Button>
+          </Dropdown.Toogle>
+          <Dropdown.Menu>
+            {menuItens.map((item) => (
+              <Dropdown.Item key={item} asChild>
+                <p>{item}</p>
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+      </Box>
+      <Box>
+        <Dropdown>
+          <Dropdown.Toogle asChild>
+            <IconButton icon={<BiDotsVerticalRounded />} />
+          </Dropdown.Toogle>
+          <Dropdown.Menu>
+            {menuItens.map((item) => (
+              <Dropdown.Item key={item} asChild>
+                <p>{item}</p>
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+      </Box>
+    </Box>
   );
 };
 
@@ -53,7 +72,8 @@ export const Orientation = () => {
           <Grid.Col span={{ base: 12, md: 4 }}>
             <Dropdown>
               <Dropdown.Toogle>
-                <Button fullWidth size="sm" rightIcon={<IoMdArrowDropdown />}>
+                {/* rightIcon={<IoMdArrowDropdown />} */}
+                <Button fullWidth size="sm">
                   {orientation}
                 </Button>
               </Dropdown.Toogle>

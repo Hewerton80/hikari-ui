@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Button, ButtonProps } from "../Button";
 import classnames from "classnames";
 import * as Styled from "./IconButton.styles";
@@ -15,23 +15,23 @@ export interface IconButtonProps
   icon?: JSX.Element;
 }
 
-export function IconButton({
-  icon,
-  className,
-  size = "md",
-  css,
-  ...restProps
-}: IconButtonProps) {
-  return (
-    <Button
-      className={classnames(
-        addClasseNamePrefix("icon-btn"),
-        Styled.IconButton({ css, size }),
-        className
-      )}
-      {...restProps}
-    >
-      {icon}
-    </Button>
-  );
-}
+export const IconButton = forwardRef(
+  (
+    { icon, className, size = "md", css, ...restProps }: IconButtonProps,
+    ref?: any
+  ) => {
+    return (
+      <Button
+        className={classnames(
+          addClasseNamePrefix("icon-btn"),
+          Styled.IconButton({ css, size }),
+          className
+        )}
+        ref={ref}
+        {...restProps}
+      >
+        {icon}
+      </Button>
+    );
+  }
+);

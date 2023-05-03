@@ -9,9 +9,13 @@ import { GlobalProps } from "../../../../types/GlobalProps";
 export interface DropdownProps {
   children: ReactNode;
 }
-export interface DropdowToogleProps extends GlobalProps {}
+export interface DropdowToogleProps extends GlobalProps {
+  asChild?: boolean;
+}
 export interface DropdowMenuProps extends GlobalProps, Styled.MenuProps {}
-export interface DropdowItemProps extends RadixDropdown.DropdownMenuItemProps {}
+export interface DropdowItemProps extends RadixDropdown.DropdownMenuItemProps {
+  asChild?: boolean;
+}
 
 function Dropdown({ children }: DropdownProps) {
   return <RadixDropdown.Root>{children}</RadixDropdown.Root>;
@@ -25,11 +29,14 @@ function Toogle({
 }: DropdowToogleProps) {
   return (
     <RadixDropdown.Trigger
-      className={classNames(addClasseNamePrefix("dropdown-toogle"), className)}
-      asChild
+      className={classNames(
+        addClasseNamePrefix("dropdown-toogle"),
+        Styled.Toogle(),
+        className
+      )}
       {...restProps}
     >
-      <span className={Styled.TriggerInner()}>{children}</span>
+      {children}
     </RadixDropdown.Trigger>
   );
 }
@@ -69,7 +76,6 @@ function Item({ children, className, ...restProps }: DropdowItemProps) {
         className
       )}
       role="menuitem"
-      asChild
       {...restProps}
     >
       {children}

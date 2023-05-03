@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from ".";
-import { Button } from "../../forms/Button";
 import { Grid } from "../../../ui/layout/Grid";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -33,14 +32,9 @@ export const ImageCard = () => {
               <p>{lorem}</p>
             </Card.Body>
             <Card.Footer>
-              <Button
-                as="link"
-                href="/#"
-                onClick={(e) => e.preventDefault()}
-                variantStyle="primary-link"
-              >
-                Read More
-              </Button>
+              <Card.Link asChild>
+                <a href="/#">Read More</a>
+              </Card.Link>
             </Card.Footer>
           </Card>
         </Grid.Col>
@@ -52,14 +46,9 @@ export const ImageCard = () => {
               <p>{lorem}</p>
             </Card.Body>
             <Card.Footer variantStyle="center">
-              <Button
-                as="link"
-                href="/#"
-                onClick={(e) => e.preventDefault()}
-                variantStyle="primary-link"
-              >
-                Read More
-              </Button>
+              <Card.Link asChild>
+                <a href="/#">Read More</a>
+              </Card.Link>
             </Card.Footer>
             <Card.Img variantStyle="bottom" src={img} alt={String(i)} />
           </Card>
@@ -73,14 +62,9 @@ export const ImageCard = () => {
               <p>{lorem}</p>
             </Card.Body>
             <Card.Footer variantStyle="right">
-              <Button
-                as="link"
-                href="/#"
-                onClick={(e) => e.preventDefault()}
-                variantStyle="primary-link"
-              >
-                Read More
-              </Button>
+              <Card.Link asChild>
+                <a href="/#">Read More</a>
+              </Card.Link>
             </Card.Footer>
           </Card>
         </Grid.Col>

@@ -20,8 +20,10 @@ export const AppBarWithMenu = () => {
   return (
     <AppBar>
       <AppBar.Tool css={{ justifyContent: "space-between" }}>
-        <Box as="span" css={{ display: "flex", cursor: "pointer" }}>
-          <FaBars size={20} color="#ffffff" />
+        <Box asChild css={{ display: "flex", cursor: "pointer" }}>
+          <span>
+            <FaBars size={20} color="#ffffff" />
+          </span>
         </Box>
         <Box css={{ display: "flex" }}>
           <Dropdown>
@@ -32,13 +34,11 @@ export const AppBarWithMenu = () => {
               />
             </Dropdown.Toogle>
             <Dropdown.Menu>
-              <Dropdown.Item>
+              <Dropdown.Item asChild>
                 <a href="/#">Profile</a>
               </Dropdown.Item>
-              <Dropdown.Item>
-                <a href="/#">Account</a>
-              </Dropdown.Item>
-              <Dropdown.Item>
+              <Dropdown.Item>Account</Dropdown.Item>
+              <Dropdown.Item asChild>
                 <a href="/#">Logout</a>
               </Dropdown.Item>
             </Dropdown.Menu>

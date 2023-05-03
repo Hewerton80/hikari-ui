@@ -3,7 +3,8 @@ import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Card.styles";
 import { GlobalProps } from "../../../../types/GlobalProps";
-import { Button } from "../../forms/Button";
+import { Button, ButtonProps } from "../../forms/Button";
+import { Slot } from "@radix-ui/react-slot";
 
 export interface CardProps extends GlobalProps, Styled.CardProps {}
 export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
@@ -13,7 +14,10 @@ export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
 export interface CardHeaderProps extends GlobalProps {}
 export interface CardBodyProps extends GlobalProps {}
 export interface CardFooterProps extends GlobalProps, Styled.CardFooterProps {}
-export interface CardLinkProps extends GlobalProps {}
+export interface CardLinkProps extends Omit<ButtonProps, "variantStyle"> {
+  href?: string;
+  target?: "_self" | "_blank" | "_parent" | "_top";
+}
 
 function Card({
   children,
@@ -126,14 +130,28 @@ function Footer({
     </div>
   );
 }
-function Link({ children, className, css, ...rest }: CardLinkProps) {
+function Link({
+  children,
+  className,
+  asChild,
+  href,
+  target,
+  css,
+  ...rest
+}: CardLinkProps) {
+  const Comp = asChild ? Slot : "a";
+
   return (
     <Button
+      asChild
       className={classNames(addClasseNamePrefix("card-link"), className)}
-      variantStyle="info-ghost"
+      variantStyle="info-link"
+      css={{ padding: 0, textDecoration: "none", ...css }}
       {...rest}
     >
-      {children}
+      <Comp href={href} target={target}>
+        {children}
+      </Comp>
     </Button>
   );
 }
@@ -143,6 +161,6 @@ Card.Title = Title;
 Card.Img = Img;
 Card.Body = Body;
 Card.Footer = Footer;
-Card.Link = Footer;
+Card.Link = Link;
 
 export { Card };
