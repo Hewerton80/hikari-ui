@@ -95,12 +95,10 @@ export { Text, TextProps } from "./Components/ui/typography/Text";
 
 //hooks utils
 export { useAlert } from "./hooks/utils/useAlert";
+export { useTheme } from "./hooks/utils/useTheme";
 
 //theme
-export { CSS, globalCss } from "./styles/theme";
-
-// utils
-export { toogleTheme } from "./utils/toogleTheme";
+export { CSS } from "./styles/theme";
 
 //global styles
 export { globalStyles } from "./styles/globalStyles";

@@ -12,14 +12,20 @@ const size = {
   lg: { height: "$12", px: "$12", py: "$4" },
 };
 
-const getButtonCssProperties2 = (
-  mainColor: string,
-  buttonVariantStyle: ButtonVariantStyle
-): CSS => {
+interface GetButtonCssPropertiesArgs {
+  mainColor: string;
+  textColor: string;
+  buttonVariantStyle: ButtonVariantStyle;
+}
+const getButtonCssProperties = ({
+  mainColor,
+  textColor,
+  buttonVariantStyle,
+}: GetButtonCssPropertiesArgs): CSS => {
   const buttonVariantStyleObject = {
     contained: {
       backgroundColor: mainColor,
-      color: colors.white,
+      color: textColor,
       borderColor: mainColor,
       "&:not(:disabled):focus": {
         ring: mainColor,
@@ -31,7 +37,7 @@ const getButtonCssProperties2 = (
         backgroundColor: rgba(mainColor, 0.65),
       },
       [`.${addClasseNamePrefix("spinner")} div`]: {
-        borderTopColor: colors.white,
+        borderTopColor: textColor,
       },
     },
     outlined: {
@@ -43,7 +49,7 @@ const getButtonCssProperties2 = (
       },
       "&:not(:disabled):hover": {
         backgroundColor: mainColor,
-        color: colors.white,
+        color: textColor,
       },
       "&:disabled": {
         backgroundColor: rgba(mainColor, 0.1),
@@ -100,6 +106,7 @@ type VariantStyle =
   | "success"
   | "info"
   | "dark"
+  | "light"
   | "danger"
   | "warning"
   | "primary-outlined"
@@ -107,6 +114,7 @@ type VariantStyle =
   | "success-outlined"
   | "info-outlined"
   | "dark-outlined"
+  | "light-outlined"
   | "danger-outlined"
   | "warning-outlined"
   | "primary-ghost"
@@ -114,6 +122,7 @@ type VariantStyle =
   | "success-ghost"
   | "info-ghost"
   | "dark-ghost"
+  | "light-ghost"
   | "danger-ghost"
   | "warning-ghost"
   | "primary-link"
@@ -121,6 +130,7 @@ type VariantStyle =
   | "success-link"
   | "info-link"
   | "dark-link"
+  | "light-link"
   | "danger-link"
   | "warning-link";
 
@@ -129,34 +139,166 @@ type AvaliablesButtonVariantColorType = {
 };
 
 export const variantStyle: AvaliablesButtonVariantColorType = {
-  primary: getButtonCssProperties2(colors.primary, "contained"),
-  secondary: getButtonCssProperties2(colors.secondary, "contained"),
-  success: getButtonCssProperties2(colors.success, "contained"),
-  info: getButtonCssProperties2(colors.info, "contained"),
-  dark: getButtonCssProperties2(colors.dark, "contained"),
-  danger: getButtonCssProperties2(colors.danger, "contained"),
-  warning: getButtonCssProperties2(colors.warning, "contained"),
-  "primary-outlined": getButtonCssProperties2(colors.primary, "outlined"),
-  "secondary-outlined": getButtonCssProperties2(colors.secondary, "outlined"),
-  "success-outlined": getButtonCssProperties2(colors.success, "outlined"),
-  "info-outlined": getButtonCssProperties2(colors.info, "outlined"),
-  "dark-outlined": getButtonCssProperties2(colors.dark, "outlined"),
-  "danger-outlined": getButtonCssProperties2(colors.danger, "outlined"),
-  "warning-outlined": getButtonCssProperties2(colors.warning, "outlined"),
-  "primary-ghost": getButtonCssProperties2(colors.primary, "ghost"),
-  "secondary-ghost": getButtonCssProperties2(colors.secondary, "ghost"),
-  "success-ghost": getButtonCssProperties2(colors.success, "ghost"),
-  "info-ghost": getButtonCssProperties2(colors.info, "ghost"),
-  "dark-ghost": getButtonCssProperties2(colors.dark, "ghost"),
-  "danger-ghost": getButtonCssProperties2(colors.danger, "ghost"),
-  "warning-ghost": getButtonCssProperties2(colors.warning, "ghost"),
-  "primary-link": getButtonCssProperties2(colors.primary, "link"),
-  "secondary-link": getButtonCssProperties2(colors.secondary, "link"),
-  "success-link": getButtonCssProperties2(colors.success, "link"),
-  "info-link": getButtonCssProperties2(colors.info, "link"),
-  "dark-link": getButtonCssProperties2(colors.dark, "link"),
-  "danger-link": getButtonCssProperties2(colors.danger, "link"),
-  "warning-link": getButtonCssProperties2(colors.warning, "link"),
+  primary: getButtonCssProperties({
+    mainColor: colors.primary,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  secondary: getButtonCssProperties({
+    mainColor: colors.secondary,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  success: getButtonCssProperties({
+    mainColor: colors.success,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  info: getButtonCssProperties({
+    mainColor: colors.info,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  dark: getButtonCssProperties({
+    mainColor: colors.dark,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  light: getButtonCssProperties({
+    mainColor: colors.light,
+    textColor: colors.dark,
+    buttonVariantStyle: "contained",
+  }),
+  danger: getButtonCssProperties({
+    mainColor: colors.danger,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  warning: getButtonCssProperties({
+    mainColor: colors.warning,
+    textColor: colors.white,
+    buttonVariantStyle: "contained",
+  }),
+  "primary-outlined": getButtonCssProperties({
+    mainColor: colors.primary,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "secondary-outlined": getButtonCssProperties({
+    mainColor: colors.secondary,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "success-outlined": getButtonCssProperties({
+    mainColor: colors.success,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "info-outlined": getButtonCssProperties({
+    mainColor: colors.info,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "dark-outlined": getButtonCssProperties({
+    mainColor: colors.dark,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "light-outlined": getButtonCssProperties({
+    mainColor: colors.light,
+    textColor: colors.dark,
+    buttonVariantStyle: "outlined",
+  }),
+  "danger-outlined": getButtonCssProperties({
+    mainColor: colors.danger,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "warning-outlined": getButtonCssProperties({
+    mainColor: colors.warning,
+    textColor: colors.white,
+    buttonVariantStyle: "outlined",
+  }),
+  "primary-ghost": getButtonCssProperties({
+    mainColor: colors.primary,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "secondary-ghost": getButtonCssProperties({
+    mainColor: colors.secondary,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "success-ghost": getButtonCssProperties({
+    mainColor: colors.success,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "info-ghost": getButtonCssProperties({
+    mainColor: colors.info,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "dark-ghost": getButtonCssProperties({
+    mainColor: colors.dark,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "light-ghost": getButtonCssProperties({
+    mainColor: colors.light,
+    textColor: colors.dark,
+    buttonVariantStyle: "ghost",
+  }),
+  "danger-ghost": getButtonCssProperties({
+    mainColor: colors.danger,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "warning-ghost": getButtonCssProperties({
+    mainColor: colors.warning,
+    textColor: colors.white,
+    buttonVariantStyle: "ghost",
+  }),
+  "primary-link": getButtonCssProperties({
+    mainColor: colors.primary,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
+  "secondary-link": getButtonCssProperties({
+    mainColor: colors.secondary,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
+  "success-link": getButtonCssProperties({
+    mainColor: colors.success,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
+  "info-link": getButtonCssProperties({
+    mainColor: colors.info,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
+  "dark-link": getButtonCssProperties({
+    mainColor: colors.dark,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
+  "light-link": getButtonCssProperties({
+    mainColor: colors.light,
+    textColor: colors.dark,
+    buttonVariantStyle: "link",
+  }),
+  "danger-link": getButtonCssProperties({
+    mainColor: colors.danger,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
+  "warning-link": getButtonCssProperties({
+    mainColor: colors.warning,
+    textColor: colors.white,
+    buttonVariantStyle: "link",
+  }),
 };
 
 const rounded = {

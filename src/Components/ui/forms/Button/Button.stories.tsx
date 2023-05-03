@@ -2,8 +2,8 @@ import React from "react";
 
 import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
-import { FiUpload } from "react-icons/fi";
-import { AiTwotoneEdit } from "react-icons/ai";
+// import { FiUpload } from "react-icons/fi";
+// import { AiTwotoneEdit } from "react-icons/ai";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Forms/Button",
@@ -22,7 +22,7 @@ Overview.args = {
   variantStyle: "primary",
 };
 
-export const variantStyles = () => {
+export const VariantStyles = () => {
   return (
     <div
       style={{
@@ -45,6 +45,7 @@ export const variantStyles = () => {
         <Button variantStyle="success">success</Button>
         <Button variantStyle="info">info</Button>
         <Button variantStyle="dark">dark</Button>
+        <Button variantStyle="light">light</Button>
         <Button variantStyle="danger">danger</Button>
         <Button variantStyle="warning">warning</Button>
       </div>
@@ -61,6 +62,7 @@ export const variantStyles = () => {
         <Button variantStyle="success-outlined">success-outlined</Button>
         <Button variantStyle="info-outlined">info-outlined</Button>
         <Button variantStyle="dark-outlined">dark-outlined</Button>
+        <Button variantStyle="light-outlined">light-outlined</Button>
         <Button variantStyle="danger-outlined">danger-outlined</Button>
         <Button variantStyle="warning-outlined">warning-outlined</Button>
       </div>
@@ -77,6 +79,7 @@ export const variantStyles = () => {
         <Button variantStyle="success-ghost">success-ghost</Button>
         <Button variantStyle="info-ghost">info-ghost</Button>
         <Button variantStyle="dark-ghost">dark-ghost</Button>
+        <Button variantStyle="light-ghost">light-ghost</Button>
         <Button variantStyle="danger-ghost">danger-ghost</Button>
         <Button variantStyle="warning-ghost">warning-ghost</Button>
       </div>
@@ -93,6 +96,7 @@ export const variantStyles = () => {
         <Button variantStyle="success-link">success-link</Button>
         <Button variantStyle="info-link">info-link</Button>
         <Button variantStyle="dark-link">dark-link</Button>
+        <Button variantStyle="light-link">light-link</Button>
         <Button variantStyle="danger-link">danger-link</Button>
         <Button variantStyle="warning-link">warning-link</Button>
       </div>
@@ -124,6 +128,9 @@ export const RoundedButtons = () => {
       </Button>
       <Button variantStyle="dark" rounded>
         dark
+      </Button>
+      <Button variantStyle="light" rounded>
+        light
       </Button>
       <Button variantStyle="danger" rounded>
         danger
@@ -159,6 +166,9 @@ export const DisabledButton = () => {
       </Button>
       <Button variantStyle="dark" disabled>
         dark
+      </Button>
+      <Button variantStyle="light" disabled>
+        light
       </Button>
       <Button variantStyle="danger" disabled>
         danger
@@ -196,6 +206,9 @@ export const LoadButton = () => {
         <Button variantStyle="dark" isLoading>
           dark
         </Button>
+        <Button variantStyle="light" isLoading>
+          light
+        </Button>
         <Button variantStyle="danger" isLoading>
           danger
         </Button>
@@ -218,6 +231,9 @@ export const LoadButton = () => {
         </Button>
         <Button variantStyle="dark-outlined" isLoading>
           dark-outlined
+        </Button>
+        <Button variantStyle="light-outlined" isLoading>
+          light-outlined
         </Button>
         <Button variantStyle="danger-outlined" isLoading>
           danger-outlined
