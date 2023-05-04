@@ -7,7 +7,7 @@ import React, {
   useEffect,
 } from "react";
 import { darkTheme } from "../styles/theme";
-
+import Cookies from "js-cookie";
 export interface IThemeContext {
   isDarkMode: boolean;
   toogleTheme: () => void;
@@ -21,7 +21,7 @@ interface IThemeContextProps {
 
 export function ThemeContextProvider({ children }: IThemeContextProps) {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
-    return localStorage?.getItem("theme") === "dark" ? "dark" : "light";
+    return Cookies.get("theme") === "dark" ? "dark" : "light";
   });
 
   const isDarkMode = useMemo(() => theme === "dark", [theme]);
@@ -38,7 +38,7 @@ export function ThemeContextProvider({ children }: IThemeContextProps) {
   const toogleTheme = useCallback(() => {
     setTheme((currentTheme) => {
       const futureTheme = currentTheme === "dark" ? "light" : "dark";
-      localStorage?.setItem("theme", futureTheme);
+      Cookies.set("theme", futureTheme);
       return futureTheme;
     });
   }, []);
