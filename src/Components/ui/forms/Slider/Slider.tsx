@@ -15,6 +15,7 @@ export interface SliderRootProps extends GlobalProps {
   max?: number;
   step?: number;
   minStepsBetweenThumbs?: number;
+  inverted?: boolean;
   onValueChange?: (value: number[]) => void;
   onValueCommit?: (value: number[]) => void;
 }
