@@ -26,6 +26,7 @@ export {
 } from "./Components/ui/forms/RadioGroup";
 export { Input, InputProps } from "./Components/ui/forms/Input";
 export { Textarea, TextareaProps } from "./Components/ui/forms/Textarea";
+export { Slider, SliderRootProps } from "./Components/ui/forms/Slider";
 export {
   Select,
   SelectOption,
