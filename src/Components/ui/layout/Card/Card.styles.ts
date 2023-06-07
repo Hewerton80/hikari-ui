@@ -52,6 +52,7 @@ const cardVariantImgStyle = {
 
 export const Card = css("div", {
   ...cardStyle,
+  height: "fit-content",
   variants: { variantStyle: cardVariantImgStyle },
 });
 

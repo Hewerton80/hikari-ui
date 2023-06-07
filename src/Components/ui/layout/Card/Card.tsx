@@ -6,7 +6,9 @@ import { GlobalProps } from "../../../../types/GlobalProps";
 import { Button, ButtonProps } from "../../forms/Button";
 import { Slot } from "@radix-ui/react-slot";
 
-export interface CardProps extends GlobalProps, Styled.CardProps {}
+export interface CardProps extends GlobalProps, Styled.CardProps {
+  asChild?: boolean;
+}
 export interface CardImgProps extends GlobalProps, Styled.CardImgProps {
   src: string;
   alt?: string;
@@ -22,12 +24,15 @@ export interface CardLinkProps extends Omit<ButtonProps, "variantStyle"> {
 function Card({
   children,
   className,
+  asChild,
   variantStyle = "default",
   css,
   ...restProps
 }: CardProps) {
+  const Comp = asChild ? Slot : "div";
+
   return (
-    <div
+    <Comp
       className={classNames(
         addClasseNamePrefix("card"),
         Styled.Card({ variantStyle, css }),
@@ -36,7 +41,7 @@ function Card({
       {...restProps}
     >
       {children}
-    </div>
+    </Comp>
   );
 }
 
