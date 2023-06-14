@@ -1,12 +1,6 @@
 import React, { useCallback } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
-import ReactSelect, {
-  Props as ReactSelectProps,
-  PropsValue,
-  SingleValue,
-  ActionMeta,
-  MultiValue,
-} from "react-select";
+import ReactSelect, { PropsValue, SingleValue, ActionMeta } from "react-select";
 import classNames from "classnames";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../../styles/colors";
@@ -18,12 +12,6 @@ export interface SelectOption {
   label: string;
   options?: SelectOption[];
 }
-
-interface PickedReactSelectProps
-  extends Pick<
-    ReactSelectProps,
-    "options" | "value" | "onChange" | "onInputChange" | "isMulti"
-  > {}
 
 export type OnchangeSigleValue = (newValue: SingleValue<SelectOption>) => void;
 
@@ -43,7 +31,6 @@ export interface SelectProps extends FormControlProps {
   isMulti?: boolean;
   onChangeSingleOption?: OnchangeSigleValue;
   onchangeMultValue?: OnchangeMultValue;
-  // onChange?: OnchangeSigleValue | OnchangeMultValue;
   onInputChange?: (newValue: string) => void;
   autoFocus?: boolean;
 }
@@ -110,3 +97,5 @@ export function Select({
     </FormControl>
   );
 }
+
+export { ActionMeta };

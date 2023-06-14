@@ -13,6 +13,8 @@ export interface TextareaProps extends FormControlProps {
   autoFocus?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
+  rows?: number;
+  cols?: number;
   onFocus?: () => void;
   onBlur?: () => void;
   onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;

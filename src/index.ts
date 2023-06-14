@@ -1,3 +1,4 @@
+import { CSS } from "@stitches/core";
 // components feedback
 export { Spinner, SpinnerProps } from "./Components/ui/feedback/Spinner";
 export { Alert, AlertProps } from "./Components/ui/feedback/Alert";
@@ -29,6 +30,7 @@ export { Textarea, TextareaProps } from "./Components/ui/forms/Textarea";
 export { Slider, SliderRootProps } from "./Components/ui/forms/Slider";
 export {
   Select,
+  ActionMeta,
   SelectOption,
   SelectProps,
   OnchangeMultValue,
@@ -99,7 +101,7 @@ export { useAlert } from "./hooks/utils/useAlert";
 export { useTheme } from "./hooks/utils/useTheme";
 
 //theme
-export { CSS } from "./styles/theme";
+export { CSS };
 
 //global styles
 export { globalStyles } from "./styles/globalStyles";

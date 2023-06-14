@@ -17,7 +17,7 @@ export function FormControl({
   className,
   required,
   feedbackText,
-  state,
+  state = "danger",
   css,
   ...restProps
 }: FormControlProps) {
@@ -25,7 +25,7 @@ export function FormControl({
     <div
       className={classNames(
         addClasseNamePrefix("form-control"),
-        Styled.FormControl({ state, css }),
+        Styled.FormControl({ state: feedbackText ? state : undefined, css }),
         className
       )}
       {...restProps}

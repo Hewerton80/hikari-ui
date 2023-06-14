@@ -15,16 +15,16 @@ const getStateVariantCss = (color: string): CSS => {
     .${addClasseNamePrefix("input")}, .${addClasseNamePrefix(
       "textarea"
     )}, .select__control`]: {
-      borderColor: color,
+      borderColor: `${color} !important`,
       "&:not(:disabled):focus": {
-        ring: color,
-        borderColor: color,
+        ring: `${color}`,
+        borderColor: `${color} !important`,
       },
       "&--is-focused": {
-        ring: color,
+        ring: `${color}`,
       },
       "&:hover": {
-        borderColor: color,
+        borderColor: `${color} !important`,
       },
     },
   };
