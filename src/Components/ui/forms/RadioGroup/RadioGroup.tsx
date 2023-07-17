@@ -29,7 +29,7 @@ function RadioGroup({
       <RadixRadioGroup.Root
         className={classNames(
           addClasseNamePrefix("radio-group"),
-          Styled.RadioGroup({ orientation }),
+          Styled.RadioGroup({ orientation, css }),
           className,
           "flex flex-col gap-2.5"
         )}
@@ -53,7 +53,7 @@ export interface RadioItemProps
 function RadioItem({ className, label, css, ...restProps }: RadioItemProps) {
   return (
     <FormControl
-      className={classNames(className, Styled.FormControlRadio({}))}
+      className={classNames(className, Styled.FormControlRadio({ css }))}
       id={restProps?.id}
       label={label}
       required={restProps?.required}

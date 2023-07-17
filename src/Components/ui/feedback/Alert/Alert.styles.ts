@@ -6,7 +6,7 @@ const getAlertCssProperties = (color: string) => {
   return {
     backgroundColor: rgba(color, 0.2),
     borderColor: rgba(color, 0.1),
-    color,
+    // color,
   };
 };
 
@@ -23,7 +23,6 @@ export interface AlertProps {
   variantStyle: keyof typeof variantStyle;
 }
 
-// @ts-ignore
 export const Alert = css("div", {
   display: "flex",
   alignItems: "center",

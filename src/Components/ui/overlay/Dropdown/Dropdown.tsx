@@ -31,7 +31,7 @@ function Toogle({
     <RadixDropdown.Trigger
       className={classNames(
         addClasseNamePrefix("dropdown-toogle"),
-        Styled.Toogle(),
+        Styled.Toogle({ css }),
         className
       )}
       {...restProps}
@@ -53,7 +53,7 @@ function Menu({
       <RadixDropdown.Content
         className={classNames(
           addClasseNamePrefix("dropdown-menu"),
-          Styled.Menu(),
+          Styled.Menu({ css }),
           className
         )}
         sideOffset={4}

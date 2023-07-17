@@ -46,7 +46,6 @@ function Card({
 }
 
 function Img({
-  children,
   src,
   alt,
   className,

@@ -3,6 +3,7 @@ import { darkTheme } from "../src/styles/theme";
 import { useDarkMode } from "storybook-dark-mode";
 import { HikariProviders } from "../src/context";
 import "./style.css";
+import "../src/styles/global.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

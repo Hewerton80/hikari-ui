@@ -2,7 +2,6 @@ import React from "react";
 
 import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
-import { useTheme } from "../../../../hooks/utils/useTheme";
 // import { FiUpload } from "react-icons/fi";
 // import { AiTwotoneEdit } from "react-icons/ai";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

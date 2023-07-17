@@ -8,7 +8,7 @@ import classNames from "classnames";
 export interface AvatarProps extends Omit<GlobalProps, "children"> {
   src?: string;
   alt?: string;
-  nameInities?: [String] | [string, string];
+  nameInities?: [string] | [string, string];
 }
 
 export function Avatar({

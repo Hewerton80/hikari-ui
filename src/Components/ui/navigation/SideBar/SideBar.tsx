@@ -140,6 +140,7 @@ function Item({
           </RadixAccordion.Trigger>
           {hasSubmenu && (
             <RadixAccordion.Content className={Styled.SideBarSubMenu()}>
+              {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
               {subItems.map(({ subItems, ...restTextProps }, i) => {
                 return (
                   <Item

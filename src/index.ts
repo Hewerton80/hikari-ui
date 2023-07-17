@@ -1,3 +1,5 @@
+import "./styles/global.css";
+
 import { CSS } from "@stitches/core";
 // components feedback
 export { Spinner, SpinnerProps } from "./Components/ui/feedback/Spinner";

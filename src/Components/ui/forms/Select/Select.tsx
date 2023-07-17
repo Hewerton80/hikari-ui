@@ -74,7 +74,7 @@ export function Select({
         classNamePrefix="select"
         className={classNames(
           addClasseNamePrefix("select"),
-          Styled.ReactSelect(),
+          Styled.ReactSelect({ css }),
           className
         )}
         formatGroupLabel={(oprions) => (

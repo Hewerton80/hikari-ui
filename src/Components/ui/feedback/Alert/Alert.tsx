@@ -18,6 +18,7 @@ export function Alert({
       className={classNames(
         addClasseNamePrefix("alert"),
         Styled.Alert({ variantStyle, css }),
+        "text-red-400/90",
         className
       )}
       {...restProps}

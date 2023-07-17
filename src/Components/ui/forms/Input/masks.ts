@@ -60,6 +60,6 @@ export const inputMasks = {
   //     }).format(returnValue);
   //     return String(returnValue);
   //   },
-  //   placeholder: "R$ 0,00",
+  //   placeholder: "R$ 0,00",
   // },
 };

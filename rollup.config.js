@@ -1,4 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
@@ -10,8 +10,9 @@ import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json";
 import babel from "rollup-plugin-babel";
 import dts from "rollup-plugin-dts";
-// import { getFiles } from "./scripts/buildUtils";
-// import path from "path";
+import tailwindcss from "tailwindcss";
+// eslint-disable-next-line no-undef
+const tailwindConfig = require("./tailwind.config.js");
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 // const extensions = [...DEFAULT_EXTENSIONS, ".ts", ".tsx"];
@@ -179,7 +180,17 @@ export default [
     ],
     plugins: [
       external(),
-      postcss({ modules: true }),
+      postcss({
+        config: {
+          path: "./postcss.config.js",
+        },
+        extensions: [".css"],
+        minimize: true,
+        inject: {
+          insertAt: "top",
+        },
+        plugins: [tailwindcss(tailwindConfig)],
+      }),
       image(),
       svgr(),
       resolve({ extensions }),
@@ -204,11 +215,9 @@ export default [
         plugins: ["@babel/plugin-transform-runtime"],
       }),
     ],
-    // Adicione essa entrada:
-    // preserveModules: true,
   },
   {
-    input: "dist/esm/index.d.ts",
+    input: "dist/esm/src/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     external: [/\.css$/],
     plugins: [dts.default()],

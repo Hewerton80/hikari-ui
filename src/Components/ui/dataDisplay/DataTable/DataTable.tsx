@@ -22,7 +22,6 @@ export function DataTable({
   columns,
   rows,
   className,
-  css,
   ...restProps
 }: DataTableProps) {
   return (

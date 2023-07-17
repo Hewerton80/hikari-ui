@@ -33,7 +33,7 @@ const variants: VariantsMap = {
 };
 
 export interface AlertModalProps
-  extends Omit<ModalProps, "size">,
+  extends Omit<ModalProps, "size" | "children">,
     Styled.AlertModalProps {
   title?: string;
   icon?: Styled.VariantsTypes;
@@ -49,7 +49,6 @@ export interface AlertModalProps
 const AlertModal = forwardRef(
   ({
     show,
-    children,
     title,
     description,
     icon,

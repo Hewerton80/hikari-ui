@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const regexs = {
   phone: /^\([1-9]{2}\) [0-9]{4}\-[0-9]{4}$/,
   dateFormat:

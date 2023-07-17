@@ -11,7 +11,6 @@ export { StyledBadge, badgeVariantStyle };
 
 export interface BadgeProps extends GlobalProps, Styled.BadgeProps {}
 export function Badge({
-  className,
   variantStyle = "primary",
   children,
   css,

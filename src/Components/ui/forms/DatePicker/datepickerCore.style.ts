@@ -1,4 +1,4 @@
-import { CSS, css } from "../../../../styles/theme";
+import { css } from "../../../../styles/theme";
 
 export const DatepickerCoreStyle = css("div", {
   '@charset "UTF-8"': true,

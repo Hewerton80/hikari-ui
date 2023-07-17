@@ -281,7 +281,9 @@ export const SigleValueWitchAutocompliteAsync = () => {
           }
         );
         setResponseCards(dataCards?.data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
       setIsLoading(false);
     }, []),
     1000
@@ -373,7 +375,9 @@ export const MultValueAutocompliteAsync = () => {
           }
         );
         setResponseCards(dataCards?.data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
       setIsLoading(false);
     }, []),
     1000

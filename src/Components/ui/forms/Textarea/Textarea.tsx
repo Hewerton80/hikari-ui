@@ -42,7 +42,7 @@ export function Textarea({
       <textarea
         className={classNames(
           addClasseNamePrefix("textarea"),
-          Styled.Textarea()
+          Styled.Textarea({ css })
         )}
         {...restProps}
       />
