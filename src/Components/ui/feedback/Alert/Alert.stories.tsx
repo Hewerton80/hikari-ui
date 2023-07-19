@@ -5,7 +5,7 @@ import { Alert } from "./";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Feedback/Alert",
-  component: Alert,
+  component: Alert.Root,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {},
 };
@@ -24,25 +24,31 @@ export const DefaultAlerts = () => {
 Exercitationem`;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <Alert variantStyle="primary">
-        Hi! <b>primary</b> {lorem}
-      </Alert>
-      <Alert variantStyle="secondary">
-        Hi! <b>secondary</b> {lorem}
-      </Alert>
-      <Alert variantStyle="success">
-        Hi! <b>success</b> {lorem}
-      </Alert>
-      <Alert variantStyle="info">
-        Hi! <b>info</b> {lorem}
-      </Alert>
-      <Alert variantStyle="danger">
-        Hi! <b>danger</b> {lorem}
-      </Alert>
-      <Alert variantStyle="warning">
-        Hi! <b>warning</b> {lorem}
-      </Alert>
+    <div className="flex flex-col gap-2">
+      <Alert.Root variantStyle="primary">
+        <Alert.Title>Hi! primary</Alert.Title>
+        <Alert.Description>{lorem}</Alert.Description>
+      </Alert.Root>
+      <Alert.Root variantStyle="secondary">
+        <Alert.Title>Hi! secondary</Alert.Title>
+        <Alert.Description>{lorem}</Alert.Description>
+      </Alert.Root>
+      <Alert.Root variantStyle="success">
+        <Alert.Title>Hi! success</Alert.Title>
+        <Alert.Description>{lorem}</Alert.Description>
+      </Alert.Root>
+      <Alert.Root variantStyle="info">
+        <Alert.Title>Hi! info</Alert.Title>
+        <Alert.Description>{lorem}</Alert.Description>
+      </Alert.Root>
+      <Alert.Root variantStyle="danger">
+        <Alert.Title>Hi! danger</Alert.Title>
+        <Alert.Description>{lorem}</Alert.Description>
+      </Alert.Root>
+      <Alert.Root variantStyle="warning">
+        <Alert.Title>Hi! warning</Alert.Title>
+        <Alert.Description>{lorem}</Alert.Description>
+      </Alert.Root>
     </div>
   );
 };
