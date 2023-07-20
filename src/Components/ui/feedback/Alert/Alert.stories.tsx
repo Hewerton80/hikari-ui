@@ -25,14 +25,6 @@ Exercitationem`;
 
   return (
     <div className="flex flex-col gap-2">
-      <Alert.Root variantStyle="primary">
-        <Alert.Title>Hi! primary</Alert.Title>
-        <Alert.Description>{lorem}</Alert.Description>
-      </Alert.Root>
-      <Alert.Root variantStyle="secondary">
-        <Alert.Title>Hi! secondary</Alert.Title>
-        <Alert.Description>{lorem}</Alert.Description>
-      </Alert.Root>
       <Alert.Root variantStyle="success">
         <Alert.Title>Hi! success</Alert.Title>
         <Alert.Description>{lorem}</Alert.Description>

@@ -1,1 +1,2 @@
-export * from "./Alert";
+import { Alert, AlertProps } from "./Alert";
+export { Alert, AlertProps };
