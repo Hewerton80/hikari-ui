@@ -9,25 +9,25 @@ import {
   CrossCircledIcon,
 } from "@radix-ui/react-icons";
 
-// [&:has(svg)]:pl-11 [&>svg+div]:translate-y-[-3px]
-// [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground
-
 const alertVariants = {
   variantStyle: {
     danger: {
-      classes: "bg-danger/20 border-danger/10 text-danger border-l-danger",
+      classes: "bg-red-500/20 border-red-500/10 text-red-500 border-l-red-500",
       icon: <CrossCircledIcon />,
     },
     success: {
-      classes: "bg-success/20 border-success/10 text-success border-l-success",
+      classes:
+        "bg-green-500/20 border-green-500/10 text-green-500 border-l-green-500",
       icon: <CheckCircledIcon />,
     },
     info: {
-      classes: "bg-info/20 border-info/10 text-info border-l-info",
+      classes:
+        "bg-blue-500/20 border-blue-500/10 text-blue-500 border-l-blue-500",
       icon: <InfoCircledIcon />,
     },
     warning: {
-      classes: "bg-warning/20 border-warning/10 text-warning border-l-warning",
+      classes:
+        "bg-yellow-500/20 border-yellow-500/10 text-yellow-500 border-l-yellow-500",
       icon: <ExclamationTriangleIcon />,
     },
   },
