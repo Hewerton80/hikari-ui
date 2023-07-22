@@ -12,22 +12,36 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-    darkMode: {
-      // Set the initial theme
-      current: "light",
-    },
+    // darkMode: {
+    //   current: "light",
+    // },
+    // darkMode: {
+    //   defaultValue: true, // Enable dark mode by default on all stories
+    // },
   },
   layout: "centered",
+};
+
+const preview = {
+  globalTypes: {
+    darkMode: {
+      defaultValue: true, // Enable dark mode by default on all stories
+    },
+    // Optional (Default: 'dark')
+    className: {
+      defaultValue: "", // Set your custom dark mode class name
+    },
+  },
 };
 
 const App = (Story) => {
   globalStyles();
 
-  if (useDarkMode()) {
-    document.documentElement.classList.add(darkTheme);
-  } else {
-    document.documentElement.classList.remove(darkTheme);
-  }
+  // if (useDarkMode()) {
+  //   document.documentElement.classList.add(darkTheme);
+  // } else {
+  //   document.documentElement.classList.remove(darkTheme);
+  // }
 
   return (
     <HikariProviders>
@@ -37,3 +51,4 @@ const App = (Story) => {
 };
 
 export const decorators = [App];
+export default preview;

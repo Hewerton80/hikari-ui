@@ -2,6 +2,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -17,8 +18,7 @@ module.exports = {
         dark: "#282f3a",
         light: "#e2e6ea",
         muted: "#a5abcc",
-        black: "#001737",
-        gray: "#76838f",
+        // black: "#001737",
         "dark-hover": "#303052",
         "gray-light": "#eaeaf1",
         "gray-lighter": "#f7f8fc",

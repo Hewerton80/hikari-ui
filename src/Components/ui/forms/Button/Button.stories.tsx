@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, ButtonVariantStyle, buttonVariants } from "./Button";
+import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
 // import { FiUpload } from "react-icons/fi";
 // import { AiTwotoneEdit } from "react-icons/ai";
@@ -26,20 +26,20 @@ export const VariantStyles = () => {
   return (
     <div className="flex flex-col gap-8 items-center">
       <div className="flex flex-wrap gap-2 justify-center">
-        {Object.keys(buttonVariants.style).map((key) => (
+        {/* {Object.keys(buttonVariants.style).map((key) => (
           <Button key={key} variantStyle={key as ButtonVariantStyle}>
             {key}
           </Button>
-        ))}
-        {/* <Button variantStyle="secondary">secondary</Button>
+        ))} */}
+        <Button variantStyle="secondary">secondary</Button>
         <Button variantStyle="success">success</Button>
         <Button variantStyle="info">info</Button>
         <Button variantStyle="dark">dark</Button>
         <Button variantStyle="light">light</Button>
         <Button variantStyle="danger">danger</Button>
-        <Button variantStyle="warning">warning</Button> */}
+        <Button variantStyle="warning">warning</Button>
       </div>
-      {/* <div className="flex flex-wrap gap-2 justify-center">
+      <div className="flex flex-wrap gap-2 justify-center">
         <Button variantStyle="primary-outlined">primary-outlined</Button>
         <Button variantStyle="secondary-outlined">secondary-outlined</Button>
         <Button variantStyle="success-outlined">success-outlined</Button>
@@ -49,7 +49,7 @@ export const VariantStyles = () => {
         <Button variantStyle="danger-outlined">danger-outlined</Button>
         <Button variantStyle="warning-outlined">warning-outlined</Button>
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      {/* <div className="flex flex-wrap gap-2 justify-center">
         <Button variantStyle="primary-ghost">primary-ghost</Button>
         <Button variantStyle="secondary-ghost">secondary-ghost</Button>
         <Button variantStyle="success-ghost">success-ghost</Button>

@@ -12637,6 +12637,11 @@ storybook-dark-mode@^3.0.0:
     fast-deep-equal "^3.1.3"
     memoizerific "^1.11.3"
 
+storybook-tailwind-dark-mode@^1.0.22:
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/storybook-tailwind-dark-mode/-/storybook-tailwind-dark-mode-1.0.22.tgz#1a873e36375d53ea709ad61169cb12840c07ae39"
+  integrity sha512-I0HSVCuvo3OkaGDnCjLM7V1OYmQccrUCAGZ5ZaJfl9s3e93WA6DKFpQRbuoSidci+PTy+KvgrINgE08rA16bWA==
+
 storybook@7.0.7:
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.7.tgz#f489c241aee6a5e2b2bfb5cef46ddbda45aa6138"

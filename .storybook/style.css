@@ -7,3 +7,6 @@
   min-height: 100vh;
   margin: 0;
 }
+#storybook-root.dark {
+  background-color: #292c2e;
+}
