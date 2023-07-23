@@ -9,22 +9,19 @@ const ldsRing2 = keyframes({
   },
 });
 
-export const Spinner = css("div", {
+export const Spinner = css("span", {
   display: "inline-block",
   position: "relative",
-  div: {
-    display: "block",
-    position: "absolute",
-    borderRadius: "50%",
+  span: {
     animation: `${ldsRing2} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
   },
-  "div:nth-child(1)": {
+  "span:nth-child(1)": {
     animationDelay: "-0.45s",
   },
-  "div:nth-child(2)": {
+  "span:nth-child(2)": {
     animationDelay: "-0.3s",
   },
-  "div:nth-child(3)": {
+  "span:nth-child(3)": {
     animationDelay: "-0.15s",
   },
 });

@@ -10,3 +10,6 @@
 #storybook-root.dark {
   background-color: #292c2e;
 }
+#storybook-root[hidden="true"] {
+  display: none !important;
+}

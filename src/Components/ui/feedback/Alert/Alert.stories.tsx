@@ -1,23 +1,19 @@
 import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Alert } from "./";
+import { Alert, AlertRoot } from "./Alert";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta = {
   title: "Feedback/Alert",
-  component: Alert.Root,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  // argTypes: {},
+  component: AlertRoot,
+} satisfies Meta<typeof AlertRoot>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Overview: Story = {
+  args: {
+    children: "My button",
+  },
 };
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />
-
-// export const Overview = Template.bind({})
-
-// Overview.args = {
-//   children: 'Button',
-// }
 
 export const DefaultAlerts = () => {
   const lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit.

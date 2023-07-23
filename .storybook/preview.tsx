@@ -1,28 +1,30 @@
 import { globalStyles } from "../src/styles/globalStyles";
 import { darkTheme } from "../src/styles/theme";
-import { useDarkMode } from "storybook-dark-mode";
+// import { useDarkMode } from "storybook-dark-mode";
 import { HikariProviders } from "../src/context";
+import type { Preview } from "@storybook/react";
+
 import "./style.css";
 import "../src/styles/global.css";
+import React from "react";
 
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+      // darkMode: {
+      //   current: "light",
+      // },
+      // darkMode: {
+      //   defaultValue: true, // Enable dark mode by default on all stories
+      // },
     },
-    // darkMode: {
-    //   current: "light",
-    // },
-    // darkMode: {
-    //   defaultValue: true, // Enable dark mode by default on all stories
-    // },
+    layout: "centered",
   },
-  layout: "centered",
-};
-
-const preview = {
   globalTypes: {
     darkMode: {
       defaultValue: true, // Enable dark mode by default on all stories

@@ -21,7 +21,10 @@ export function Spinner({
 }: SpinnerProps) {
   const cssSpinner: CSS = {
     size: rem(size),
-    div: {
+    span: {
+      display: "block",
+      position: "absolute",
+      borderRadius: "50%",
       margin: rem(0.1 * size),
       border: `${rem(0.1 * size)} solid ${color}`,
       size: rem(0.8 * size),
@@ -31,14 +34,14 @@ export function Spinner({
   };
 
   return (
-    <div
+    <span
       className={classNames(
         addClasseNamePrefix("spinner"),
         Styled.Spinner({ css: cssSpinner })
       )}
       {...restProps}
     >
-      <div /> <div /> <div />
-    </div>
+      <span /> <span /> <span />
+    </span>
   );
 }
