@@ -4,19 +4,13 @@ import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
 // import { FiUpload } from "react-icons/fi";
 // import { AiTwotoneEdit } from "react-icons/ai";
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: "Forms/Button",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  // argTypes: {},
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-
-// export const Overview = Template.bind({});
 
 export const Overview: Story = {
   args: {

@@ -4,7 +4,6 @@ import { Select, SelectOption } from ".";
 import { Grid } from "../../../ui/layout/Grid";
 import { Box } from "../../../ui/layout/Box";
 import axios from "axios";
-import { ActionMeta } from "react-select";
 import { getRange } from "../../../../utils/getRange";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -392,7 +391,7 @@ export const MultValueAutocompliteAsync = () => {
     [handleFetchData]
   );
   const handleChangeOptions = React.useCallback(
-    (newOptions: SelectOption[], actionMeta: ActionMeta<SelectOption>) => {
+    (newOptions: SelectOption[], actionMeta: any) => {
       if (!newOptions) return;
       setCardValue(newOptions);
       if (actionMeta.action === "select-option") {

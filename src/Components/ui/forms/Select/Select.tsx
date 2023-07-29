@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
-import ReactSelect, { PropsValue, SingleValue, ActionMeta } from "react-select";
+import ReactSelect, { PropsValue, SingleValue } from "react-select";
 import classNames from "classnames";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../../styles/colors";
@@ -15,9 +15,12 @@ export interface SelectOption {
 
 export type OnchangeSigleValue = (newValue: SingleValue<SelectOption>) => void;
 
+// export { ActionMeta };
+
 export type OnchangeMultValue = (
   newValue: SelectOption[],
-  actionMeta: ActionMeta<SelectOption>
+  actionMeta: any
+  // actionMeta: ActionMeta<SelectOption>
 ) => void;
 
 export interface SelectProps extends FormControlProps {
@@ -48,10 +51,7 @@ export function Select({
   ...restProps
 }: SelectProps) {
   const handleChange = useCallback(
-    (
-      newValue: SingleValue<SelectOption> | SelectOption[],
-      actionMeta: ActionMeta<SelectOption>
-    ) => {
+    (newValue: SingleValue<SelectOption> | SelectOption[], actionMeta: any) => {
       if (isMulti) {
         onchangeMultValue?.(newValue as SelectOption[], actionMeta);
       } else {
@@ -97,5 +97,3 @@ export function Select({
     </FormControl>
   );
 }
-
-export { ActionMeta };
