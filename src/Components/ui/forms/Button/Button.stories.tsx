@@ -48,6 +48,16 @@ export const VariantStyles = () => {
         <Button variantStyle="warning-outlined">warning-outlined</Button>
       </div>
       <div className="flex flex-wrap gap-2 justify-center">
+        <Button variantStyle="primary-soft">primary-soft</Button>
+        <Button variantStyle="secondary-soft">secondary-soft</Button>
+        <Button variantStyle="success-soft">success-soft</Button>
+        <Button variantStyle="info-soft">info-soft</Button>
+        <Button variantStyle="dark-soft">dark-soft</Button>
+        <Button variantStyle="light-soft">light-soft</Button>
+        <Button variantStyle="danger-soft">danger-soft</Button>
+        <Button variantStyle="warning-soft">warning-soft</Button>
+      </div>
+      <div className="flex flex-wrap gap-2 justify-center">
         <Button variantStyle="primary-ghost">primary-ghost</Button>
         <Button variantStyle="secondary-ghost">secondary-ghost</Button>
         <Button variantStyle="success-ghost">success-ghost</Button>
@@ -57,7 +67,7 @@ export const VariantStyles = () => {
         <Button variantStyle="danger-ghost">danger-ghost</Button>
         <Button variantStyle="warning-ghost">warning-ghost</Button>
       </div>
-      {/* <div className="flex flex-wrap gap-2 justify-center">
+      <div className="flex flex-wrap gap-2 justify-center">
         <Button variantStyle="primary-link">primary-link</Button>
         <Button variantStyle="secondary-link">secondary-link</Button>
         <Button variantStyle="success-link">success-link</Button>
@@ -66,7 +76,7 @@ export const VariantStyles = () => {
         <Button variantStyle="light-link">light-link</Button>
         <Button variantStyle="danger-link">danger-link</Button>
         <Button variantStyle="warning-link">warning-link</Button>
-      </div> */}
+      </div>
     </div>
   );
 };

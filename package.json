@@ -20,7 +20,7 @@
     "build": "npx tailwindcss -o src/build.css --minify && npx rimraf ./dist && rollup -c --bundleConfigAsCjs",
     "dev": "storybook dev -p 6006",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "build:storybook": "npx rimraf ./storybook-static && storybook build"
+    "build:storybook": "storybook build"
   },
   "repository": {
     "type": "git",
