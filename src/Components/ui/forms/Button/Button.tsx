@@ -10,8 +10,8 @@ interface ButtonStyle {
   bg: string;
   border: string;
   text: string;
-  focusRing: string;
-  activeRing: string;
+  focusRing?: string;
+  activeRing?: string;
   hoverBg?: string;
   hoverText?: string;
   spinnerBorderT: string;
@@ -105,20 +105,6 @@ export const buttonVariants = {
       hoverBg: "hover:bg-yellow-600",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-white",
     }),
-    light: generateButtonStyles({
-      bg: "bg-slate-200",
-      border: "border-slate-200",
-      text: "text-black",
-      focusRing: "focus:ring-slate-200/40",
-      activeRing: "active:ring-slate-200/40",
-      hoverBg: "hover:bg-slate-300",
-      spinnerBorderT: "[&>.hikari-spinner>span]:border-t-black",
-      darkStyles: [
-        "dark:bg-slate-600 dark:border-slate-600 dark:text-white",
-        "dark:ring-slate-600/40 dark:active:ring-slate-600/40",
-        "dark:hover:bg-slate-700",
-      ],
-    }),
     dark: generateButtonStyles({
       bg: "bg-slate-800",
       border: "border-slate-800",
@@ -187,21 +173,6 @@ export const buttonVariants = {
       hoverBg: "hover:bg-yellow-600",
       hoverText: "hover:text-white",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-yellow-500",
-    }),
-    "light-outlined": generateButtonStyles({
-      bg: "bg-transparent",
-      border: "border-slate-200",
-      text: "text-slate-200",
-      focusRing: "focus:ring-slate-200/40",
-      activeRing: "active:ring-slate-200/40",
-      hoverBg: "hover:bg-slate-300",
-      hoverText: "hover:text-white",
-      spinnerBorderT: "[&>.hikari-spinner>span]:border-t-slate-300",
-      darkStyles: [
-        "dark:border-slate-600 dark:text-slate-600",
-        "dark:focus:ring-slate-600/40 dark:active:ring-slate-600/40",
-        "dark:hover:bg-slate-600 dark:hover:text-white",
-      ],
     }),
     "dark-outlined": generateButtonStyles({
       bg: "bg-transparent",
@@ -273,28 +244,14 @@ export const buttonVariants = {
       hoverText: "hover:text-white",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-yellow-500",
     }),
-    "light-soft": generateButtonStyles({
-      bg: "bg-slate-200/20",
-      border: "border-transparent",
-      text: "text-slate-200",
-      focusRing: "focus:ring-slate-200/40",
-      activeRing: "active:ring-slate-200/40",
-      hoverBg: "hover:bg-slate-200",
-      hoverText: "hover:text-white",
-      spinnerBorderT: "[&>.hikari-spinner>span]:border-t-slate-200",
-      darkStyles: [
-        "dark:text-slate-600",
-        "dark:focus:ring-slate-600/40 dark:active:ring-slate-600/40",
-        "dark:hover:bg-slate-600 dark:hover:text-white",
-      ],
-    }),
     "dark-soft": generateButtonStyles({
-      bg: "bg-transparent",
+      bg: "bg-slate-800/20",
       border: "border-transparent",
       text: "text-slate-800",
       focusRing: "focus:ring-slate-800/40",
       activeRing: "active:ring-slate-800/40",
-      hoverBg: "hover:bg-slate-900/20",
+      hoverBg: "hover:bg-slate-800",
+      hoverText: "hover:text-white",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-slate-800",
     }),
     "primary-ghost": generateButtonStyles({
@@ -351,20 +308,6 @@ export const buttonVariants = {
       hoverBg: "hover:bg-yellow-500/20",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-yellow-500",
     }),
-    "light-ghost": generateButtonStyles({
-      bg: "bg-transparent",
-      border: "border-transparent",
-      text: "text-slate-200",
-      focusRing: "focus:ring-slate-200/40",
-      activeRing: "active:ring-slate-200/40",
-      hoverBg: "hover:bg-slate-200/20",
-      spinnerBorderT: "[&>.hikari-spinner>span]:border-t-late-200",
-      darkStyles: [
-        "dark:border-slate-600 dark:text-slate-600",
-        "dark:focus:ring-slate-600/40 dark:active:ring-slate-600/40",
-        "dark:hover:bg-slate-600 dark:hover:text-slate-600",
-      ],
-    }),
     "dark-ghost": generateButtonStyles({
       bg: "bg-transparent",
       border: "border-transparent",
@@ -378,8 +321,8 @@ export const buttonVariants = {
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-purple-500",
-      focusRing: "focus:ring-purple-500/40",
-      activeRing: "active:ring-purple-500/40",
+      focusRing: "focus:ring-purple-500/0",
+      activeRing: "active:ring-purple-500/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-purple-500",
     }),
@@ -387,8 +330,8 @@ export const buttonVariants = {
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-gray-500",
-      focusRing: "focus:ring-gray-500/40",
-      activeRing: "active:ring-gray-500/40",
+      focusRing: "focus:ring-gray-500/0",
+      activeRing: "active:ring-gray-500/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-gray-500",
     }),
@@ -396,8 +339,8 @@ export const buttonVariants = {
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-red-500",
-      focusRing: "focus:ring-red-500/40",
-      activeRing: "active:ring-red-500/40",
+      focusRing: "focus:ring-red-500/0",
+      activeRing: "active:ring-red-500/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-red-500",
     }),
@@ -405,8 +348,8 @@ export const buttonVariants = {
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-green-500",
-      focusRing: "focus:ring-green-500/40",
-      activeRing: "active:ring-green-500/40",
+      focusRing: "focus:ring-green-500/0",
+      activeRing: "active:ring-green-500/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-green-500",
     }),
@@ -414,8 +357,8 @@ export const buttonVariants = {
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-blue-500",
-      focusRing: "focus:ring-blue-500/40",
-      activeRing: "active:ring-blue-500/40",
+      focusRing: "focus:ring-blue-500/0",
+      activeRing: "active:ring-blue-500/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-blue-500",
     }),
@@ -423,43 +366,35 @@ export const buttonVariants = {
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-yellow-500",
-      focusRing: "focus:ring-yellow-500/40",
-      activeRing: "active:ring-yellow-500/40",
+      focusRing: "focus:ring-yellow-500/0",
+      activeRing: "active:ring-yellow-500/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-yellow-500",
-    }),
-    "light-link": generateButtonStyles({
-      bg: "bg-transparent",
-      border: "border-transparent",
-      text: "text-slate-200",
-      focusRing: "focus:ring-slate-200/40",
-      activeRing: "active:ring-slate-200/40",
-      spinnerBorderT: "[&>.hikari-spinner>span]:border-t-slate-200",
-      hoverText: "hover:underline",
-      darkStyles: [
-        "dark:border-slate-600 dark:text-slate-600",
-        "dark:focus:ring-slate-600/40 dark:active:ring-slate-600/40",
-        "dark:hover:bg-slate-600 dark:hover:text-white",
-      ],
     }),
     "dark-link": generateButtonStyles({
       bg: "bg-transparent",
       border: "border-transparent",
       text: "text-slate-800",
-      focusRing: "focus:ring-slate-800/40",
-      activeRing: "active:ring-slate-800/40",
+      focusRing: "focus:ring-slate-800/0",
+      activeRing: "active:ring-slate-800/0",
       hoverText: "hover:underline",
       spinnerBorderT: "[&>.hikari-spinner>span]:border-t-slate-800",
     }),
 
     // Define other variants in a similar manner
   },
+  size: {
+    lg: "px-[1.2rem] py-[.7rem] text-base",
+    md: "px-[.7rem] py-2 text-sm",
+    sm: "px-2 py-1 text-xs",
+  },
 };
 
 export type ButtonVariantStyle = keyof typeof buttonVariants.style;
+export type ButtonVariantSize = keyof typeof buttonVariants.size;
 
 export interface ButtonProps
-  extends Omit<Styled.ButtonProps, "variantStyle">,
+  extends Omit<Styled.ButtonProps, "variantStyle" | "size">,
     GlobalProps {
   asChild?: boolean;
   isLoading?: boolean;
@@ -468,6 +403,7 @@ export interface ButtonProps
   disabled?: boolean;
   type?: "submit" | "reset" | "button";
   variantStyle?: ButtonVariantStyle;
+  size?: ButtonVariantSize;
   // leftIcon?: JSX.Element;
   // rightIcon?: JSX.Element;
   onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
@@ -506,12 +442,15 @@ export const Button = forwardRef(
           //   css,
           // }),
           "inline-flex items-center justify-center ease-linear duration-200",
-          "text-sm px-6 h-11 w-fit cursor-pointer border rounded-[3px] outline-none",
+          "w-fit cursor-pointer border rounded-[3px] outline-none",
           "disabled:pointer-events-none disabled:opacity-50",
           "focus:ring-4 active:ring-4",
-
           buttonVariants.style[variantStyle],
+          buttonVariants.size[size],
+          // "text-base",
           className
+
+          // "text-sm"
         )}
         disabled={disabled || isLoading}
         ref={ref}

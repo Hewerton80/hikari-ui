@@ -2,6 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
+import classNames from "classnames";
 // import { FiUpload } from "react-icons/fi";
 // import { AiTwotoneEdit } from "react-icons/ai";
 const meta = {
@@ -21,59 +22,54 @@ export const Overview: Story = {
 
 export const VariantStyles = () => {
   return (
-    <div className="flex flex-col gap-8 items-center">
-      <div className="flex flex-wrap gap-2 justify-center">
-        {/* {Object.keys(buttonVariants.style).map((key) => (
-          <Button key={key} variantStyle={key as ButtonVariantStyle}>
-            {key}
-          </Button>
-        ))} */}
+    <div
+      className={classNames(
+        "flex flex-col gap-8 items-center",
+        "[&>div]:flex [&>div]:flex-wrap [&>div]:gap-2 [&>div]:justify-center"
+      )}
+    >
+      <div>
         <Button variantStyle="primary">primary</Button>
         <Button variantStyle="secondary">secondary</Button>
         <Button variantStyle="success">success</Button>
         <Button variantStyle="info">info</Button>
         <Button variantStyle="dark">dark</Button>
-        <Button variantStyle="light">light</Button>
         <Button variantStyle="danger">danger</Button>
         <Button variantStyle="warning">warning</Button>
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div>
         <Button variantStyle="primary-outlined">primary-outlined</Button>
         <Button variantStyle="secondary-outlined">secondary-outlined</Button>
         <Button variantStyle="success-outlined">success-outlined</Button>
         <Button variantStyle="info-outlined">info-outlined</Button>
         <Button variantStyle="dark-outlined">dark-outlined</Button>
-        <Button variantStyle="light-outlined">light-outlined</Button>
         <Button variantStyle="danger-outlined">danger-outlined</Button>
         <Button variantStyle="warning-outlined">warning-outlined</Button>
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div>
         <Button variantStyle="primary-soft">primary-soft</Button>
         <Button variantStyle="secondary-soft">secondary-soft</Button>
         <Button variantStyle="success-soft">success-soft</Button>
         <Button variantStyle="info-soft">info-soft</Button>
         <Button variantStyle="dark-soft">dark-soft</Button>
-        <Button variantStyle="light-soft">light-soft</Button>
         <Button variantStyle="danger-soft">danger-soft</Button>
         <Button variantStyle="warning-soft">warning-soft</Button>
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div>
         <Button variantStyle="primary-ghost">primary-ghost</Button>
         <Button variantStyle="secondary-ghost">secondary-ghost</Button>
         <Button variantStyle="success-ghost">success-ghost</Button>
         <Button variantStyle="info-ghost">info-ghost</Button>
         <Button variantStyle="dark-ghost">dark-ghost</Button>
-        <Button variantStyle="light-ghost">light-ghost</Button>
         <Button variantStyle="danger-ghost">danger-ghost</Button>
         <Button variantStyle="warning-ghost">warning-ghost</Button>
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div>
         <Button variantStyle="primary-link">primary-link</Button>
         <Button variantStyle="secondary-link">secondary-link</Button>
         <Button variantStyle="success-link">success-link</Button>
         <Button variantStyle="info-link">info-link</Button>
         <Button variantStyle="dark-link">dark-link</Button>
-        <Button variantStyle="light-link">light-link</Button>
         <Button variantStyle="danger-link">danger-link</Button>
         <Button variantStyle="warning-link">warning-link</Button>
       </div>
@@ -121,14 +117,7 @@ export const VariantStyles = () => {
 
 export const DisabledButton = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 8,
-        justifyContent: "center",
-      }}
-    >
+    <div className="flex gap-2 flex-wrap">
       <Button variantStyle="primary" disabled>
         primary
       </Button>
@@ -144,9 +133,6 @@ export const DisabledButton = () => {
       <Button variantStyle="dark" disabled>
         dark
       </Button>
-      <Button variantStyle="light" disabled>
-        light
-      </Button>
       <Button variantStyle="danger" disabled>
         danger
       </Button>
@@ -160,14 +146,12 @@ export const DisabledButton = () => {
 export const LoadButton = () => {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 32,
-        alignItems: "center",
-      }}
+      className={classNames(
+        "flex flex-col gap-8 items-center",
+        "[&>div]:flex [&>div]:flex-wrap [&>div]:gap-2 [&>div]:justify-center"
+      )}
     >
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <div>
         <Button variantStyle="primary" isLoading>
           primary
         </Button>
@@ -183,9 +167,6 @@ export const LoadButton = () => {
         <Button variantStyle="dark" isLoading>
           dark
         </Button>
-        <Button variantStyle="light" isLoading>
-          light
-        </Button>
         <Button variantStyle="danger" isLoading>
           danger
         </Button>
@@ -193,7 +174,7 @@ export const LoadButton = () => {
           warning
         </Button>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <div>
         <Button variantStyle="primary-outlined" isLoading>
           primary-outlined
         </Button>
@@ -209,9 +190,6 @@ export const LoadButton = () => {
         <Button variantStyle="dark-outlined" isLoading>
           dark-outlined
         </Button>
-        <Button variantStyle="light-outlined" isLoading>
-          light-outlined
-        </Button>
         <Button variantStyle="danger-outlined" isLoading>
           danger-outlined
         </Button>
@@ -223,28 +201,21 @@ export const LoadButton = () => {
   );
 };
 
-// export const SizeButtons = () => {
-//   return (
-//     <div
-//       style={{
-//         display: "flex",
-//         flexDirection: "column",
-//         gap: 8,
-//         alignItems: "flex-start",
-//       }}
-//     >
-//       <Button variantStyle="danger" size="lg">
-//         size lg
-//       </Button>
-//       <Button variantStyle="success" size="md">
-//         size md
-//       </Button>
-//       <Button variantStyle="primary" size="sm">
-//         size sm
-//       </Button>
-//     </div>
-//   );
-// };
+export const SizeButtons = () => {
+  return (
+    <div className="flex gap-2 [&>button]:my-auto">
+      <Button variantStyle="danger" size="lg">
+        Large button
+      </Button>
+      <Button variantStyle="success" size="md">
+        Medium button
+      </Button>
+      <Button variantStyle="primary" size="sm">
+        Small button
+      </Button>
+    </div>
+  );
+};
 
 // export const GroupButtons = () => {
 //   return (
