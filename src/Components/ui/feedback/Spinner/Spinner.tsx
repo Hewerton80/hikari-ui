@@ -17,6 +17,7 @@ export function Spinner({
   size = 24,
   color = colors.primary,
   css = {},
+  className,
   ...restProps
 }: SpinnerProps) {
   const cssSpinner: CSS = {
@@ -37,7 +38,8 @@ export function Spinner({
     <span
       className={classNames(
         addClasseNamePrefix("spinner"),
-        Styled.Spinner({ css: cssSpinner })
+        Styled.Spinner({ css: cssSpinner }),
+        className
       )}
       {...restProps}
     >

@@ -33,7 +33,6 @@ export const variantStyles = () => {
         <IconButton variantStyle="success" icon={<FiUpload />} />
         <IconButton variantStyle="info" icon={<FiUpload />} />
         <IconButton variantStyle="dark" icon={<FiUpload />} />
-        <IconButton variantStyle="light" icon={<FiUpload />} />
         <IconButton variantStyle="danger" icon={<FiUpload />} />
         <IconButton variantStyle="warning" icon={<FiUpload />} />
       </Box>
@@ -53,10 +52,6 @@ export const variantStyles = () => {
         />
         <IconButton
           variantStyle="dark-outlined"
-          icon={<AiOutlineUserSwitch />}
-        />
-        <IconButton
-          variantStyle="light-outlined"
           icon={<AiOutlineUserSwitch />}
         />
         <IconButton
@@ -83,7 +78,6 @@ export const variantStyles = () => {
         />
         <IconButton variantStyle="info-ghost" icon={<AiOutlineUserSwitch />} />
         <IconButton variantStyle="dark-ghost" icon={<AiOutlineUserSwitch />} />
-        <IconButton variantStyle="light-ghost" icon={<AiOutlineUserSwitch />} />
         <IconButton
           variantStyle="danger-ghost"
           icon={<AiOutlineUserSwitch />}

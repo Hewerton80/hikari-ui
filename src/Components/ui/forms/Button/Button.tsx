@@ -1,5 +1,14 @@
 import classNames from "classnames";
-import React, { LegacyRef, MouseEvent, forwardRef } from "react";
+import React, {
+  Children,
+  LegacyRef,
+  MouseEvent,
+  forwardRef,
+  createElement,
+  useMemo,
+  ReactNode,
+  Fragment,
+} from "react";
 import { Spinner } from "../../feedback/Spinner";
 import * as Styled from "./Button.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
@@ -404,8 +413,8 @@ export interface ButtonProps
   type?: "submit" | "reset" | "button";
   variantStyle?: ButtonVariantStyle;
   size?: ButtonVariantSize;
-  // leftIcon?: JSX.Element;
-  // rightIcon?: JSX.Element;
+  leftIcon?: JSX.Element;
+  rightIcon?: JSX.Element;
   onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
@@ -419,44 +428,66 @@ export const Button = forwardRef(
       variantStyle = "info",
       fullWidth,
       rounded,
-      // leftIcon,
-      // rightIcon,
       disabled,
       isLoading,
-      css,
+      leftIcon,
+      rightIcon,
       ...restProps
     }: ButtonProps,
     ref?: LegacyRef<HTMLButtonElement> & React.Ref<HTMLElement>
   ) => {
     const Comp = asChild ? Slot : "button";
 
+    // const result = Children.toArray(children);
+    // const teste = result[0];
+
+    const handledChildren = useMemo(() => {
+      let handledChildrenTmp: ReactNode = Children.toArray(
+        children || <></>
+      )[0];
+
+      const hasIcon = leftIcon || rightIcon;
+      if (hasIcon) {
+        console.log("handledChildrenTmp", handledChildrenTmp);
+        const childrenIsTag = typeof handledChildrenTmp === "object";
+        const ChildrenComp = Object(handledChildrenTmp);
+        handledChildrenTmp = createElement(
+          childrenIsTag ? ChildrenComp?.type : Fragment,
+          ChildrenComp?.props || {},
+          <>
+            {leftIcon && <span className="mr-4">{leftIcon}</span>}
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              ChildrenComp?.props?.children || children
+            )}
+            {rightIcon && <span className="ml-4">{rightIcon}</span>}
+          </>
+        );
+      }
+
+      return handledChildrenTmp;
+    }, [children, leftIcon, rightIcon, isLoading]);
+
     return (
       <Comp
         className={classNames(
           addClasseNamePrefix("btn"),
-          // Styled.Button({
-          //   size,
-          //   variantStyle,
-          //   rounded: rounded ? "true" : "false",
-          //   fullWidth: fullWidth ? "true" : "false",
-          //   css,
-          // }),
           "inline-flex items-center justify-center ease-linear duration-200",
-          "w-fit cursor-pointer border rounded-[3px] outline-none",
+          "h-fit cursor-pointer border rounded-[3px] outline-none",
           "disabled:pointer-events-none disabled:opacity-50",
           "focus:ring-4 active:ring-4",
+          rounded ? "rounded-[50rem]" : "rounded-[.25rem]",
+          fullWidth ? "w-full" : "w-fit",
           buttonVariants.style[variantStyle],
           buttonVariants.size[size],
-          // "text-base",
           className
-
-          // "text-sm"
         )}
         disabled={disabled || isLoading}
         ref={ref}
         {...restProps}
       >
-        {isLoading ? <Spinner /> : children}
+        {handledChildren}
       </Comp>
     );
   }

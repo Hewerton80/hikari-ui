@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
 import classNames from "classnames";
-// import { FiUpload } from "react-icons/fi";
-// import { AiTwotoneEdit } from "react-icons/ai";
+import { UploadIcon, Pencil2Icon } from "@radix-ui/react-icons";
+
 const meta = {
   title: "Forms/Button",
   component: Button,
@@ -77,43 +77,33 @@ export const VariantStyles = () => {
   );
 };
 
-// export const RoundedButtons = () => {
-//   return (
-//     <div
-//       style={{
-//         display: "flex",
-//         flexWrap: "wrap",
-//         gap: 8,
-//         justifyContent: "center",
-//       }}
-//     >
-//       <Button variantStyle="primary" rounded>
-//         primary
-//       </Button>
-//       <Button variantStyle="secondary" rounded>
-//         secondary
-//       </Button>
-//       <Button variantStyle="success" rounded>
-//         success
-//       </Button>
-//       <Button variantStyle="info" rounded>
-//         info
-//       </Button>
-//       <Button variantStyle="dark" rounded>
-//         dark
-//       </Button>
-//       <Button variantStyle="light" rounded>
-//         light
-//       </Button>
-//       <Button variantStyle="danger" rounded>
-//         danger
-//       </Button>
-//       <Button variantStyle="warning" rounded>
-//         warning
-//       </Button>
-//     </div>
-//   );
-// };
+export const RoundedButtons = () => {
+  return (
+    <div className="flex flex-wrap gap-2 justify-center">
+      <Button variantStyle="primary" rounded>
+        primary
+      </Button>
+      <Button variantStyle="secondary" rounded>
+        secondary
+      </Button>
+      <Button variantStyle="success" rounded>
+        success
+      </Button>
+      <Button variantStyle="info" rounded>
+        info
+      </Button>
+      <Button variantStyle="dark" rounded>
+        dark
+      </Button>
+      <Button variantStyle="danger" rounded>
+        danger
+      </Button>
+      <Button variantStyle="warning" rounded>
+        warning
+      </Button>
+    </div>
+  );
+};
 
 export const DisabledButton = () => {
   return (
@@ -203,7 +193,7 @@ export const LoadButton = () => {
 
 export const SizeButtons = () => {
   return (
-    <div className="flex gap-2 [&>button]:my-auto">
+    <div className="flex gap-2 items-center">
       <Button variantStyle="danger" size="lg">
         Large button
       </Button>
@@ -217,55 +207,53 @@ export const SizeButtons = () => {
   );
 };
 
-// export const GroupButtons = () => {
-//   return (
-//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-//       <ButtonGroup vertical>
-//         <Button variantStyle="primary-outlined">Top</Button>
-//         <Button variantStyle="primary-outlined">Middle</Button>
-//         <Button variantStyle="primary-outlined">Bottom</Button>
-//       </ButtonGroup>
-//       <ButtonGroup>
-//         <Button variantStyle="primary">Left</Button>
-//         <Button variantStyle="primary">Middle</Button>
-//         <Button variantStyle="primary">Right</Button>
-//       </ButtonGroup>
-//       <ButtonGroup>
-//         <Button variantStyle="primary-outlined">Left</Button>
-//         <Button variantStyle="primary-outlined">Middle</Button>
-//         <Button variantStyle="primary-outlined">Right</Button>
-//       </ButtonGroup>
-//     </div>
-//   );
-// };
+export const GroupButtons = () => {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <ButtonGroup vertical>
+        <Button variantStyle="primary-outlined">Top</Button>
+        <Button variantStyle="primary-outlined">Middle</Button>
+        <Button variantStyle="primary-outlined">Bottom</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variantStyle="primary">Left</Button>
+        <Button variantStyle="primary">Middle</Button>
+        <Button variantStyle="primary">Right</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variantStyle="primary-outlined">Left</Button>
+        <Button variantStyle="primary-outlined">Middle</Button>
+        <Button variantStyle="primary-outlined">Right</Button>
+      </ButtonGroup>
+    </div>
+  );
+};
 
-// export const ButtonWithTextAndIcon = () => {
-//   return (
-//     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-//       <Button variantStyle="danger" leftIcon={<FiUpload />}>
-//         Uploads
-//       </Button>
-//       <Button variantStyle="success" rightIcon={<AiTwotoneEdit />}>
-//         Edit
-//       </Button>
-//     </div>
-//   );
-// };
+export const ButtonWithTextAndIcon = () => {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button variantStyle="danger" leftIcon={<UploadIcon />}>
+        Uploads
+      </Button>
+      <Button variantStyle="success" rightIcon={<Pencil2Icon />}>
+        Edit
+      </Button>
+    </div>
+  );
+};
 
-// export const BlockButtons = () => {
-//   return (
-//     <div
-//       style={{ display: "flex", flexDirection: "column", gap: 8, width: 800 }}
-//     >
-//       <Button variantStyle="danger" fullWidth>
-//         Block Buttons
-//       </Button>
-//       <Button variantStyle="success" fullWidth>
-//         Block Buttons
-//       </Button>
-//       <Button variantStyle="primary" fullWidth>
-//         Block Buttons
-//       </Button>
-//     </div>
-//   );
-// };
+export const BlockButtons = () => {
+  return (
+    <div className="flex flex-col gap-2 w-full max-w-3xl">
+      <Button variantStyle="danger" fullWidth>
+        Block Buttons
+      </Button>
+      <Button variantStyle="success" fullWidth>
+        Block Buttons
+      </Button>
+      <Button variantStyle="primary" fullWidth>
+        Block Buttons
+      </Button>
+    </div>
+  );
+};
