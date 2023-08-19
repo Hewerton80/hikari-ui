@@ -5,10 +5,7 @@ import React, {
   useState,
   useMemo,
 } from "react";
-import {
-  AlertModal,
-  AlertModalProps,
-} from "../Components/ui/overlay/AlertModal";
+import { AlertModalProps } from "../Components/ui/overlay/AlertModal";
 
 interface AlertArgs
   extends Omit<
@@ -18,6 +15,7 @@ interface AlertArgs
 export interface IAlertContext {
   showAlert: (alertModalProps?: AlertArgs) => void;
   closeAlert?: () => void;
+  alertArgs?: AlertModalProps;
   // changeLoadAlert?: (load: boolean) => void;
 }
 
@@ -39,7 +37,7 @@ interface IAlertContextProps {
 
 export function AlertContextProvider({ children }: IAlertContextProps) {
   // show,
-  const [loading, setLoading] = useState(false);
+  const [isSubmiting, setIsSubmiting] = useState(false);
   const [show, setShow] = useState(false);
   const [alertModalValues, setAlertModalValues] =
     useState<AlertArgs>(alertInitialValues);
@@ -58,7 +56,7 @@ export function AlertContextProvider({ children }: IAlertContextProps) {
 
   const closeAlert = useCallback(() => {
     setShow(false);
-    setLoading(false);
+    setIsSubmiting(false);
     setAlertModalValues(alertInitialValues);
   }, []);
 
@@ -74,7 +72,7 @@ export function AlertContextProvider({ children }: IAlertContextProps) {
 
   const handleClickConfirmButton = useCallback(() => {
     if (alertModalValues?.showCancelButton) {
-      setLoading(true);
+      setIsSubmiting(true);
     } else {
       handleCloseAlert();
     }
@@ -82,16 +80,21 @@ export function AlertContextProvider({ children }: IAlertContextProps) {
   }, [alertModalValues, onClickConfirmButton, handleCloseAlert]);
 
   return (
-    <AlertContext.Provider value={{ showAlert, closeAlert }}>
+    <AlertContext.Provider
+      value={{
+        showAlert,
+        closeAlert,
+        alertArgs: {
+          show,
+          isSubmiting,
+          onClose: handleCloseAlert,
+          onClickCancelButton: handleClickCancelButton,
+          onClickConfirmButton: handleClickConfirmButton,
+          ...restAlertModalValues,
+        },
+      }}
+    >
       {children}
-      <AlertModal
-        show={show}
-        isSubmiting={loading}
-        onClose={handleCloseAlert}
-        onClickCancelButton={handleClickCancelButton}
-        onClickConfirmButton={handleClickConfirmButton}
-        {...restAlertModalValues}
-      />
     </AlertContext.Provider>
   );
 }

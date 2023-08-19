@@ -38,6 +38,7 @@ export const SuccessModal = () => {
       <Button variantStyle="success" onClick={handleShowAlertModal}>
         Show Success Modal
       </Button>
+      <AlertModal />
     </>
   );
 };
@@ -59,6 +60,7 @@ export const InfoModal = () => {
       <Button variantStyle="info" onClick={handleShowAlertModal}>
         Show Info Modal
       </Button>
+      <AlertModal />
     </>
   );
 };

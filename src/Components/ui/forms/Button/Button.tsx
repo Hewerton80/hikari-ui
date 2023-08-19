@@ -10,7 +10,6 @@ import React, {
   Fragment,
 } from "react";
 import { Spinner } from "../../feedback/Spinner";
-import * as Styled from "./Button.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { GlobalProps } from "../../../../types/GlobalProps";
 import { Slot } from "@radix-ui/react-slot";
@@ -402,9 +401,7 @@ export const buttonVariants = {
 export type ButtonVariantStyle = keyof typeof buttonVariants.style;
 export type ButtonVariantSize = keyof typeof buttonVariants.size;
 
-export interface ButtonProps
-  extends Omit<Styled.ButtonProps, "variantStyle" | "size">,
-    GlobalProps {
+export interface ButtonProps extends GlobalProps {
   asChild?: boolean;
   isLoading?: boolean;
   fullWidth?: boolean;
@@ -438,9 +435,6 @@ export const Button = forwardRef(
   ) => {
     const Comp = asChild ? Slot : "button";
 
-    // const result = Children.toArray(children);
-    // const teste = result[0];
-
     const handledChildren = useMemo(() => {
       let handledChildrenTmp: ReactNode = Children.toArray(
         children || <></>
@@ -448,11 +442,10 @@ export const Button = forwardRef(
 
       const hasIcon = leftIcon || rightIcon;
       if (hasIcon) {
-        console.log("handledChildrenTmp", handledChildrenTmp);
-        const childrenIsTag = typeof handledChildrenTmp === "object";
+        const childrenIsHtmlTag = typeof handledChildrenTmp === "object";
         const ChildrenComp = Object(handledChildrenTmp);
         handledChildrenTmp = createElement(
-          childrenIsTag ? ChildrenComp?.type : Fragment,
+          childrenIsHtmlTag ? ChildrenComp?.type : Fragment,
           ChildrenComp?.props || {},
           <>
             {leftIcon && <span className="mr-4">{leftIcon}</span>}
@@ -464,6 +457,8 @@ export const Button = forwardRef(
             {rightIcon && <span className="ml-4">{rightIcon}</span>}
           </>
         );
+      } else if (isLoading) {
+        return <Spinner />;
       }
 
       return handledChildrenTmp;
