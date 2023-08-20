@@ -16,7 +16,7 @@ export interface ModalFooterProps
   extends GlobalProps,
     Styled.ModalFooterProps {}
 
-function Modal({
+const Modal = ({
   children,
   size = "md",
   css,
@@ -24,7 +24,7 @@ function Modal({
   show,
   onClose,
   ...restProps
-}: ModalProps) {
+}: ModalProps) => {
   return (
     <Dialog.Root
       open={show}
@@ -57,7 +57,7 @@ function Modal({
       </Dialog.Portal>
     </Dialog.Root>
   );
-}
+};
 const Title = ({ children, className, css }: ModalTitleProps) => {
   return (
     <Dialog.Title

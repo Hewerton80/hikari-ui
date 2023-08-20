@@ -20,7 +20,8 @@
     "build": "npx tailwindcss -o src/build.css --minify && npx rimraf ./dist && rollup -c --bundleConfigAsCjs",
     "dev": "storybook dev -p 6006",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "deploy": "yarn build:storybook && npx vercel storybook-static"
   },
   "repository": {
     "type": "git",
@@ -79,14 +80,14 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@stitches/core": "^1.2.8",
-    "@storybook/addon-essentials": "^7.3.2",
-    "@storybook/addon-interactions": "^7.3.2",
-    "@storybook/addon-links": "^7.3.2",
+    "@storybook/addon-essentials": "^7.1.0",
+    "@storybook/addon-interactions": "^7.1.0",
+    "@storybook/addon-links": "^7.1.0",
     "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "7.3.2",
-    "@storybook/react": "^7.3.2",
-    "@storybook/react-vite": "^7.3.2",
-    "@storybook/testing-library": "^0.2.0",
+    "@storybook/blocks": "7.1.0",
+    "@storybook/react": "^7.1.0",
+    "@storybook/react-vite": "^7.1.0",
+    "@storybook/testing-library": "^0.1.0",
     "@svgr/rollup": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -107,7 +108,6 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "eslint-plugin-storybook": "^0.6.13",
     "js-cookie": "^3.0.5",
     "polished": "^4.2.2",
     "postcss": "^8.4.26",
@@ -125,7 +125,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "storybook": "7.3.2",
+    "storybook": "7.1.0",
     "storybook-tailwind-dark-mode": "^1.0.22",
     "tailwindcss": "^3.3.3",
     "typescript": "^4.9.5",
@@ -139,5 +139,7 @@
     "react": ">= 18.0.0",
     "react-dom": ">= 18.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "tailwindcss-animated": "^1.0.1"
+  }
 }

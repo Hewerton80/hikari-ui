@@ -82,6 +82,7 @@ export const WarningModal = () => {
       <Button variantStyle="warning" onClick={handleShowAlertModal}>
         Show Warning Modal
       </Button>
+      <AlertModal />
     </>
   );
 };
@@ -103,6 +104,7 @@ export const DangerModal = () => {
       <Button variantStyle="danger" onClick={handleShowAlertModal}>
         Show Danger Modal
       </Button>
+      <AlertModal />
     </>
   );
 };
@@ -133,6 +135,7 @@ export const QuestionModal = () => {
       <Button variantStyle="info" onClick={handleShowAlertModal}>
         Show Question Modal
       </Button>
+      <AlertModal />
     </>
   );
 };
@@ -165,6 +168,7 @@ export const QuestionModalWitchAsyncResponse = () => {
       <Button onClick={handleShowAlertModal}>
         Show Question Modal Witch Async Response
       </Button>
+      <AlertModal />
     </>
   );
 };

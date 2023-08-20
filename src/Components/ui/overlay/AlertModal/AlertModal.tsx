@@ -1,43 +1,46 @@
 import React, { forwardRef, useContext } from "react";
 import { Modal, ModalProps } from "../Modal";
 import classNames from "classnames";
-import * as Styled from "./AlertModal.styles";
 import { Button } from "../../forms/Button";
-import {
-  IoAlertCircleOutline,
-  IoCheckmarkCircleOutline,
-  IoCloseCircleOutline,
-  IoWarningOutline,
-} from "react-icons/io5";
 import { isString } from "../../../../utils/isType";
 import { AlertContext } from "../../../../context/AlertContext";
+import {
+  CheckCircledIcon,
+  ExclamationTriangleIcon,
+  InfoCircledIcon,
+  CrossCircledIcon,
+} from "@radix-ui/react-icons";
+import { Slot } from "@radix-ui/react-slot";
 
-export type Variant = Styled.VariantsTypes;
+// type VariantsMap = {
+//   [Property in Variant]: { icon: JSX.Element };
+// };
 
-type VariantsMap = {
-  [Property in Variant]: { icon: JSX.Element };
-};
-
-const variants: VariantsMap = {
+const variants = {
   success: {
-    icon: <IoCheckmarkCircleOutline />,
+    icon: <CheckCircledIcon />,
+    color: "text-green-500",
   },
   info: {
-    icon: <IoAlertCircleOutline />,
+    icon: <InfoCircledIcon />,
+    color: "text-blue-500",
   },
   warning: {
-    icon: <IoWarningOutline />,
+    icon: <ExclamationTriangleIcon />,
+    color: "text-yellow-500",
   },
   danger: {
-    icon: <IoCloseCircleOutline />,
+    icon: <CrossCircledIcon />,
+    color: "text-red-500",
   },
 };
 
-export interface AlertModalProps
-  extends Omit<ModalProps, "size" | "children">,
-    Styled.AlertModalProps {
+type VariantType = keyof typeof variants;
+
+export interface AlertModalProps extends Omit<ModalProps, "size" | "children"> {
   title?: string;
-  icon?: Styled.VariantsTypes;
+  variant?: VariantType;
+  icon?: VariantType;
   showCancelButton?: boolean;
   isSubmiting?: boolean;
   description?: string | JSX.Element;
@@ -72,19 +75,32 @@ const AlertModal = forwardRef(() => {
       show={show}
       onClose={() => !isSubmiting && onClose?.()}
       size="md"
-      css={{ ...css, ...Styled.alertCss }}
       {...restProps}
     >
       <Modal.Body>
-        <div className={classNames(Styled.Content())}>
+        <div className="flex flex-col items-center space-y-3">
           {icon && (
-            <span className={Styled.Icon({ variant })}>
-              {variants[variant].icon}
+            <span className="flex">
+              <Slot
+                className={classNames(
+                  "h-[4.5rem] w-[4.5rem] animate-rotate-y",
+                  variants[variant].color
+                )}
+              >
+                {variants[variant].icon}
+              </Slot>
             </span>
           )}
 
           {title && (
-            <h4 className={classNames(Styled.Title({ variant }))}>{title}</h4>
+            <h4
+              className={classNames(
+                "text-lg text-center",
+                variants[variant].color
+              )}
+            >
+              {title}
+            </h4>
           )}
 
           {isString(description) ? <p>{description}</p> : description}
