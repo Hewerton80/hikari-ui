@@ -150,6 +150,7 @@ export const QuestionModalWitchAsyncResponse = () => {
 
   const handleShowAlertModal = React.useCallback(() => {
     showAlert({
+      isAsync: true,
       showCancelButton: true,
       icon: "danger",
       title: "Are you absolutely sure?",

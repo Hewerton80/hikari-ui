@@ -2,7 +2,7 @@ import React, { ChangeEvent, KeyboardEventHandler } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Textarea.styles";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 
 export interface TextareaProps extends FormControlProps {
   required?: boolean;
@@ -40,7 +40,7 @@ export function Textarea({
       required={restProps?.required}
     >
       <textarea
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("textarea"),
           Styled.Textarea({ css })
         )}

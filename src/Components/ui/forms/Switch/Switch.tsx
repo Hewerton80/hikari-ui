@@ -1,6 +1,6 @@
 import React from "react";
 import * as RadixSwitch from "@radix-ui/react-switch";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import * as Styled from "./Switch.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
@@ -22,7 +22,7 @@ export function Switch({
 }: SwitchProps) {
   return (
     <FormControl
-      className={classNames(
+      className={twMerge(
         className,
         Styled.FormControlSwitch({ labelOrientation })
       )}
@@ -31,14 +31,14 @@ export function Switch({
       required={restProps?.required}
     >
       <RadixSwitch.Root
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("switch-root"),
           Styled.SwitchRoot({ css })
         )}
         {...restProps}
       >
         <RadixSwitch.Thumb
-          className={classNames(
+          className={twMerge(
             addClasseNamePrefix("switch-thumb"),
             Styled.SwitchThumb({})
           )}

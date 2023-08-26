@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React, {
   Children,
   LegacyRef,
@@ -54,7 +54,7 @@ const generateButtonStyles = (baseStyles: ButtonStyle) => {
     commonClasses.push(...darkStyles);
   }
 
-  return classNames(...commonClasses);
+  return twMerge(...commonClasses);
 };
 
 export const buttonVariants = {
@@ -466,7 +466,7 @@ export const Button = forwardRef(
 
     return (
       <Comp
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("btn"),
           "inline-flex items-center justify-center ease-linear duration-200",
           "h-fit cursor-pointer border rounded-[3px] outline-none",

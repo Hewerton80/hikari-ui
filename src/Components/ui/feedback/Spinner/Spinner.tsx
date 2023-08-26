@@ -3,7 +3,7 @@ import React from "react";
 import { colors } from "../../../../styles/colors";
 import * as Styled from "./Spinner.style";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
+import classnames from "classnames";
 import { rem } from "polished";
 import { CSS } from "../../../../styles/theme";
 import { GlobalProps } from "../../../../types/GlobalProps";
@@ -36,7 +36,7 @@ export function Spinner({
 
   return (
     <span
-      className={classNames(
+      className={classnames(
         addClasseNamePrefix("spinner"),
         Styled.Spinner({ css: cssSpinner }),
         className

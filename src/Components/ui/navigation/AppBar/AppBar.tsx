@@ -1,15 +1,15 @@
 import React from "react";
-import * as Styled from "./AppBar.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
 import { Box, BoxProps } from "../../layout/Box";
-
+import { twMerge } from "tailwind-merge";
 function AppBar({ className, children, ...restProps }: BoxProps) {
   return (
     <Box
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("app-bar"),
-        Styled.Appbar(),
+        // Styled.Appbar(),
+        "flex h-20 w-full px-7 bg-purple-500 border border-purple-500 ",
+        "dark:bg-zinc-700 dark:border-white/10",
         className
       )}
       asChild
@@ -23,9 +23,9 @@ function AppBar({ className, children, ...restProps }: BoxProps) {
 function ToolBar({ className, children, ...restProps }: BoxProps) {
   return (
     <Box
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("tool-bar"),
-        Styled.ToolBar(),
+        "flex items-center h-full w-full",
         className
       )}
       {...restProps}

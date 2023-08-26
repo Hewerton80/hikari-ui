@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./FormControl.styles";
@@ -23,7 +23,7 @@ export function FormControl({
 }: FormControlProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("form-control"),
         Styled.FormControl({ state: feedbackText ? state : undefined, css }),
         className

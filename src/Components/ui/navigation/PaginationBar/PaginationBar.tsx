@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from "react";
 import { Button } from "../../forms/Button";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { getRange } from "../../../../utils/getRange";
 import { getBodyElement } from "../../../../utils/getBodyElement";
 import { ButtonGroup } from "../../../ui/layout/ButtonGroup";
@@ -73,7 +73,7 @@ export function PaginationBar({
 
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("pagination-bar"),
         Styled.PaginationBar(),
         className

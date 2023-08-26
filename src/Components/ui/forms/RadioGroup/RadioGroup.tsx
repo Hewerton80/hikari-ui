@@ -2,7 +2,7 @@ import React from "react";
 
 import * as Styled from "./RadioGroup.styles";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import * as RadixRadioGroup from "@radix-ui/react-radio-group";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { Text } from "../../../ui/typography/Text";
@@ -27,7 +27,7 @@ function RadioGroup({
     <>
       {label && <Text css={{ text: "sm", marginBottom: "$2" }}>{label}</Text>}
       <RadixRadioGroup.Root
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("radio-group"),
           Styled.RadioGroup({ orientation, css }),
           className,
@@ -53,13 +53,13 @@ export interface RadioItemProps
 function RadioItem({ className, label, css, ...restProps }: RadioItemProps) {
   return (
     <FormControl
-      className={classNames(className, Styled.FormControlRadio({ css }))}
+      className={twMerge(className, Styled.FormControlRadio({ css }))}
       id={restProps?.id}
       label={label}
       required={restProps?.required}
     >
       <RadixRadioGroup.Item
-        className={classNames(className, Styled.RadioItem())}
+        className={twMerge(className, Styled.RadioItem())}
         aria-label="View density"
         {...restProps}
       >

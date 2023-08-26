@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
@@ -38,7 +38,7 @@ export function Tooltip({
             <Slot className={Styled.TooltipeAnimation()}>
               {isString(content) ? (
                 <span
-                  className={classNames(
+                  className={twMerge(
                     addClasseNamePrefix("tolltip"),
                     Styled.Tooltip({ css, variantStyle, size }),
                     className

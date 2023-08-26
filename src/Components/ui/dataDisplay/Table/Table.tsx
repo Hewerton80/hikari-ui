@@ -2,13 +2,13 @@ import React from "react";
 
 import * as Styled from "./Table.styles";
 import { GlobalProps } from "../../../../types/GlobalProps";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
 function Table({ className, css, children, ...restProps }: GlobalProps) {
   return (
     <table
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table"),
         Styled.Table({ css }),
         className
@@ -27,7 +27,7 @@ function TableContainer({
 }: GlobalProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table-container"),
         Styled.TableContainer({ css }),
         className
@@ -41,7 +41,7 @@ function TableContainer({
 function TableHead({ className, css, children, ...restProps }: GlobalProps) {
   return (
     <thead
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table-head"),
         Styled.TableHead({ css }),
         className
@@ -55,7 +55,7 @@ function TableHead({ className, css, children, ...restProps }: GlobalProps) {
 function TableRoll({ className, css, children, ...restProps }: GlobalProps) {
   return (
     <tr
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table-rool"),
         Styled.TableRoll({ css }),
         className
@@ -74,7 +74,7 @@ function TableHeadCell({
 }: GlobalProps) {
   return (
     <th
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table-head-cell"),
         Styled.TableHeadCell({ css }),
         className
@@ -88,7 +88,7 @@ function TableHeadCell({
 function TableBody({ className, css, children, ...restProps }: GlobalProps) {
   return (
     <tbody
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table-body"),
         Styled.TableBody({ css }),
         className
@@ -102,7 +102,7 @@ function TableBody({ className, css, children, ...restProps }: GlobalProps) {
 function TableDate({ className, css, children, ...restProps }: GlobalProps) {
   return (
     <td
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("table-data"),
         Styled.TableDate({ css }),
         className

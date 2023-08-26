@@ -16,7 +16,7 @@ export default {
 export const SimpleAvatar = () => {
   return (
     <AppBar>
-      <AppBar.Tool css={{ gap: 8, justifyContent: "center" }}>
+      <AppBar.Tool className="gap-2 justify-center">
         <Avatar
           src="https://github.com/jailson-souza.png"
           nameInities={["j", "s"]}

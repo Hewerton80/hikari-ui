@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Card.styles";
@@ -33,7 +33,7 @@ function Card({
 
   return (
     <Comp
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("card"),
         Styled.Card({ variantStyle, css }),
         className
@@ -55,7 +55,7 @@ function Img({
 }: CardImgProps) {
   return (
     <img
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("card-img"),
         Styled.CardImg({ variantStyle, css }),
         className
@@ -71,7 +71,7 @@ function Img({
 function Header({ children, className, css, ...restProps }: CardHeaderProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("card-header"),
         Styled.CardHeader({ css }),
         className
@@ -86,7 +86,7 @@ function Header({ children, className, css, ...restProps }: CardHeaderProps) {
 function Title({ children, className, css, ...rest }: CardProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("card-title"),
         Styled.CardTitle({ css }),
         className
@@ -101,7 +101,7 @@ function Title({ children, className, css, ...rest }: CardProps) {
 function Body({ children, className, css, ...rest }: CardBodyProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("card-body"),
         Styled.CardBody({ css }),
         // darkTheme,
@@ -123,7 +123,7 @@ function Footer({
 }: CardFooterProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("card-footer"),
         Styled.CardFooter({ variantStyle, css }),
         className
@@ -148,7 +148,7 @@ function Link({
   return (
     <Button
       asChild
-      className={classNames(addClasseNamePrefix("card-link"), className)}
+      className={twMerge(addClasseNamePrefix("card-link"), className)}
       variantStyle="info-link"
       css={{ padding: 0, textDecoration: "none", ...css }}
       {...rest}

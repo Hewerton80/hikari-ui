@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React, { forwardRef } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
@@ -21,7 +21,7 @@ export const Box = forwardRef(
       <Comp
         ref={ref}
         id={id}
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("box"),
           Styled.Box({ css }),
           className

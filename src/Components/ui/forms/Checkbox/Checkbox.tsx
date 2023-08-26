@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import * as Styled from "./Checkbox.styles";
@@ -23,7 +23,7 @@ export function Checkbox({
 }: CheckboxProps) {
   return (
     <FormControl
-      className={classNames(
+      className={twMerge(
         className,
         Styled.FormControlCheckbox({ labelOrientation })
       )}
@@ -32,14 +32,14 @@ export function Checkbox({
       required={restProps?.required}
     >
       <RadixCheckbox.Root
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("checkbox-root"),
           Styled.CheckboxRoot({ css })
         )}
         {...restProps}
       >
         <RadixCheckbox.Indicator
-          className={classNames(
+          className={twMerge(
             addClasseNamePrefix("checkbox-indicator"),
             Styled.CheckboxIndcator()
           )}

@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as Styled from "./Dropdown.styles";
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { orientationStyle } from "../../../commonStyles/variantOrientationStyle";
 import { GlobalProps } from "../../../../types/GlobalProps";
 
@@ -29,7 +29,7 @@ function Toogle({
 }: DropdowToogleProps) {
   return (
     <RadixDropdown.Trigger
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("dropdown-toogle"),
         Styled.Toogle({ css }),
         className
@@ -51,7 +51,7 @@ function Menu({
   return (
     <RadixDropdown.Portal>
       <RadixDropdown.Content
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("dropdown-menu"),
           Styled.Menu({ css }),
           className
@@ -70,7 +70,7 @@ function Menu({
 function Item({ children, className, ...restProps }: DropdowItemProps) {
   return (
     <RadixDropdown.Item
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("dropdown-item"),
         Styled.Item(),
         className

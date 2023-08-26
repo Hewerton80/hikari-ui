@@ -1,10 +1,8 @@
 import React from "react";
-import * as Styled from "./Avatar.styles";
 import * as RadixAvatar from "@radix-ui/react-avatar";
 import { GlobalProps } from "../../../../types/GlobalProps";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
-
+import { twMerge } from "tailwind-merge";
 export interface AvatarProps extends Omit<GlobalProps, "children"> {
   src?: string;
   alt?: string;
@@ -21,17 +19,27 @@ export function Avatar({
 }: AvatarProps) {
   return (
     <RadixAvatar.Root
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("avatar-root"),
-        Styled.Root({ css }),
+        "inline-flex items-center justify-center",
+        "h-10 w-10 overflow-hidden rounded-full select-none align-middle",
         className
       )}
       {...restProps}
     >
       {src && (
-        <RadixAvatar.Image className={Styled.Image()} src={src} alt={alt} />
+        <RadixAvatar.Image
+          className="h-full w-full object-cover rounded-[inherit]"
+          src={src}
+          alt={alt}
+        />
       )}
-      <RadixAvatar.Fallback className={Styled.Fallback()}>
+      <RadixAvatar.Fallback
+        className={twMerge(
+          "flex items-center justify-center h-full w-full",
+          "bg-white text-purple-500 font-bold uppercase"
+        )}
+      >
         {nameInities.join("")}
       </RadixAvatar.Fallback>
     </RadixAvatar.Root>

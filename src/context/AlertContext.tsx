@@ -11,7 +11,9 @@ interface AlertArgs
   extends Omit<
     AlertModalProps,
     "id" | "children" | "className" | "css" | "show" | "isSubmiting"
-  > {}
+  > {
+  isAsync?: boolean;
+}
 export interface IAlertContext {
   showAlert: (alertModalProps?: AlertArgs) => void;
   closeAlert?: () => void;
@@ -71,7 +73,7 @@ export function AlertContextProvider({ children }: IAlertContextProps) {
   }, [handleCloseAlert, onClickCancelButton]);
 
   const handleClickConfirmButton = useCallback(() => {
-    if (alertModalValues?.showCancelButton) {
+    if (alertModalValues?.isAsync) {
       setIsSubmiting(true);
     } else {
       handleCloseAlert();

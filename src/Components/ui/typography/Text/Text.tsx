@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { Slot } from "@radix-ui/react-slot";
@@ -22,7 +22,7 @@ export function Text({
   return (
     <Comp
       id={id}
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("text"),
         Styled.Text({ css }),
         className

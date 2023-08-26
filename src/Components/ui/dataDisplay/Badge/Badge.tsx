@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
@@ -18,7 +18,7 @@ export function Badge({
 }: BadgeProps) {
   return (
     <span
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("badge"),
         StyledBadge({ variantStyle, css })
       )}

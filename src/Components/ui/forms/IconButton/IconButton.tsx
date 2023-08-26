@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { Button, ButtonProps } from "../Button";
-import classnames from "classnames";
+import { twMerge } from "tailwind-merge";
 import * as Styled from "./IconButton.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
@@ -22,7 +22,7 @@ export const IconButton = forwardRef(
   ) => {
     return (
       <Button
-        className={classnames(
+        className={twMerge(
           addClasseNamePrefix("icon-btn"),
           Styled.IconButton({ css, size }),
           className

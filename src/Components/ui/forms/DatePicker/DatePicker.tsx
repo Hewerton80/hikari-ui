@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import * as Styled from "./DatePicker.styles";
 import { FaCalendarAlt } from "react-icons/fa";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { Input } from "../Input";
 import ReactDatePicker, { registerLocale } from "react-datepicker";
 import ptBr from "date-fns/locale/pt-BR";
@@ -98,7 +98,7 @@ export function DatePicker({
 
   return (
     <Box
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("date-picker"),
         DatepickerCoreStyle(),
         Styled.DatePickerPopper(),

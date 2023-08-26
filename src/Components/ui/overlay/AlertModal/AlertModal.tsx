@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext } from "react";
 import { Modal, ModalProps } from "../Modal";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { Button } from "../../forms/Button";
 import { isString } from "../../../../utils/isType";
 import { AlertContext } from "../../../../context/AlertContext";
@@ -62,7 +62,6 @@ const AlertModal = forwardRef(() => {
       confirmButtonText = "Ok",
       cancelButtonText = "Cancel",
       showCancelButton,
-      css,
       onClose,
       onClickConfirmButton,
       onClickCancelButton,
@@ -82,7 +81,7 @@ const AlertModal = forwardRef(() => {
           {icon && (
             <span className="flex">
               <Slot
-                className={classNames(
+                className={twMerge(
                   "h-[4.5rem] w-[4.5rem] animate-rotate-y",
                   variants[variant].color
                 )}
@@ -94,7 +93,7 @@ const AlertModal = forwardRef(() => {
 
           {title && (
             <h4
-              className={classNames(
+              className={twMerge(
                 "text-lg text-center",
                 variants[variant].color
               )}

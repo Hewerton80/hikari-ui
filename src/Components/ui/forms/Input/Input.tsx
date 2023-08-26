@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React, {
   useMemo,
   useCallback,
@@ -71,7 +71,7 @@ export const Input = forwardRef(
         >
           <input
             ref={ref}
-            className={classNames(
+            className={twMerge(
               addClasseNamePrefix("input"),
               lefItcon && addClasseNamePrefix("with-left-icon"),
               rightIcon && addClasseNamePrefix("with-right-icon"),

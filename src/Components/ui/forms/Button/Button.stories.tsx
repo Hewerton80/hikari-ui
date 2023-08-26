@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { ButtonGroup } from "../../layout/ButtonGroup";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { UploadIcon, Pencil2Icon } from "@radix-ui/react-icons";
 
 const meta = {
@@ -23,7 +23,7 @@ export const Overview: Story = {
 export const VariantStyles = () => {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         "flex flex-col gap-8 items-center",
         "[&>div]:flex [&>div]:flex-wrap [&>div]:gap-2 [&>div]:justify-center"
       )}
@@ -136,7 +136,7 @@ export const DisabledButton = () => {
 export const LoadButton = () => {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         "flex flex-col gap-8 items-center",
         "[&>div]:flex [&>div]:flex-wrap [&>div]:gap-2 [&>div]:justify-center"
       )}

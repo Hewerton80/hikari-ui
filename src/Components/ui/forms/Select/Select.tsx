@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import ReactSelect, { PropsValue, SingleValue } from "react-select";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../../styles/colors";
 import * as Styled from "./Select.styles";
@@ -72,7 +72,7 @@ export function Select({
     >
       <ReactSelect
         classNamePrefix="select"
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("select"),
           Styled.ReactSelect({ css }),
           className

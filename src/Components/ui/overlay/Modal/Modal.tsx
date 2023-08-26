@@ -1,7 +1,7 @@
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import * as Styled from "./Modal.styles";
 import { FaTimes } from "react-icons/fa";
 import { GlobalProps } from "../../../../types/GlobalProps";
@@ -34,7 +34,7 @@ const Modal = ({
         <Dialog.Overlay className={Styled.Overlay()} onClick={onClose} />
         <Dialog.Content
           onOpenAutoFocus={(e) => e.preventDefault()}
-          className={classNames(
+          className={twMerge(
             addClasseNamePrefix("modal"),
             Styled.Content({ size, css }),
             className
@@ -61,7 +61,7 @@ const Modal = ({
 const Title = ({ children, className, css }: ModalTitleProps) => {
   return (
     <Dialog.Title
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("modal-title"),
         Styled.Title({ css }),
         className
@@ -75,7 +75,7 @@ const Title = ({ children, className, css }: ModalTitleProps) => {
 const Body = ({ children, className, css }: ModalBodyProps) => {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("modal-body"),
         Styled.Body({ css }),
         className
@@ -95,7 +95,7 @@ function Footer({
 }: ModalFooterProps) {
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("modal-footer"),
         Styled.Footer({ position, css }),
         className

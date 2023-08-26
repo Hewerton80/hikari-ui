@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React, { forwardRef, LegacyRef } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { GlobalProps } from "../../../../types/GlobalProps";
@@ -56,7 +56,7 @@ export const AlertRoot = forwardRef(
       <div
         ref={ref}
         role="alert"
-        className={classNames(
+        className={twMerge(
           addClasseNamePrefix("alert"),
           "flex justify-center flex-col",
           "relative px-5 py-3 text-sm rounded border-l-4",
@@ -81,7 +81,7 @@ const AlertTitle = React.forwardRef(
   ) => (
     <h5
       ref={ref}
-      className={classNames(
+      className={twMerge(
         "mb-1 font-medium leading-none tracking-tight",
         className
       )}
@@ -98,7 +98,7 @@ const AlertDescription = React.forwardRef(
   ) => (
     <div
       ref={ref}
-      className={classNames("text-sm [&_p]:leading-relaxed", className)}
+      className={twMerge("text-sm [&_p]:leading-relaxed", className)}
       {...restProps}
     />
   )

@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import * as Styled from "./SideBar.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { GlobalProps } from "../../../../types/GlobalProps";
 import { Box, BoxProps } from "../../layout/Box";
 import { Text } from "../../typography/Text";
@@ -54,7 +54,7 @@ function SideBar({
           ? Styled.SideBarState.EXPANDED
           : Styled.SideBarState.COLLAPSED
       }
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("side-bar"),
         Styled.SideBar({ css }),
         className
@@ -107,7 +107,7 @@ function Item({
 
   return (
     <li
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("side-bar-item"),
         Styled.SideBarItem({}),
         className
@@ -119,7 +119,7 @@ function Item({
           <RadixAccordion.Trigger asChild>
             <div>
               <Comp
-                className={classNames(
+                className={twMerge(
                   addClasseNamePrefix("side-bar-link"),
                   Styled.SideBarLink({
                     active: active && !hasSubmenu ? "true" : "false",
@@ -167,7 +167,7 @@ function SideBarMenu({
   return (
     <ul
       role="navigation"
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("side-bar-menu"),
         Styled.SideBarMenu({ css }),
         className

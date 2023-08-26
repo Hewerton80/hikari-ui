@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { Table } from "../Table";
 import { GlobalProps } from "../../../../types/GlobalProps";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 
 export interface IColmunDataTable {
@@ -26,7 +26,7 @@ export function DataTable({
 }: DataTableProps) {
   return (
     <Table.Container
-      className={classNames(addClasseNamePrefix("data-table"), className)}
+      className={twMerge(addClasseNamePrefix("data-table"), className)}
       {...restProps}
     >
       <Table>

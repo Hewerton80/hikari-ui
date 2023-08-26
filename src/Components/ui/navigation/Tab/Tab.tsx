@@ -2,7 +2,7 @@ import React from "react";
 import * as RadixTabs from "@radix-ui/react-tabs";
 import * as Styled from "./Tab.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { GlobalProps } from "../../../../types/GlobalProps";
 
 export interface TabProviderProps extends Pick<GlobalProps, "children"> {
@@ -28,7 +28,7 @@ function TabProvider({
 }: TabProviderProps) {
   return (
     <RadixTabs.Root
-      // className={classNames(
+      // className={twMerge(
       //   addClasseNamePrefix("tab-root"),
       //   Styled.TabProvider({ css }),
       //   className
@@ -49,7 +49,7 @@ function TabProvider({
 function Tabs({ children, className, css, ...restProps }: TabListProps) {
   return (
     <RadixTabs.List
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("tabs"),
         Styled.Tabs({ css }),
         className
@@ -64,7 +64,7 @@ function Tabs({ children, className, css, ...restProps }: TabListProps) {
 function Tab({ children, className, value, css, ...restProps }: TabProps) {
   return (
     <RadixTabs.Trigger
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("tab"),
         Styled.Tab({ css }),
         className
@@ -86,7 +86,7 @@ function TabContent({
 }: TabContentProps) {
   return (
     <RadixTabs.Content
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("tab-content"),
         Styled.TabContent({ css }),
         className

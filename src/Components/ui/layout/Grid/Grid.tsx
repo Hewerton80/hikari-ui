@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import React, { useMemo, useCallback } from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { isNumber } from "../../../../utils/isType";
@@ -42,7 +42,7 @@ function Grid({
   }, [rowGap, columnGap, gap]);
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("grid"),
         Styled.Grid({
           css: {
@@ -69,7 +69,7 @@ function Col({ children, className, css, span, ...restProps }: ColProps) {
 
   return (
     <div
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("col"),
         Styled.Col({
           css: {

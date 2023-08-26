@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styled from "./Breadcrumbs.styles";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
-import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 import { Slot } from "@radix-ui/react-slot";
 import { GlobalProps } from "../../../../types/GlobalProps";
 
@@ -21,7 +21,7 @@ function Breadcrumbs({
 }: BreadcrumbsProps) {
   return (
     <ul
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("breadcrumbs"),
         Styled.Breadcrumbs({ css }),
         className
@@ -45,7 +45,7 @@ export function BreadcrumbLink({
 
   return (
     <li
-      className={classNames(
+      className={twMerge(
         addClasseNamePrefix("breadcrumbs-item"),
         Styled.Link({ css }),
         className
