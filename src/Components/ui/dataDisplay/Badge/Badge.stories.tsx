@@ -14,9 +14,10 @@ export default {
 
 export const DefaultBadges = () => {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+    <div className="flex flex-wrap gap-2">
       <Badge variantStyle="info">Info</Badge>
       <Badge variantStyle="primary">primary</Badge>
+      <Badge variantStyle="secondary">secondary</Badge>
       <Badge variantStyle="danger">danger</Badge>
       <Badge variantStyle="success">success</Badge>
       <Badge variantStyle="warning">warning</Badge>

@@ -2,15 +2,22 @@ import { twMerge } from "tailwind-merge";
 import React from "react";
 import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
-import * as Styled from "./Tooltip.styles";
 import { isString } from "../../../../utils/isType";
+import { Badge, BadgeProps } from "../../dataDisplay/Badge";
 import { orientationStyle } from "../../../commonStyles/variantOrientationStyle";
-import { Slot } from "@radix-ui/react-slot";
-import { GlobalProps } from "../../../../types/GlobalProps";
 
-export interface TooltipProps extends GlobalProps, Styled.TooltipProps {
+const variantsSize = {
+  auto: "max-w-fit",
+  sm: "max-w-3xl",
+  md: "max-w-7xl",
+  lg: "max-w-[512px]",
+};
+export interface TooltipProps extends BadgeProps {
   content?: string | JSX.Element;
   defaultOpen?: boolean;
+  delayDuration?: number;
+  orientation?: keyof typeof orientationStyle;
+  size?: keyof typeof variantsSize;
 }
 
 export function Tooltip({
@@ -21,36 +28,37 @@ export function Tooltip({
   orientation = "top-center",
   defaultOpen,
   size = "md",
+  delayDuration = 0,
   css,
   ...restProps
 }: TooltipProps) {
   return (
-    <RadixTooltip.Provider delayDuration={0}>
+    <RadixTooltip.Provider delayDuration={delayDuration}>
       <RadixTooltip.Root defaultOpen={defaultOpen}>
-        <RadixTooltip.Trigger asChild>
-          <span>{children}</span>
+        <RadixTooltip.Trigger asChild={!isString(children)}>
+          {children}
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content
             sideOffset={6}
             {...orientationStyle[orientation]}
           >
-            <Slot className={Styled.TooltipeAnimation()}>
-              {isString(content) ? (
-                <span
-                  className={twMerge(
-                    addClasseNamePrefix("tolltip"),
-                    Styled.Tooltip({ css, variantStyle, size }),
-                    className
-                  )}
-                  {...restProps}
-                >
-                  {content}
-                </span>
-              ) : (
-                content
-              )}
-            </Slot>
+            {isString(content) ? (
+              <Badge
+                variantStyle={variantStyle}
+                className={twMerge(
+                  addClasseNamePrefix("tolltip"),
+                  "animate-fade animate-duration-300",
+                  variantsSize[size],
+                  className
+                )}
+                {...restProps}
+              >
+                {content}
+              </Badge>
+            ) : (
+              content
+            )}
           </RadixTooltip.Content>
         </RadixTooltip.Portal>
       </RadixTooltip.Root>

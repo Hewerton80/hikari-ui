@@ -12,7 +12,7 @@ export interface BoxProps extends GlobalProps {
 
 export const Box = forwardRef(
   (
-    { children, id, asChild, className, css, ...restProps }: BoxProps,
+    { children, asChild, className, css, ...restProps }: BoxProps,
     ref?: any
   ) => {
     const Comp = asChild ? Slot : "div";
@@ -20,7 +20,6 @@ export const Box = forwardRef(
     return (
       <Comp
         ref={ref}
-        id={id}
         className={twMerge(
           addClasseNamePrefix("box"),
           Styled.Box({ css }),

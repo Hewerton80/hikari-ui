@@ -7,7 +7,6 @@ function AppBar({ className, children, ...restProps }: BoxProps) {
     <Box
       className={twMerge(
         addClasseNamePrefix("app-bar"),
-        // Styled.Appbar(),
         "flex h-20 w-full px-7 bg-purple-500 border border-purple-500 ",
         "dark:bg-zinc-700 dark:border-white/10",
         className

@@ -51,7 +51,7 @@ export const Orientation = () => {
 
 export const VariantColorsTooltips = () => {
   return (
-    <Box css={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
+    <Box className="flex flex-wrap gap-2">
       <Tooltip content="primary" variantStyle="primary">
         <Button variantStyle="info-link">primary</Button>
       </Tooltip>
@@ -99,17 +99,7 @@ export const SizesTooltipes = () => {
 
 export const CustomStyle = () => {
   const customContent = (
-    <Box
-      css={{
-        display: "flex",
-        padding: 16,
-        size: 150,
-        borderRadius: 8,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#3b86d1",
-      }}
-    >
+    <Box className="flex items-center justify-center p-4 h-40 w-40 rounded-lg bg-blue-500">
       <Text
         asChild
         css={{
