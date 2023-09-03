@@ -10,6 +10,7 @@ import { addClasseNamePrefix } from "../../../../utils/addClasseNamePrefix";
 import { FormControl, FormControlProps } from "../FormControl/FormControl";
 import * as Styled from "./Input.styles";
 import { inputMasks } from "./masks";
+import { formTextClassName } from "../../../commonStyles/formTextStyle";
 
 export interface InputProps extends FormControlProps {
   type?: "text" | "email" | "password" | "number";
@@ -21,7 +22,7 @@ export interface InputProps extends FormControlProps {
   disabled?: boolean;
   readOnly?: boolean;
   rightIcon?: JSX.Element;
-  lefItcon?: JSX.Element;
+  leftItcon?: JSX.Element;
   min?: number;
   max?: number;
   onFocus?: () => void;
@@ -41,7 +42,7 @@ export const Input = forwardRef(
       state,
       placeholder,
       css,
-      lefItcon,
+      leftItcon,
       rightIcon,
       onChange,
       ...restProps
@@ -73,24 +74,18 @@ export const Input = forwardRef(
             ref={ref}
             className={twMerge(
               addClasseNamePrefix("input"),
-              lefItcon && addClasseNamePrefix("with-left-icon"),
+              leftItcon && addClasseNamePrefix("with-left-icon"),
               rightIcon && addClasseNamePrefix("with-right-icon"),
-              Styled.Input({ css })
+              formTextClassName,
+              leftItcon && "pl-[2.875rem]",
+              rightIcon && "pr-[2.875rem]"
             )}
             onChange={handleChangeInput}
             placeholder={matchMask?.placeholder || placeholder}
             {...restProps}
           />
-          {lefItcon && (
-            <span className={addClasseNamePrefix("input-left-icon")}>
-              {lefItcon}
-            </span>
-          )}
-          {rightIcon && (
-            <span className={addClasseNamePrefix("input-right-icon")}>
-              {rightIcon}
-            </span>
-          )}
+          {leftItcon && <span className="left-0">{leftItcon}</span>}
+          {rightIcon && <span className="right-0">{rightIcon}</span>}
         </FormControl>
       </>
     );

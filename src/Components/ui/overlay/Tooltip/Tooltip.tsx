@@ -10,8 +10,9 @@ const variantsSize = {
   auto: "max-w-fit",
   sm: "max-w-3xl",
   md: "max-w-7xl",
-  lg: "max-w-[512px]",
+  lg: "max-w-[32rem]",
 };
+
 export interface TooltipProps extends BadgeProps {
   content?: string | JSX.Element;
   defaultOpen?: boolean;

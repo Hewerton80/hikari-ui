@@ -13,22 +13,18 @@ export default {
 export const ActiveAndDisabled = () => {
   const [name, setName] = useState("");
   return (
-    <Grid numCols={12} gap={32}>
-      <Grid.Col span={{ base: 12, lg: 4 }}>
-        <Input
-          id="name"
-          type="number"
-          placeholder="Fulano da silva"
-          label="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </Grid.Col>
-      <Grid.Col span={{ base: 12, lg: 4 }}>
-        <Input disabled defaultValue="Fulano@email.com" label="Email" />
-      </Grid.Col>
-    </Grid>
+    <div className="grid grid-cols-1 gap-8">
+      <Input
+        id="name"
+        placeholder="Fulano da silva"
+        label="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+      />
+
+      <Input disabled defaultValue="Fulano@email.com" label="Email" />
+    </div>
   );
 };
 

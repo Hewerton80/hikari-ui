@@ -3,7 +3,7 @@ import { Tooltip } from ".";
 import { Box } from "../../../ui/layout/Box";
 import { Text } from "../../../ui/typography/Text";
 import { Button } from "../../forms/Button";
-import { Grid } from "../../../ui/layout/Grid";
+import { twMerge } from "tailwind-merge";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -32,20 +32,22 @@ export const Orientation = () => {
     "bottom-right",
   ];
   return (
-    <Grid gap={16} numCols={12}>
-      {orientations.map((orientation, i) => (
-        <React.Fragment key={orientation}>
-          {i === 4 && <Grid.Col span={{ base: 12, md: 4 }} />}
-          <Grid.Col span={{ base: 12, md: 4 }}>
-            <Tooltip orientation={orientation as any} content={orientation}>
-              <Button fullWidth size="sm">
-                {orientation}
-              </Button>
-            </Tooltip>
-          </Grid.Col>
-        </React.Fragment>
-      ))}
-    </Grid>
+    <>
+      <div className=" gap-4 grid grid-cols-12">
+        {orientations.map((orientation, i) => (
+          <React.Fragment key={orientation}>
+            {i === 4 && <div className="col-span-12 md:col-span-4" />}
+            <div className="col-span-12 md:col-span-4">
+              <Tooltip orientation={orientation as any} content={orientation}>
+                <Button fullWidth size="sm">
+                  {orientation}
+                </Button>
+              </Tooltip>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
+    </>
   );
 };
 
@@ -98,20 +100,18 @@ export const SizesTooltipes = () => {
 };
 
 export const CustomStyle = () => {
-  const customContent = (
-    <Box className="flex items-center justify-center p-4 h-40 w-40 rounded-lg bg-blue-500">
-      <Text
-        asChild
-        css={{
-          color: "#ffffff",
-          textDecoration: "line-through",
-          textAlign: "center",
-        }}
-      >
-        <em>My Custom Style 🎉🎊🪂</em>
-      </Text>
+  const customTooltipContent = (
+    <Box
+      className={twMerge(
+        "animate-rotate-y flex items-center justify-center",
+        "p-4 h-40 w-40 rounded-lg bg-blue-500"
+      )}
+    >
+      <em className="text-white line-through text-center">
+        My Custom Style 🎉🎊🪂
+      </em>
     </Box>
   );
 
-  return <Tooltip content={customContent}>Custom Style</Tooltip>;
+  return <Tooltip content={customTooltipContent}>Custom Style</Tooltip>;
 };

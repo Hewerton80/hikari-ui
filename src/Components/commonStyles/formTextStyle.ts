@@ -3,6 +3,7 @@ import { colors } from "../../styles/colors";
 
 import { CSS, darkTheme } from "../../styles/theme";
 import { spaces } from "../../styles/spaces";
+import { twMerge } from "tailwind-merge";
 
 export const formTextStyle: CSS = {
   height: spaces["11.5"],
@@ -27,3 +28,12 @@ export const formTextStyle: CSS = {
     backgroundColor: colors["dark-body"],
   },
 };
+
+export const formTextClassName = twMerge(
+  "h-[2.875rem] min-h-[2.875rem] max-h-[2.875rem] px-[1.375rem] py-3.5",
+  "text-sm rounded-[.25rem] outline-none duration-300 ease-linear",
+  "border border-slate-200 bg-white text-slate-800",
+  "[&:not(:disabled)]:focus:ring-blue-500/40 [&:not(:disabled)]:focus:ring-4",
+  "[&:not(:disabled)]:focus:border-blue-500",
+  "dark:text-gray-200 dark:bg-gray-800 dark:border-white/10"
+);
